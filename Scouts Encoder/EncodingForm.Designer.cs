@@ -32,7 +32,7 @@
             this.OutputTextBox = new System.Windows.Forms.TextBox();
             this.EncodeButton = new System.Windows.Forms.Button();
             this.CodesComboBox = new System.Windows.Forms.ComboBox();
-            this.CodeKeyButton = new System.Windows.Forms.Button();
+            this.ShowKeyButton = new System.Windows.Forms.Button();
             this.CopyButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.DashesCheckBox = new System.Windows.Forms.CheckBox();
@@ -81,9 +81,9 @@
             this.EncodeButton.FlatAppearance.BorderSize = 0;
             this.EncodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EncodeButton.Font = new System.Drawing.Font("Cairo", 10.2F);
-            this.EncodeButton.Location = new System.Drawing.Point(453, 572);
+            this.EncodeButton.Location = new System.Drawing.Point(435, 572);
             this.EncodeButton.Name = "EncodeButton";
-            this.EncodeButton.Size = new System.Drawing.Size(158, 40);
+            this.EncodeButton.Size = new System.Drawing.Size(179, 40);
             this.EncodeButton.TabIndex = 4;
             this.EncodeButton.Text = "تشفير";
             this.EncodeButton.UseVisualStyleBackColor = false;
@@ -99,29 +99,32 @@
             "يسوع",
             "رقمية",
             "عكسية",
-            "المورس"});
-            this.CodesComboBox.Location = new System.Drawing.Point(999, 572);
+            "الساعة",
+            "الجوال",
+            "المورس",
+            "عربي مفرط"});
+            this.CodesComboBox.Location = new System.Drawing.Point(1029, 572);
             this.CodesComboBox.Name = "CodesComboBox";
             this.CodesComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CodesComboBox.Size = new System.Drawing.Size(158, 40);
+            this.CodesComboBox.Size = new System.Drawing.Size(179, 40);
             this.CodesComboBox.TabIndex = 1;
             this.CodesComboBox.Text = "اختر الشفرة";
             this.CodesComboBox.SelectedIndexChanged += new System.EventHandler(this.CodesComboBox_SelectedIndexChanged);
             // 
-            // CodeKeyButton
+            // ShowKeyButton
             // 
-            this.CodeKeyButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CodeKeyButton.Enabled = false;
-            this.CodeKeyButton.FlatAppearance.BorderSize = 0;
-            this.CodeKeyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CodeKeyButton.Font = new System.Drawing.Font("Cairo", 10.2F);
-            this.CodeKeyButton.Location = new System.Drawing.Point(635, 572);
-            this.CodeKeyButton.Name = "CodeKeyButton";
-            this.CodeKeyButton.Size = new System.Drawing.Size(158, 40);
-            this.CodeKeyButton.TabIndex = 3;
-            this.CodeKeyButton.Text = "اظهار المفتاح";
-            this.CodeKeyButton.UseVisualStyleBackColor = false;
-            this.CodeKeyButton.Click += new System.EventHandler(this.CodeKeyButton_Click);
+            this.ShowKeyButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ShowKeyButton.Enabled = false;
+            this.ShowKeyButton.FlatAppearance.BorderSize = 0;
+            this.ShowKeyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShowKeyButton.Font = new System.Drawing.Font("Cairo", 10.2F);
+            this.ShowKeyButton.Location = new System.Drawing.Point(633, 572);
+            this.ShowKeyButton.Name = "ShowKeyButton";
+            this.ShowKeyButton.Size = new System.Drawing.Size(179, 40);
+            this.ShowKeyButton.TabIndex = 3;
+            this.ShowKeyButton.Text = "اظهار المفتاح";
+            this.ShowKeyButton.UseVisualStyleBackColor = false;
+            this.ShowKeyButton.Click += new System.EventHandler(this.ShowKeyButton_Click);
             // 
             // CopyButton
             // 
@@ -130,9 +133,9 @@
             this.CopyButton.FlatAppearance.BorderSize = 0;
             this.CopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CopyButton.Font = new System.Drawing.Font("Cairo", 10.2F);
-            this.CopyButton.Location = new System.Drawing.Point(271, 572);
+            this.CopyButton.Location = new System.Drawing.Point(237, 572);
             this.CopyButton.Name = "CopyButton";
-            this.CopyButton.Size = new System.Drawing.Size(158, 40);
+            this.CopyButton.Size = new System.Drawing.Size(179, 40);
             this.CopyButton.TabIndex = 5;
             this.CopyButton.Text = "نسخ التشفير";
             this.CopyButton.UseVisualStyleBackColor = false;
@@ -145,9 +148,9 @@
             this.ClearButton.FlatAppearance.BorderSize = 0;
             this.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearButton.Font = new System.Drawing.Font("Cairo", 10.2F);
-            this.ClearButton.Location = new System.Drawing.Point(89, 572);
+            this.ClearButton.Location = new System.Drawing.Point(39, 572);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(158, 40);
+            this.ClearButton.Size = new System.Drawing.Size(179, 40);
             this.ClearButton.TabIndex = 6;
             this.ClearButton.Text = "مسح";
             this.ClearButton.UseVisualStyleBackColor = false;
@@ -172,12 +175,12 @@
             this.KeysComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.KeysComboBox.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeysComboBox.FormattingEnabled = true;
-            this.KeysComboBox.Location = new System.Drawing.Point(817, 572);
+            this.KeysComboBox.Location = new System.Drawing.Point(831, 572);
             this.KeysComboBox.Name = "KeysComboBox";
             this.KeysComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.KeysComboBox.Size = new System.Drawing.Size(158, 40);
+            this.KeysComboBox.Size = new System.Drawing.Size(179, 40);
             this.KeysComboBox.TabIndex = 2;
-            this.KeysComboBox.Text = "المفتاح (أ=...)";
+            this.KeysComboBox.Text = "اختر المفتاح";
             this.KeysComboBox.SelectedIndexChanged += new System.EventHandler(this.KeysComboBox_SelectedIndexChanged);
             // 
             // SlashesCheckBox
@@ -232,7 +235,7 @@
             this.Controls.Add(this.DashesCheckBox);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.CopyButton);
-            this.Controls.Add(this.CodeKeyButton);
+            this.Controls.Add(this.ShowKeyButton);
             this.Controls.Add(this.CodesComboBox);
             this.Controls.Add(this.EncodeButton);
             this.Controls.Add(this.OutputTextBox);
@@ -250,7 +253,7 @@
         private System.Windows.Forms.TextBox OutputTextBox;
         private System.Windows.Forms.Button EncodeButton;
         private System.Windows.Forms.ComboBox CodesComboBox;
-        private System.Windows.Forms.Button CodeKeyButton;
+        private System.Windows.Forms.Button ShowKeyButton;
         private System.Windows.Forms.Button CopyButton;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.CheckBox DashesCheckBox;
