@@ -46,7 +46,8 @@
             // 
             this.InputTextBox.AcceptsReturn = true;
             this.InputTextBox.AllowDrop = true;
-            this.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.InputTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.InputTextBox.Font = new System.Drawing.Font("Kawkab Mono Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.InputTextBox.Location = new System.Drawing.Point(627, 12);
             this.InputTextBox.Multiline = true;
@@ -63,7 +64,8 @@
             // 
             this.OutputTextBox.AcceptsReturn = true;
             this.OutputTextBox.AllowDrop = true;
-            this.OutputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OutputTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.OutputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OutputTextBox.Font = new System.Drawing.Font("Kawkab Mono Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OutputTextBox.Location = new System.Drawing.Point(17, 12);
             this.OutputTextBox.Multiline = true;
@@ -172,6 +174,7 @@
             // KeysComboBox
             // 
             this.KeysComboBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.KeysComboBox.Enabled = false;
             this.KeysComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.KeysComboBox.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeysComboBox.FormattingEnabled = true;
@@ -231,15 +234,15 @@
             this.Controls.Add(this.WordsSpacingCheckBox);
             this.Controls.Add(this.CharactersSpacingCheckBox);
             this.Controls.Add(this.SlashesCheckBox);
-            this.Controls.Add(this.KeysComboBox);
             this.Controls.Add(this.DashesCheckBox);
+            this.Controls.Add(this.KeysComboBox);
+            this.Controls.Add(this.CodesComboBox);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.CopyButton);
             this.Controls.Add(this.ShowKeyButton);
-            this.Controls.Add(this.CodesComboBox);
             this.Controls.Add(this.EncodeButton);
-            this.Controls.Add(this.OutputTextBox);
             this.Controls.Add(this.InputTextBox);
+            this.Controls.Add(this.OutputTextBox);
             this.Name = "EncodingForm";
             this.Text = "Scouts Encryption";
             this.ResumeLayout(false);

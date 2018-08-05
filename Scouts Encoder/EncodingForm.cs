@@ -31,8 +31,8 @@ namespace Scouts_Encoder
                                            
         private string[] jesusCode         = {"ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
                                               "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
-                                             "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
-                                             "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"};
+                                              "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
+                                              "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"};
                                            
         private string[] invertedCode      = {"ي", "و", "ه", "ن", "م", "ل", "ك",
                                               "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
@@ -70,92 +70,100 @@ namespace Scouts_Encoder
                                               "ض ", "ط ", "ظ ", "ع ", "غ ", "ف ", "ق ",
                                               "ك ", "ل ", "م ", "ن ", "ه ", "و ", "ي "};
 
+
         private int codeIndex;
-        private int shiftingKey;
-        private string textCopy;
+        private int keyIndex;
         private bool isDashesChecked  = true;
         private bool isSlashesChecked = true;
         private bool isCharactersSpacingChecked = true;
         private bool isWordsSpacingChecked      = true;
 
-        private void replaceOddCharacters()
+        private string replaceOddCharacters(string modifiedText)
         {
-            textCopy = InputTextBox.Text
-                      .Replace("أ", "ا")
-                      .Replace("إ", "ا")
-                      .Replace("آ", "ا")
-                      .Replace("ء", "ا")
-                      .Replace("ة", "ه")
-                      .Replace("ؤ", "و")
-                      .Replace("ى", "ي")
-                      .Replace("ئ", "ي");
+            modifiedText = modifiedText
+                          .Replace("أ", "ا")
+                          .Replace("إ", "ا")
+                          .Replace("آ", "ا")
+                          .Replace("ء", "ا")
+                          .Replace("ة", "ه")
+                          .Replace("ؤ", "و")
+                          .Replace("ى", "ي")
+                          .Replace("ئ", "ي");
+
+            return modifiedText;
         }
 
         private void encode(string[] code)
         {
+            string inputTextCopy = replaceOddCharacters(InputTextBox.Text);
+            string outputTextCopy = "";
+
             int index;
-            for (int i = 0; i <= textCopy.Length - 1; i++)
+            for (int i = 0; i <= inputTextCopy.Length - 1; i++)
             {
-                index = arabicLetters.IndexOf(textCopy[i].ToString());
+                index = arabicLetters.IndexOf(inputTextCopy[i].ToString());
                 if (index == -1)
                 {
-                    if (textCopy[i] == ' ')
+                    if (inputTextCopy[i] == ' ')
                     {
                         if (isSlashesChecked && isWordsSpacingChecked)
-                            OutputTextBox.Text += "  /  ";
+                            outputTextCopy += "  /  ";
                         else if (!isSlashesChecked && !isWordsSpacingChecked)
-                            OutputTextBox.Text += " ";
+                            outputTextCopy += " ";
                         else if (isSlashesChecked && !isWordsSpacingChecked)
-                            OutputTextBox.Text += " / ";
+                            outputTextCopy += " / ";
                         else if (!isSlashesChecked && isWordsSpacingChecked)
-                            OutputTextBox.Text += "   ";
+                            outputTextCopy += "   ";
                     }
-                    else if (Char.IsPunctuation(textCopy[i]))
-                        OutputTextBox.Text += " " + textCopy[i];
+                    else if (Char.IsPunctuation(inputTextCopy[i]))
+                        outputTextCopy += " " + inputTextCopy[i];
                     else
-                        OutputTextBox.Text += textCopy[i];
+                        outputTextCopy += inputTextCopy[i];
                 }
                 else
                 {
-                    index += shiftingKey;
+                    index += keyIndex;
                     if (index >= code.Length)
                         index -= code.Length;
-                    OutputTextBox.Text += code[index];
+                    outputTextCopy += code[index];
 
-                    if (i + 1 <= textCopy.Length - 1) //check if (i + 1) is an existing index
-                        if (textCopy[i + 1] != ' ' && textCopy[i + 1] != '\r' && !Char.IsPunctuation(textCopy[i + 1]))
+                    if (i + 1 <= inputTextCopy.Length - 1) //check if (i + 1) is an existing index
+                        if (inputTextCopy[i + 1] != ' ' && inputTextCopy[i + 1] != '\r' && !Char.IsPunctuation(inputTextCopy[i + 1]))
                             if (isDashesChecked && isCharactersSpacingChecked)
-                                OutputTextBox.Text += " - ";
+                                outputTextCopy += " - ";
                             else if (!isDashesChecked && !isCharactersSpacingChecked)
-                                OutputTextBox.Text += "";
+                                outputTextCopy += "";
                             else if (isDashesChecked && !isCharactersSpacingChecked)
-                                OutputTextBox.Text += "-";
+                                outputTextCopy += "-";
                             else if (!isDashesChecked && isCharactersSpacingChecked)
-                                OutputTextBox.Text += " ";
+                                outputTextCopy += " ";
                 }
             }
+
+            OutputTextBox.Text = outputTextCopy;
         }
 
         private void showEncodingKey(string[] code)
         {
             int index;
+            OutputTextBox.Text = "";
+
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    index = i + j * 7 + shiftingKey;
+                    index = i + j * 7 + keyIndex;
                     if (index >= code.Length)
                         index -= code.Length;
-                    OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + code[index + 0]).PadRight(13);
+                    OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + code[index]).PadRight(13);
                 }
                 OutputTextBox.Text += "\r\n";
-            }       
+            }
+       
         }
 
         private void EncodeButton_Click(object sender, EventArgs e)
         {
-            OutputTextBox.Text = "";
-            replaceOddCharacters();
 
             switch (codeIndex)
             {
@@ -172,24 +180,24 @@ namespace Scouts_Encoder
                     break;
 
                 case 3:
-                    if (shiftingKey == 0)
+                    if (keyIndex == 0)
                         encode(clockwiseCode);
-                    if (shiftingKey == 1)
+                    if (keyIndex == 1)
                     {
-                        shiftingKey = 0;
+                        keyIndex = 0;
                         encode(antiClockwiseCode);
-                        shiftingKey = 1;
+                        keyIndex = 1;
                     }
                     break;
 
                 case 4:
-                    if (shiftingKey == 0)
+                    if (keyIndex == 0)
                         encode(mobile01Code);
-                    if (shiftingKey == 1)
+                    if (keyIndex == 1)
                     {
-                        shiftingKey = 0;
+                        keyIndex = 0;
                         encode(mobile02Code);
-                        shiftingKey = 1;
+                        keyIndex = 1;
                     }
                     break;
 
@@ -198,18 +206,15 @@ namespace Scouts_Encoder
                     break;
 
                 case 6:
-                    if (!isSlashesChecked && !isWordsSpacingChecked)
-                        textCopy = textCopy.Replace(" ", "");
                     encode(manuscriptCode);
+                    if (!isSlashesChecked && !isWordsSpacingChecked)
+                        OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
                     break;
             }
-
         }
 
         private void ShowKeyButton_Click(object sender, EventArgs e)
         {
-            OutputTextBox.Text = "";
-
             switch (codeIndex)
             {
                 case 0:
@@ -225,24 +230,24 @@ namespace Scouts_Encoder
                     break;
 
                 case 3:
-                    if (shiftingKey == 0)
+                    if (keyIndex == 0)
                         showEncodingKey(clockwiseCode);
-                    if (shiftingKey == 1)
+                    if (keyIndex == 1)
                     {
-                        shiftingKey = 0;
+                        keyIndex = 0;
                         showEncodingKey(antiClockwiseCode);
-                        shiftingKey = 1;
+                        keyIndex = 1;
                     }
                     break;
 
                 case 4:
-                    if (shiftingKey == 0)
+                    if (keyIndex == 0)
                         showEncodingKey(mobile01Code);
-                    if (shiftingKey == 1)
+                    if (keyIndex == 1)
                     {
-                        shiftingKey = 0;
+                        keyIndex = 0;
                         showEncodingKey(mobile02Code);
-                        shiftingKey = 1;
+                        keyIndex = 1;
                     }
                     break;
 
@@ -266,8 +271,9 @@ namespace Scouts_Encoder
                 ShowKeyButton.Enabled = true;
                 CopyButton   .Enabled = true;
                 ClearButton  .Enabled = true;
+                KeysComboBox .Enabled = true;
                 KeysComboBox.Items.Clear();
-                shiftingKey = 0;
+                keyIndex = 0;
 
                 switch (codeIndex)
                 {
@@ -302,7 +308,7 @@ namespace Scouts_Encoder
                         break;
 
                     case 6:
-                        KeysComboBox.Text = "لا يوجد مفاتيح";
+                        KeysComboBox.Text =    "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("لا يوجد مفاتيح");
                         break;
                 }
@@ -311,7 +317,7 @@ namespace Scouts_Encoder
 
         private void KeysComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            shiftingKey = KeysComboBox.SelectedIndex;
+            keyIndex = KeysComboBox.SelectedIndex;
         }
 
         private string[] initializeKeysComboBoxItems(string[] code)
