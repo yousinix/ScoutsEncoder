@@ -70,11 +70,16 @@ namespace Scouts_Encoder
                                               "ض ", "ط ", "ظ ", "ع ", "غ ", "ف ", "ق ",
                                               "ك ", "ل ", "م ", "ن ", "ه ", "و ", "ي "};
 
+        private string[] xCode             = {"V(١)", "V(٢)", "V(٣)", "V(٤)", "V(٥)", "V(٦)", "V(٧)",
+                                              ">(١)", ">(٢)", ">(٣)", ">(٤)", ">(٥)", ">(٦)", ">(٧)",
+                                              "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
+                                              "<(١)", "<(٢)", "<(٣)", "<(٤)", "<(٥)", "<(٦)", "<(٧)"};
 
-        private int codeIndex;
-        private int keyIndex;
-        private bool isDashesChecked  = true;
-        private bool isSlashesChecked = true;
+
+        private int  codeIndex;
+        private int  keyIndex;
+        private bool isDashesChecked            = true;
+        private bool isSlashesChecked           = true;
         private bool isCharactersSpacingChecked = true;
         private bool isWordsSpacingChecked      = true;
 
@@ -202,10 +207,14 @@ namespace Scouts_Encoder
                     break;
 
                 case 5:
+                    encode(xCode);
+                    break;
+                
+                case 6:
                     encode(morseCode);
                     break;
 
-                case 6:
+                case 7:
                     encode(manuscriptCode);
                     if (!isSlashesChecked && !isWordsSpacingChecked)
                         OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
@@ -252,11 +261,15 @@ namespace Scouts_Encoder
                     break;
 
                 case 5:
+                    showEncodingKey(xCode);
+                    break;
+
+                case 6:
                     showEncodingKey(morseCode);
                     OutputTextBox.Text = OutputTextBox.Text.Replace("(", "").Replace(")", "");
                     break;
 
-                case 6:
+                case 7:
                     showEncodingKey(manuscriptCode);
                     break;
             }
@@ -308,6 +321,11 @@ namespace Scouts_Encoder
                         break;
 
                     case 6:
+                        KeysComboBox.Text =    "لا يوجد مفاتيح";
+                        KeysComboBox.Items.Add("لا يوجد مفاتيح");
+                        break;
+
+                    case 7:
                         KeysComboBox.Text =    "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("لا يوجد مفاتيح");
                         break;
@@ -367,14 +385,14 @@ namespace Scouts_Encoder
         //Placeholder Text Events
         private void InputTextBox_Enter(object sender, EventArgs e)
         {
-            if (InputTextBox.Text == "ادخل الشفرة هنا ...")
+            if (InputTextBox.Text == "ادخل الشفرة هنا...")
                 InputTextBox.Text = "";
         }
 
         private void InputTextBox_Leave(object sender, EventArgs e)
         {
             if (InputTextBox.Text == "")
-                InputTextBox.Text = "ادخل الشفرة هنا ...";
+                InputTextBox.Text = "ادخل الشفرة هنا...";
         }
 
     }

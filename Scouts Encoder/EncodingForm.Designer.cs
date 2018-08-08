@@ -56,7 +56,7 @@
             this.InputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.InputTextBox.Size = new System.Drawing.Size(602, 532);
             this.InputTextBox.TabIndex = 7;
-            this.InputTextBox.Text = "ادخل الشفرة هنا ...";
+            this.InputTextBox.Text = "ادخل الشفرة هنا...";
             this.InputTextBox.Enter += new System.EventHandler(this.InputTextBox_Enter);
             this.InputTextBox.Leave += new System.EventHandler(this.InputTextBox_Leave);
             // 
@@ -103,6 +103,7 @@
             "عكسية",
             "الساعة",
             "الجوال",
+            "اكس",
             "المورس",
             "عربي مفرط"});
             this.CodesComboBox.Location = new System.Drawing.Point(1029, 572);
