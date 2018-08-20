@@ -358,7 +358,10 @@ namespace Scouts_Encoder
 
         private void CopyButton_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(OutputTextBox.Text);
+            if (OutputTextBox.Text != "")
+            {
+                Clipboard.SetText(OutputTextBox.Text);
+            }
         }
 
         private void DashesCheckBox_CheckedChanged(object sender, EventArgs e)
