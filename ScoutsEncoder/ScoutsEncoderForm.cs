@@ -8,22 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Scouts_Encoder
+namespace ScoutsEncoder
 {
-    public partial class EncodingForm : Form
+    public partial class ScoutsEncoderForm : Form
     {
-        public EncodingForm()
+        public ScoutsEncoderForm()
         {
             InitializeComponent();
         }
 
-
+        
         private List<string> arabicLetters = new List<string>
                                              {"ا", "ب", "ت", "ث", "ج", "ح", "خ",
                                               "د", "ذ", "ر", "ز", "س", "ش", "ص",
                                               "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
                                               "ك", "ل", "م", "ن", "ه", "و", "ي"};
 
+
+        //Codes
         private string[] numericCode       = {"١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
                                               "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
                                               "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
@@ -75,7 +77,7 @@ namespace Scouts_Encoder
                                               "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
                                               "<(١)", "<(٢)", "<(٣)", "<(٤)", "<(٥)", "<(٦)", "<(٧)"};
 
-
+        //Variables
         private int  codeIndex;
         private int  keyIndex;
         private bool isDashesChecked            = true;
@@ -83,6 +85,9 @@ namespace Scouts_Encoder
         private bool isCharactersSpacingChecked = true;
         private bool isWordsSpacingChecked      = true;
 
+
+
+        //Processing Functions
         private string replaceOddCharacters(string modifiedText)
         {
             modifiedText = modifiedText
@@ -100,7 +105,7 @@ namespace Scouts_Encoder
 
         private void encode(string[] code)
         {
-            string inputTextCopy = replaceOddCharacters(InputTextBox.Text);
+            string inputTextCopy  = replaceOddCharacters(InputTextBox.Text);
             string outputTextCopy = "";
 
             int index;
@@ -127,9 +132,7 @@ namespace Scouts_Encoder
                 }
                 else
                 {
-                    index += keyIndex;
-                    if (index >= code.Length)
-                        index -= code.Length;
+                    index = (index + keyIndex) % 28;
                     outputTextCopy += code[index];
 
                     if (i + 1 <= inputTextCopy.Length - 1) //check if (i + 1) is an existing index
@@ -157,14 +160,100 @@ namespace Scouts_Encoder
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    index = i + j * 7 + keyIndex;
-                    if (index >= code.Length)
-                        index -= code.Length;
+                    index = (i + j * 7 + keyIndex) % 28;
                     OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + code[index]).PadRight(13);
                 }
                 OutputTextBox.Text += "\r\n";
             }
        
+        }
+
+        private string[] initializeKeysList(string[] code)
+        {
+            string[] items = new string[code.Length];
+            for (int i = 0; i < code.Length; i++)
+            {
+                items[i] = "   أ = " + code[i];
+            }
+            return items;
+        }
+
+
+
+        //Side Menu
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CodesComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            CodesComboBox.DroppedDown = true;
+        }
+
+        private void KeysComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            KeysComboBox.DroppedDown = true;
+        }
+
+        private void CodesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CodesComboBox.SelectedItem != null)
+            {
+                codeIndex = CodesComboBox.SelectedIndex;
+                EncodeButton.Enabled  = true;
+                ShowKeyButton.Enabled = true;
+                KeysComboBox.Items.Clear();
+                keyIndex = 0;
+
+                switch (codeIndex)
+                {
+                    case 0:
+                        KeysComboBox.Text = "   أ = " + jesusCode[0];
+                        KeysComboBox.Items.AddRange(initializeKeysList(jesusCode));
+                        break;
+
+                    case 1:
+                        KeysComboBox.Text = "   أ = " + numericCode[0];
+                        KeysComboBox.Items.AddRange(initializeKeysList(numericCode));
+                        break;
+
+                    case 2:
+                        KeysComboBox.Text = "   أ = " + invertedCode[0];
+                        KeysComboBox.Items.AddRange(initializeKeysList(invertedCode));
+                        break;
+
+                    case 3:
+                        KeysComboBox.Text = "  مع عقارب الساعة";
+                        KeysComboBox.Items.AddRange(new object[] { "  مع عقارب الساعة", "  عكس عقارب الساعة" });
+                        break;
+
+                    case 4:
+                        KeysComboBox.Text = "   أ = " + mobile01Code[0];
+                        KeysComboBox.Items.AddRange(new object[] { "   أ = " + mobile01Code[0], "   أ = " + mobile02Code[0] });
+                        break;
+
+                    case 5:
+                        KeysComboBox.Text =    "  لا يوجد مفاتيح";
+                        KeysComboBox.Items.Add("  لا يوجد مفاتيح");
+                        break;
+
+                    case 6:
+                        KeysComboBox.Text =    "  لا يوجد مفاتيح";
+                        KeysComboBox.Items.Add("  لا يوجد مفاتيح");
+                        break;
+
+                    case 7:
+                        KeysComboBox.Text =    "  لا يوجد مفاتيح";
+                        KeysComboBox.Items.Add("  لا يوجد مفاتيح");
+                        break;
+                }
+            }
+        }
+
+        private void KeysComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            keyIndex = KeysComboBox.SelectedIndex;
         }
 
         private void EncodeButton_Click(object sender, EventArgs e)
@@ -209,7 +298,7 @@ namespace Scouts_Encoder
                 case 5:
                     encode(xCode);
                     break;
-                
+
                 case 6:
                     encode(morseCode);
                     break;
@@ -275,95 +364,12 @@ namespace Scouts_Encoder
             }
         }
 
-        private void CodesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ReportButton_Click(object sender, EventArgs e)
         {
-            if (CodesComboBox.SelectedItem != null)
-            {
-                codeIndex = CodesComboBox.SelectedIndex;
-                EncodeButton .Enabled = true;
-                ShowKeyButton.Enabled = true;
-                CopyButton   .Enabled = true;
-                ClearButton  .Enabled = true;
-                KeysComboBox .Enabled = true;
-                KeysComboBox.Items.Clear();
-                keyIndex = 0;
-
-                switch (codeIndex)
-                {
-                    case 0:
-                        KeysComboBox.Text = "أ = " + jesusCode[0];
-                        KeysComboBox.Items.AddRange(initializeKeysComboBoxItems(jesusCode));
-                        break;
-                        
-                    case 1:
-                        KeysComboBox.Text = "أ = " + numericCode[0];
-                        KeysComboBox.Items.AddRange(initializeKeysComboBoxItems(numericCode));
-                        break;
-
-                    case 2:
-                        KeysComboBox.Text = "أ = " + invertedCode[0];
-                        KeysComboBox.Items.AddRange(initializeKeysComboBoxItems(invertedCode));
-                        break;
-
-                    case 3:
-                        KeysComboBox.Text = "مع عقارب الساعة";
-                        KeysComboBox.Items.AddRange(new object[] {"مع عقارب الساعة", "عكس عقارب الساعة"});
-                        break;
-
-                    case 4:
-                        KeysComboBox.Text = "أ = " + mobile01Code[0];
-                        KeysComboBox.Items.AddRange(new object[] { "أ = " + mobile01Code[0], "أ = " + mobile02Code[0] });
-                        break;
-
-                    case 5:
-                        KeysComboBox.Text =    "لا يوجد مفاتيح";
-                        KeysComboBox.Items.Add("لا يوجد مفاتيح");
-                        break;
-
-                    case 6:
-                        KeysComboBox.Text =    "لا يوجد مفاتيح";
-                        KeysComboBox.Items.Add("لا يوجد مفاتيح");
-                        break;
-
-                    case 7:
-                        KeysComboBox.Text =    "لا يوجد مفاتيح";
-                        KeysComboBox.Items.Add("لا يوجد مفاتيح");
-                        break;
-                }
-            }
+            MessageBox.Show("Email: YoussefRaafatNasry@gmail.com\n\nProject on GitHub (for developers): github.com/YoussefRaafatNasry/scouts-encoder\n\n© 2018 ScoutsEncoder.", "Contact or Report a Bug");
         }
 
-        private void KeysComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            keyIndex = KeysComboBox.SelectedIndex;
-        }
-
-        private string[] initializeKeysComboBoxItems(string[] code)
-        {
-            string[] items = new string[code.Length];
-            for (int i = 0; i < code.Length; i++)
-            {
-                items[i] = "أ = " + code[i];
-            }
-            return items;
-        }
-
-
-
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-            InputTextBox .Text = "";
-            OutputTextBox.Text = "";
-        }
-
-        private void CopyButton_Click(object sender, EventArgs e)
-        {
-            if (OutputTextBox.Text != "")
-            {
-                Clipboard.SetText(OutputTextBox.Text);
-            }
-        }
-
+        ////Check Boxes
         private void DashesCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             isDashesChecked = DashesCheckBox.Checked;
@@ -383,9 +389,11 @@ namespace Scouts_Encoder
         {
             isWordsSpacingChecked = WordsSpacingCheckBox.Checked;
         }
+        //////////////////////////////////////////////////////////////////////////////
 
 
-        //Placeholder Text Events
+
+        //InputTextBox Placeholder Text
         private void InputTextBox_Enter(object sender, EventArgs e)
         {
             if (InputTextBox.Text == "ادخل الشفرة هنا...")
@@ -397,6 +405,69 @@ namespace Scouts_Encoder
             if (InputTextBox.Text == "")
                 InputTextBox.Text = "ادخل الشفرة هنا...";
         }
+        //////////////////////////////////////////////////////////////////////////////
+
+
+
+        //Input Tools
+        private void InputCopy_Click(object sender, EventArgs e)
+        {
+            if (InputTextBox.Text != "")
+            {
+                Clipboard.SetText(InputTextBox.Text);
+            }
+        }
+
+        private void InputCut_Click(object sender, EventArgs e)
+        {
+            if (InputTextBox.Text != "")
+            {
+                Clipboard.SetText(InputTextBox.Text);
+            }
+            InputTextBox.Text = "";
+        }
+
+        private void InputPaste_Click(object sender, EventArgs e)
+        {
+            InputTextBox.Text = Clipboard.GetText();
+        }
+
+        private void InputClear_Click(object sender, EventArgs e)
+        {
+            InputTextBox.Text = "";
+        }
+        //////////////////////////////////////////////////////////////////////////////
+
+
+
+        //Output Tools
+        private void OutputCopy_Click(object sender, EventArgs e)
+        {
+            if (OutputTextBox.Text != "")
+            {
+                Clipboard.SetText(OutputTextBox.Text);
+            }
+        }
+
+        private void OutputCut_Click(object sender, EventArgs e)
+        {
+            if (OutputTextBox.Text != "")
+            {
+                Clipboard.SetText(OutputTextBox.Text);
+            }
+            OutputTextBox.Text = "";
+        }
+
+        private void OutputPaste_Click(object sender, EventArgs e)
+        {
+            OutputTextBox.Text = Clipboard.GetText();
+        }
+
+        private void OutputClear_Click(object sender, EventArgs e)
+        {
+            OutputTextBox.Text = "";
+        }
+        //////////////////////////////////////////////////////////////////////////////
 
     }
 }

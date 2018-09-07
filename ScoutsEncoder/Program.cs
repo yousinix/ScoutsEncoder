@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Scouts_Encoder
+namespace ScoutsEncoder
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Scouts_Encoder
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EncodingForm());
+            Application.Run(new ScoutsEncoderForm());
         }
     }
 }
