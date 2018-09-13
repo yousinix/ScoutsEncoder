@@ -6,11 +6,29 @@ This software encodes plain text into scouts' Arabic ciphers.
 - Click **"Clone or download"** and choose **"Download ZIP"**.
 - Extract the downloaded file to any **location**.
 - Go to your chosen **location** then go to the following directory:
-```ShellSession
-    scouts-encoder-master\ScoutsEncoder\bin\Debug
-```
+`
+scouts-encoder-master\ScoutsEncoder\bin\Debug
+`
 - Double click on the following file:
-```ShellSession
-    ScoutsEncoder.exe
-```
+`
+ScoutsEncoder.exe
+`
 
+
+# Available Ciphers:
+1. يسوع*
+2. رقمية*
+3. عكسية*
+4. الساعة*
+5. الجوال*
+6. اكس
+7. المورس
+8. عربي مفرط
+
+_* Multiple Keys are Available_
+
+
+# Other features:
+- 4 Output Styles.
+- Dark/Light Themes.
+- Show Cipher full Encoding Key.

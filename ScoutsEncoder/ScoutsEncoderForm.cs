@@ -18,14 +18,13 @@ namespace ScoutsEncoder
         }
 
         
+        //Codes
         private List<string> arabicLetters = new List<string>
                                              {"ا", "ب", "ت", "ث", "ج", "ح", "خ",
                                               "د", "ذ", "ر", "ز", "س", "ش", "ص",
                                               "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
                                               "ك", "ل", "م", "ن", "ه", "و", "ي"};
 
-
-        //Codes
         private string[] numericCode       = {"١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
                                               "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
                                               "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
@@ -77,13 +76,17 @@ namespace ScoutsEncoder
                                               "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
                                               "<(١)", "<(٢)", "<(٣)", "<(٤)", "<(٥)", "<(٦)", "<(٧)"};
 
+
+
+
         //Variables
         private int  codeIndex;
         private int  keyIndex;
-        private bool isDashesChecked            = true;
-        private bool isSlashesChecked           = true;
-        private bool isCharactersSpacingChecked = true;
-        private bool isWordsSpacingChecked      = true;
+        private bool isDashesChecked       = true;
+        private bool isSlashesChecked      = true;
+        private bool isCharsSpacingChecked = true;
+        private bool isWordsSpacingChecked = true;
+
 
 
 
@@ -120,7 +123,7 @@ namespace ScoutsEncoder
                             outputTextCopy += "  /  ";
                         else if (!isSlashesChecked && !isWordsSpacingChecked)
                             outputTextCopy += " ";
-                        else if (isSlashesChecked && !isWordsSpacingChecked)
+                        else if (isSlashesChecked  && !isWordsSpacingChecked)
                             outputTextCopy += " / ";
                         else if (!isSlashesChecked && isWordsSpacingChecked)
                             outputTextCopy += "   ";
@@ -137,13 +140,13 @@ namespace ScoutsEncoder
 
                     if (i + 1 <= inputTextCopy.Length - 1) //check if (i + 1) is an existing index
                         if (inputTextCopy[i + 1] != ' ' && inputTextCopy[i + 1] != '\r' && !Char.IsPunctuation(inputTextCopy[i + 1]))
-                            if (isDashesChecked && isCharactersSpacingChecked)
+                            if (isDashesChecked && isCharsSpacingChecked)
                                 outputTextCopy += " - ";
-                            else if (!isDashesChecked && !isCharactersSpacingChecked)
+                            else if (!isDashesChecked && !isCharsSpacingChecked)
                                 outputTextCopy += "";
-                            else if (isDashesChecked && !isCharactersSpacingChecked)
+                            else if (isDashesChecked  && !isCharsSpacingChecked)
                                 outputTextCopy += "-";
-                            else if (!isDashesChecked && isCharactersSpacingChecked)
+                            else if (!isDashesChecked && isCharsSpacingChecked)
                                 outputTextCopy += " ";
                 }
             }
@@ -180,20 +183,16 @@ namespace ScoutsEncoder
 
 
 
-        //Side Menu
+
+        //SideMenu Buttons
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void CodesComboBox_MouseClick(object sender, MouseEventArgs e)
+        private void SetCodeButton_Click(object sender, EventArgs e)
         {
-            CodesComboBox.DroppedDown = true;
-        }
-
-        private void KeysComboBox_MouseClick(object sender, MouseEventArgs e)
-        {
-            KeysComboBox.DroppedDown = true;
+            DropdownTimer.Start();
         }
 
         private void CodesComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -258,109 +257,122 @@ namespace ScoutsEncoder
 
         private void EncodeButton_Click(object sender, EventArgs e)
         {
-
-            switch (codeIndex)
+            if (CodesComboBox.Text == "  اختر الشفرة")
             {
-                case 0:
-                    encode(jesusCode);
-                    break;
+                OutputTextBox.Text = "من فضلك اختر الشفرة عن طريق الضغط علي \"إعدادات الشفرة\" ثم اختر الشفرة المناسبة";
+            }
+            else
+            {
+                switch (codeIndex)
+                {
+                    case 0:
+                        encode(jesusCode);
+                        break;
 
-                case 1:
-                    encode(numericCode);
-                    break;
+                    case 1:
+                        encode(numericCode);
+                        break;
 
-                case 2:
-                    encode(invertedCode);
-                    break;
+                    case 2:
+                        encode(invertedCode);
+                        break;
 
-                case 3:
-                    if (keyIndex == 0)
-                        encode(clockwiseCode);
-                    if (keyIndex == 1)
-                    {
-                        keyIndex = 0;
-                        encode(antiClockwiseCode);
-                        keyIndex = 1;
-                    }
-                    break;
+                    case 3:
+                        if (keyIndex == 0)
+                            encode(clockwiseCode);
+                        if (keyIndex == 1)
+                        {
+                            keyIndex = 0;
+                            encode(antiClockwiseCode);
+                            keyIndex = 1;
+                        }
+                        break;
 
-                case 4:
-                    if (keyIndex == 0)
-                        encode(mobile01Code);
-                    if (keyIndex == 1)
-                    {
-                        keyIndex = 0;
-                        encode(mobile02Code);
-                        keyIndex = 1;
-                    }
-                    break;
+                    case 4:
+                        if (keyIndex == 0)
+                            encode(mobile01Code);
+                        if (keyIndex == 1)
+                        {
+                            keyIndex = 0;
+                            encode(mobile02Code);
+                            keyIndex = 1;
+                        }
+                        break;
 
-                case 5:
-                    encode(xCode);
-                    break;
+                    case 5:
+                        encode(xCode);
+                        break;
 
-                case 6:
-                    encode(morseCode);
-                    break;
+                    case 6:
+                        encode(morseCode);
+                        break;
 
-                case 7:
-                    encode(manuscriptCode);
-                    if (!isSlashesChecked && !isWordsSpacingChecked)
-                        OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
-                    break;
+                    case 7:
+                        encode(manuscriptCode);
+                        if (!isSlashesChecked && !isWordsSpacingChecked)
+                            OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
+                        break;
+                }
             }
         }
 
         private void ShowKeyButton_Click(object sender, EventArgs e)
         {
-            switch (codeIndex)
+            if (CodesComboBox.Text == "  اختر الشفرة")
             {
-                case 0:
-                    showEncodingKey(jesusCode);
-                    break;
+                OutputTextBox.Text = "من فضلك اختر الشفرة عن طريق الضغط علي \"إعدادات الشفرة\" ثم اختر الشفرة المناسبة";
+            }
+            else
+            {
+                switch (codeIndex)
+                {
+                    case 0:
+                        showEncodingKey(jesusCode);
+                        break;
 
-                case 1:
-                    showEncodingKey(numericCode);
-                    break;
+                    case 1:
+                        showEncodingKey(numericCode);
+                        break;
 
-                case 2:
-                    showEncodingKey(invertedCode);
-                    break;
+                    case 2:
+                        showEncodingKey(invertedCode);
+                        break;
 
-                case 3:
-                    if (keyIndex == 0)
-                        showEncodingKey(clockwiseCode);
-                    if (keyIndex == 1)
-                    {
-                        keyIndex = 0;
-                        showEncodingKey(antiClockwiseCode);
-                        keyIndex = 1;
-                    }
-                    break;
+                    case 3:
+                        if (keyIndex == 0)
+                            showEncodingKey(clockwiseCode);
+                        if (keyIndex == 1)
+                        {
+                            keyIndex = 0;
+                            showEncodingKey(antiClockwiseCode);
+                            keyIndex = 1;
+                        }
+                        break;
 
-                case 4:
-                    if (keyIndex == 0)
-                        showEncodingKey(mobile01Code);
-                    if (keyIndex == 1)
-                    {
-                        keyIndex = 0;
-                        showEncodingKey(mobile02Code);
-                        keyIndex = 1;
-                    }
-                    break;
+                    case 4:
+                        if (keyIndex == 0)
+                            showEncodingKey(mobile01Code);
+                        if (keyIndex == 1)
+                        {
+                            keyIndex = 0;
+                            showEncodingKey(mobile02Code);
+                            keyIndex = 1;
+                        }
+                        break;
 
-                case 5:
-                    showEncodingKey(xCode);
-                    break;
+                    case 5:
+                        showEncodingKey(xCode);
+                        break;
 
-                case 6:
-                    showEncodingKey(morseCode);
-                    OutputTextBox.Text = OutputTextBox.Text.Replace("(", "").Replace(")", "");
-                    break;
+                    case 6:
+                        showEncodingKey(morseCode);
+                        OutputTextBox.Text = OutputTextBox.Text.Replace("(", "").Replace(")", "");
+                        break;
 
-                case 7:
-                    showEncodingKey(manuscriptCode);
-                    break;
+                    case 7:
+                        showEncodingKey(manuscriptCode);
+                        break;
+                }
             }
         }
 
@@ -368,28 +380,162 @@ namespace ScoutsEncoder
         {
             MessageBox.Show("Email: YoussefRaafatNasry@gmail.com\n\nProject on GitHub (for developers): github.com/YoussefRaafatNasry/scouts-encoder\n\n© 2018 ScoutsEncoder.", "Contact or Report a Bug");
         }
-
-        ////Check Boxes
-        private void DashesCheckBox_CheckedChanged(object sender, EventArgs e)
+ 
+        private void ThemeButton_Click(object sender, EventArgs e)
         {
-            isDashesChecked = DashesCheckBox.Checked;
+            if (ThemeButton.Text == "Dark Theme")
+            {
+                //ThemeButton
+                ThemeButton  .Text      = "Light Theme";
+                ThemeButton  .BackColor = Color.WhiteSmoke;
+                ThemeButton  .ForeColor = Color.Black;
+
+
+                //Form & Panels
+                this         .BackColor = ColorTranslator.FromHtml("#2d2d30");
+                SideMenu     .BackColor = ColorTranslator.FromHtml("#1c1c1c");
+                Title        .BackColor = ColorTranslator.FromHtml("#252526");
+                Options      .BackColor = ColorTranslator.FromHtml("#252526");
+
+
+                //SideMenu Buttons
+                SetCodeButton.BackColor = ColorTranslator.FromHtml("#3e3e42");
+                CodesComboBox.BackColor = ColorTranslator.FromHtml("#3e3e42");
+                KeysComboBox .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                EncodeButton .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                ShowKeyButton.BackColor = ColorTranslator.FromHtml("#3e3e42");
+                ReportButton .BackColor = ColorTranslator.FromHtml("#3e3e42");
+
+                SetCodeButton.ForeColor = ColorTranslator.FromHtml("#ffffff");
+                EncodeButton .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                CodesComboBox.ForeColor = ColorTranslator.FromHtml("#ffffff");
+                KeysComboBox .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                ShowKeyButton.ForeColor = ColorTranslator.FromHtml("#ffffff");
+                ReportButton .ForeColor = ColorTranslator.FromHtml("#ffffff");
+
+
+                //Labels & Checkboxes
+                ScoutsEncoder.ForeColor = ColorTranslator.FromHtml("#ffffff");
+                Version      .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                OutputOptions.ForeColor = ColorTranslator.FromHtml("#ffffff");
+
+                Dashes       .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                Slashes      .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                CharsSpacing .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                WordsSpacing .ForeColor = ColorTranslator.FromHtml("#ffffff");
+
+
+                //Textboxes
+                InputTextBox .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                OutputTextBox.BackColor = ColorTranslator.FromHtml("#3e3e42");
+                
+                InputTextBox .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                OutputTextBox.ForeColor = ColorTranslator.FromHtml("#ffffff");
+
+
+                //Image Buttons
+                InputCopy  .BackgroundImage = Properties.Resources.LightIcon_Copy;
+                InputCut   .BackgroundImage = Properties.Resources.LightIcon_Cut;
+                InputPaste .BackgroundImage = Properties.Resources.LightIcon_Paste;
+                InputClear .BackgroundImage = Properties.Resources.LightIcon_Clear;
+                           
+                OutputCopy .BackgroundImage = Properties.Resources.LightIcon_Copy;
+                OutputCut  .BackgroundImage = Properties.Resources.LightIcon_Cut;
+                OutputPaste.BackgroundImage = Properties.Resources.LightIcon_Paste;
+                OutputClear.BackgroundImage = Properties.Resources.LightIcon_Clear;
+
+                ExitButton .BackgroundImage = Properties.Resources.LightIcon_Clear;
+            }
+
+            else
+            {
+                //ThemeButton
+                ThemeButton  .Text      = "Dark Theme";
+                ThemeButton  .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                ThemeButton  .ForeColor = ColorTranslator.FromHtml("#ffffff");
+
+
+                //Form & Panels
+                this         .BackColor = Color.White;
+                SideMenu     .BackColor = Color.Gainsboro;
+                Options      .BackColor = Color.LightGray;
+                Title        .BackColor = Color.LightGray;
+
+
+                //SideMenu Buttons
+                SetCodeButton.BackColor = Color.WhiteSmoke;
+                CodesComboBox.BackColor = Color.WhiteSmoke;
+                KeysComboBox .BackColor = Color.WhiteSmoke;
+                EncodeButton .BackColor = Color.WhiteSmoke;
+                ShowKeyButton.BackColor = Color.WhiteSmoke;
+                ReportButton .BackColor = Color.WhiteSmoke;
+                
+                SetCodeButton.ForeColor = Color.Black;
+                CodesComboBox.ForeColor = Color.Black;
+                KeysComboBox .ForeColor = Color.Black;
+                EncodeButton .ForeColor = Color.Black;
+                ShowKeyButton.ForeColor = Color.Black;
+                ReportButton .ForeColor = Color.Black;
+
+
+                //Labels & Checkboxes
+                ScoutsEncoder.ForeColor = Color.Black;
+                Version      .ForeColor = Color.Black;
+                OutputOptions.ForeColor = Color.Black;
+
+                Dashes       .ForeColor = Color.Black;
+                Slashes      .ForeColor = Color.Black;
+                CharsSpacing .ForeColor = Color.Black;
+                WordsSpacing .ForeColor = Color.Black;
+
+
+                //Textboxes
+                InputTextBox .BackColor = Color.WhiteSmoke;
+                OutputTextBox.BackColor = Color.WhiteSmoke;
+
+                InputTextBox .ForeColor = Color.Black;
+                OutputTextBox.ForeColor = Color.Black;
+
+
+                //Image Buttons
+                InputCopy  .BackgroundImage = Properties.Resources.DarkIcon_Copy;
+                InputCut   .BackgroundImage = Properties.Resources.DarkIcon_Cut;
+                InputPaste .BackgroundImage = Properties.Resources.DarkIcon_Paste;
+                InputClear .BackgroundImage = Properties.Resources.DarkIcon_Clear;
+
+                OutputCopy .BackgroundImage = Properties.Resources.DarkIcon_Copy;
+                OutputCut  .BackgroundImage = Properties.Resources.DarkIcon_Cut;
+                OutputPaste.BackgroundImage = Properties.Resources.DarkIcon_Paste;
+                OutputClear.BackgroundImage = Properties.Resources.DarkIcon_Clear;
+
+                ExitButton .BackgroundImage = Properties.Resources.DarkIcon_Clear;
+            }
         }
 
-        private void SlashesCheckBox_CheckedChanged(object sender, EventArgs e)
+
+
+
+        //SideMenu Check Boxes
+        private void Dashes_CheckedChanged(object sender, EventArgs e)
         {
-            isSlashesChecked = SlashesCheckBox.Checked;
+            isDashesChecked = Dashes.Checked;
         }
 
-        private void CharactersSpacingCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void Slashes_CheckedChanged(object sender, EventArgs e)
         {
-            isCharactersSpacingChecked = CharactersSpacingCheckBox.Checked;
+            isSlashesChecked = Slashes.Checked;
         }
 
-        private void WordsSpacingCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void CharsSpacing_CheckedChanged(object sender, EventArgs e)
         {
-            isWordsSpacingChecked = WordsSpacingCheckBox.Checked;
+            isCharsSpacingChecked = CharsSpacing.Checked;
         }
-        //////////////////////////////////////////////////////////////////////////////
+
+        private void WordsSpacing_CheckedChanged(object sender, EventArgs e)
+        {
+            isWordsSpacingChecked = WordsSpacing.Checked;
+        }
+
 
 
 
@@ -405,7 +551,7 @@ namespace ScoutsEncoder
             if (InputTextBox.Text == "")
                 InputTextBox.Text = "ادخل الشفرة هنا...";
         }
-        //////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -436,7 +582,7 @@ namespace ScoutsEncoder
         {
             InputTextBox.Text = "";
         }
-        //////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -467,7 +613,45 @@ namespace ScoutsEncoder
         {
             OutputTextBox.Text = "";
         }
-        //////////////////////////////////////////////////////////////////////////////
+
+
+
+
+        //SetCodeButton Dropdown effect
+        private bool isCollapsed;
+
+        private void DropdownTimer_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                DropdownPanel.Height += 10;
+                if (DropdownPanel.Size == DropdownPanel.MaximumSize)
+                {
+                    DropdownTimer.Stop();
+                    isCollapsed = false;
+                }
+
+            }
+            else
+            {
+                DropdownPanel.Height -= 10;
+                if (DropdownPanel.Size == DropdownPanel.MinimumSize)
+                {
+                    DropdownTimer.Stop();
+                    isCollapsed = true;
+                }
+            }
+        }
+
+        private void CodesComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            CodesComboBox.DroppedDown = true;
+        }
+
+        private void KeysComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            KeysComboBox.DroppedDown = true;
+        }
 
     }
 }

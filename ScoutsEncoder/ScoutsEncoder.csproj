@@ -137,19 +137,23 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\clear.png" />
+    <None Include="Resources\DarkIcon_Clear.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\copy.png" />
+    <None Include="Resources\DarkIcon_Copy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cut.png" />
+    <None Include="Resources\DarkIcon_Cut.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\paste.png" />
+    <None Include="Resources\DarkIcon_Paste.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogoSE.ico" />
+    <None Include="Resources\LightIcon_Paste.png" />
+    <None Include="Resources\LightIcon_Cut.png" />
+    <None Include="Resources\LightIcon_Copy.png" />
+    <None Include="Resources\LightIcon_Clear.png" />
     <None Include="Resources\LogoSE.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
