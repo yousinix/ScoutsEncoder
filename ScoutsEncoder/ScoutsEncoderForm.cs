@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// <summary>
+/// This software encodes plain text into scouts' Arabic ciphers.
+/// </summary>
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -76,6 +80,22 @@ namespace ScoutsEncoder
                                               "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
                                               "<(١)", "<(٢)", "<(٣)", "<(٤)", "<(٥)", "<(٦)", "<(٧)"};
 
+
+        /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
+        ///  private string[] newCode = {"X", "X", "X", "X", "X", "X", "X",     ///
+        ///                              "X", "X", "X", "X", "X", "X", "X",     ///
+        ///                              "X", "X", "X", "X", "X", "X", "X",     ///
+        ///                              "X", "X", "X", "X", "X", "X", "X"};    ///
+        ///////////////////////////////////////////////////////////////////////////
+
+        ///  Steps for adding a new code:
+        ///  1] Add the new code name in the CodesComboBox's collection.
+        ///  2] Go to the following events:
+        ///     - CodesComboBox_SelectedIndexChanged
+        ///     - EncodeButton_Click
+        ///     - ShowKeyButton_Click
+        ///  3] Follow the instructions there at the end of each event.  
+        
 
 
 
@@ -200,8 +220,6 @@ namespace ScoutsEncoder
             if (CodesComboBox.SelectedItem != null)
             {
                 codeIndex = CodesComboBox.SelectedIndex;
-                EncodeButton.Enabled  = true;
-                ShowKeyButton.Enabled = true;
                 KeysComboBox.Items.Clear();
                 keyIndex = 0;
 
@@ -246,6 +264,15 @@ namespace ScoutsEncoder
                         KeysComboBox.Text =    "  لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  لا يوجد مفاتيح");
                         break;
+
+                    /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
+                    ///  case X: (where X is the index of the new code in CodesComboBox)    ///
+                    ///     KeysComboBox.Text = FIRST KEY OF THE NEW CODE;                  ///
+                    ///     KeysComboBox.Items.AddRange(initializeKeysList(newCode));       ///
+                    ///     **OR**                                                          ///
+                    ///     KeysComboBox.Items.AddRange(new object[] {KEY1, KEY2,.... });   ///
+                    ///     break;                                                          ///
+                    ///////////////////////////////////////////////////////////////////////////
                 }
             }
         }
@@ -312,6 +339,12 @@ namespace ScoutsEncoder
                         if (!isSlashesChecked && !isWordsSpacingChecked)
                             OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
                         break;
+
+                    /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
+                    ///  case X: (where X is the index of the new code in CodesComboBox)    ///
+                    ///     encode(newCode);                                                ///
+                    ///     break;                                                          ///
+                    ///////////////////////////////////////////////////////////////////////////
                 }
             }
         }
@@ -372,15 +405,16 @@ namespace ScoutsEncoder
                     case 7:
                         showEncodingKey(manuscriptCode);
                         break;
+
+                    /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
+                    ///  case X: (where X is the index of the new code in CodesComboBox)    ///
+                    ///     showEncodingKey(newCode);                                       ///
+                    ///     break;                                                          ///
+                    ///////////////////////////////////////////////////////////////////////////
                 }
             }
         }
 
-        private void ReportButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Email: YoussefRaafatNasry@gmail.com\n\nProject on GitHub (for developers): github.com/YoussefRaafatNasry/scouts-encoder\n\n© 2018 ScoutsEncoder.", "Contact or Report a Bug");
-        }
- 
         private void ThemeButton_Click(object sender, EventArgs e)
         {
             if (ThemeButton.Text == "Dark Theme")
@@ -552,8 +586,20 @@ namespace ScoutsEncoder
             }
         }
 
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+            //Open Project on GitHub
+            //System.Diagnostics.Process.Start("https://www.github.com/YoussefRaafatNasry/scouts-encoder");
 
+            //Displayed info
+            string Text = "Email: YoussefRaafatNasry@gmail.com"          + "\n\n"
+                        + "Project on GitHub (for developers):"          + "\n"
+                        + "github.com/YoussefRaafatNasry/scouts-encoder" + "\n\n"
+                        + "© 2018 ScoutsEncoder.";
 
+            MessageBox.Show(Text, "Contact or Report a Bug");
+        }
+ 
 
         //SideMenu Check Boxes
         private void Dashes_CheckedChanged(object sender, EventArgs e)
@@ -582,14 +628,14 @@ namespace ScoutsEncoder
         //InputTextBox Placeholder Text
         private void InputTextBox_Enter(object sender, EventArgs e)
         {
-            if (InputTextBox.Text == "ادخل الشفرة هنا...")
+            if (InputTextBox.Text == "أدخل الشفرة هنا...")
                 InputTextBox.Text = "";
         }
 
         private void InputTextBox_Leave(object sender, EventArgs e)
         {
             if (InputTextBox.Text == "")
-                InputTextBox.Text = "ادخل الشفرة هنا...";
+                InputTextBox.Text = "أدخل الشفرة هنا...";
         }
 
 
@@ -692,6 +738,5 @@ namespace ScoutsEncoder
         {
             KeysComboBox.DroppedDown = true;
         }
-
     }
 }
