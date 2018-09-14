@@ -117,6 +117,8 @@
             this.InputClear.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Clear;
             this.InputClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.InputClear.FlatAppearance.BorderSize = 0;
+            this.InputClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.InputClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.InputClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InputClear.Location = new System.Drawing.Point(10, 112);
             this.InputClear.Name = "InputClear";
@@ -131,6 +133,8 @@
             this.InputPaste.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Paste;
             this.InputPaste.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.InputPaste.FlatAppearance.BorderSize = 0;
+            this.InputPaste.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.InputPaste.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.InputPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InputPaste.Location = new System.Drawing.Point(10, 79);
             this.InputPaste.Name = "InputPaste";
@@ -145,6 +149,8 @@
             this.InputCut.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Cut;
             this.InputCut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.InputCut.FlatAppearance.BorderSize = 0;
+            this.InputCut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.InputCut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.InputCut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InputCut.Location = new System.Drawing.Point(10, 46);
             this.InputCut.Name = "InputCut";
@@ -159,6 +165,8 @@
             this.InputCopy.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Copy;
             this.InputCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.InputCopy.FlatAppearance.BorderSize = 0;
+            this.InputCopy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.InputCopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.InputCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InputCopy.Location = new System.Drawing.Point(10, 13);
             this.InputCopy.Name = "InputCopy";
@@ -195,6 +203,8 @@
             this.OutputCopy.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Copy;
             this.OutputCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OutputCopy.FlatAppearance.BorderSize = 0;
+            this.OutputCopy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.OutputCopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.OutputCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OutputCopy.Location = new System.Drawing.Point(10, 13);
             this.OutputCopy.Name = "OutputCopy";
@@ -209,6 +219,8 @@
             this.OutputCut.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Cut;
             this.OutputCut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OutputCut.FlatAppearance.BorderSize = 0;
+            this.OutputCut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.OutputCut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.OutputCut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OutputCut.Location = new System.Drawing.Point(10, 46);
             this.OutputCut.Name = "OutputCut";
@@ -223,6 +235,8 @@
             this.OutputPaste.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Paste;
             this.OutputPaste.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OutputPaste.FlatAppearance.BorderSize = 0;
+            this.OutputPaste.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.OutputPaste.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.OutputPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OutputPaste.Location = new System.Drawing.Point(10, 79);
             this.OutputPaste.Name = "OutputPaste";
@@ -237,6 +251,8 @@
             this.OutputClear.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Clear;
             this.OutputClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OutputClear.FlatAppearance.BorderSize = 0;
+            this.OutputClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.OutputClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.OutputClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OutputClear.Location = new System.Drawing.Point(10, 112);
             this.OutputClear.Name = "OutputClear";

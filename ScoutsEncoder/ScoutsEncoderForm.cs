@@ -445,6 +445,26 @@ namespace ScoutsEncoder
                 OutputClear.BackgroundImage = Properties.Resources.LightIcon_Clear;
 
                 ExitButton .BackgroundImage = Properties.Resources.LightIcon_Clear;
+
+
+                //Mouse Down & Over Events
+                InputCopy  .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                InputCopy  .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+                InputCut   .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                InputCut   .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+                InputPaste .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                InputPaste .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+                InputClear .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                InputClear .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+
+                OutputCopy .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                OutputCopy .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+                OutputCut  .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                OutputCut  .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+                OutputPaste.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                OutputPaste.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+                OutputClear.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                OutputClear.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
             }
 
             else
@@ -509,6 +529,26 @@ namespace ScoutsEncoder
                 OutputClear.BackgroundImage = Properties.Resources.DarkIcon_Clear;
 
                 ExitButton .BackgroundImage = Properties.Resources.DarkIcon_Clear;
+
+
+                //Mouse Down & Over Events
+                InputCopy  .FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                InputCopy  .FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+                InputCut   .FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                InputCut   .FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+                InputPaste .FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                InputPaste .FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+                InputClear .FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                InputClear .FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+
+                OutputCopy .FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                OutputCopy .FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+                OutputCut  .FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                OutputCut  .FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+                OutputPaste.FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                OutputPaste.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+                OutputClear.FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                OutputClear.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             }
         }
 

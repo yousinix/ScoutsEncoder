@@ -1,18 +1,24 @@
-# ScoutsEncoder V1.0 [BETA]
+# **ScoutsEncoder [BETA]**
 This software encodes plain text into scouts' Arabic ciphers.
 
 
 # Using ScoutsEncoder (Personal Use)
 - Click **"Clone or download"** and choose **"Download ZIP"**.
 - Extract the downloaded file to any **location**.
-- Go to your chosen **location** then go to the following directory:
+- Go to your chosen **location** then go to the following directory
 `
-scouts-encoder-master\ScoutsEncoder\bin\Debug
+scouts-encoder-master\Fonts\
 `
-- Double click on the following file:
+- Select all **Fonts** then Right click and choose **Install**.
+- Finally, go to the following directory
+`
+scouts-encoder-master\ScoutsEncoder\bin\Debug\
+`
+- Double click on the following file
 `
 ScoutsEncoder.exe
 `
+to run the program.
 
 
 # Available Ciphers:
