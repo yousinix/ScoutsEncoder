@@ -21,20 +21,33 @@ ScoutsEncoder.exe
 to run the program.
 
 
-# Available Ciphers:
-1. يسوع*
-2. رقمية*
-3. عكسية*
-4. الساعة*
-5. الجوال*
-6. اكس
-7. المورس
-8. عربي مفرط
+# Using ScoutsEncoder (for developers)
+- Install the **Fonts**.
+- You know what to do next, just go on.
+
+# 14 Available Ciphers:
+
+01. *يسوع
+02. *رقمية
+03. *عكسية
+04. *قيصر
+05. عربي مفرط
+06. المورس
+07. Binary
+08. *الاتجاهات
+09. *الساعة
+10. *الجوال
+11. *اكس
+12. *النجمة
+13. المعين
+14. المثلث
 
 _* Multiple Keys are Available_
 
-
 # Other features:
-- 4 Output Styles.
+
+- 5 Output Styles.
 - Dark/Light Themes.
-- Show Cipher full Encoding Key.
+- Show Cipher Full Encoding Key.
+- Redirect Button to Project's Repository on GitHub.
+- Redirect Button to Google Docs.

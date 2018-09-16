@@ -93,9 +93,29 @@ namespace ScoutsEncoder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DarkIcon_github {
+            get {
+                object obj = ResourceManager.GetObject("DarkIcon_github", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DarkIcon_Paste {
             get {
                 object obj = ResourceManager.GetObject("DarkIcon_Paste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_docs {
+            get {
+                object obj = ResourceManager.GetObject("Icon_docs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace ScoutsEncoder.Properties {
         internal static System.Drawing.Bitmap LightIcon_Cut {
             get {
                 object obj = ResourceManager.GetObject("LightIcon_Cut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LightIcon_github {
+            get {
+                object obj = ResourceManager.GetObject("LightIcon_github", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -117,623 +117,1465 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CharsSpacing.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ExitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="SideMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>800, 0</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="OutputPaste.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;Dashes.Name" xml:space="preserve">
-    <value>Dashes</value>
-  </data>
-  <data name="EncodeButton.Text" xml:space="preserve">
-    <value>تشفير</value>
-  </data>
-  <data name="InputPaste.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="KeysComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="Slashes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;InputTools.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MiddleBorder.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="CodesComboBox.Items6" xml:space="preserve">
-    <value>  المورس</value>
-  </data>
-  <data name="EncodeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 40</value>
-  </data>
-  <data name="&gt;&gt;ExitButton.Name" xml:space="preserve">
-    <value>ExitButton</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Version.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Slashes.Text" xml:space="preserve">
-    <value>Slashes</value>
-  </data>
-  <data name="ExitButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="CodesComboBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="OutputClear.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="MiddleBorder.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;WordsSpacing.Parent" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="OutputTools.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 451</value>
-  </data>
-  <data name="OutputPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <data name="Options.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="KeysComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 40</value>
-  </data>
-  <data name="CodesComboBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="CodesComboBox.Items7" xml:space="preserve">
-    <value>  عربي مفرط</value>
-  </data>
-  <data name="Dashes.ToolTip" xml:space="preserve">
-    <value>إضافة/ازالة الـ "-" بين الحروف</value>
-  </data>
-  <data name="Slashes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.Name" xml:space="preserve">
-    <value>OutputPaste</value>
-  </data>
-  <data name="&gt;&gt;OutputOptions.Parent" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.Name" xml:space="preserve">
-    <value>LeftBorder</value>
-  </data>
-  <data name="RightBorder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 101</value>
-  </data>
-  <data name="InputClear.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;Slashes.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="CharsSpacing.ToolTip" xml:space="preserve">
-    <value>إضافة/إزالة المسافات بين الحروف</value>
-  </data>
-  <data name="&gt;&gt;OutputCopy.Parent" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Slashes.ToolTip" xml:space="preserve">
-    <value>إضافة/إزالة الـ "/" بين الكلمات</value>
-  </data>
-  <data name="&gt;&gt;WordsSpacing.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;InputTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="OutputTextBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ReportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 60</value>
-  </data>
-  <data name="&gt;&gt;Options.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="KeysComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-17, 41</value>
-  </data>
-  <data name="&gt;&gt;InputCut.Parent" xml:space="preserve">
-    <value>InputTools</value>
-  </data>
-  <data name="InputCut.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="InputTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Kawkab Mono Light, 9pt</value>
   </data>
   <data name="InputTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>66, 20</value>
   </data>
-  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 331</value>
-  </data>
-  <data name="CodesComboBox.Items5" xml:space="preserve">
-    <value>  اكس</value>
-  </data>
-  <data name="DropdownPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="CodesComboBox.Items1" xml:space="preserve">
-    <value>  رقمية</value>
-  </data>
-  <data name="&gt;&gt;OutputCopy.Name" xml:space="preserve">
-    <value>OutputCopy</value>
-  </data>
-  <data name="Dashes.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;OutputCut.Name" xml:space="preserve">
-    <value>OutputCut</value>
-  </data>
-  <data name="&gt;&gt;Options.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;MiddleBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="OutputClear.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ButtonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="SetCodeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>ScoutsEncoder</value>
-  </data>
-  <data name="OutputClear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 112</value>
-  </data>
-  <data name="SideMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="CodesComboBox.Items2" xml:space="preserve">
-    <value>  عكسية</value>
-  </data>
-  <data name="&gt;&gt;InputCopy.Parent" xml:space="preserve">
-    <value>InputTools</value>
-  </data>
-  <data name="ButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 129</value>
-  </data>
-  <data name="&gt;&gt;WordsSpacing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="CodesComboBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;OutputCut.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="UpperBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-5, 30</value>
-  </data>
-  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 70</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="InputTools.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 101</value>
-  </data>
-  <data name="CodesComboBox.Items3" xml:space="preserve">
-    <value>  الساعة</value>
-  </data>
-  <data name="OutputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="Version.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 46</value>
-  </data>
-  <data name="Slashes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 57</value>
-  </data>
-  <data name="ReportButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="CodesComboBox.Text" xml:space="preserve">
-    <value>  اختر الشفرة</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;ShowKeyButton.Name" xml:space="preserve">
-    <value>ShowKeyButton</value>
-  </data>
-  <data name="ScoutsEncoder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 55</value>
-  </data>
-  <data name="&gt;&gt;CharsSpacing.Parent" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="InputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="RightBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 29</value>
-  </data>
-  <data name="&gt;&gt;InputTools.Name" xml:space="preserve">
-    <value>InputTools</value>
-  </data>
-  <data name="InputTextBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="InputTextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ScoutsEncoder.ToolTip" xml:space="preserve">
-    <value />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="InputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 16</value>
+  <data name="InputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 331</value>
   </data>
-  <data name="ThemeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 641</value>
+  <data name="InputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;InputTools.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="WordsSpacing.ToolTip" xml:space="preserve">
-    <value>إضافة/إزالة المسافات بين الكلمات</value>
-  </data>
-  <data name="&gt;&gt;DropdownTimer.Name" xml:space="preserve">
-    <value>DropdownTimer</value>
-  </data>
-  <data name="&gt;&gt;CharsSpacing.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;InputClear.Parent" xml:space="preserve">
-    <value>InputTools</value>
-  </data>
-  <data name="&gt;&gt;ReportButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="OutputCopy.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="SetCodeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+  <data name="InputTextBox.Text" xml:space="preserve">
+    <value>أدخل الشفرة هنا...</value>
   </data>
   <data name="&gt;&gt;InputTextBox.Name" xml:space="preserve">
     <value>InputTextBox</value>
   </data>
+  <data name="&gt;&gt;InputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InputTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;InputTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OutputTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Kawkab Mono Light, 9pt</value>
+  </data>
+  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 370</value>
+  </data>
+  <data name="OutputTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OutputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 331</value>
+  </data>
+  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
+    <value>OutputTextBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="Tips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>184, 17</value>
+  </metadata>
+  <data name="InputClear.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="InputClear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="InputClear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 112</value>
+  </data>
+  <data name="InputClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="InputClear.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
   <data name="InputClear.ToolTip" xml:space="preserve">
     <value>Clear</value>
+  </data>
+  <data name="&gt;&gt;InputClear.Name" xml:space="preserve">
+    <value>InputClear</value>
+  </data>
+  <data name="&gt;&gt;InputClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InputClear.Parent" xml:space="preserve">
+    <value>InputTools</value>
+  </data>
+  <data name="&gt;&gt;InputClear.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="InputPaste.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="InputPaste.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="InputPaste.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 79</value>
+  </data>
+  <data name="InputPaste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="InputPaste.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="InputPaste.ToolTip" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="&gt;&gt;InputPaste.Name" xml:space="preserve">
+    <value>InputPaste</value>
   </data>
   <data name="&gt;&gt;InputPaste.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;OutputOptions.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="KeysComboBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;InputCut.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Dashes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 9pt, style=Bold</value>
-  </data>
-  <data name="KeysComboBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="InputCut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 46</value>
-  </data>
-  <data name="InputCopy.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="OutputTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 156</value>
-  </data>
-  <data name="DropdownPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.Name" xml:space="preserve">
-    <value>RightBorder</value>
-  </data>
-  <data name="ShowKeyButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
   <data name="&gt;&gt;InputPaste.Parent" xml:space="preserve">
     <value>InputTools</value>
   </data>
-  <data name="&gt;&gt;EncodeButton.Parent" xml:space="preserve">
-    <value>ButtonsPanel</value>
+  <data name="&gt;&gt;InputPaste.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="OutputCut.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;OutputTools.Name" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="Options.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;OutputClear.Parent" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="ShowKeyButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="WordsSpacing.Text" xml:space="preserve">
-    <value>Words Spacing</value>
+  <data name="InputCut.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="InputCut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;Dashes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="InputTools.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="EncodeButton.ToolTip" xml:space="preserve">
-    <value>إضغط هنا لتشفير النص الذي ادخلته</value>
-  </data>
-  <data name="ScoutsEncoder.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;InputCut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="OutputOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 29</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="ShowKeyButton.ToolTip" xml:space="preserve">
-    <value>إضغط هنا للحصول علي مفتاح الشفرة التي اخترتها كاملاً</value>
+  <data name="InputCut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 46</value>
   </data>
   <data name="InputCut.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
   </data>
-  <data name="&gt;&gt;MiddleBorder.Name" xml:space="preserve">
-    <value>MiddleBorder</value>
+  <data name="InputCut.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
+  <data name="InputCut.ToolTip" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="&gt;&gt;InputCut.Name" xml:space="preserve">
+    <value>InputCut</value>
+  </data>
+  <data name="&gt;&gt;InputCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InputCut.Parent" xml:space="preserve">
+    <value>InputTools</value>
+  </data>
+  <data name="&gt;&gt;InputCut.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="InputCopy.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="InputCopy.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="InputCopy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 13</value>
+  </data>
+  <data name="InputCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="InputCopy.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="InputCopy.ToolTip" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="&gt;&gt;InputCopy.Name" xml:space="preserve">
+    <value>InputCopy</value>
+  </data>
+  <data name="&gt;&gt;InputCopy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InputCopy.Parent" xml:space="preserve">
+    <value>InputTools</value>
+  </data>
+  <data name="&gt;&gt;InputCopy.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="InputTools.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 101</value>
+  </data>
+  <data name="InputTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 156</value>
+  </data>
+  <data name="InputTools.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;InputTools.Name" xml:space="preserve">
+    <value>InputTools</value>
+  </data>
+  <data name="&gt;&gt;InputTools.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InputTools.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;InputTools.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;Slashes.Parent" xml:space="preserve">
-    <value>Options</value>
+  <data name="&gt;&gt;OutputCopy.Name" xml:space="preserve">
+    <value>OutputCopy</value>
   </data>
-  <data name="&gt;&gt;OutputCut.Parent" xml:space="preserve">
+  <data name="&gt;&gt;OutputCopy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputCopy.Parent" xml:space="preserve">
     <value>OutputTools</value>
   </data>
   <data name="&gt;&gt;OutputCopy.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="SetCodeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 40</value>
-  </data>
-  <data name="KeysComboBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="DropdownPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 1, 0, 1</value>
-  </data>
-  <data name="SetCodeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="ThemeButton.Text" xml:space="preserve">
-    <value>Dark Theme</value>
-  </data>
-  <data name="WordsSpacing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 105</value>
-  </data>
-  <data name="&gt;&gt;Slashes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ReportButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 680</value>
-  </data>
-  <data name="&gt;&gt;OutputClear.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="ReportButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="&gt;&gt;InputCopy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="OutputCut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <data name="ThemeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;OutputOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="OutputCopy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 13</value>
-  </data>
-  <data name="InputPaste.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="OutputCopy.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;OutputCopy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="InputPaste.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 79</value>
-  </data>
-  <data name="ButtonsPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
-  </data>
-  <data name="KeysComboBox.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.Parent" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;Options.Name" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="&gt;&gt;Tips.Name" xml:space="preserve">
-    <value>Tips</value>
-  </data>
-  <data name="ButtonsPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;Dashes.Parent" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="&gt;&gt;InputTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Dashes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 33</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.Name" xml:space="preserve">
-    <value>CodesComboBox</value>
-  </data>
-  <data name="ScoutsEncoder.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo Black, 20pt, style=Bold</value>
-  </data>
-  <data name="WordsSpacing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 33</value>
-  </data>
-  <data name="&gt;&gt;InputPaste.Name" xml:space="preserve">
-    <value>InputPaste</value>
-  </data>
-  <data name="ButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 222</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
-    <value>OutputTextBox</value>
-  </data>
-  <data name="&gt;&gt;EncodeButton.Name" xml:space="preserve">
-    <value>EncodeButton</value>
-  </data>
-  <data name="LeftBorder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 101</value>
-  </data>
-  <data name="OutputPaste.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShowKeyButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="InputClear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 112</value>
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ShowKeyButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 40</value>
-  </data>
-  <data name="BottomBorder.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;DropdownTimer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ButtonsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+  <data name="&gt;&gt;OutputCut.Name" xml:space="preserve">
+    <value>OutputCut</value>
   </data>
   <data name="&gt;&gt;OutputCut.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="KeysComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="&gt;&gt;OutputCut.Parent" xml:space="preserve">
+    <value>OutputTools</value>
   </data>
-  <data name="ShowKeyButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="&gt;&gt;OutputCut.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="OutputCut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 46</value>
+  <data name="&gt;&gt;OutputPaste.Name" xml:space="preserve">
+    <value>OutputPaste</value>
   </data>
-  <data name="SetCodeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 0, 0</value>
+  <data name="&gt;&gt;OutputPaste.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputPaste.Parent" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputPaste.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;OutputClear.Name" xml:space="preserve">
     <value>OutputClear</value>
   </data>
-  <data name="CodesComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-17, 2</value>
+  <data name="&gt;&gt;OutputClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputClear.Parent" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputClear.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="OutputTools.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 451</value>
+  </data>
+  <data name="OutputTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 156</value>
+  </data>
+  <data name="OutputTools.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.Name" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="OutputCopy.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="OutputCopy.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="OutputCopy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 13</value>
+  </data>
+  <data name="OutputCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="OutputCopy.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="OutputCopy.ToolTip" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="&gt;&gt;OutputCopy.Name" xml:space="preserve">
+    <value>OutputCopy</value>
+  </data>
+  <data name="&gt;&gt;OutputCopy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputCopy.Parent" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputCopy.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OutputCut.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="OutputCut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="OutputCut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 46</value>
+  </data>
+  <data name="OutputCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="OutputCut.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="OutputCut.ToolTip" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="&gt;&gt;OutputCut.Name" xml:space="preserve">
+    <value>OutputCut</value>
+  </data>
+  <data name="&gt;&gt;OutputCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputCut.Parent" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputCut.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OutputPaste.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="OutputPaste.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="OutputPaste.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 79</value>
+  </data>
+  <data name="OutputPaste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="OutputPaste.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="OutputPaste.ToolTip" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="&gt;&gt;OutputPaste.Name" xml:space="preserve">
+    <value>OutputPaste</value>
+  </data>
+  <data name="&gt;&gt;OutputPaste.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputPaste.Parent" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputPaste.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="OutputClear.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="OutputClear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="OutputClear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 112</value>
+  </data>
+  <data name="OutputClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="OutputClear.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="OutputClear.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="&gt;&gt;OutputClear.Name" xml:space="preserve">
+    <value>OutputClear</value>
+  </data>
+  <data name="&gt;&gt;OutputClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputClear.Parent" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputClear.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ReportButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ReportButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="ReportButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ReportButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 680</value>
+  </data>
+  <data name="ReportButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ReportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 60</value>
+  </data>
+  <data name="ReportButton.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="ReportButton.Text" xml:space="preserve">
+    <value>الإبلاغ عن خطأ</value>
+  </data>
+  <data name="ReportButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="ReportButton.ToolTip" xml:space="preserve">
+    <value>إضغط هنا للإبلاغ عن خطأ أو تقديم اقتراح للمساعدة في تطوير البرنامج</value>
+  </data>
+  <data name="&gt;&gt;ReportButton.Name" xml:space="preserve">
+    <value>ReportButton</value>
+  </data>
+  <data name="&gt;&gt;ReportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ReportButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ReportButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="FillShapes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="FillShapes.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="FillShapes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 9pt, style=Bold</value>
+  </data>
+  <data name="FillShapes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="FillShapes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 129</value>
+  </data>
+  <data name="FillShapes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 33</value>
+  </data>
+  <data name="FillShapes.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="FillShapes.Text" xml:space="preserve">
+    <value>Fill Shapes</value>
+  </data>
+  <metadata name="Tips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>184, 17</value>
+  </metadata>
+  <data name="FillShapes.ToolTip" xml:space="preserve">
+    <value>مـلء/تفريغ الأشكال</value>
+  </data>
+  <data name="FillShapes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;FillShapes.Name" xml:space="preserve">
+    <value>FillShapes</value>
+  </data>
+  <data name="&gt;&gt;FillShapes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FillShapes.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;FillShapes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OutputOptions.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OutputOptions.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 9pt, style=Bold</value>
+  </data>
+  <data name="OutputOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 6</value>
+  </data>
+  <data name="OutputOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 29</value>
+  </data>
+  <data name="OutputOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="OutputOptions.Text" xml:space="preserve">
+    <value>Output Options:</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.Name" xml:space="preserve">
+    <value>OutputOptions</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="WordsSpacing.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="WordsSpacing.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 9pt, style=Bold</value>
+  </data>
+  <data name="WordsSpacing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 104</value>
+  </data>
+  <data name="WordsSpacing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 33</value>
+  </data>
+  <data name="WordsSpacing.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="WordsSpacing.Text" xml:space="preserve">
+    <value>Words Spacing</value>
+  </data>
+  <data name="WordsSpacing.ToolTip" xml:space="preserve">
+    <value>إضافة/إزالة المسافات بين الكلمات</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.Name" xml:space="preserve">
+    <value>WordsSpacing</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="CharsSpacing.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CharsSpacing.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 9pt, style=Bold</value>
+  </data>
+  <data name="CharsSpacing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 79</value>
+  </data>
+  <data name="CharsSpacing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 33</value>
+  </data>
+  <data name="CharsSpacing.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="CharsSpacing.Text" xml:space="preserve">
+    <value>Characters Spacing</value>
+  </data>
+  <data name="CharsSpacing.ToolTip" xml:space="preserve">
+    <value>إضافة/إزالة المسافات بين الحروف</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.Name" xml:space="preserve">
+    <value>CharsSpacing</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Slashes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Slashes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 9pt, style=Bold</value>
+  </data>
+  <data name="Slashes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 54</value>
+  </data>
+  <data name="Slashes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 33</value>
+  </data>
+  <data name="Slashes.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="Slashes.Text" xml:space="preserve">
+    <value>Slashes</value>
+  </data>
+  <data name="Slashes.ToolTip" xml:space="preserve">
+    <value>إضافة/إزالة الـ "/" بين الكلمات</value>
+  </data>
+  <data name="&gt;&gt;Slashes.Name" xml:space="preserve">
+    <value>Slashes</value>
+  </data>
+  <data name="&gt;&gt;Slashes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Slashes.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;Slashes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Dashes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Dashes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 9pt, style=Bold</value>
+  </data>
+  <data name="Dashes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 29</value>
+  </data>
+  <data name="Dashes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 33</value>
+  </data>
+  <data name="Dashes.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Dashes.Text" xml:space="preserve">
+    <value>Dashes</value>
+  </data>
+  <data name="Dashes.ToolTip" xml:space="preserve">
+    <value>إضافة/ازالة الـ "-" بين الحروف</value>
+  </data>
+  <data name="&gt;&gt;Dashes.Name" xml:space="preserve">
+    <value>Dashes</value>
+  </data>
+  <data name="&gt;&gt;Dashes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Dashes.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;Dashes.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="OptionsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 216</value>
+  </data>
+  <data name="OptionsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="OptionsPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 165</value>
+  </data>
+  <data name="OptionsPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 150</value>
+  </data>
+  <data name="OptionsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 150</value>
+  </data>
+  <data name="OptionsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Name" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ShowKeyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ShowKeyButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="ShowKeyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 175</value>
+  </data>
+  <data name="ShowKeyButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 1, 0, 1</value>
+  </data>
+  <data name="ShowKeyButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 40</value>
+  </data>
+  <data name="ShowKeyButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ShowKeyButton.Text" xml:space="preserve">
+    <value>إظهار المفتاح</value>
+  </data>
+  <data name="ShowKeyButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="ShowKeyButton.ToolTip" xml:space="preserve">
+    <value>إضغط هنا للحصول علي مفتاح الشفرة التي اخترتها كاملاً</value>
+  </data>
+  <data name="&gt;&gt;ShowKeyButton.Name" xml:space="preserve">
+    <value>ShowKeyButton</value>
+  </data>
+  <data name="&gt;&gt;ShowKeyButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ShowKeyButton.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;ShowKeyButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="EncodeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="EncodeButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="EncodeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 133</value>
+  </data>
+  <data name="EncodeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 1, 0, 1</value>
+  </data>
+  <data name="EncodeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 40</value>
   </data>
   <data name="EncodeButton.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="EncodeButton.Text" xml:space="preserve">
+    <value>تشفير</value>
+  </data>
+  <data name="EncodeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="EncodeButton.ToolTip" xml:space="preserve">
+    <value>إضغط هنا لتشفير النص الذي ادخلته</value>
+  </data>
+  <data name="&gt;&gt;EncodeButton.Name" xml:space="preserve">
+    <value>EncodeButton</value>
+  </data>
+  <data name="&gt;&gt;EncodeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EncodeButton.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;EncodeButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Version.Name" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="&gt;&gt;Version.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Version.Parent" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;Version.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.Name" xml:space="preserve">
+    <value>ScoutsEncoder</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.Parent" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 50</value>
+  </data>
+  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 70</value>
+  </data>
+  <data name="Title.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;Title.Name" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Version.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Version.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 46</value>
+  </data>
+  <data name="Version.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 17</value>
+  </data>
+  <data name="Version.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="Version.Text" xml:space="preserve">
+    <value>V1.2 - BETA</value>
+  </data>
+  <data name="&gt;&gt;Version.Name" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="&gt;&gt;Version.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Version.Parent" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;Version.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ScoutsEncoder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo Black, 20pt, style=Bold</value>
+  </data>
+  <data name="ScoutsEncoder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 1</value>
+  </data>
+  <data name="ScoutsEncoder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 55</value>
+  </data>
+  <data name="ScoutsEncoder.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="ScoutsEncoder.Text" xml:space="preserve">
+    <value>ScoutsEncoder</value>
+  </data>
+  <data name="ScoutsEncoder.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.Name" xml:space="preserve">
+    <value>ScoutsEncoder</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.Parent" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;ScoutsEncoder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ExitButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="ExitButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ExitButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 12</value>
+  </data>
+  <data name="ExitButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="ExitButton.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
   <data name="ExitButton.ToolTip" xml:space="preserve">
     <value>خروج</value>
   </data>
-  <data name="&gt;&gt;InputClear.Name" xml:space="preserve">
-    <value>InputClear</value>
+  <data name="&gt;&gt;ExitButton.Name" xml:space="preserve">
+    <value>ExitButton</value>
+  </data>
+  <data name="&gt;&gt;ExitButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExitButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ExitButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.Name" xml:space="preserve">
+    <value>SetCodeButton</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.Name" xml:space="preserve">
+    <value>UpperBorder</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.Name" xml:space="preserve">
+    <value>MiddleBorder</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.Name" xml:space="preserve">
+    <value>BottomBorder</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.Name" xml:space="preserve">
+    <value>RightBorder</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.Name" xml:space="preserve">
+    <value>LeftBorder</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.Name" xml:space="preserve">
+    <value>CodesComboBox</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.Name" xml:space="preserve">
+    <value>KeysComboBox</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="DropdownPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1</value>
+  </data>
+  <data name="DropdownPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 1, 0, 1</value>
+  </data>
+  <data name="DropdownPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 130</value>
+  </data>
+  <data name="DropdownPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 40</value>
+  </data>
+  <data name="DropdownPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 130</value>
+  </data>
+  <data name="DropdownPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Name" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ButtonsPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="ButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 156</value>
+  </data>
+  <data name="ButtonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 421</value>
+  </data>
+  <data name="ButtonsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="GitHubButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="GitHubButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="GitHubButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="GitHubButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GitHubButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 606</value>
+  </data>
+  <data name="GitHubButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="GitHubButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 31</value>
+  </data>
+  <data name="GitHubButton.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="GitHubButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="GitHubButton.ToolTip" xml:space="preserve">
+    <value>Go to Project repository on GitHub
+(For Developers)</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Name" xml:space="preserve">
+    <value>GitHubButton</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="DocsButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="DocsButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="DocsButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="DocsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DocsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 606</value>
+  </data>
+  <data name="DocsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="DocsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 31</value>
+  </data>
+  <data name="DocsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="DocsButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="DocsButton.ToolTip" xml:space="preserve">
+    <value>Go to Google Docs
+(We recommend using Google docs as your text editor)</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Name" xml:space="preserve">
+    <value>DocsButton</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ThemeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ThemeButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="ThemeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ThemeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 641</value>
+  </data>
+  <data name="ThemeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 38</value>
+  </data>
+  <data name="ThemeButton.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="ThemeButton.Text" xml:space="preserve">
+    <value>Dark Theme</value>
+  </data>
+  <data name="ThemeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="ThemeButton.ToolTip" xml:space="preserve">
+    <value>Toogle Light/Dark Themes</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Name" xml:space="preserve">
+    <value>ThemeButton</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="SideMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="SideMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>800, 0</value>
+  </data>
+  <data name="SideMenu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="SideMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 720</value>
+  </data>
+  <data name="SideMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Name" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SetCodeButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="SetCodeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="SetCodeButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="SetCodeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="SetCodeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 0, 0</value>
+  </data>
+  <data name="SetCodeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 40</value>
+  </data>
+  <data name="SetCodeButton.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="SetCodeButton.Text" xml:space="preserve">
+    <value>إعدادات الشفرة</value>
+  </data>
+  <data name="SetCodeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="SetCodeButton.ToolTip" xml:space="preserve">
+    <value>إضغط هنا لاختيار الشفرة و المفتاح</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.Name" xml:space="preserve">
+    <value>SetCodeButton</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;SetCodeButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="UpperBorder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-5, 33</value>
+  </data>
+  <data name="UpperBorder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="UpperBorder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 15</value>
+  </data>
+  <data name="UpperBorder.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.Name" xml:space="preserve">
+    <value>UpperBorder</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;UpperBorder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MiddleBorder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-15, 81</value>
+  </data>
+  <data name="MiddleBorder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="MiddleBorder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 7</value>
+  </data>
+  <data name="MiddleBorder.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.Name" xml:space="preserve">
+    <value>MiddleBorder</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;MiddleBorder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BottomBorder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-5, 125</value>
+  </data>
+  <data name="BottomBorder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="BottomBorder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 10</value>
+  </data>
+  <data name="BottomBorder.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.Name" xml:space="preserve">
+    <value>BottomBorder</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;BottomBorder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="RightBorder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 29</value>
+  </data>
+  <data name="RightBorder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="RightBorder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 101</value>
+  </data>
+  <data name="RightBorder.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.Name" xml:space="preserve">
+    <value>RightBorder</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;RightBorder.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="LeftBorder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-17, 29</value>
+  </data>
+  <data name="LeftBorder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="LeftBorder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 101</value>
+  </data>
+  <data name="LeftBorder.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.Name" xml:space="preserve">
+    <value>LeftBorder</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;LeftBorder.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="CodesComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="CodesComboBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="CodesComboBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="CodesComboBox.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="CodesComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-17, 47</value>
+  </data>
+  <data name="CodesComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="CodesComboBox.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="CodesComboBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="CodesComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 40</value>
+  </data>
+  <data name="CodesComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="CodesComboBox.Text" xml:space="preserve">
+    <value>  اختر الشفرة</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.Name" xml:space="preserve">
+    <value>CodesComboBox</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;CodesComboBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="KeysComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="KeysComboBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="KeysComboBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="KeysComboBox.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="KeysComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-17, 86</value>
+  </data>
+  <data name="KeysComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="KeysComboBox.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="KeysComboBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="KeysComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 40</value>
+  </data>
+  <data name="KeysComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="KeysComboBox.Text" xml:space="preserve">
+    <value>  اختر المفتاح</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.Name" xml:space="preserve">
+    <value>KeysComboBox</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.Parent" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;KeysComboBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="DropdownTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1080, 720</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -958,613 +1800,28 @@
         AAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="&gt;&gt;WordsSpacing.Name" xml:space="preserve">
-    <value>WordsSpacing</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="&gt;&gt;Version.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="WordsSpacing.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Version.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 17</value>
-  </data>
-  <data name="CharsSpacing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 81</value>
-  </data>
-  <data name="MiddleBorder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 5</value>
-  </data>
-  <data name="SetCodeButton.Text" xml:space="preserve">
-    <value>إعدادات الشفرة</value>
-  </data>
-  <data name="Options.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 371</value>
-  </data>
-  <data name="InputClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <data name="InputTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 331</value>
-  </data>
-  <data name="RightBorder.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="BottomBorder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>294, 10</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CharsSpacing.Name" xml:space="preserve">
-    <value>CharsSpacing</value>
-  </data>
-  <data name="&gt;&gt;ReportButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="Title.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 370</value>
-  </data>
-  <data name="OutputCut.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="ReportButton.Text" xml:space="preserve">
-    <value>الإبلاغ عن خطأ</value>
-  </data>
-  <data name="OutputOptions.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="EncodeButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="DropdownPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 40</value>
-  </data>
-  <data name="LeftBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-17, 29</value>
-  </data>
-  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;OutputTools.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="InputClear.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="InputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="OutputCopy.ToolTip" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.Name" xml:space="preserve">
+  <data name="$this.Text" xml:space="preserve">
     <value>ScoutsEncoder</value>
   </data>
-  <data name="OutputPaste.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="&gt;&gt;DropdownTimer.Name" xml:space="preserve">
+    <value>DropdownTimer</value>
   </data>
-  <data name="CodesComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="&gt;&gt;DropdownTimer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="UpperBorder.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+  <data name="&gt;&gt;Tips.Name" xml:space="preserve">
+    <value>Tips</value>
   </data>
   <data name="&gt;&gt;Tips.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="InputClear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;InputCut.Name" xml:space="preserve">
-    <value>InputCut</value>
-  </data>
-  <data name="&gt;&gt;Title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="MiddleBorder.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="InputPaste.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;EncodeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShowKeyButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LeftBorder.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="UpperBorder.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;CharsSpacing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="CharsSpacing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 33</value>
-  </data>
-  <data name="OutputCut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="SetCodeButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="Slashes.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;InputClear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="WordsSpacing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;InputTools.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Name" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;Title.Name" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.Parent" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="OutputClear.ToolTip" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="OutputTools.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="Version.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;ShowKeyButton.Parent" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="OutputPaste.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 79</value>
-  </data>
-  <data name="SideMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="ReportButton.ToolTip" xml:space="preserve">
-    <value>إضغط هنا للإبلاغ عن خطأ أو تقديم اقتراح للمساعدة علي تطوير البرنامج</value>
-  </data>
-  <data name="KeysComboBox.Text" xml:space="preserve">
-    <value>  اختر المفتاح</value>
-  </data>
-  <data name="OutputOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 11</value>
-  </data>
-  <data name="&gt;&gt;Dashes.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.Name" xml:space="preserve">
-    <value>KeysComboBox</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.Name" xml:space="preserve">
-    <value>UpperBorder</value>
-  </data>
-  <data name="ShowKeyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="Dashes.Text" xml:space="preserve">
-    <value>Dashes</value>
-  </data>
-  <data name="EncodeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 43</value>
-  </data>
-  <data name="LeftBorder.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;OutputTools.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="EncodeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="CharsSpacing.Text" xml:space="preserve">
-    <value>Characters Spacing</value>
-  </data>
-  <data name="ShowKeyButton.Text" xml:space="preserve">
-    <value>إظهار المفتاح</value>
-  </data>
-  <data name="ThemeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 38</value>
-  </data>
-  <data name="ExitButton.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="SideMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 720</value>
-  </data>
-  <data name="&gt;&gt;InputTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ThemeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="CodesComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 40</value>
-  </data>
-  <data name="ReportButton.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.Name" xml:space="preserve">
-    <value>SetCodeButton</value>
-  </data>
-  <data name="ScoutsEncoder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 1</value>
-  </data>
-  <data name="OutputCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ScoutsEncoderForm</value>
   </data>
-  <data name="&gt;&gt;ExitButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="InputTextBox.Text" xml:space="preserve">
-    <value>أدخل الشفرة هنا...</value>
-  </data>
-  <data name="Title.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;ExitButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Version.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ThemeButton.ToolTip" xml:space="preserve">
-    <value>Toogle Light/Dark Themes</value>
-  </data>
-  <data name="OutputTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kawkab Mono Light, 9pt</value>
-  </data>
-  <data name="KeysComboBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="ShowKeyButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 85</value>
-  </data>
-  <data name="&gt;&gt;InputCopy.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="DropdownPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1</value>
-  </data>
-  <data name="ShowKeyButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 1, 0, 1</value>
-  </data>
-  <data name="Dashes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 33</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ReportButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;EncodeButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Slashes.Name" xml:space="preserve">
-    <value>Slashes</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="OutputOptions.Text" xml:space="preserve">
-    <value>Output Options:</value>
-  </data>
-  <data name="ReportButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="OutputOptions.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;ReportButton.Name" xml:space="preserve">
-    <value>ReportButton</value>
-  </data>
-  <data name="Slashes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 33</value>
-  </data>
-  <data name="SetCodeButton.ToolTip" xml:space="preserve">
-    <value>إضغط هنا لاختيار الشفرة و المفتاح</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="KeysComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="MiddleBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-15, 80</value>
-  </data>
-  <data name="&gt;&gt;OutputClear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 50</value>
-  </data>
-  <data name="InputCopy.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="InputCopy.ToolTip" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="InputTools.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="ThemeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SetCodeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="ExitButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="Version.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="InputCut.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="ScoutsEncoder.Text" xml:space="preserve">
-    <value>ScoutsEncoder</value>
-  </data>
-  <data name="BottomBorder.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="CodesComboBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="OutputCopy.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;InputClear.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="InputCopy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 13</value>
-  </data>
-  <data name="InputPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <data name="RightBorder.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BottomBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-5, 125</value>
-  </data>
-  <data name="&gt;&gt;Version.Name" xml:space="preserve">
-    <value>Version</value>
-  </data>
-  <data name="&gt;&gt;InputPaste.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="UpperBorder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>294, 15</value>
-  </data>
-  <data name="OutputClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <data name="&gt;&gt;InputCopy.Name" xml:space="preserve">
-    <value>InputCopy</value>
-  </data>
-  <data name="CharsSpacing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 9pt, style=Bold</value>
-  </data>
-  <data name="ThemeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="Dashes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="OutputPaste.ToolTip" xml:space="preserve">
-    <value>Paste</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Name" xml:space="preserve">
-    <value>ThemeButton</value>
-  </data>
-  <data name="Version.Text" xml:space="preserve">
-    <value>V1.1 - BETA</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1080, 720</value>
-  </data>
-  <data name="ThemeButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="ScoutsEncoder.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="SideMenu.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;MiddleBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="OutputCut.ToolTip" xml:space="preserve">
-    <value>Cut</value>
-  </data>
-  <data name="&gt;&gt;ExitButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="InputTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 156</value>
-  </data>
-  <data name="InputPaste.ToolTip" xml:space="preserve">
-    <value>Paste</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="InputCopy.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="DropdownPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 120</value>
-  </data>
-  <data name="CodesComboBox.Items" xml:space="preserve">
-    <value>  يسوع</value>
-  </data>
-  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="CodesComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ExitButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 12</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="OutputOptions.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;OutputTools.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="OutputOptions.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 9pt, style=Bold</value>
-  </data>
-  <data name="InputCut.ToolTip" xml:space="preserve">
-    <value>Cut</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Parent" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;OutputOptions.Name" xml:space="preserve">
-    <value>OutputOptions</value>
-  </data>
-  <data name="WordsSpacing.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="InputCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <data name="OutputTextBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="OutputClear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="CodesComboBox.Items4" xml:space="preserve">
-    <value>  الجوال</value>
-  </data>
-  <data name="OutputTools.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="DropdownPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 40</value>
-  </data>
-  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Options.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 157</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="SetCodeButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Name" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="EncodeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="CodesComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="InputTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kawkab Mono Light, 9pt</value>
-  </data>
-  <data name="&gt;&gt;Options.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="EncodeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 1, 0, 1</value>
-  </data>
-  <data name="CharsSpacing.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.Name" xml:space="preserve">
-    <value>BottomBorder</value>
-  </data>
-  <data name="&gt;&gt;ReportButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;Version.Parent" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <metadata name="DropdownTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Tips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>184, 17</value>
-  </metadata>
 </root>

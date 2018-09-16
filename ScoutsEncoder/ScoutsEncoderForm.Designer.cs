@@ -43,7 +43,8 @@
             this.OutputPaste = new System.Windows.Forms.Button();
             this.OutputClear = new System.Windows.Forms.Button();
             this.ReportButton = new System.Windows.Forms.Button();
-            this.Options = new System.Windows.Forms.Panel();
+            this.OptionsPanel = new System.Windows.Forms.Panel();
+            this.FillShapes = new System.Windows.Forms.CheckBox();
             this.OutputOptions = new System.Windows.Forms.Label();
             this.WordsSpacing = new System.Windows.Forms.CheckBox();
             this.CharsSpacing = new System.Windows.Forms.CheckBox();
@@ -66,12 +67,14 @@
             this.LeftBorder = new System.Windows.Forms.Panel();
             this.CodesComboBox = new System.Windows.Forms.ComboBox();
             this.KeysComboBox = new System.Windows.Forms.ComboBox();
+            this.GitHubButton = new System.Windows.Forms.Button();
+            this.DocsButton = new System.Windows.Forms.Button();
             this.ThemeButton = new System.Windows.Forms.Button();
             this.DropdownTimer = new System.Windows.Forms.Timer(this.components);
             this.Tips = new System.Windows.Forms.ToolTip(this.components);
             this.InputTools.SuspendLayout();
             this.OutputTools.SuspendLayout();
-            this.Options.SuspendLayout();
+            this.OptionsPanel.SuspendLayout();
             this.Title.SuspendLayout();
             this.SideMenu.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
@@ -81,33 +84,31 @@
             // InputTextBox
             // 
             this.InputTextBox.AcceptsReturn = true;
-            resources.ApplyResources(this.InputTextBox, "InputTextBox");
             this.InputTextBox.AllowDrop = true;
             this.InputTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.InputTextBox, "InputTextBox");
             this.InputTextBox.ForeColor = System.Drawing.Color.Black;
             this.InputTextBox.Name = "InputTextBox";
-            this.Tips.SetToolTip(this.InputTextBox, resources.GetString("InputTextBox.ToolTip"));
             this.InputTextBox.Enter += new System.EventHandler(this.InputTextBox_Enter);
             this.InputTextBox.Leave += new System.EventHandler(this.InputTextBox_Leave);
             // 
             // OutputTextBox
             // 
             this.OutputTextBox.AcceptsReturn = true;
-            resources.ApplyResources(this.OutputTextBox, "OutputTextBox");
             this.OutputTextBox.AllowDrop = true;
             this.OutputTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.OutputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.OutputTextBox, "OutputTextBox");
             this.OutputTextBox.ForeColor = System.Drawing.Color.Black;
             this.OutputTextBox.Name = "OutputTextBox";
             this.OutputTextBox.ReadOnly = true;
-            this.Tips.SetToolTip(this.OutputTextBox, resources.GetString("OutputTextBox.ToolTip"));
             // 
             // InputClear
             // 
-            resources.ApplyResources(this.InputClear, "InputClear");
             this.InputClear.BackColor = System.Drawing.Color.Transparent;
             this.InputClear.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Clear;
+            resources.ApplyResources(this.InputClear, "InputClear");
             this.InputClear.FlatAppearance.BorderSize = 0;
             this.InputClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.InputClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -118,9 +119,9 @@
             // 
             // InputPaste
             // 
-            resources.ApplyResources(this.InputPaste, "InputPaste");
             this.InputPaste.BackColor = System.Drawing.Color.Transparent;
             this.InputPaste.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Paste;
+            resources.ApplyResources(this.InputPaste, "InputPaste");
             this.InputPaste.FlatAppearance.BorderSize = 0;
             this.InputPaste.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.InputPaste.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -131,9 +132,9 @@
             // 
             // InputCut
             // 
-            resources.ApplyResources(this.InputCut, "InputCut");
             this.InputCut.BackColor = System.Drawing.Color.Transparent;
             this.InputCut.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Cut;
+            resources.ApplyResources(this.InputCut, "InputCut");
             this.InputCut.FlatAppearance.BorderSize = 0;
             this.InputCut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.InputCut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -144,9 +145,9 @@
             // 
             // InputCopy
             // 
-            resources.ApplyResources(this.InputCopy, "InputCopy");
             this.InputCopy.BackColor = System.Drawing.Color.Transparent;
             this.InputCopy.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Copy;
+            resources.ApplyResources(this.InputCopy, "InputCopy");
             this.InputCopy.FlatAppearance.BorderSize = 0;
             this.InputCopy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.InputCopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -157,29 +158,27 @@
             // 
             // InputTools
             // 
-            resources.ApplyResources(this.InputTools, "InputTools");
             this.InputTools.Controls.Add(this.InputCopy);
             this.InputTools.Controls.Add(this.InputCut);
             this.InputTools.Controls.Add(this.InputPaste);
             this.InputTools.Controls.Add(this.InputClear);
+            resources.ApplyResources(this.InputTools, "InputTools");
             this.InputTools.Name = "InputTools";
-            this.Tips.SetToolTip(this.InputTools, resources.GetString("InputTools.ToolTip"));
             // 
             // OutputTools
             // 
-            resources.ApplyResources(this.OutputTools, "OutputTools");
             this.OutputTools.Controls.Add(this.OutputCopy);
             this.OutputTools.Controls.Add(this.OutputCut);
             this.OutputTools.Controls.Add(this.OutputPaste);
             this.OutputTools.Controls.Add(this.OutputClear);
+            resources.ApplyResources(this.OutputTools, "OutputTools");
             this.OutputTools.Name = "OutputTools";
-            this.Tips.SetToolTip(this.OutputTools, resources.GetString("OutputTools.ToolTip"));
             // 
             // OutputCopy
             // 
-            resources.ApplyResources(this.OutputCopy, "OutputCopy");
             this.OutputCopy.BackColor = System.Drawing.Color.Transparent;
             this.OutputCopy.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Copy;
+            resources.ApplyResources(this.OutputCopy, "OutputCopy");
             this.OutputCopy.FlatAppearance.BorderSize = 0;
             this.OutputCopy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.OutputCopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -190,9 +189,9 @@
             // 
             // OutputCut
             // 
-            resources.ApplyResources(this.OutputCut, "OutputCut");
             this.OutputCut.BackColor = System.Drawing.Color.Transparent;
             this.OutputCut.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Cut;
+            resources.ApplyResources(this.OutputCut, "OutputCut");
             this.OutputCut.FlatAppearance.BorderSize = 0;
             this.OutputCut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.OutputCut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -203,9 +202,9 @@
             // 
             // OutputPaste
             // 
-            resources.ApplyResources(this.OutputPaste, "OutputPaste");
             this.OutputPaste.BackColor = System.Drawing.Color.Transparent;
             this.OutputPaste.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Paste;
+            resources.ApplyResources(this.OutputPaste, "OutputPaste");
             this.OutputPaste.FlatAppearance.BorderSize = 0;
             this.OutputPaste.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.OutputPaste.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -216,9 +215,9 @@
             // 
             // OutputClear
             // 
-            resources.ApplyResources(this.OutputClear, "OutputClear");
             this.OutputClear.BackColor = System.Drawing.Color.Transparent;
             this.OutputClear.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Clear;
+            resources.ApplyResources(this.OutputClear, "OutputClear");
             this.OutputClear.FlatAppearance.BorderSize = 0;
             this.OutputClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.OutputClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
@@ -229,28 +228,40 @@
             // 
             // ReportButton
             // 
-            resources.ApplyResources(this.ReportButton, "ReportButton");
             this.ReportButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ReportButton.FlatAppearance.BorderSize = 0;
             this.ReportButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ReportButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            resources.ApplyResources(this.ReportButton, "ReportButton");
             this.ReportButton.ForeColor = System.Drawing.Color.Black;
             this.ReportButton.Name = "ReportButton";
             this.Tips.SetToolTip(this.ReportButton, resources.GetString("ReportButton.ToolTip"));
             this.ReportButton.UseVisualStyleBackColor = false;
             this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
             // 
-            // Options
+            // OptionsPanel
             // 
-            resources.ApplyResources(this.Options, "Options");
-            this.Options.BackColor = System.Drawing.Color.LightGray;
-            this.Options.Controls.Add(this.OutputOptions);
-            this.Options.Controls.Add(this.WordsSpacing);
-            this.Options.Controls.Add(this.CharsSpacing);
-            this.Options.Controls.Add(this.Slashes);
-            this.Options.Controls.Add(this.Dashes);
-            this.Options.Name = "Options";
-            this.Tips.SetToolTip(this.Options, resources.GetString("Options.ToolTip"));
+            this.OptionsPanel.BackColor = System.Drawing.Color.LightGray;
+            this.OptionsPanel.Controls.Add(this.FillShapes);
+            this.OptionsPanel.Controls.Add(this.OutputOptions);
+            this.OptionsPanel.Controls.Add(this.WordsSpacing);
+            this.OptionsPanel.Controls.Add(this.CharsSpacing);
+            this.OptionsPanel.Controls.Add(this.Slashes);
+            this.OptionsPanel.Controls.Add(this.Dashes);
+            resources.ApplyResources(this.OptionsPanel, "OptionsPanel");
+            this.OptionsPanel.Name = "OptionsPanel";
+            // 
+            // FillShapes
+            // 
+            resources.ApplyResources(this.FillShapes, "FillShapes");
+            this.FillShapes.BackColor = System.Drawing.Color.Transparent;
+            this.FillShapes.Checked = true;
+            this.FillShapes.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.FillShapes.ForeColor = System.Drawing.Color.Black;
+            this.FillShapes.Name = "FillShapes";
+            this.Tips.SetToolTip(this.FillShapes, resources.GetString("FillShapes.ToolTip"));
+            this.FillShapes.UseVisualStyleBackColor = false;
+            this.FillShapes.CheckedChanged += new System.EventHandler(this.FillShapes_CheckedChanged);
             // 
             // OutputOptions
             // 
@@ -258,7 +269,6 @@
             this.OutputOptions.BackColor = System.Drawing.Color.Transparent;
             this.OutputOptions.ForeColor = System.Drawing.Color.Black;
             this.OutputOptions.Name = "OutputOptions";
-            this.Tips.SetToolTip(this.OutputOptions, resources.GetString("OutputOptions.ToolTip"));
             // 
             // WordsSpacing
             // 
@@ -310,11 +320,11 @@
             // 
             // ShowKeyButton
             // 
-            resources.ApplyResources(this.ShowKeyButton, "ShowKeyButton");
             this.ShowKeyButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ShowKeyButton.FlatAppearance.BorderSize = 0;
             this.ShowKeyButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ShowKeyButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            resources.ApplyResources(this.ShowKeyButton, "ShowKeyButton");
             this.ShowKeyButton.ForeColor = System.Drawing.Color.Black;
             this.ShowKeyButton.Name = "ShowKeyButton";
             this.Tips.SetToolTip(this.ShowKeyButton, resources.GetString("ShowKeyButton.ToolTip"));
@@ -323,11 +333,11 @@
             // 
             // EncodeButton
             // 
-            resources.ApplyResources(this.EncodeButton, "EncodeButton");
             this.EncodeButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.EncodeButton.FlatAppearance.BorderSize = 0;
             this.EncodeButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.EncodeButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            resources.ApplyResources(this.EncodeButton, "EncodeButton");
             this.EncodeButton.ForeColor = System.Drawing.Color.Black;
             this.EncodeButton.Name = "EncodeButton";
             this.Tips.SetToolTip(this.EncodeButton, resources.GetString("EncodeButton.ToolTip"));
@@ -336,12 +346,11 @@
             // 
             // Title
             // 
-            resources.ApplyResources(this.Title, "Title");
             this.Title.BackColor = System.Drawing.Color.LightGray;
             this.Title.Controls.Add(this.Version);
             this.Title.Controls.Add(this.ScoutsEncoder);
+            resources.ApplyResources(this.Title, "Title");
             this.Title.Name = "Title";
-            this.Tips.SetToolTip(this.Title, resources.GetString("Title.ToolTip"));
             // 
             // Version
             // 
@@ -349,21 +358,19 @@
             this.Version.BackColor = System.Drawing.Color.Transparent;
             this.Version.ForeColor = System.Drawing.Color.Black;
             this.Version.Name = "Version";
-            this.Tips.SetToolTip(this.Version, resources.GetString("Version.ToolTip"));
             // 
             // ScoutsEncoder
             // 
-            resources.ApplyResources(this.ScoutsEncoder, "ScoutsEncoder");
             this.ScoutsEncoder.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.ScoutsEncoder, "ScoutsEncoder");
             this.ScoutsEncoder.ForeColor = System.Drawing.Color.Black;
             this.ScoutsEncoder.Name = "ScoutsEncoder";
-            this.Tips.SetToolTip(this.ScoutsEncoder, resources.GetString("ScoutsEncoder.ToolTip"));
             // 
             // ExitButton
             // 
-            resources.ApplyResources(this.ExitButton, "ExitButton");
             this.ExitButton.BackColor = System.Drawing.Color.Transparent;
             this.ExitButton.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_Clear;
+            resources.ApplyResources(this.ExitButton, "ExitButton");
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.ExitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
@@ -374,30 +381,29 @@
             // 
             // SideMenu
             // 
-            resources.ApplyResources(this.SideMenu, "SideMenu");
             this.SideMenu.BackColor = System.Drawing.Color.Gainsboro;
             this.SideMenu.Controls.Add(this.ExitButton);
             this.SideMenu.Controls.Add(this.Title);
             this.SideMenu.Controls.Add(this.ButtonsPanel);
-            this.SideMenu.Controls.Add(this.Options);
+            this.SideMenu.Controls.Add(this.GitHubButton);
+            this.SideMenu.Controls.Add(this.DocsButton);
             this.SideMenu.Controls.Add(this.ThemeButton);
             this.SideMenu.Controls.Add(this.ReportButton);
+            resources.ApplyResources(this.SideMenu, "SideMenu");
             this.SideMenu.Name = "SideMenu";
-            this.Tips.SetToolTip(this.SideMenu, resources.GetString("SideMenu.ToolTip"));
             // 
             // ButtonsPanel
             // 
-            resources.ApplyResources(this.ButtonsPanel, "ButtonsPanel");
             this.ButtonsPanel.BackColor = System.Drawing.Color.Transparent;
             this.ButtonsPanel.Controls.Add(this.DropdownPanel);
             this.ButtonsPanel.Controls.Add(this.EncodeButton);
             this.ButtonsPanel.Controls.Add(this.ShowKeyButton);
+            this.ButtonsPanel.Controls.Add(this.OptionsPanel);
+            resources.ApplyResources(this.ButtonsPanel, "ButtonsPanel");
             this.ButtonsPanel.Name = "ButtonsPanel";
-            this.Tips.SetToolTip(this.ButtonsPanel, resources.GetString("ButtonsPanel.ToolTip"));
             // 
             // DropdownPanel
             // 
-            resources.ApplyResources(this.DropdownPanel, "DropdownPanel");
             this.DropdownPanel.Controls.Add(this.SetCodeButton);
             this.DropdownPanel.Controls.Add(this.UpperBorder);
             this.DropdownPanel.Controls.Add(this.MiddleBorder);
@@ -406,13 +412,13 @@
             this.DropdownPanel.Controls.Add(this.LeftBorder);
             this.DropdownPanel.Controls.Add(this.CodesComboBox);
             this.DropdownPanel.Controls.Add(this.KeysComboBox);
+            resources.ApplyResources(this.DropdownPanel, "DropdownPanel");
             this.DropdownPanel.Name = "DropdownPanel";
-            this.Tips.SetToolTip(this.DropdownPanel, resources.GetString("DropdownPanel.ToolTip"));
             // 
             // SetCodeButton
             // 
-            resources.ApplyResources(this.SetCodeButton, "SetCodeButton");
             this.SetCodeButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.SetCodeButton, "SetCodeButton");
             this.SetCodeButton.FlatAppearance.BorderSize = 0;
             this.SetCodeButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.SetCodeButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
@@ -426,31 +432,26 @@
             // 
             resources.ApplyResources(this.UpperBorder, "UpperBorder");
             this.UpperBorder.Name = "UpperBorder";
-            this.Tips.SetToolTip(this.UpperBorder, resources.GetString("UpperBorder.ToolTip"));
             // 
             // MiddleBorder
             // 
             resources.ApplyResources(this.MiddleBorder, "MiddleBorder");
             this.MiddleBorder.Name = "MiddleBorder";
-            this.Tips.SetToolTip(this.MiddleBorder, resources.GetString("MiddleBorder.ToolTip"));
             // 
             // BottomBorder
             // 
             resources.ApplyResources(this.BottomBorder, "BottomBorder");
             this.BottomBorder.Name = "BottomBorder";
-            this.Tips.SetToolTip(this.BottomBorder, resources.GetString("BottomBorder.ToolTip"));
             // 
             // RightBorder
             // 
             resources.ApplyResources(this.RightBorder, "RightBorder");
             this.RightBorder.Name = "RightBorder";
-            this.Tips.SetToolTip(this.RightBorder, resources.GetString("RightBorder.ToolTip"));
             // 
             // LeftBorder
             // 
             resources.ApplyResources(this.LeftBorder, "LeftBorder");
             this.LeftBorder.Name = "LeftBorder";
-            this.Tips.SetToolTip(this.LeftBorder, resources.GetString("LeftBorder.ToolTip"));
             // 
             // CodesComboBox
             // 
@@ -458,17 +459,7 @@
             this.CodesComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CodesComboBox.ForeColor = System.Drawing.Color.Black;
             this.CodesComboBox.FormattingEnabled = true;
-            this.CodesComboBox.Items.AddRange(new object[] {
-            resources.GetString("CodesComboBox.Items"),
-            resources.GetString("CodesComboBox.Items1"),
-            resources.GetString("CodesComboBox.Items2"),
-            resources.GetString("CodesComboBox.Items3"),
-            resources.GetString("CodesComboBox.Items4"),
-            resources.GetString("CodesComboBox.Items5"),
-            resources.GetString("CodesComboBox.Items6"),
-            resources.GetString("CodesComboBox.Items7")});
             this.CodesComboBox.Name = "CodesComboBox";
-            this.Tips.SetToolTip(this.CodesComboBox, resources.GetString("CodesComboBox.ToolTip"));
             this.CodesComboBox.SelectedIndexChanged += new System.EventHandler(this.CodesComboBox_SelectedIndexChanged);
             this.CodesComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CodesComboBox_MouseClick);
             // 
@@ -479,17 +470,44 @@
             this.KeysComboBox.ForeColor = System.Drawing.Color.Black;
             this.KeysComboBox.FormattingEnabled = true;
             this.KeysComboBox.Name = "KeysComboBox";
-            this.Tips.SetToolTip(this.KeysComboBox, resources.GetString("KeysComboBox.ToolTip"));
             this.KeysComboBox.SelectedIndexChanged += new System.EventHandler(this.KeysComboBox_SelectedIndexChanged);
             this.KeysComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.KeysComboBox_MouseClick);
             // 
+            // GitHubButton
+            // 
+            this.GitHubButton.BackColor = System.Drawing.Color.Transparent;
+            this.GitHubButton.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_github;
+            resources.ApplyResources(this.GitHubButton, "GitHubButton");
+            this.GitHubButton.FlatAppearance.BorderSize = 0;
+            this.GitHubButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.GitHubButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.GitHubButton.ForeColor = System.Drawing.Color.Black;
+            this.GitHubButton.Name = "GitHubButton";
+            this.Tips.SetToolTip(this.GitHubButton, resources.GetString("GitHubButton.ToolTip"));
+            this.GitHubButton.UseVisualStyleBackColor = false;
+            this.GitHubButton.Click += new System.EventHandler(this.GitHubButton_Click);
+            // 
+            // DocsButton
+            // 
+            this.DocsButton.BackColor = System.Drawing.Color.Transparent;
+            this.DocsButton.BackgroundImage = global::ScoutsEncoder.Properties.Resources.Icon_docs;
+            resources.ApplyResources(this.DocsButton, "DocsButton");
+            this.DocsButton.FlatAppearance.BorderSize = 0;
+            this.DocsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.DocsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.DocsButton.ForeColor = System.Drawing.Color.Black;
+            this.DocsButton.Name = "DocsButton";
+            this.Tips.SetToolTip(this.DocsButton, resources.GetString("DocsButton.ToolTip"));
+            this.DocsButton.UseVisualStyleBackColor = false;
+            this.DocsButton.Click += new System.EventHandler(this.DocsButton_Click);
+            // 
             // ThemeButton
             // 
-            resources.ApplyResources(this.ThemeButton, "ThemeButton");
             this.ThemeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ThemeButton.FlatAppearance.BorderSize = 0;
             this.ThemeButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ThemeButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            resources.ApplyResources(this.ThemeButton, "ThemeButton");
             this.ThemeButton.ForeColor = System.Drawing.Color.White;
             this.ThemeButton.Name = "ThemeButton";
             this.Tips.SetToolTip(this.ThemeButton, resources.GetString("ThemeButton.ToolTip"));
@@ -505,7 +523,7 @@
             // Tips
             // 
             this.Tips.AutoPopDelay = 5000;
-            this.Tips.InitialDelay = 1250;
+            this.Tips.InitialDelay = 1000;
             this.Tips.IsBalloon = true;
             this.Tips.ReshowDelay = 100;
             // 
@@ -521,11 +539,10 @@
             this.Controls.Add(this.OutputTools);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ScoutsEncoderForm";
-            this.Tips.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.InputTools.ResumeLayout(false);
             this.OutputTools.ResumeLayout(false);
-            this.Options.ResumeLayout(false);
-            this.Options.PerformLayout();
+            this.OptionsPanel.ResumeLayout(false);
+            this.OptionsPanel.PerformLayout();
             this.Title.ResumeLayout(false);
             this.Title.PerformLayout();
             this.SideMenu.ResumeLayout(false);
@@ -551,7 +568,7 @@
         private System.Windows.Forms.Button OutputCut;
         private System.Windows.Forms.Button OutputCopy;
         private System.Windows.Forms.Button ReportButton;
-        private System.Windows.Forms.Panel Options;
+        private System.Windows.Forms.Panel OptionsPanel;
         private System.Windows.Forms.Label OutputOptions;
         private System.Windows.Forms.CheckBox WordsSpacing;
         private System.Windows.Forms.CheckBox CharsSpacing;
@@ -577,6 +594,9 @@
         private System.Windows.Forms.Panel LeftBorder;
         private System.Windows.Forms.Button ThemeButton;
         private System.Windows.Forms.ToolTip Tips;
+        private System.Windows.Forms.CheckBox FillShapes;
+        private System.Windows.Forms.Button GitHubButton;
+        private System.Windows.Forms.Button DocsButton;
     }
 }
 
