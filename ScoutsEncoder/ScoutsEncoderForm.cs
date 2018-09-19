@@ -72,7 +72,7 @@ namespace ScoutsEncoder
                                               "10110", "10111", "11000", "11001", "11010", "11011", "11100"};
 
         ////code 07
-        private string[] directionsCode    = {"N.1", "N.E.1", "E.1", "S.E.1", "S.1", "S.W.1", "W.1", "N.W.1",
+        private string[] compassCode       = {"N.1", "N.E.1", "E.1", "S.E.1", "S.1", "S.W.1", "W.1", "N.W.1",
                                               "N.2", "N.E.2", "E.2", "S.E.2", "S.2", "S.W.2", "W.2", "N.W.2",
                                               "N.3", "N.E.3", "E.3", "S.E.3", "S.3", "S.W.3", "W.3", "N.W.3",
                                               "N.4", "N.E.4", "E.4", "S.E.4"};
@@ -192,10 +192,10 @@ namespace ScoutsEncoder
             "  " + "المورس",
             
             ////code 06
-            "  " + "Binary",
+            "  " + "الأعداد الثنائية",
             
             ////code 07
-            "  " + "الاتجاهات",
+            "  " + "البوصلة",
             
             ////code 08
             "  " + "الساعة",
@@ -204,7 +204,7 @@ namespace ScoutsEncoder
             "  " + "الجوال",
             
             ////code 10
-            "  " + "اكس",
+            "  " + "إكس",
             
             ////code 11
             "  " + "النجمة",
@@ -512,7 +512,7 @@ namespace ScoutsEncoder
                         break;
                         
                     case 7:
-                        encode(directionsCode);
+                        encode(compassCode);
                         break;
 
                     case 8:
@@ -618,7 +618,7 @@ namespace ScoutsEncoder
                         break;
 
                     case 7:
-                        showEncodingKey(directionsCode);
+                        showEncodingKey(compassCode);
                         break;
 
                     case 8:
