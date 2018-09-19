@@ -117,90 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="InputTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kawkab Mono Light, 9pt</value>
-  </data>
-  <data name="InputTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 20</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="InputTextBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="InputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="InputTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 331</value>
-  </data>
-  <data name="InputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="InputTextBox.Text" xml:space="preserve">
-    <value>أدخل الشفرة هنا...</value>
-  </data>
-  <data name="&gt;&gt;InputTextBox.Name" xml:space="preserve">
-    <value>InputTextBox</value>
-  </data>
-  <data name="&gt;&gt;InputTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InputTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;InputTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="OutputTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kawkab Mono Light, 9pt</value>
-  </data>
-  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 370</value>
-  </data>
-  <data name="OutputTextBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="OutputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 331</value>
-  </data>
-  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
-    <value>OutputTextBox</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <metadata name="Tips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>184, 17</value>
-  </metadata>
   <data name="InputClear.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
   <data name="InputClear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="InputClear.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 112</value>
   </data>
   <data name="InputClear.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="InputClear.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
+  <metadata name="Tips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>184, 17</value>
+  </metadata>
   <data name="InputClear.ToolTip" xml:space="preserve">
     <value>Clear</value>
   </data>
@@ -558,6 +495,108 @@
   <data name="&gt;&gt;ReportButton.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="&gt;&gt;FillShapes.Name" xml:space="preserve">
+    <value>FillShapes</value>
+  </data>
+  <data name="&gt;&gt;FillShapes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FillShapes.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;FillShapes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.Name" xml:space="preserve">
+    <value>OutputOptions</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;OutputOptions.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.Name" xml:space="preserve">
+    <value>WordsSpacing</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;WordsSpacing.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.Name" xml:space="preserve">
+    <value>CharsSpacing</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;CharsSpacing.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Slashes.Name" xml:space="preserve">
+    <value>Slashes</value>
+  </data>
+  <data name="&gt;&gt;Slashes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Slashes.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;Slashes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Dashes.Name" xml:space="preserve">
+    <value>Dashes</value>
+  </data>
+  <data name="&gt;&gt;Dashes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Dashes.Parent" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;Dashes.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="OptionsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 216</value>
+  </data>
+  <data name="OptionsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="OptionsPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 165</value>
+  </data>
+  <data name="OptionsPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 150</value>
+  </data>
+  <data name="OptionsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 150</value>
+  </data>
+  <data name="OptionsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Name" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="FillShapes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -582,9 +621,6 @@
   <data name="FillShapes.Text" xml:space="preserve">
     <value>Fill Shapes</value>
   </data>
-  <metadata name="Tips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>184, 17</value>
-  </metadata>
   <data name="FillShapes.ToolTip" xml:space="preserve">
     <value>مـلء/تفريغ الأشكال</value>
   </data>
@@ -764,36 +800,6 @@
   </data>
   <data name="&gt;&gt;Dashes.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="OptionsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 216</value>
-  </data>
-  <data name="OptionsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="OptionsPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 165</value>
-  </data>
-  <data name="OptionsPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 150</value>
-  </data>
-  <data name="OptionsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 150</value>
-  </data>
-  <data name="OptionsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.Name" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.Parent" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="ShowKeyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1005,6 +1011,120 @@
   <data name="&gt;&gt;ExitButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Name" xml:space="preserve">
+    <value>GitHubButton</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Name" xml:space="preserve">
+    <value>DocsButton</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Name" xml:space="preserve">
+    <value>ThemeButton</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="SideMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="SideMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>800, 0</value>
+  </data>
+  <data name="SideMenu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="SideMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 720</value>
+  </data>
+  <data name="SideMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Name" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Name" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ButtonsPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="ButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 156</value>
+  </data>
+  <data name="ButtonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 421</value>
+  </data>
+  <data name="ButtonsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;SetCodeButton.Name" xml:space="preserve">
     <value>SetCodeButton</value>
   </data>
@@ -1129,188 +1249,6 @@
     <value>ButtonsPanel</value>
   </data>
   <data name="&gt;&gt;DropdownPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ButtonsPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
-  </data>
-  <data name="ButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 156</value>
-  </data>
-  <data name="ButtonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 421</value>
-  </data>
-  <data name="ButtonsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="GitHubButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="GitHubButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="GitHubButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="GitHubButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="GitHubButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 606</value>
-  </data>
-  <data name="GitHubButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="GitHubButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 31</value>
-  </data>
-  <data name="GitHubButton.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="GitHubButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="GitHubButton.ToolTip" xml:space="preserve">
-    <value>Go to Project repository on GitHub
-(For Developers)</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.Name" xml:space="preserve">
-    <value>GitHubButton</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="DocsButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="DocsButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="DocsButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="DocsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="DocsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 606</value>
-  </data>
-  <data name="DocsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="DocsButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 31</value>
-  </data>
-  <data name="DocsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="DocsButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="DocsButton.ToolTip" xml:space="preserve">
-    <value>Go to Google Docs
-(We recommend using Google docs as your text editor)</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.Name" xml:space="preserve">
-    <value>DocsButton</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="ThemeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="ThemeButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt, style=Bold</value>
-  </data>
-  <data name="ThemeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ThemeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 641</value>
-  </data>
-  <data name="ThemeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ThemeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 38</value>
-  </data>
-  <data name="ThemeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="ThemeButton.Text" xml:space="preserve">
-    <value>Dark Theme</value>
-  </data>
-  <data name="ThemeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="ThemeButton.ToolTip" xml:space="preserve">
-    <value>Toogle Light/Dark Themes</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Name" xml:space="preserve">
-    <value>ThemeButton</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="SideMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="SideMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>800, 0</value>
-  </data>
-  <data name="SideMenu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="SideMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 720</value>
-  </data>
-  <data name="SideMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Name" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="SetCodeButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -1565,9 +1503,197 @@
   <data name="&gt;&gt;KeysComboBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="GitHubButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="GitHubButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="GitHubButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="GitHubButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GitHubButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 606</value>
+  </data>
+  <data name="GitHubButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="GitHubButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 31</value>
+  </data>
+  <data name="GitHubButton.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="GitHubButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="GitHubButton.ToolTip" xml:space="preserve">
+    <value>Go to Project repository on GitHub
+(For Developers)</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Name" xml:space="preserve">
+    <value>GitHubButton</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;GitHubButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="DocsButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="DocsButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="DocsButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="DocsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DocsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 606</value>
+  </data>
+  <data name="DocsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="DocsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 31</value>
+  </data>
+  <data name="DocsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="DocsButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="DocsButton.ToolTip" xml:space="preserve">
+    <value>Go to Google Docs
+(We recommend using Google docs as your text editor)</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Name" xml:space="preserve">
+    <value>DocsButton</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;DocsButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ThemeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ThemeButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 10.2pt, style=Bold</value>
+  </data>
+  <data name="ThemeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ThemeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 641</value>
+  </data>
+  <data name="ThemeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 38</value>
+  </data>
+  <data name="ThemeButton.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="ThemeButton.Text" xml:space="preserve">
+    <value>Dark Theme</value>
+  </data>
+  <data name="ThemeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="ThemeButton.ToolTip" xml:space="preserve">
+    <value>Toogle Light/Dark Themes</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Name" xml:space="preserve">
+    <value>ThemeButton</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ThemeButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <metadata name="DropdownTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="InputTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Kawkab Mono Light, 9pt</value>
+  </data>
+  <data name="InputTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="InputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="InputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 331</value>
+  </data>
+  <data name="InputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="InputTextBox.Text" xml:space="preserve">
+    <value>أدخل الشفرة هنا...</value>
+  </data>
+  <data name="&gt;&gt;InputTextBox.Name" xml:space="preserve">
+    <value>InputTextBox</value>
+  </data>
+  <data name="&gt;&gt;InputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InputTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;InputTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OutputTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Kawkab Mono Light, 9pt</value>
+  </data>
+  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 370</value>
+  </data>
+  <data name="OutputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 331</value>
+  </data>
+  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="OutputTextBox.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
+    <value>OutputTextBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

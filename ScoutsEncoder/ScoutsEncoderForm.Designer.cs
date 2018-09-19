@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScoutsEncoderForm));
-            this.InputTextBox = new System.Windows.Forms.TextBox();
-            this.OutputTextBox = new System.Windows.Forms.TextBox();
             this.InputClear = new System.Windows.Forms.Button();
             this.InputPaste = new System.Windows.Forms.Button();
             this.InputCut = new System.Windows.Forms.Button();
@@ -72,6 +70,8 @@
             this.ThemeButton = new System.Windows.Forms.Button();
             this.DropdownTimer = new System.Windows.Forms.Timer(this.components);
             this.Tips = new System.Windows.Forms.ToolTip(this.components);
+            this.InputTextBox = new System.Windows.Forms.RichTextBox();
+            this.OutputTextBox = new System.Windows.Forms.RichTextBox();
             this.InputTools.SuspendLayout();
             this.OutputTools.SuspendLayout();
             this.OptionsPanel.SuspendLayout();
@@ -80,29 +80,6 @@
             this.ButtonsPanel.SuspendLayout();
             this.DropdownPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // InputTextBox
-            // 
-            this.InputTextBox.AcceptsReturn = true;
-            this.InputTextBox.AllowDrop = true;
-            this.InputTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.InputTextBox, "InputTextBox");
-            this.InputTextBox.ForeColor = System.Drawing.Color.Black;
-            this.InputTextBox.Name = "InputTextBox";
-            this.InputTextBox.Enter += new System.EventHandler(this.InputTextBox_Enter);
-            this.InputTextBox.Leave += new System.EventHandler(this.InputTextBox_Leave);
-            // 
-            // OutputTextBox
-            // 
-            this.OutputTextBox.AcceptsReturn = true;
-            this.OutputTextBox.AllowDrop = true;
-            this.OutputTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.OutputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.OutputTextBox, "OutputTextBox");
-            this.OutputTextBox.ForeColor = System.Drawing.Color.Black;
-            this.OutputTextBox.Name = "OutputTextBox";
-            this.OutputTextBox.ReadOnly = true;
             // 
             // InputClear
             // 
@@ -527,6 +504,23 @@
             this.Tips.IsBalloon = true;
             this.Tips.ReshowDelay = 100;
             // 
+            // InputTextBox
+            // 
+            this.InputTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.InputTextBox, "InputTextBox");
+            this.InputTextBox.Name = "InputTextBox";
+            this.InputTextBox.Enter += new System.EventHandler(this.InputTextBox_Enter);
+            this.InputTextBox.Leave += new System.EventHandler(this.InputTextBox_Leave);
+            // 
+            // OutputTextBox
+            // 
+            this.OutputTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.OutputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.OutputTextBox, "OutputTextBox");
+            this.OutputTextBox.Name = "OutputTextBox";
+            this.OutputTextBox.ReadOnly = true;
+            // 
             // ScoutsEncoderForm
             // 
             resources.ApplyResources(this, "$this");
@@ -549,14 +543,11 @@
             this.ButtonsPanel.ResumeLayout(false);
             this.DropdownPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox InputTextBox;
-        private System.Windows.Forms.TextBox OutputTextBox;
         private System.Windows.Forms.Button InputClear;
         private System.Windows.Forms.Button InputPaste;
         private System.Windows.Forms.Button InputCut;
@@ -597,6 +588,8 @@
         private System.Windows.Forms.CheckBox FillShapes;
         private System.Windows.Forms.Button GitHubButton;
         private System.Windows.Forms.Button DocsButton;
+        private System.Windows.Forms.RichTextBox InputTextBox;
+        private System.Windows.Forms.RichTextBox OutputTextBox;
     }
 }
 
