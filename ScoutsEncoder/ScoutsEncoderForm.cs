@@ -294,7 +294,7 @@ namespace ScoutsEncoder
                 for (int j = 0; j < 4; j++)
                 {
                     index = (i + j * 7 + keyIndex) % 28;
-                    OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + code[index]).PadRight(16);
+                    OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + code[index]).PadRight(12);
                 }
                 OutputTextBox.Text += "\r\n";
             }

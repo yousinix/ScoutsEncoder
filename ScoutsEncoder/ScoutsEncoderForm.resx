@@ -1335,7 +1335,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="InputTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kawkab Mono Light, 9pt</value>
+    <value>Courier New, 12pt</value>
   </data>
   <data name="InputTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>66, 20</value>
@@ -1371,7 +1371,7 @@
     <value>1</value>
   </data>
   <data name="OutputTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kawkab Mono Light, 9pt</value>
+    <value>Courier New, 12pt</value>
   </data>
   <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>66, 370</value>
