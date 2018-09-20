@@ -264,75 +264,6 @@
   <data name="&gt;&gt;InputTools.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;OutputCopy.Name" xml:space="preserve">
-    <value>OutputCopy</value>
-  </data>
-  <data name="&gt;&gt;OutputCopy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OutputCopy.Parent" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="&gt;&gt;OutputCopy.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;OutputCut.Name" xml:space="preserve">
-    <value>OutputCut</value>
-  </data>
-  <data name="&gt;&gt;OutputCut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OutputCut.Parent" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="&gt;&gt;OutputCut.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.Name" xml:space="preserve">
-    <value>OutputPaste</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.Parent" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="&gt;&gt;OutputPaste.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;OutputClear.Name" xml:space="preserve">
-    <value>OutputClear</value>
-  </data>
-  <data name="&gt;&gt;OutputClear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OutputClear.Parent" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="&gt;&gt;OutputClear.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="OutputTools.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 451</value>
-  </data>
-  <data name="OutputTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 156</value>
-  </data>
-  <data name="OutputTools.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;OutputTools.Name" xml:space="preserve">
-    <value>OutputTools</value>
-  </data>
-  <data name="&gt;&gt;OutputTools.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OutputTools.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;OutputTools.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="OutputCopy.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -453,6 +384,27 @@
   <data name="&gt;&gt;OutputClear.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="OutputTools.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 451</value>
+  </data>
+  <data name="OutputTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 156</value>
+  </data>
+  <data name="OutputTools.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.Name" xml:space="preserve">
+    <value>OutputTools</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OutputTools.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="ReportButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -494,108 +446,6 @@
   </data>
   <data name="&gt;&gt;ReportButton.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;FillShapes.Name" xml:space="preserve">
-    <value>FillShapes</value>
-  </data>
-  <data name="&gt;&gt;FillShapes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FillShapes.Parent" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;FillShapes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;OutputOptions.Name" xml:space="preserve">
-    <value>OutputOptions</value>
-  </data>
-  <data name="&gt;&gt;OutputOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OutputOptions.Parent" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;OutputOptions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;WordsSpacing.Name" xml:space="preserve">
-    <value>WordsSpacing</value>
-  </data>
-  <data name="&gt;&gt;WordsSpacing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;WordsSpacing.Parent" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;WordsSpacing.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;CharsSpacing.Name" xml:space="preserve">
-    <value>CharsSpacing</value>
-  </data>
-  <data name="&gt;&gt;CharsSpacing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CharsSpacing.Parent" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;CharsSpacing.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Slashes.Name" xml:space="preserve">
-    <value>Slashes</value>
-  </data>
-  <data name="&gt;&gt;Slashes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Slashes.Parent" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;Slashes.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Dashes.Name" xml:space="preserve">
-    <value>Dashes</value>
-  </data>
-  <data name="&gt;&gt;Dashes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Dashes.Parent" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;Dashes.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="OptionsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 216</value>
-  </data>
-  <data name="OptionsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="OptionsPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 165</value>
-  </data>
-  <data name="OptionsPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 150</value>
-  </data>
-  <data name="OptionsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 150</value>
-  </data>
-  <data name="OptionsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.Name" xml:space="preserve">
-    <value>OptionsPanel</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.Parent" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;OptionsPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="FillShapes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -801,6 +651,36 @@
   <data name="&gt;&gt;Dashes.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="OptionsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 216</value>
+  </data>
+  <data name="OptionsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="OptionsPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 165</value>
+  </data>
+  <data name="OptionsPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 150</value>
+  </data>
+  <data name="OptionsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 150</value>
+  </data>
+  <data name="OptionsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Name" xml:space="preserve">
+    <value>OptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="ShowKeyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -879,51 +759,6 @@
   <data name="&gt;&gt;EncodeButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;Version.Name" xml:space="preserve">
-    <value>Version</value>
-  </data>
-  <data name="&gt;&gt;Version.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Version.Parent" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;Version.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.Name" xml:space="preserve">
-    <value>ScoutsEncoder</value>
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.Parent" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;ScoutsEncoder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 50</value>
-  </data>
-  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 70</value>
-  </data>
-  <data name="Title.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;Title.Name" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;Title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="Version.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -981,6 +816,27 @@
   <data name="&gt;&gt;ScoutsEncoder.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 50</value>
+  </data>
+  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 70</value>
+  </data>
+  <data name="Title.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;Title.Name" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="ExitButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -1009,246 +865,6 @@
     <value>SideMenu</value>
   </data>
   <data name="&gt;&gt;ExitButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.Name" xml:space="preserve">
-    <value>GitHubButton</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;GitHubButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.Name" xml:space="preserve">
-    <value>DocsButton</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;DocsButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Name" xml:space="preserve">
-    <value>ThemeButton</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;ThemeButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="SideMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="SideMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>800, 0</value>
-  </data>
-  <data name="SideMenu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="SideMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 720</value>
-  </data>
-  <data name="SideMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Name" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SideMenu.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Name" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Parent" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ButtonsPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
-  </data>
-  <data name="ButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 156</value>
-  </data>
-  <data name="ButtonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 421</value>
-  </data>
-  <data name="ButtonsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
-    <value>SideMenu</value>
-  </data>
-  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.Name" xml:space="preserve">
-    <value>SetCodeButton</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;SetCodeButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.Name" xml:space="preserve">
-    <value>UpperBorder</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;UpperBorder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;MiddleBorder.Name" xml:space="preserve">
-    <value>MiddleBorder</value>
-  </data>
-  <data name="&gt;&gt;MiddleBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MiddleBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;MiddleBorder.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.Name" xml:space="preserve">
-    <value>BottomBorder</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;BottomBorder.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.Name" xml:space="preserve">
-    <value>RightBorder</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;RightBorder.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.Name" xml:space="preserve">
-    <value>LeftBorder</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;LeftBorder.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.Name" xml:space="preserve">
-    <value>CodesComboBox</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;CodesComboBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.Name" xml:space="preserve">
-    <value>KeysComboBox</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.Parent" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;KeysComboBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="DropdownPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1</value>
-  </data>
-  <data name="DropdownPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 1, 0, 1</value>
-  </data>
-  <data name="DropdownPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 130</value>
-  </data>
-  <data name="DropdownPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>280, 40</value>
-  </data>
-  <data name="DropdownPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 130</value>
-  </data>
-  <data name="DropdownPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Name" xml:space="preserve">
-    <value>DropdownPanel</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.Parent" xml:space="preserve">
-    <value>ButtonsPanel</value>
-  </data>
-  <data name="&gt;&gt;DropdownPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="SetCodeButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -1503,6 +1119,63 @@
   <data name="&gt;&gt;KeysComboBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="DropdownPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1</value>
+  </data>
+  <data name="DropdownPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 1, 0, 1</value>
+  </data>
+  <data name="DropdownPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 130</value>
+  </data>
+  <data name="DropdownPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>280, 40</value>
+  </data>
+  <data name="DropdownPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 130</value>
+  </data>
+  <data name="DropdownPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Name" xml:space="preserve">
+    <value>DropdownPanel</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.Parent" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;DropdownPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ButtonsPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="ButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 156</value>
+  </data>
+  <data name="ButtonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 421</value>
+  </data>
+  <data name="ButtonsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Name" xml:space="preserve">
+    <value>ButtonsPanel</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.Parent" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;ButtonsPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="GitHubButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -1631,6 +1304,33 @@
   <data name="&gt;&gt;ThemeButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="SideMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="SideMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>800, 0</value>
+  </data>
+  <data name="SideMenu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="SideMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 720</value>
+  </data>
+  <data name="SideMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Name" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SideMenu.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="DropdownTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -1640,6 +1340,12 @@
   <data name="InputTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>66, 20</value>
   </data>
+  <data name="InputTextBox.MaxLength" type="System.Int32, mscorlib">
+    <value>2147483647</value>
+  </data>
+  <data name="InputTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="InputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
@@ -1647,7 +1353,7 @@
     <value>714, 331</value>
   </data>
   <data name="InputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="InputTextBox.Text" xml:space="preserve">
     <value>أدخل الشفرة هنا...</value>
@@ -1656,7 +1362,7 @@
     <value>InputTextBox</value>
   </data>
   <data name="&gt;&gt;InputTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;InputTextBox.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1670,6 +1376,12 @@
   <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>66, 370</value>
   </data>
+  <data name="OutputTextBox.MaxLength" type="System.Int32, mscorlib">
+    <value>2147483647</value>
+  </data>
+  <data name="OutputTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="OutputTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
@@ -1677,16 +1389,13 @@
     <value>714, 331</value>
   </data>
   <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="OutputTextBox.Text" xml:space="preserve">
-    <value />
+    <value>8</value>
   </data>
   <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
     <value>OutputTextBox</value>
   </data>
   <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
     <value>$this</value>

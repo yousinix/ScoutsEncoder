@@ -70,8 +70,8 @@
             this.ThemeButton = new System.Windows.Forms.Button();
             this.DropdownTimer = new System.Windows.Forms.Timer(this.components);
             this.Tips = new System.Windows.Forms.ToolTip(this.components);
-            this.InputTextBox = new System.Windows.Forms.RichTextBox();
-            this.OutputTextBox = new System.Windows.Forms.RichTextBox();
+            this.InputTextBox = new System.Windows.Forms.TextBox();
+            this.OutputTextBox = new System.Windows.Forms.TextBox();
             this.InputTools.SuspendLayout();
             this.OutputTools.SuspendLayout();
             this.OptionsPanel.SuspendLayout();
@@ -506,6 +506,7 @@
             // 
             // InputTextBox
             // 
+            this.InputTextBox.AllowDrop = true;
             this.InputTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.InputTextBox, "InputTextBox");
@@ -543,6 +544,7 @@
             this.ButtonsPanel.ResumeLayout(false);
             this.DropdownPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -588,8 +590,8 @@
         private System.Windows.Forms.CheckBox FillShapes;
         private System.Windows.Forms.Button GitHubButton;
         private System.Windows.Forms.Button DocsButton;
-        private System.Windows.Forms.RichTextBox InputTextBox;
-        private System.Windows.Forms.RichTextBox OutputTextBox;
+        private System.Windows.Forms.TextBox InputTextBox;
+        private System.Windows.Forms.TextBox OutputTextBox;
     }
 }
 

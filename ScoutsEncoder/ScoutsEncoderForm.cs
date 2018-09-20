@@ -269,7 +269,7 @@ namespace ScoutsEncoder
                     outputTextCopy += code[index];
 
                     if (i + 1 <= inputTextCopy.Length - 1) //check if (i + 1) is an existing index
-                        if (inputTextCopy[i + 1] != ' ' && inputTextCopy[i + 1] != '\n' && !Char.IsPunctuation(inputTextCopy[i + 1]))
+                        if (inputTextCopy[i + 1] != ' ' && inputTextCopy[i + 1] != '\r' && !Char.IsPunctuation(inputTextCopy[i + 1]))
                             if (isDashesChecked && isCharsSpacingChecked)
                                 outputTextCopy += " - ";
                             else if (!isDashesChecked && !isCharsSpacingChecked)
