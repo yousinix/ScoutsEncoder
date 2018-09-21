@@ -1,19 +1,17 @@
 ![cover](https://user-images.githubusercontent.com/41103290/45790668-3b388700-bc86-11e8-9965-ca4158a896c4.jpg)
 
 # Using ScoutsEncoder (Personal Use)
-1. Click **"Clone or download"** and choose **"Download ZIP"**.
-2. Extract the downloaded file to any **location**.
-3. Go to your chosen **location** then go to the following directory `ScoutsEncoder-master\Fonts\`
-4. Select all **Fonts** then Right click and choose **Install**.
-5. Finally, go to the following directory `ScoutsEncoder-master\ScoutsEncoder\bin\Debug\`
-6. Double click on the following file `ScoutsEncoder.exe` to run the program.
-7. For more instructions check `UserManual.PDF` file attached with the project.
+1. Download both [Cairo Bold](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/Fonts/Cairo-Bold.ttf) & [Cairo Black](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/Fonts/Cairo-Black.ttf) Fonts.
+2. Select both fonts then Right Click and choose **Install**.
+3. Download [ScoutsEncoder.exe](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/ScoutsEncoder/bin/Debug/ScoutsEncoder.exe) file then run it.
+4. For more instructions, check `UserManual.PDF` file attached with the project.
 
 # Contributing to ScoutsEncoder (For Developers)
 1. Fork and clone the repository.
-2. Create a new branch using `git checkout -b <my-branch-name>`
-3. Make your changes and make sure the software still run.
-4. Push to your fork and submit a pull request from your branch to `master`.
+2. Install both [Cairo Bold](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/Fonts/Cairo-Bold.ttf) & [Cairo Black](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/Fonts/Cairo-Black.ttf) Fonts.
+3. Create a new branch using `git checkout -b <my-branch-name>`
+4. Make your changes and make sure the software still run.
+5. Push to your fork and submit a pull request from your branch to `master`.
 
 # Features:
 - 14 Available Ciphers.
