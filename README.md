@@ -1,10 +1,10 @@
 ![cover](https://user-images.githubusercontent.com/41103290/45790668-3b388700-bc86-11e8-9965-ca4158a896c4.jpg)
 
-# Using ScoutsEncoder (Personal Use)
+# Download ScoutsEncoder (For Personal Use)
 1. Download both [Cairo Bold](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/Fonts/Cairo-Bold.ttf) & [Cairo Black](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/Fonts/Cairo-Black.ttf) Fonts.
 2. Select both fonts then Right Click and choose **Install**.
 3. Download [ScoutsEncoder.exe](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/ScoutsEncoder/bin/Debug/ScoutsEncoder.exe) file then run it.
-4. For more instructions, check `UserManual.PDF` file attached with the project.
+4. Check or Download [User Manual](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/UserManual.pdf) and [Ciphers Handbook](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/CiphersHandbook.pdf) PDFs for more help.
 
 # Contributing to ScoutsEncoder (For Developers)
 1. Fork and clone the repository.
@@ -15,13 +15,13 @@
 
 # Features:
 - 14 Available Ciphers.
-- 5 Output Styles.
 - Dark/Light Themes.
+- 5 Output Styles.
 - Show Cipher Full Encoding Key.
 - Redirect Button to Project's Repository on GitHub.
 - Redirect Button to Google Docs.
-- User Manual PDF attached.
-- Ciphers Handbook PDF attached.
+- [User Manual](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/UserManual.pdf) PDF file attached.
+- [Ciphers Handbook](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/master/CiphersHandbook.pdf) PDF file attached.
 
 # Available Ciphers:
 01. *يسوع
