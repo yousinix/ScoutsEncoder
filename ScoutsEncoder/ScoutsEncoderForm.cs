@@ -1071,7 +1071,20 @@ namespace ScoutsEncoder
             OutputTextBox.Text = "";
         }
 
+        private void ExportAudio_Click(object sender, EventArgs e)
+        {
+            string filePath;
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Choose output destination";
+            //fbd.ShowNewFolderButton = false;
 
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                filePath = fbd.SelectedPath;
+            }
+     
+        }
 
 
         // InputTextBox Placeholder Text
@@ -1086,10 +1099,5 @@ namespace ScoutsEncoder
             if (InputTextBox.Text == "")
                 InputTextBox.Text = "أدخل الشفرة هنا...";
         }
-
-
-
-
-                                  
     }
 }

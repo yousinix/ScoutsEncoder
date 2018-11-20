@@ -516,6 +516,7 @@
             this.ExportAudio.Name = "ExportAudio";
             this.Tips.SetToolTip(this.ExportAudio, resources.GetString("ExportAudio.ToolTip"));
             this.ExportAudio.UseVisualStyleBackColor = false;
+            this.ExportAudio.Click += new System.EventHandler(this.ExportAudio_Click);
             // 
             // InputTextBox
             // 
