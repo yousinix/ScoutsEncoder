@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MorseCodeGenerator.cs" />
     <Compile Include="ScoutsEncoderForm.cs">
       <SubType>Form</SubType>
     </Compile>
