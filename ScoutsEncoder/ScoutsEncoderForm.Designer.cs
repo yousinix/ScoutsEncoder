@@ -70,6 +70,7 @@
             this.ThemeButton = new System.Windows.Forms.Button();
             this.DropdownTimer = new System.Windows.Forms.Timer(this.components);
             this.Tips = new System.Windows.Forms.ToolTip(this.components);
+            this.ExportAudio = new System.Windows.Forms.Button();
             this.InputTextBox = new System.Windows.Forms.TextBox();
             this.OutputTextBox = new System.Windows.Forms.TextBox();
             this.InputTools.SuspendLayout();
@@ -504,6 +505,18 @@
             this.Tips.IsBalloon = true;
             this.Tips.ReshowDelay = 100;
             // 
+            // ExportAudio
+            // 
+            this.ExportAudio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ExportAudio.BackgroundImage = global::ScoutsEncoder.Properties.Resources.DarkIcon_ExportAudio;
+            resources.ApplyResources(this.ExportAudio, "ExportAudio");
+            this.ExportAudio.FlatAppearance.BorderSize = 0;
+            this.ExportAudio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.ExportAudio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.ExportAudio.Name = "ExportAudio";
+            this.Tips.SetToolTip(this.ExportAudio, resources.GetString("ExportAudio.ToolTip"));
+            this.ExportAudio.UseVisualStyleBackColor = false;
+            // 
             // InputTextBox
             // 
             this.InputTextBox.AllowDrop = true;
@@ -527,6 +540,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.ExportAudio);
             this.Controls.Add(this.SideMenu);
             this.Controls.Add(this.InputTextBox);
             this.Controls.Add(this.InputTools);
@@ -592,6 +606,7 @@
         private System.Windows.Forms.Button DocsButton;
         private System.Windows.Forms.TextBox InputTextBox;
         private System.Windows.Forms.TextBox OutputTextBox;
+        private System.Windows.Forms.Button ExportAudio;
     }
 }
 

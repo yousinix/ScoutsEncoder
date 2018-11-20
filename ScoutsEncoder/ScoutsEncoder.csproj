@@ -143,27 +143,29 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DarkIcon_Clear.png" />
+    <EmbeddedResource Include="Resources\DarkIcon_Clear.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DarkIcon_Copy.png" />
+    <EmbeddedResource Include="Resources\DarkIcon_Copy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DarkIcon_Cut.png" />
+    <EmbeddedResource Include="Resources\DarkIcon_Cut.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DarkIcon_Paste.png" />
+    <EmbeddedResource Include="Resources\DarkIcon_Paste.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogoSE.ico" />
-    <None Include="Resources\Icon_docs.png" />
-    <None Include="Resources\LightIcon_github.png" />
-    <None Include="Resources\DarkIcon_github.png" />
-    <None Include="Resources\LightIcon_Paste.png" />
-    <None Include="Resources\LightIcon_Cut.png" />
-    <None Include="Resources\LightIcon_Copy.png" />
-    <None Include="Resources\LightIcon_Clear.png" />
-    <None Include="Resources\LogoSE.ico" />
+    <EmbeddedResource Include="Resources\LightIcon_ExportAudio.png" />
+    <EmbeddedResource Include="Resources\DarkIcon_ExportAudio.png" />
+    <EmbeddedResource Include="Resources\Icon_docs.png" />
+    <EmbeddedResource Include="Resources\LightIcon_github.png" />
+    <EmbeddedResource Include="Resources\DarkIcon_github.png" />
+    <EmbeddedResource Include="Resources\LightIcon_Paste.png" />
+    <EmbeddedResource Include="Resources\LightIcon_Cut.png" />
+    <EmbeddedResource Include="Resources\LightIcon_Copy.png" />
+    <EmbeddedResource Include="Resources\LightIcon_Clear.png" />
+    <EmbeddedResource Include="Resources\LogoSE.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

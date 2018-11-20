@@ -332,6 +332,19 @@ namespace ScoutsEncoder
         }
 
 
+        private void showExportAudio(bool status)
+        {
+            if (status)
+            {
+                ExportAudio.Visible = true;
+                ExportAudio.Enabled = true;
+            }
+            else
+            {
+                ExportAudio.Visible = false;
+                ExportAudio.Enabled = false;
+            }
+        }
 
 
         // SideMenu Buttons
@@ -357,24 +370,28 @@ namespace ScoutsEncoder
                 {
                     case 0:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text = "   " + "أ = " + jesusCode[0];
                         KeysComboBox.Items.AddRange(initializeKeysList(jesusCode));
                         break;
 
                     case 1:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text = "   " + "أ = " + numericCode[0];
                         KeysComboBox.Items.AddRange(initializeKeysList(numericCode));
                         break;
 
                     case 2:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text = "   " + "أ = " + invertedCode[0];
                         KeysComboBox.Items.AddRange(initializeKeysList(invertedCode));
                         break;
 
                     case 3:
                         showFillShapes(false);
+                        showExportAudio(false);
                         string[] items = new string[numericCode.Length];
                         for (int i = 0; i < numericCode.Length; i++)
                         {
@@ -386,12 +403,14 @@ namespace ScoutsEncoder
 
                     case 4:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 5:
                         showFillShapes(false);
+                        showExportAudio(true);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
@@ -404,12 +423,14 @@ namespace ScoutsEncoder
 
                     case 7:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 8:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text = "  " + "مع عقارب الساعة";
                         KeysComboBox.Items.AddRange(new object[] { "  " + "مع عقارب الساعة",
                                                                    "  " + "عكس عقارب الساعة" });
@@ -417,6 +438,7 @@ namespace ScoutsEncoder
 
                     case 9:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text = "   " + "أ = " + mobile01Code[0];
                         KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + mobile01Code[0],
                                                                    "   " + "أ = " + mobile02Code[0] });
@@ -424,6 +446,7 @@ namespace ScoutsEncoder
 
                     case 10:
                         showFillShapes(false);
+                        showExportAudio(false);
                         KeysComboBox.Text = "   " + "أ = " + xCode[0];
                         KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + xCode[0],
                                                                    "   " + "أ = " + xCode[7],
@@ -433,6 +456,7 @@ namespace ScoutsEncoder
 
                     case 11:
                         showFillShapes(true);
+                        showExportAudio(false);
                         KeysComboBox.Text = "   " + "أ = " + starCode[0];
                         KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + starCode[0],
                                                                    "   " + "أ = " + starCode[7],
@@ -442,12 +466,14 @@ namespace ScoutsEncoder
 
                     case 12:
                         showFillShapes(true);
+                        showExportAudio(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 13:
                         showFillShapes(true);
+                        showExportAudio(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
@@ -758,7 +784,9 @@ namespace ScoutsEncoder
                 OutputCut   .BackgroundImage = Properties.Resources.LightIcon_Cut;
                 OutputPaste .BackgroundImage = Properties.Resources.LightIcon_Paste;
                 OutputClear .BackgroundImage = Properties.Resources.LightIcon_Clear;
-                            
+
+                ExportAudio .BackgroundImage = Properties.Resources.LightIcon_ExportAudio;
+
                 ExitButton  .BackgroundImage = Properties.Resources.LightIcon_Clear;
                 GitHubButton.BackgroundImage = Properties.Resources.LightIcon_github;
 
@@ -781,6 +809,10 @@ namespace ScoutsEncoder
                 OutputPaste.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
                 OutputClear.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
                 OutputClear.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+
+                ExportAudio.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                ExportAudio.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
+                ExportAudio.BackColor = ColorTranslator.FromHtml("#3e3e42");
             }
 
             else
@@ -845,6 +877,8 @@ namespace ScoutsEncoder
                 OutputPaste .BackgroundImage = Properties.Resources.DarkIcon_Paste;
                 OutputClear .BackgroundImage = Properties.Resources.DarkIcon_Clear;
 
+                ExportAudio .BackgroundImage = Properties.Resources.DarkIcon_ExportAudio;
+
                 ExitButton  .BackgroundImage = Properties.Resources.DarkIcon_Clear;
                 GitHubButton.BackgroundImage = Properties.Resources.DarkIcon_github;
 
@@ -867,6 +901,10 @@ namespace ScoutsEncoder
                 OutputPaste.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
                 OutputClear.FlatAppearance.MouseDownBackColor = Color.Gainsboro;
                 OutputClear.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+
+                ExportAudio.FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+                ExportAudio.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+                ExportAudio.BackColor = Color.WhiteSmoke;
             }
         }
 
