@@ -261,7 +261,7 @@ namespace ScoutsEncoder
             modifiedText = modifiedText.Replace(") (", " ").Replace(")(", ".");
 
             // Remove any brackets left
-            modifiedText = modifiedText.Replace("(", "").Replace(")", "");
+            modifiedText = modifiedText.Replace("(", " ").Replace(")", " ");
 
             return modifiedText;
         }
