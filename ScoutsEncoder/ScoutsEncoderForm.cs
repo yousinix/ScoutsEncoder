@@ -1107,6 +1107,16 @@ namespace ScoutsEncoder
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 filePath = fbd.SelectedPath + "\\MorseCode.wav";
+
+                MorseCodeGenerator wave = new MorseCodeGenerator(modifyTextForAudioExport(OutputTextBox.Text), filePath);
+
+                //Confirmation message
+                string Text = "Code successfully generated!"
+                            + "\n\n"
+                            + "Your output destination is:\n"
+                            + fbd.SelectedPath;
+
+                MessageBox.Show(Text, "MorseCode.wav");
             }
         }
 
