@@ -221,6 +221,7 @@ namespace ScoutsEncoder
             });
         }
 
+
         private string modifyText(string textToModify)
         {
             // Replace odd characters with known characters
@@ -236,6 +237,31 @@ namespace ScoutsEncoder
 
             // Replace multiple spaces with a single space
             modifiedText = Regex.Replace(modifiedText, " {2,}", " ");
+
+            return modifiedText;
+        }
+
+        private string modifyTextForAudioExport(string textToModify)
+        {
+            // Simplify String and replace new lines with spaces
+            string modifiedText = textToModify
+                                  .Replace(")  /  (", ") (")
+                                  .Replace(") / (", ") (")
+                                  .Replace(") - (", ")(")
+                                  .Replace(")-(", ")(")
+                                  .Replace("\r\n", " ");
+
+            // Remove Anything that doesn't belong to morse code
+            modifiedText = Regex.Replace(modifiedText, @"[^\w\s\-\•\(\)]", "");
+
+            // Replace multiple spaces with a single space
+            modifiedText = Regex.Replace(modifiedText, " {2,}", " ");
+
+            // Add space between words and dots between letters
+            modifiedText = modifiedText.Replace(") (", " ").Replace(")(", ".");
+
+            // Remove any brackets left
+            modifiedText = modifiedText.Replace("(", "").Replace(")", "");
 
             return modifiedText;
         }
@@ -1073,18 +1099,17 @@ namespace ScoutsEncoder
 
         private void ExportAudio_Click(object sender, EventArgs e)
         {
-            string filePath;
+            string filePath = "";
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
             fbd.Description = "Choose output destination";
-            //fbd.ShowNewFolderButton = false;
 
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                filePath = fbd.SelectedPath;
+                filePath = fbd.SelectedPath + "\\MorseCode.wav";
             }
-     
         }
+
 
 
         // InputTextBox Placeholder Text
