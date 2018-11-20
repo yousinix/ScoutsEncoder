@@ -9,7 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ScoutsEncoder
@@ -221,24 +221,28 @@ namespace ScoutsEncoder
             });
         }
 
-        private string replaceOddCharacters(string modifiedText)
+        private string modifyText(string textToModify)
         {
-            modifiedText = modifiedText
-                          .Replace("أ", "ا")
-                          .Replace("إ", "ا")
-                          .Replace("آ", "ا")
-                          .Replace("ء", "ا")
-                          .Replace("ة", "ه")
-                          .Replace("ؤ", "و")
-                          .Replace("ى", "ي")
-                          .Replace("ئ", "ي");
+            // Replace odd characters with known characters
+            string modifiedText = textToModify
+                                  .Replace("أ", "ا")
+                                  .Replace("إ", "ا")
+                                  .Replace("آ", "ا")
+                                  .Replace("ء", "ا")
+                                  .Replace("ة", "ه")
+                                  .Replace("ؤ", "و")
+                                  .Replace("ى", "ي")
+                                  .Replace("ئ", "ي");
+
+            // Replace multiple spaces with a single space
+            modifiedText = Regex.Replace(modifiedText, " {2,}", " ");
 
             return modifiedText;
         }
 
         private void encode(string[] code)
         {
-            string inputTextCopy  = replaceOddCharacters(InputTextBox.Text);
+            string inputTextCopy  = modifyText(InputTextBox.Text);
             string outputTextCopy = "";
 
             int index;
