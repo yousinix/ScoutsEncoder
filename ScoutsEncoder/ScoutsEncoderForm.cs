@@ -1099,16 +1099,16 @@ namespace ScoutsEncoder
 
         private void ExportAudio_Click(object sender, EventArgs e)
         {
-            string filePath = "";
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder  = Environment.SpecialFolder.Desktop;
             fbd.Description = "Choose output destination";
 
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                filePath = fbd.SelectedPath + "\\MorseCode.wav";
+                string filePath = fbd.SelectedPath + "\\MorseCode.wav";
 
-                MorseCodeGenerator wave = new MorseCodeGenerator(ModifyTextForAudioExport(OutputTextBox.Text), filePath);
+                MorseCodeGenerator audioData = new MorseCodeGenerator(ModifyTextForAudioExport(OutputTextBox.Text));
+                audioData.Save(filePath);
 
                 //Confirmation message
                 string Text = "Your file is generated successfully!"
