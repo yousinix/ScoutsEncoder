@@ -870,46 +870,46 @@
   <data name="&gt;&gt;ExitButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="SetCodeButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="SetCipherButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="SetCodeButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="SetCipherButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="SetCodeButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="SetCipherButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Cairo, 10.2pt, style=Bold</value>
   </data>
-  <data name="SetCodeButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="SetCipherButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="SetCodeButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="SetCipherButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 0, 0</value>
   </data>
-  <data name="SetCodeButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="SetCipherButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 40</value>
   </data>
-  <data name="SetCodeButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="SetCipherButton.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
-  <data name="SetCodeButton.Text" xml:space="preserve">
+  <data name="SetCipherButton.Text" xml:space="preserve">
     <value>إعدادات الشفرة</value>
   </data>
-  <data name="SetCodeButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="SetCipherButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="SetCodeButton.ToolTip" xml:space="preserve">
+  <data name="SetCipherButton.ToolTip" xml:space="preserve">
     <value>إضغط هنا لاختيار الشفرة و المفتاح</value>
   </data>
-  <data name="&gt;&gt;SetCodeButton.Name" xml:space="preserve">
-    <value>SetCodeButton</value>
+  <data name="&gt;&gt;SetCipherButton.Name" xml:space="preserve">
+    <value>SetCipherButton</value>
   </data>
-  <data name="&gt;&gt;SetCodeButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;SetCipherButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;SetCodeButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;SetCipherButton.Parent" xml:space="preserve">
     <value>DropdownPanel</value>
   </data>
-  <data name="&gt;&gt;SetCodeButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;SetCipherButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="UpperBorder.Location" type="System.Drawing.Point, System.Drawing">
@@ -1032,49 +1032,49 @@
   <data name="&gt;&gt;LeftBorder.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="CodesComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="CiphersComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
-  <data name="CodesComboBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="CiphersComboBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
-  <data name="CodesComboBox.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="CiphersComboBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Cairo, 10.2pt, style=Bold</value>
   </data>
-  <data name="CodesComboBox.IntegralHeight" type="System.Boolean, mscorlib">
+  <data name="CiphersComboBox.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="CodesComboBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="CiphersComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>-17, 47</value>
   </data>
-  <data name="CodesComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="CiphersComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="CodesComboBox.MaxDropDownItems" type="System.Int32, mscorlib">
+  <data name="CiphersComboBox.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="CodesComboBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+  <data name="CiphersComboBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <data name="CodesComboBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="CiphersComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>293, 40</value>
   </data>
-  <data name="CodesComboBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="CiphersComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="CodesComboBox.Text" xml:space="preserve">
+  <data name="CiphersComboBox.Text" xml:space="preserve">
     <value>  اختر الشفرة</value>
   </data>
-  <data name="&gt;&gt;CodesComboBox.Name" xml:space="preserve">
-    <value>CodesComboBox</value>
+  <data name="&gt;&gt;CiphersComboBox.Name" xml:space="preserve">
+    <value>CiphersComboBox</value>
   </data>
-  <data name="&gt;&gt;CodesComboBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;CiphersComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CodesComboBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;CiphersComboBox.Parent" xml:space="preserve">
     <value>DropdownPanel</value>
   </data>
-  <data name="&gt;&gt;CodesComboBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;CiphersComboBox.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="KeysComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">

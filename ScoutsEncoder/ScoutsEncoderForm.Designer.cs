@@ -57,13 +57,13 @@
             this.SideMenu = new System.Windows.Forms.Panel();
             this.ButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.DropdownPanel = new System.Windows.Forms.Panel();
-            this.SetCodeButton = new System.Windows.Forms.Button();
+            this.SetCipherButton = new System.Windows.Forms.Button();
             this.UpperBorder = new System.Windows.Forms.Panel();
             this.MiddleBorder = new System.Windows.Forms.Panel();
             this.BottomBorder = new System.Windows.Forms.Panel();
             this.RightBorder = new System.Windows.Forms.Panel();
             this.LeftBorder = new System.Windows.Forms.Panel();
-            this.CodesComboBox = new System.Windows.Forms.ComboBox();
+            this.CiphersComboBox = new System.Windows.Forms.ComboBox();
             this.KeysComboBox = new System.Windows.Forms.ComboBox();
             this.GitHubButton = new System.Windows.Forms.Button();
             this.DocsButton = new System.Windows.Forms.Button();
@@ -382,29 +382,29 @@
             // 
             // DropdownPanel
             // 
-            this.DropdownPanel.Controls.Add(this.SetCodeButton);
+            this.DropdownPanel.Controls.Add(this.SetCipherButton);
             this.DropdownPanel.Controls.Add(this.UpperBorder);
             this.DropdownPanel.Controls.Add(this.MiddleBorder);
             this.DropdownPanel.Controls.Add(this.BottomBorder);
             this.DropdownPanel.Controls.Add(this.RightBorder);
             this.DropdownPanel.Controls.Add(this.LeftBorder);
-            this.DropdownPanel.Controls.Add(this.CodesComboBox);
+            this.DropdownPanel.Controls.Add(this.CiphersComboBox);
             this.DropdownPanel.Controls.Add(this.KeysComboBox);
             resources.ApplyResources(this.DropdownPanel, "DropdownPanel");
             this.DropdownPanel.Name = "DropdownPanel";
             // 
-            // SetCodeButton
+            // SetCipherButton
             // 
-            this.SetCodeButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.SetCodeButton, "SetCodeButton");
-            this.SetCodeButton.FlatAppearance.BorderSize = 0;
-            this.SetCodeButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.SetCodeButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.SetCodeButton.ForeColor = System.Drawing.Color.Black;
-            this.SetCodeButton.Name = "SetCodeButton";
-            this.Tips.SetToolTip(this.SetCodeButton, resources.GetString("SetCodeButton.ToolTip"));
-            this.SetCodeButton.UseVisualStyleBackColor = false;
-            this.SetCodeButton.Click += new System.EventHandler(this.SetCodeButton_Click);
+            this.SetCipherButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.SetCipherButton, "SetCipherButton");
+            this.SetCipherButton.FlatAppearance.BorderSize = 0;
+            this.SetCipherButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.SetCipherButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.SetCipherButton.ForeColor = System.Drawing.Color.Black;
+            this.SetCipherButton.Name = "SetCipherButton";
+            this.Tips.SetToolTip(this.SetCipherButton, resources.GetString("SetCipherButton.ToolTip"));
+            this.SetCipherButton.UseVisualStyleBackColor = false;
+            this.SetCipherButton.Click += new System.EventHandler(this.SetCipherButton_Click);
             // 
             // UpperBorder
             // 
@@ -431,15 +431,15 @@
             resources.ApplyResources(this.LeftBorder, "LeftBorder");
             this.LeftBorder.Name = "LeftBorder";
             // 
-            // CodesComboBox
+            // CiphersComboBox
             // 
-            resources.ApplyResources(this.CodesComboBox, "CodesComboBox");
-            this.CodesComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CodesComboBox.ForeColor = System.Drawing.Color.Black;
-            this.CodesComboBox.FormattingEnabled = true;
-            this.CodesComboBox.Name = "CodesComboBox";
-            this.CodesComboBox.SelectedIndexChanged += new System.EventHandler(this.CodesComboBox_SelectedIndexChanged);
-            this.CodesComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CodesComboBox_MouseClick);
+            resources.ApplyResources(this.CiphersComboBox, "CiphersComboBox");
+            this.CiphersComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CiphersComboBox.ForeColor = System.Drawing.Color.Black;
+            this.CiphersComboBox.FormattingEnabled = true;
+            this.CiphersComboBox.Name = "CiphersComboBox";
+            this.CiphersComboBox.SelectedIndexChanged += new System.EventHandler(this.CiphersComboBox_SelectedIndexChanged);
+            this.CiphersComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CiphersComboBox_MouseClick);
             // 
             // KeysComboBox
             // 
@@ -591,8 +591,8 @@
         private System.Windows.Forms.Panel SideMenu;
         private System.Windows.Forms.FlowLayoutPanel ButtonsPanel;
         private System.Windows.Forms.Panel DropdownPanel;
-        private System.Windows.Forms.Button SetCodeButton;
-        private System.Windows.Forms.ComboBox CodesComboBox;
+        private System.Windows.Forms.Button SetCipherButton;
+        private System.Windows.Forms.ComboBox CiphersComboBox;
         private System.Windows.Forms.ComboBox KeysComboBox;
         private System.Windows.Forms.Timer DropdownTimer;
         private System.Windows.Forms.Panel RightBorder;

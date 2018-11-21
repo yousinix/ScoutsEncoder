@@ -19,139 +19,139 @@ namespace ScoutsEncoder
         public ScoutsEncoderForm()
         {
             InitializeComponent();
-            initializeCodesComboBox();
+            InitializeCiphersComboBox();
         }
 
-        
-        //Codes
+
+        //Ciphers
         private List<string> arabicLetters = new List<string>
-                                             {"ا", "ب", "ت", "ث", "ج", "ح", "خ",
-                                              "د", "ذ", "ر", "ز", "س", "ش", "ص",
-                                              "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
-                                              "ك", "ل", "م", "ن", "ه", "و", "ي"};
-        ////code 00
-        private string[] jesusCode         = {"ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
-                                              "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
-                                              "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
-                                              "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"};
+                                               {"ا", "ب", "ت", "ث", "ج", "ح", "خ",
+                                                "د", "ذ", "ر", "ز", "س", "ش", "ص",
+                                                "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
+                                                "ك", "ل", "م", "ن", "ه", "و", "ي"};
+        // Cipher 00                        
+        private string[] jesusCipher         = {"ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
+                                                "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
+                                                "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
+                                                "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"};
+                                            
+        // Cipher 01                        
+        private string[] numericCipher       = {"١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
+                                                "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
+                                                "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
+                                                "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"};
+                                            
+        // Cipher 02                        
+        private string[] invertedCipher      = {"ي", "و", "ه", "ن", "م", "ل", "ك",
+                                                "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
+                                                "ص", "ش", "س", "ز", "ر", "ذ", "د",
+                                                "خ", "ح", "ج", "ث", "ت", "ب", "ا"};
+                                            
+        // Cipher 03                        
+        private string[] caesarCipher        = {"ا", "ب", "ت", "ث", "ج", "ح", "خ",
+                                                "د", "ذ", "ر", "ز", "س", "ش", "ص",
+                                                "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
+                                                "ك", "ل", "م", "ن", "ه", "و", "ي"};
+                                            
+        // Cipher 04                        
+        private string[] manuscriptCipher    = {"ا ", "ب ", "ت ", "ث ", "ج ", "ح ", "خ ",
+                                                "د ", "ذ ", "ر ", "ز ", "س ", "ش ", "ص ",
+                                                "ض ", "ط ", "ظ ", "ع ", "غ ", "ف ", "ق ",
+                                                "ك ", "ل ", "م ", "ن ", "ه ", "و ", "ي "};
+                                            
+        // Cipher 05                        
+        private string[] morseCipher         = {"(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
+                                                "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
+                                                "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
+                                                "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"  };
+                                            
+        // Cipher 06                        
+        private string[] binaryCipher        = {"00001", "00010", "00011", "00100", "00101", "00110", "00111",
+                                                "01000", "01001", "01010", "01011", "01100", "01101", "01110",
+                                                "01111", "10000", "10001", "10010", "10011", "10100", "10101",
+                                                "10110", "10111", "11000", "11001", "11010", "11011", "11100"};
+                                            
+        // Cipher 07                        
+        private string[] compassCipher       = {"N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
+                                                "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
+                                                "N(٣)", "NE(٣)", "E(٣)", "SE(٣)", "S(٣)", "SW(٣)", "W(٣)", "NW(٣)",
+                                                "N(٤)", "NE(٤)", "E(٤)", "SE(٤)"};
+                                            
+        // Cipher 08 - 01                   
+        private string[] clockwiseCipher     = {"١:١٢", "١:١" , "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
+                                                "١:٧" , "١:٨" , "١:٩" , "١:١٠", "١:١١", "٢:١٢", "٢:١",
+                                                "٢:٢" , "٢:٣" , "٢:٤" , "٢:٥" , "٢:٦" , "٢:٧" , "٢:٨",
+                                                "٢:٩" , "٢:١٠", "٢:١١", "٣:١٢", "٣:١" , "٣:٢" , "٣:٣"};
+                                            
+        // Cipher 08 - 02
+        private string[] antiClockwiseCipher = {"١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
+                                                "١:٥" , "١:٤" , "١:٣" , "١:٢" , "١:١" , "٢:١٢", "٢:١١",
+                                                "٢:١٠", "٢:٩" , "٢:٨" , "٢:٧" , "٢:٦" , "٢:٥" , "٢:٤" ,
+                                                "٢:٣" , "٢:٢" , "٢:١" , "٣:١٢", "٣:١١", "٣:١٠", "٣:٩" };
+                                           
+        // Cipher 09 - 01                  
+        private string[] mobile01Cipher      = {"٣"   , "٢"   , "٢٢"    , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦"  ,
+                                                "٥"   , "٥٥"  , "٥٥٥"   , "٥٥٥٥", "٤"   , "٤٤" , "٤٤٤"  ,
+                                                "٤٤٤٤", "٩"   , "٩٩"    , "٩٩٩" , "٩٩٩٩", "٨"  , "٨٨"   ,
+                                                "٨٨٨" , "٨٨٨٨", "٨٨٨٨٨", "٧"    , "٧٧"  , "٧٧٧", "٧٧٧٧"};
+                                           
+        // Cipher 09 - 02                  
+        private string[] mobile02Cipher      = {"٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
+                                                "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
+                                                "٤^٤", "٩^١", "٩^٢", "٩^٣", "٩^٤", "٨^١", "٨^٢",
+                                                "٨^٣", "٨^٤", "٨^٥", "٧^١", "٧^٢", "٧^٣", "٧^٤"};
+                                           
+        // Cipher 10                       
+        private string[] xCipher             = {"V(١)", "V(٢)", "V(٣)", "V(٤)", "V(٥)", "V(٦)", "V(٧)",
+                                                ">(١)", ">(٢)", ">(٣)", ">(٤)", ">(٥)", ">(٦)", ">(٧)",
+                                                "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
+                                                "<(١)", "<(٢)", "<(٣)", "<(٤)", "<(٥)", "<(٦)", "<(٧)"};
+                                           
+        // Cipher 11                       
+        private string[] starCipher          = {"▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
+                                                "▶١", "▶٢", "▶٣", "▶٤", "▶٥", "▶٦", "▶٧",
+                                                "◀١", "◀٢", "◀٣", "◀٤", "◀٥", "◀٦", "◀٧",
+                                                "▼١", "▼٢", "▼٣", "▼٤", "▼٥", "▼٦", "▼٧"};
+                                           
+        // Cipher 12                       
+        private string[] rhombusCipher       = {"١◣", "١◢", "١◤", "١◥",
+                                                "٢◣", "٢◢", "٢◤", "٢◥",
+                                                "٣◣", "٣◢", "٣◤", "٣◥",
+                                                "٤◣", "٤◢", "٤◤", "٤◥",
+                                                "٥◣", "٥◢", "٥◤", "٥◥",
+                                                "٦◣", "٦◢", "٦◤", "٦◥",
+                                                "٧◣", "٧◢", "٧◤", "٧◥"};
+                                           
+        // Cipher 13                       
+        private string[] triangleCipher      = {"١▲",
+                                                "٢◣◼",  "٢◼◢",
+                                                "٣◣◼", "٣◼(١)",  "٣◼◢",
+                                                "٤◣◼", "٤◼(١)", "٤◼(٢)",  "٤◼◢",
+                                                "٥◣◼", "٥◼(١)", "٥◼(٢)", "٥◼(٣)",  "٥◼◢",
+                                                "٦◣◼", "٦◼(١)", "٦◼(٢)", "٦◼(٣)", "٦◼(٤)",  "٦◼◢",
+                                                "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)",  "٧◼◢",};
 
-        ////code 01
-        private string[] numericCode       = {"١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
-                                              "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
-                                              "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
-                                              "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"};
 
-        ////code 02
-        private string[] invertedCode      = {"ي", "و", "ه", "ن", "م", "ل", "ك",
-                                              "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
-                                              "ص", "ش", "س", "ز", "ر", "ذ", "د",
-                                              "خ", "ح", "ج", "ث", "ت", "ب", "ا"};
-
-        ////code 03
-        private string[] caesarCode        = {"ا", "ب", "ت", "ث", "ج", "ح", "خ",
-                                              "د", "ذ", "ر", "ز", "س", "ش", "ص",
-                                              "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
-                                              "ك", "ل", "م", "ن", "ه", "و", "ي"};
-
-        ////code 04
-        private string[] manuscriptCode    = {"ا ", "ب ", "ت ", "ث ", "ج ", "ح ", "خ ",
-                                              "د ", "ذ ", "ر ", "ز ", "س ", "ش ", "ص ",
-                                              "ض ", "ط ", "ظ ", "ع ", "غ ", "ف ", "ق ",
-                                              "ك ", "ل ", "م ", "ن ", "ه ", "و ", "ي "};
-
-        ////code 05
-        private string[] morseCode         = {"(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
-                                              "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
-                                              "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
-                                              "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"  };
-
-        ////code 06
-        private string[] binaryCode        = {"00001", "00010", "00011", "00100", "00101", "00110", "00111",
-                                              "01000", "01001", "01010", "01011", "01100", "01101", "01110",
-                                              "01111", "10000", "10001", "10010", "10011", "10100", "10101",
-                                              "10110", "10111", "11000", "11001", "11010", "11011", "11100"};
-
-        ////code 07
-        private string[] compassCode       = {"N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
-                                              "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
-                                              "N(٣)", "NE(٣)", "E(٣)", "SE(٣)", "S(٣)", "SW(٣)", "W(٣)", "NW(٣)",
-                                              "N(٤)", "NE(٤)", "E(٤)", "SE(٤)"};
-
-        ////code 08 - 01
-        private string[] clockwiseCode     = {"١:١٢", "١:١" , "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
-                                              "١:٧" , "١:٨" , "١:٩" , "١:١٠", "١:١١", "٢:١٢", "٢:١",
-                                              "٢:٢" , "٢:٣" , "٢:٤" , "٢:٥" , "٢:٦" , "٢:٧" , "٢:٨",
-                                              "٢:٩" , "٢:١٠", "٢:١١", "٣:١٢", "٣:١" , "٣:٢" , "٣:٣"};
-
-        ////code 08 - 02
-        private string[] antiClockwiseCode = {"١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
-                                              "١:٥" , "١:٤" , "١:٣" , "١:٢" , "١:١" , "٢:١٢", "٢:١١",
-                                              "٢:١٠", "٢:٩" , "٢:٨" , "٢:٧" , "٢:٦" , "٢:٥" , "٢:٤" ,
-                                              "٢:٣" , "٢:٢" , "٢:١" , "٣:١٢", "٣:١١", "٣:١٠", "٣:٩" };
-
-        ////code 09 - 01
-        private string[] mobile01Code      = {"٣"   , "٢"   , "٢٢"    , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦"  ,
-                                              "٥"   , "٥٥"  , "٥٥٥"   , "٥٥٥٥", "٤"   , "٤٤" , "٤٤٤"  ,
-                                              "٤٤٤٤", "٩"   , "٩٩"    , "٩٩٩" , "٩٩٩٩", "٨"  , "٨٨"   ,
-                                              "٨٨٨" , "٨٨٨٨", "٨٨٨٨٨", "٧"    , "٧٧"  , "٧٧٧", "٧٧٧٧"};
-
-        ////code 09 - 02
-        private string[] mobile02Code      = {"٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
-                                              "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
-                                              "٤^٤", "٩^١", "٩^٢", "٩^٣", "٩^٤", "٨^١", "٨^٢",
-                                              "٨^٣", "٨^٤", "٨^٥", "٧^١", "٧^٢", "٧^٣", "٧^٤"};
-
-        ////code 10
-        private string[] xCode             = {"V(١)", "V(٢)", "V(٣)", "V(٤)", "V(٥)", "V(٦)", "V(٧)",
-                                              ">(١)", ">(٢)", ">(٣)", ">(٤)", ">(٥)", ">(٦)", ">(٧)",
-                                              "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
-                                              "<(١)", "<(٢)", "<(٣)", "<(٤)", "<(٥)", "<(٦)", "<(٧)"};
-
-        ////code 11
-        private string[] starCode          = {"▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
-                                              "▶١", "▶٢", "▶٣", "▶٤", "▶٥", "▶٦", "▶٧",
-                                              "◀١", "◀٢", "◀٣", "◀٤", "◀٥", "◀٦", "◀٧",
-                                              "▼١", "▼٢", "▼٣", "▼٤", "▼٥", "▼٦", "▼٧"};
-
-        //code 12
-        private string[] rhombusCode       = {"١◣", "١◢", "١◤", "١◥",
-                                              "٢◣", "٢◢", "٢◤", "٢◥",
-                                              "٣◣", "٣◢", "٣◤", "٣◥",
-                                              "٤◣", "٤◢", "٤◤", "٤◥",
-                                              "٥◣", "٥◢", "٥◤", "٥◥",
-                                              "٦◣", "٦◢", "٦◤", "٦◥",
-                                              "٧◣", "٧◢", "٧◤", "٧◥"};
-
-        //code 13
-        private string[] triangleCode      = {"١▲",
-                                              "٢◣◼",  "٢◼◢",
-                                              "٣◣◼", "٣◼(١)",  "٣◼◢",
-                                              "٤◣◼", "٤◼(١)", "٤◼(٢)",  "٤◼◢",
-                                              "٥◣◼", "٥◼(١)", "٥◼(٢)", "٥◼(٣)",  "٥◼◢",
-                                              "٦◣◼", "٦◼(١)", "٦◼(٢)", "٦◼(٣)", "٦◼(٤)",  "٦◼◢",
-                                              "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)",  "٧◼◢",};
-
-
-        ///  Steps for adding a new code:
+        ///  Steps for adding a new cipher:
         ///  ----------------------------
-        ///  1] Create an array of strings from the elements of the code.
-        ///     (use the "string[] newCode" array as a guide)
+        ///  1] Create an array of strings from the elements of the cipher.
+        ///     (use the "string[] newCipher" array template below as a guide)
         ///     
-        ///  2] Add the new code name in the initializeCodesComboBox function.
+        ///  2] Add the new cipher name in the InitializeCiphersComboBox function.
         ///  
         ///  3] Go to each of the following events & follow the instructions at the end of each event:
-        ///     - CodesComboBox_SelectedIndexChanged
+        ///     - CiphersComboBox_SelectedIndexChanged
         ///     - EncodeButton_Click
         ///     - ShowKeyButton_Click
 
 
-        /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
-        ///  //code XX                                                          ///
-        ///  private string[] newCode = {"X", "X", "X", "X", "X", "X", "X",     ///
-        ///                              "X", "X", "X", "X", "X", "X", "X",     ///
-        ///                              "X", "X", "X", "X", "X", "X", "X",     ///
-        ///                              "X", "X", "X", "X", "X", "X", "X"};    ///
-        ///////////////////////////////////////////////////////////////////////////
+        /////////////////////////// NEW CIPHER : ADD HERE ///////////////////////////
+        ///  // Cipher XX (Array Template)                                        ///
+        ///  private string[] newCipher = {"X", "X", "X", "X", "X", "X", "X",     ///
+        ///                              "X", "X", "X", "X", "X", "X", "X",       ///
+        ///                              "X", "X", "X", "X", "X", "X", "X",       ///
+        ///                              "X", "X", "X", "X", "X", "X", "X"};      ///
+        /////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -159,7 +159,7 @@ namespace ScoutsEncoder
 
 
         // Variables
-        private int  codeIndex;
+        private int  cipherIndex;
         private int  keyIndex;
         private bool isDashesChecked       = true;
         private bool isSlashesChecked      = true;
@@ -170,59 +170,59 @@ namespace ScoutsEncoder
 
 
         // Processing Functions
-        private void initializeCodesComboBox()
+        private void InitializeCiphersComboBox()
         {
-            CodesComboBox.Items.AddRange(new object[] {
-            ////code 00
+            CiphersComboBox.Items.AddRange(new object[] {
+            // Cipher 00
             "  " + "يسوع",
 
-            ////code 01
+            // Cipher 01
             "  " + "رقمية",
             
-            ////code 02
+            // Cipher 02
             "  " + "عكسية",
             
-            ////code 03
+            // Cipher 03
             "  " + "قيصر",
             
-            ////code 04
+            // Cipher 04
             "  " + "عربي مفرط",
             
-            ////code 05
+            // Cipher 05
             "  " + "المورس",
             
-            ////code 06
+            // Cipher 06
             "  " + "الأعداد الثنائية",
             
-            ////code 07
+            // Cipher 07
             "  " + "البوصلة",
             
-            ////code 08
+            // Cipher 08
             "  " + "الساعة",
             
-            ////code 09
+            // Cipher 09
             "  " + "الجوال",
             
-            ////code 10
+            // Cipher 10
             "  " + "إكس",
             
-            ////code 11
+            // Cipher 11
             "  " + "النجمة",
             
-            ////code 12
+            // Cipher 12
             "  " + "المعين",
             
-            ////code 13
+            // Cipher 13
             "  " + "المثلث",
 
-            ////code XX
-            //  "  " + "NEW CODE NAME HERE",
+            // Cipher XX
+            //  "  " + "NEW-CIPHER-NAME-HERE",
 
             });
         }
 
 
-        private string modifyText(string textToModify)
+        private string ModifyText(string textToModify)
         {
             // Replace odd characters with known characters
             string modifiedText = textToModify
@@ -241,7 +241,7 @@ namespace ScoutsEncoder
             return modifiedText;
         }
 
-        private string modifyTextForAudioExport(string textToModify)
+        private string ModifyTextForAudioExport(string textToModify)
         {
             // Simplify String and replace new lines with spaces
             string modifiedText = textToModify
@@ -251,7 +251,7 @@ namespace ScoutsEncoder
                                   .Replace(")-(", ")(")
                                   .Replace("\r\n", " ");
 
-            // Remove Anything that doesn't belong to morse code
+            // Remove Anything that doesn't belong to morse cipher
             modifiedText = Regex.Replace(modifiedText, @"[^\w\s\-\•\(\)]", "");
 
             // Replace multiple spaces with a single space
@@ -266,9 +266,9 @@ namespace ScoutsEncoder
             return modifiedText;
         }
 
-        private void encode(string[] code)
+        private void Encode(string[] cipher)
         {
-            string inputTextCopy  = modifyText(InputTextBox.Text);
+            string inputTextCopy  = ModifyText(InputTextBox.Text);
             string outputTextCopy = "";
 
             int index;
@@ -296,7 +296,7 @@ namespace ScoutsEncoder
                 else
                 {
                     index = (index + keyIndex) % 28;
-                    outputTextCopy += code[index];
+                    outputTextCopy += cipher[index];
 
                     if (i + 1 <= inputTextCopy.Length - 1) //check if (i + 1) is an existing index
                         if (inputTextCopy[i + 1] != ' ' && inputTextCopy[i + 1] != '\r' && !Char.IsPunctuation(inputTextCopy[i + 1]))
@@ -314,7 +314,7 @@ namespace ScoutsEncoder
             OutputTextBox.Text = outputTextCopy;
         }
 
-        private void showEncodingKey(string[] code)
+        private void ShowEncodingKey(string[] cipher)
         {
             int index;
             OutputTextBox.Text = "";
@@ -324,24 +324,24 @@ namespace ScoutsEncoder
                 for (int j = 0; j < 4; j++)
                 {
                     index = (i + j * 7 + keyIndex) % 28;
-                    OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + code[index]).PadRight(12);
+                    OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + cipher[index]).PadRight(12);
                 }
                 OutputTextBox.Text += "\r\n";
             }
        
         }
 
-        private string[] initializeKeysList(string[] code)
+        private string[] InitializeKeysList(string[] cipher)
         {
-            string[] items = new string[code.Length];
-            for (int i = 0; i < code.Length; i++)
+            string[] items = new string[cipher.Length];
+            for (int i = 0; i < cipher.Length; i++)
             {
-                items[i] = "   " + "أ = " + code[i];
+                items[i] = "   " + "أ = " + cipher[i];
             }
             return items;
         }
 
-        private void showFillShapes(bool status)
+        private void ShowFillShapesCheckbox(bool status)
         {
             if (status)
             {
@@ -358,7 +358,7 @@ namespace ScoutsEncoder
         }
 
 
-        private void showExportAudio(bool status)
+        private void ShowExportAudioButton(bool status)
         {
             if (status)
             {
@@ -379,140 +379,140 @@ namespace ScoutsEncoder
             this.Close();
         }
 
-        private void SetCodeButton_Click(object sender, EventArgs e)
+        private void SetCipherButton_Click(object sender, EventArgs e)
         {
             DropdownTimer.Start();
         }
 
-        private void CodesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void CiphersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CodesComboBox.SelectedItem != null)
+            if (CiphersComboBox.SelectedItem != null)
             {
-                codeIndex = CodesComboBox.SelectedIndex;
+                cipherIndex = CiphersComboBox.SelectedIndex;
                 KeysComboBox.Items.Clear();
                 keyIndex = 0;
 
-                switch (codeIndex)
+                switch (cipherIndex)
                 {
                     case 0:
-                        showFillShapes(false);
-                        showExportAudio(false);
-                        KeysComboBox.Text = "   " + "أ = " + jesusCode[0];
-                        KeysComboBox.Items.AddRange(initializeKeysList(jesusCode));
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
+                        KeysComboBox.Text = "   " + "أ = " + jesusCipher[0];
+                        KeysComboBox.Items.AddRange(InitializeKeysList(jesusCipher));
                         break;
 
                     case 1:
-                        showFillShapes(false);
-                        showExportAudio(false);
-                        KeysComboBox.Text = "   " + "أ = " + numericCode[0];
-                        KeysComboBox.Items.AddRange(initializeKeysList(numericCode));
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
+                        KeysComboBox.Text = "   " + "أ = " + numericCipher[0];
+                        KeysComboBox.Items.AddRange(InitializeKeysList(numericCipher));
                         break;
 
                     case 2:
-                        showFillShapes(false);
-                        showExportAudio(false);
-                        KeysComboBox.Text = "   " + "أ = " + invertedCode[0];
-                        KeysComboBox.Items.AddRange(initializeKeysList(invertedCode));
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
+                        KeysComboBox.Text = "   " + "أ = " + invertedCipher[0];
+                        KeysComboBox.Items.AddRange(InitializeKeysList(invertedCipher));
                         break;
 
                     case 3:
-                        showFillShapes(false);
-                        showExportAudio(false);
-                        string[] items = new string[numericCode.Length];
-                        for (int i = 0; i < numericCode.Length; i++)
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
+                        string[] items = new string[numericCipher.Length];
+                        for (int i = 0; i < numericCipher.Length; i++)
                         {
-                            items[i] = "   " + numericCode[i];
+                            items[i] = "   " + numericCipher[i];
                         }
-                        KeysComboBox.Text = "   " + numericCode[0];
+                        KeysComboBox.Text = "   " + numericCipher[0];
                         KeysComboBox.Items.AddRange(items);
                         break;
 
                     case 4:
-                        showFillShapes(false);
-                        showExportAudio(false);
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 5:
-                        showFillShapes(false);
-                        showExportAudio(true);
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(true);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 6:
-                        showFillShapes(false);
+                        ShowFillShapesCheckbox(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 7:
-                        showFillShapes(false);
-                        showExportAudio(false);
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 8:
-                        showFillShapes(false);
-                        showExportAudio(false);
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
                         KeysComboBox.Text = "  " + "مع عقارب الساعة";
                         KeysComboBox.Items.AddRange(new object[] { "  " + "مع عقارب الساعة",
                                                                    "  " + "عكس عقارب الساعة" });
                         break;
 
                     case 9:
-                        showFillShapes(false);
-                        showExportAudio(false);
-                        KeysComboBox.Text = "   " + "أ = " + mobile01Code[0];
-                        KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + mobile01Code[0],
-                                                                   "   " + "أ = " + mobile02Code[0] });
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
+                        KeysComboBox.Text = "   " + "أ = " + mobile01Cipher[0];
+                        KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + mobile01Cipher[0],
+                                                                   "   " + "أ = " + mobile02Cipher[0] });
                         break;
 
                     case 10:
-                        showFillShapes(false);
-                        showExportAudio(false);
-                        KeysComboBox.Text = "   " + "أ = " + xCode[0];
-                        KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + xCode[0],
-                                                                   "   " + "أ = " + xCode[7],
-                                                                   "   " + "أ = " + xCode[14],
-                                                                   "   " + "أ = " + xCode[21] });
+                        ShowFillShapesCheckbox(false);
+                        ShowExportAudioButton(false);
+                        KeysComboBox.Text = "   " + "أ = " + xCipher[0];
+                        KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + xCipher[0],
+                                                                   "   " + "أ = " + xCipher[7],
+                                                                   "   " + "أ = " + xCipher[14],
+                                                                   "   " + "أ = " + xCipher[21] });
                         break;
 
                     case 11:
-                        showFillShapes(true);
-                        showExportAudio(false);
-                        KeysComboBox.Text = "   " + "أ = " + starCode[0];
-                        KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + starCode[0],
-                                                                   "   " + "أ = " + starCode[7],
-                                                                   "   " + "أ = " + starCode[14],
-                                                                   "   " + "أ = " + starCode[21] });
+                        ShowFillShapesCheckbox(true);
+                        ShowExportAudioButton(false);
+                        KeysComboBox.Text = "   " + "أ = " + starCipher[0];
+                        KeysComboBox.Items.AddRange(new object[] { "   " + "أ = " + starCipher[0],
+                                                                   "   " + "أ = " + starCipher[7],
+                                                                   "   " + "أ = " + starCipher[14],
+                                                                   "   " + "أ = " + starCipher[21] });
                         break;
 
                     case 12:
-                        showFillShapes(true);
-                        showExportAudio(false);
+                        ShowFillShapesCheckbox(true);
+                        ShowExportAudioButton(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
                     case 13:
-                        showFillShapes(true);
-                        showExportAudio(false);
+                        ShowFillShapesCheckbox(true);
+                        ShowExportAudioButton(false);
                         KeysComboBox.Text =    "  " + "لا يوجد مفاتيح";
                         KeysComboBox.Items.Add("  " + "لا يوجد مفاتيح");
                         break;
 
 
-                    /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
-                    ///  case X: (where X is the index of the new code in CodesComboBox)    ///
-                    ///     KeysComboBox.Text = FIRST KEY OF THE NEW CODE;                  ///
-                    ///     KeysComboBox.Items.AddRange(initializeKeysList(newCode));       ///
-                    ///     **OR**                                                          ///
-                    ///     KeysComboBox.Items.AddRange(new object[] {KEY1, KEY2,.... });   ///
-                    ///     break;                                                          ///
-                    ///////////////////////////////////////////////////////////////////////////
+                    /////////////////////////// NEW CIPHER : ADD HERE ///////////////////////////
+                    ///  case X: (where X is the index of the new cipher in CiphersComboBox)  ///
+                    ///     KeysComboBox.Text = FIRST KEY OF THE NEW CIPHER;                  ///
+                    ///     KeysComboBox.Items.AddRange(InitializeKeysList(newCipher));       ///
+                    ///     **OR**                                                            ///
+                    ///     KeysComboBox.Items.AddRange(new object[] {KEY1, KEY2,.... });     ///
+                    ///     break;                                                            ///
+                    /////////////////////////////////////////////////////////////////////////////
                 }
             }
         }
@@ -524,24 +524,24 @@ namespace ScoutsEncoder
 
         private void EncodeButton_Click(object sender, EventArgs e)
         {
-            if (CodesComboBox.Text == "  اختر الشفرة")
+            if (CiphersComboBox.Text == "  اختر الشفرة")
             {
                 OutputTextBox.Text = "من فضلك اختر الشفرة عن طريق الضغط علي \"إعدادات الشفرة\" ثم اختر الشفرة المناسبة";
             }
             else
             {
-                switch (codeIndex)
+                switch (cipherIndex)
                 {
                     case 0:
-                        encode(jesusCode);
+                        Encode(jesusCipher);
                         break;
 
                     case 1:
-                        encode(numericCode);
+                        Encode(numericCipher);
                         break;
 
                     case 2:
-                        encode(invertedCode);
+                        Encode(invertedCipher);
                         break;
 
                     case 3:
@@ -550,45 +550,45 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex + 1;
-                        encode(caesarCode);
+                        Encode(caesarCipher);
                         break;
 
                     case 4:
-                        encode(manuscriptCode);
+                        Encode(manuscriptCipher);
                         if (!isSlashesChecked && !isWordsSpacingChecked)
                             OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
                         break;
 
                     case 5:
-                        encode(morseCode);
+                        Encode(morseCipher);
                         break;
 
                     case 6:
-                        encode(binaryCode);
+                        Encode(binaryCipher);
                         break;
                         
                     case 7:
-                        encode(compassCode);
+                        Encode(compassCipher);
                         break;
 
                     case 8:
                         if (keyIndex == 0)
-                            encode(clockwiseCode);
+                            Encode(clockwiseCipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            encode(antiClockwiseCode);
+                            Encode(antiClockwiseCipher);
                             keyIndex = 1;
                         }
                         break;
 
                     case 9:
                         if (keyIndex == 0)
-                            encode(mobile01Code);
+                            Encode(mobile01Cipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            encode(mobile02Code);
+                            Encode(mobile02Cipher);
                             keyIndex = 1;
                         }
                         break;
@@ -599,7 +599,7 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        encode(xCode);
+                        Encode(xCipher);
                         break;
 
                     case 11:
@@ -608,47 +608,47 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        encode(starCode);
+                        Encode(starCipher);
                         break;
 
                     case 12:
-                        encode(rhombusCode);
+                        Encode(rhombusCipher);
                         break;
 
                     case 13:
-                        encode(triangleCode);
+                        Encode(triangleCipher);
                         break;
 
 
-                    /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
-                    ///  case X: (where X is the index of the new code in CodesComboBox)    ///
-                    ///     encode(newCode);                                                ///
-                    ///     break;                                                          ///
-                    ///////////////////////////////////////////////////////////////////////////
+                    /////////////////////////// NEW CIPHER : ADD HERE ///////////////////////////
+                    ///  case X: (where X is the index of the new cipher in CiphersComboBox)  ///
+                    ///     Encode(newCipher);                                                ///
+                    ///     break;                                                            ///
+                    /////////////////////////////////////////////////////////////////////////////
                 }
             }
         }
 
         private void ShowKeyButton_Click(object sender, EventArgs e)
         {
-            if (CodesComboBox.Text == "  اختر الشفرة")
+            if (CiphersComboBox.Text == "  اختر الشفرة")
             {
                 OutputTextBox.Text = "من فضلك اختر الشفرة عن طريق الضغط علي \"إعدادات الشفرة\" ثم اختر الشفرة المناسبة";
             }
             else
             {
-                switch (codeIndex)
+                switch (cipherIndex)
                 {
                     case 0:
-                        showEncodingKey(jesusCode);
+                        ShowEncodingKey(jesusCipher);
                         break;
 
                     case 1:
-                        showEncodingKey(numericCode);
+                        ShowEncodingKey(numericCipher);
                         break;
 
                     case 2:
-                        showEncodingKey(invertedCode);
+                        ShowEncodingKey(invertedCipher);
                         break;
 
                     case 3:
@@ -657,44 +657,44 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex + 1;
-                        showEncodingKey(caesarCode);
+                        ShowEncodingKey(caesarCipher);
                         break;
 
                     case 4:
-                        showEncodingKey(manuscriptCode);
+                        ShowEncodingKey(manuscriptCipher);
                         break;
 
                     case 5:
-                        showEncodingKey(morseCode);
+                        ShowEncodingKey(morseCipher);
                         OutputTextBox.Text = OutputTextBox.Text.Replace("(", "").Replace(")", "");
                         break;
 
                     case 6:
-                        showEncodingKey(binaryCode);
+                        ShowEncodingKey(binaryCipher);
                         break;
 
                     case 7:
-                        showEncodingKey(compassCode);
+                        ShowEncodingKey(compassCipher);
                         break;
 
                     case 8:
                         if (keyIndex == 0)
-                            showEncodingKey(clockwiseCode);
+                            ShowEncodingKey(clockwiseCipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            showEncodingKey(antiClockwiseCode);
+                            ShowEncodingKey(antiClockwiseCipher);
                             keyIndex = 1;
                         }
                         break;
 
                     case 9:
                         if (keyIndex == 0)
-                            showEncodingKey(mobile01Code);
+                            ShowEncodingKey(mobile01Cipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            showEncodingKey(mobile02Code);
+                            ShowEncodingKey(mobile02Cipher);
                             keyIndex = 1;
                         }
                         break;
@@ -705,7 +705,7 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        showEncodingKey(xCode);
+                        ShowEncodingKey(xCipher);
                         break;
 
                     case 11:
@@ -714,23 +714,23 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        showEncodingKey(starCode);
+                        ShowEncodingKey(starCipher);
                         break;
 
                     case 12:
-                        showEncodingKey(rhombusCode);
+                        ShowEncodingKey(rhombusCipher);
                         break;
 
                     case 13:
-                        showEncodingKey(triangleCode);
+                        ShowEncodingKey(triangleCipher);
                         break;
 
 
-                    /////////////////////////// NEW CODE : ADD HERE ///////////////////////////
-                    ///  case X: (where X is the index of the new code in CodesComboBox)    ///
-                    ///     showEncodingKey(newCode);                                       ///
-                    ///     break;                                                          ///
-                    ///////////////////////////////////////////////////////////////////////////
+                    /////////////////////////// NEW CIPHER : ADD HERE ///////////////////////////
+                    ///  case X: (where X is the index of the new cipher in CiphersComboBox)  ///
+                    ///     ShowEncodingKey(newCipher);                                       ///
+                    ///     break;                                                            ///
+                    /////////////////////////////////////////////////////////////////////////////
                 }
             }
         }
@@ -765,19 +765,19 @@ namespace ScoutsEncoder
 
 
                 //SideMenu Buttons
-                SetCodeButton.BackColor = ColorTranslator.FromHtml("#3e3e42");
-                CodesComboBox.BackColor = ColorTranslator.FromHtml("#3e3e42");
-                KeysComboBox .BackColor = ColorTranslator.FromHtml("#3e3e42");
-                EncodeButton .BackColor = ColorTranslator.FromHtml("#3e3e42");
-                ShowKeyButton.BackColor = ColorTranslator.FromHtml("#3e3e42");
-                ReportButton .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                SetCipherButton.BackColor = ColorTranslator.FromHtml("#3e3e42");
+                CiphersComboBox.BackColor = ColorTranslator.FromHtml("#3e3e42");
+                KeysComboBox   .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                EncodeButton   .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                ShowKeyButton  .BackColor = ColorTranslator.FromHtml("#3e3e42");
+                ReportButton   .BackColor = ColorTranslator.FromHtml("#3e3e42");
 
-                SetCodeButton.ForeColor = ColorTranslator.FromHtml("#ffffff");
-                EncodeButton .ForeColor = ColorTranslator.FromHtml("#ffffff");
-                CodesComboBox.ForeColor = ColorTranslator.FromHtml("#ffffff");
-                KeysComboBox .ForeColor = ColorTranslator.FromHtml("#ffffff");
-                ShowKeyButton.ForeColor = ColorTranslator.FromHtml("#ffffff");
-                ReportButton .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                SetCipherButton.ForeColor = ColorTranslator.FromHtml("#ffffff");
+                CiphersComboBox.ForeColor = ColorTranslator.FromHtml("#ffffff");
+                KeysComboBox   .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                EncodeButton   .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                ShowKeyButton  .ForeColor = ColorTranslator.FromHtml("#ffffff");
+                ReportButton   .ForeColor = ColorTranslator.FromHtml("#ffffff");
 
 
                 //Labels & Checkboxes
@@ -857,19 +857,19 @@ namespace ScoutsEncoder
 
 
                 //SideMenu Buttons
-                SetCodeButton.BackColor = Color.WhiteSmoke;
-                CodesComboBox.BackColor = Color.WhiteSmoke;
-                KeysComboBox .BackColor = Color.WhiteSmoke;
-                EncodeButton .BackColor = Color.WhiteSmoke;
-                ShowKeyButton.BackColor = Color.WhiteSmoke;
-                ReportButton .BackColor = Color.WhiteSmoke;
+                SetCipherButton.BackColor = Color.WhiteSmoke;
+                CiphersComboBox.BackColor = Color.WhiteSmoke;
+                KeysComboBox   .BackColor = Color.WhiteSmoke;
+                EncodeButton   .BackColor = Color.WhiteSmoke;
+                ShowKeyButton  .BackColor = Color.WhiteSmoke;
+                ReportButton   .BackColor = Color.WhiteSmoke;
                 
-                SetCodeButton.ForeColor = Color.Black;
-                CodesComboBox.ForeColor = Color.Black;
-                KeysComboBox .ForeColor = Color.Black;
-                EncodeButton .ForeColor = Color.Black;
-                ShowKeyButton.ForeColor = Color.Black;
-                ReportButton .ForeColor = Color.Black;
+                SetCipherButton.ForeColor = Color.Black;
+                CiphersComboBox.ForeColor = Color.Black;
+                KeysComboBox   .ForeColor = Color.Black;
+                EncodeButton   .ForeColor = Color.Black;
+                ShowKeyButton  .ForeColor = Color.Black;
+                ReportButton   .ForeColor = Color.Black;
 
 
                 //Labels & Checkboxes
@@ -946,7 +946,7 @@ namespace ScoutsEncoder
         }
 
 
-        //// SetCodeButton Dropdown effect
+        //// SetCipherButton Dropdown effect
         private bool isCollapsed;
 
         private void DropdownTimer_Tick(object sender, EventArgs e)
@@ -972,9 +972,9 @@ namespace ScoutsEncoder
             }
         }
 
-        private void CodesComboBox_MouseClick(object sender, MouseEventArgs e)
+        private void CiphersComboBox_MouseClick(object sender, MouseEventArgs e)
         {
-            CodesComboBox.DroppedDown = true;
+            CiphersComboBox.DroppedDown = true;
         }
 
         private void KeysComboBox_MouseClick(object sender, MouseEventArgs e)
@@ -1101,19 +1101,19 @@ namespace ScoutsEncoder
         {
             string filePath = "";
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.RootFolder  = Environment.SpecialFolder.Desktop;
             fbd.Description = "Choose output destination";
 
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 filePath = fbd.SelectedPath + "\\MorseCode.wav";
 
-                MorseCodeGenerator wave = new MorseCodeGenerator(modifyTextForAudioExport(OutputTextBox.Text), filePath);
+                MorseCodeGenerator wave = new MorseCodeGenerator(ModifyTextForAudioExport(OutputTextBox.Text), filePath);
 
                 //Confirmation message
-                string Text = "Code successfully generated!"
+                string Text = "Your file is generated successfully!"
                             + "\n\n"
-                            + "Your output destination is:\n"
+                            + "The output destination is:\n"
                             + fbd.SelectedPath;
 
                 MessageBox.Show(Text, "MorseCode.wav");
