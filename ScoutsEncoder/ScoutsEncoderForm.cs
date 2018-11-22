@@ -241,29 +241,39 @@ namespace ScoutsEncoder
             return modifiedText;
         }
 
-        private string ModifyTextForAudioExport(string textToModify)
+        private string ModifyInputForAudioExport()
         {
-            // Simplify String and replace new lines with spaces
-            string modifiedText = textToModify
-                                  .Replace(")  /  (", ") (")
-                                  .Replace(") / (", ") (")
-                                  .Replace(") - (", ")(")
-                                  .Replace(")-(", ")(")
-                                  .Replace("\r\n", " ");
+            // Remove all output styles
+            isDashesChecked  = false;
+            isSlashesChecked = false;
+            isCharsSpacingChecked = false;
+            isWordsSpacingChecked = false;
 
-            // Remove Anything that doesn't belong to morse cipher
-            modifiedText = Regex.Replace(modifiedText, @"[^\w\s\-\•\(\)]", "");
+            // Encode input text using the previous output styles
+            string modifiedText = Encode(morseCipher);
 
-            // Replace multiple spaces with a single space
+            // Remove anything that doesn't belong to the morse cipher
+            modifiedText = Regex.Replace(modifiedText, @"[^\s\-\•\(\)]", "");
+
+            // Simplify string for audio output
+            modifiedText = modifiedText
+                           .Replace(") (", " ")    // Replace words splitters with spaces
+                           .Replace(")(", ".")     // Replace letters splitters with dots
+                           .Replace(")", "")       // Remove the bracket at the begining of the string
+                           .Replace("(", "")       // Remove the bracket at the end of the string
+                           .Replace("\r\n", " ");  // Replace new lines with spaces
+
+            // Replace multiple spaces (resulting from multiple new lines) with a single space
             modifiedText = Regex.Replace(modifiedText, " {2,}", " ");
 
-            // Add space between words and dots between letters
-            modifiedText = modifiedText.Replace(") (", " ").Replace(")(", ".");
+            // Reset output styles to the chosen ones
+            isDashesChecked = Dashes .Checked;
+            isSlashesChecked = Slashes.Checked;
+            isCharsSpacingChecked = CharsSpacing.Checked;
+            isWordsSpacingChecked = WordsSpacing.Checked;
 
-            // Remove any brackets left
-            modifiedText = modifiedText.Replace("(", " ").Replace(")", " ");
-
-            return modifiedText;
+            // Add 2 whitespaces at the begining and the end of the string
+            return "  " + modifiedText + "  ";
         }
 
         private string Encode(string[] cipher)
@@ -1098,25 +1108,26 @@ namespace ScoutsEncoder
 
         private void ExportAudio_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.RootFolder  = Environment.SpecialFolder.Desktop;
-            fbd.Description = "Choose output destination";
+            OutputTextBox.Text = ModifyInputForAudioExport();
+            //FolderBrowserDialog fbd = new FolderBrowserDialog();
+            //fbd.RootFolder  = Environment.SpecialFolder.Desktop;
+            //fbd.Description = "Choose output destination";
 
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = fbd.SelectedPath + "\\MorseCode.wav";
+            //if (fbd.ShowDialog() == DialogResult.OK)
+            //{
+            //    string filePath = fbd.SelectedPath + "\\MorseCode.wav";
 
-                MorseCodeGenerator audioData = new MorseCodeGenerator(ModifyTextForAudioExport(OutputTextBox.Text));
-                audioData.Save(filePath);
+            //    MorseCodeGenerator audioData = new MorseCodeGenerator(ModifyInputForAudioExport());
+            //    audioData.Save(filePath);
 
-                //Confirmation message
-                string Text = "Your file is generated successfully!"
-                            + "\n\n"
-                            + "The output destination is:\n"
-                            + fbd.SelectedPath;
+            //    //Confirmation message
+            //    string Text = "Your file is generated successfully!"
+            //                + "\n\n"
+            //                + "The output destination is:\n"
+            //                + fbd.SelectedPath;
 
-                MessageBox.Show(Text, "MorseCode.wav");
-            }
+            //    MessageBox.Show(Text, "MorseCode.wav");
+            //}
         }
 
 
