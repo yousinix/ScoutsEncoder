@@ -4,11 +4,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -129,7 +125,7 @@ namespace ScoutsEncoder
                                                 "٤◣◼", "٤◼(١)", "٤◼(٢)",  "٤◼◢",
                                                 "٥◣◼", "٥◼(١)", "٥◼(٢)", "٥◼(٣)",  "٥◼◢",
                                                 "٦◣◼", "٦◼(١)", "٦◼(٢)", "٦◼(٣)", "٦◼(٤)",  "٦◼◢",
-                                                "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)",  "٧◼◢",};
+                                                "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)", "٧◼◢"};
 
 
         ///  Steps for adding a new cipher:
@@ -148,9 +144,9 @@ namespace ScoutsEncoder
         /////////////////////////// NEW CIPHER : ADD HERE ///////////////////////////
         ///  // Cipher XX (Array Template)                                        ///
         ///  private string[] newCipher = {"X", "X", "X", "X", "X", "X", "X",     ///
-        ///                              "X", "X", "X", "X", "X", "X", "X",       ///
-        ///                              "X", "X", "X", "X", "X", "X", "X",       ///
-        ///                              "X", "X", "X", "X", "X", "X", "X"};      ///
+        ///                                "X", "X", "X", "X", "X", "X", "X",     ///
+        ///                                "X", "X", "X", "X", "X", "X", "X",     ///
+        ///                                "X", "X", "X", "X", "X", "X", "X"};    ///
         /////////////////////////////////////////////////////////////////////////////
 
 
@@ -241,7 +237,7 @@ namespace ScoutsEncoder
             return modifiedText;
         }
 
-        private string ModifyInputForAudioExport()
+        private string ModifyInputTextForAudioExport(string textToModify)
         {
             // Remove all output styles
             isDashesChecked  = false;
@@ -250,7 +246,7 @@ namespace ScoutsEncoder
             isWordsSpacingChecked = false;
 
             // Encode input text using the previous output styles
-            string modifiedText = Encode(morseCipher);
+            string modifiedText = Encode(textToModify, morseCipher);
 
             // Remove anything that doesn't belong to the morse cipher
             modifiedText = Regex.Replace(modifiedText, @"[^\s\-\•\(\)]", "");
@@ -267,7 +263,7 @@ namespace ScoutsEncoder
             modifiedText = Regex.Replace(modifiedText, " {2,}", " ");
 
             // Reset output styles to the chosen ones
-            isDashesChecked = Dashes .Checked;
+            isDashesChecked  = Dashes .Checked;
             isSlashesChecked = Slashes.Checked;
             isCharsSpacingChecked = CharsSpacing.Checked;
             isWordsSpacingChecked = WordsSpacing.Checked;
@@ -276,48 +272,65 @@ namespace ScoutsEncoder
             return "  " + modifiedText + "  ";
         }
 
-        private string Encode(string[] cipher)
+        private string Encode(string textToEncode, string[] cipher)
         {
-            string inputTextCopy  = ModifyText(InputTextBox.Text);
+            string inputTextCopy  = ModifyText(textToEncode);
             string outputTextCopy = "";
 
             int index;
-            for (int i = 0; i <= inputTextCopy.Length - 1; i++)
+            for (int i = 0; i < inputTextCopy.Length; i++)
             {
+                // Search for the character in the list of Arabic letters
                 index = arabicLetters.IndexOf(inputTextCopy[i].ToString());
+
+                // If the character is not an Arabic letter
                 if (index == -1)
                 {
+                    // Words output styles
                     if (inputTextCopy[i] == ' ')
                     {
                         if (isSlashesChecked && isWordsSpacingChecked)
                             outputTextCopy += "  /  ";
                         else if (!isSlashesChecked && !isWordsSpacingChecked)
                             outputTextCopy += " ";
-                        else if (isSlashesChecked  && !isWordsSpacingChecked)
+                        else if (isSlashesChecked && !isWordsSpacingChecked)
                             outputTextCopy += " / ";
                         else if (!isSlashesChecked && isWordsSpacingChecked)
                             outputTextCopy += "   ";
                     }
+
+                    // Add spaces before punctuation marks
+                    // To avoid mixing them up with the encoded characters
+                    // as some ciphers may contain punctuation marks
                     else if (Char.IsPunctuation(inputTextCopy[i]))
                         outputTextCopy += " " + inputTextCopy[i];
+
+                    // Add any new line or strange character as is
                     else
                         outputTextCopy += inputTextCopy[i];
                 }
+
                 else
                 {
+                    // Encoding the character
                     index = (index + keyIndex) % 28;
                     outputTextCopy += cipher[index];
 
-                    if (i + 1 <= inputTextCopy.Length - 1) //check if (i + 1) is an existing index
-                        if (inputTextCopy[i + 1] != ' ' && inputTextCopy[i + 1] != '\r' && !Char.IsPunctuation(inputTextCopy[i + 1]))
-                            if (isDashesChecked && isCharsSpacingChecked)
-                                outputTextCopy += " - ";
-                            else if (!isDashesChecked && !isCharsSpacingChecked)
-                                outputTextCopy += "";
-                            else if (isDashesChecked  && !isCharsSpacingChecked)
-                                outputTextCopy += "-";
-                            else if (!isDashesChecked && isCharsSpacingChecked)
-                                outputTextCopy += " ";
+                    // Break when i refers to the character before the last one
+                    // To avoid out of index errors
+                    if (i == inputTextCopy.Length - 2)
+                        break;
+
+                    // Characters output styles
+                    if (inputTextCopy[i + 1] != ' ' && inputTextCopy[i + 1] != '\r' && !Char.IsPunctuation(inputTextCopy[i + 1]))
+                        if (isDashesChecked && isCharsSpacingChecked)
+                            outputTextCopy += " - ";
+                        else if (!isDashesChecked && !isCharsSpacingChecked)
+                            outputTextCopy += "";
+                        else if (isDashesChecked && !isCharsSpacingChecked)
+                            outputTextCopy += "-";
+                        else if (!isDashesChecked && isCharsSpacingChecked)
+                            outputTextCopy += " ";
                 }
             }
 
@@ -356,13 +369,13 @@ namespace ScoutsEncoder
         {
             if (status)
             {
-                OptionsPanel.Size = OptionsPanel.MaximumSize;
+                OptionsPanel.Size  = OptionsPanel.MaximumSize;
                 FillShapes.Visible = true;
                 FillShapes.Enabled = true;
             }
             else
             {
-                OptionsPanel.Size = OptionsPanel.MinimumSize;
+                OptionsPanel.Size  = OptionsPanel.MinimumSize;
                 FillShapes.Visible = false;
                 FillShapes.Enabled = false;
             }
@@ -544,15 +557,15 @@ namespace ScoutsEncoder
                 switch (cipherIndex)
                 {
                     case 0:
-                        OutputTextBox.Text = Encode(jesusCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, jesusCipher);
                         break;
 
                     case 1:
-                        OutputTextBox.Text = Encode(numericCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, numericCipher);
                         break;
 
                     case 2:
-                        OutputTextBox.Text = Encode(invertedCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, invertedCipher);
                         break;
 
                     case 3:
@@ -561,45 +574,45 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0; // If no key is chosen, encode using first key
                         }
                         keyIndex = KeysComboBox.SelectedIndex + 1; // Add one to the chosen key as caesar keys are not zero based
-                        OutputTextBox.Text = Encode(caesarCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, caesarCipher);
                         break;
 
                     case 4:
-                        OutputTextBox.Text = Encode(manuscriptCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, manuscriptCipher);
                         if (!isSlashesChecked && !isWordsSpacingChecked)
                             OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
                         break;
 
                     case 5:
-                        OutputTextBox.Text = Encode(morseCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, morseCipher);
                         break;
 
                     case 6:
-                        OutputTextBox.Text = Encode(binaryCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, binaryCipher);
                         break;
                         
                     case 7:
-                        OutputTextBox.Text = Encode(compassCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, compassCipher);
                         break;
 
                     case 8:
                         if (keyIndex == 0)
-                            OutputTextBox.Text = Encode(clockwiseCipher);
+                            OutputTextBox.Text = Encode(InputTextBox.Text, clockwiseCipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            OutputTextBox.Text = Encode(antiClockwiseCipher);
+                            OutputTextBox.Text = Encode(InputTextBox.Text, antiClockwiseCipher);
                             keyIndex = 1;
                         }
                         break;
 
                     case 9:
                         if (keyIndex == 0)
-                            OutputTextBox.Text = Encode(mobile01Cipher);
+                            OutputTextBox.Text = Encode(InputTextBox.Text, mobile01Cipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            OutputTextBox.Text = Encode(mobile02Cipher);
+                            OutputTextBox.Text = Encode(InputTextBox.Text, mobile02Cipher);
                             keyIndex = 1;
                         }
                         break;
@@ -610,7 +623,7 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        OutputTextBox.Text = Encode(xCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, xCipher);
                         break;
 
                     case 11:
@@ -619,15 +632,15 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        OutputTextBox.Text = Encode(starCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, starCipher);
                         break;
 
                     case 12:
-                        OutputTextBox.Text = Encode(rhombusCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, rhombusCipher);
                         break;
 
                     case 13:
-                        OutputTextBox.Text = Encode(triangleCipher);
+                        OutputTextBox.Text = Encode(InputTextBox.Text, triangleCipher);
                         break;
 
 
@@ -1108,26 +1121,25 @@ namespace ScoutsEncoder
 
         private void ExportAudio_Click(object sender, EventArgs e)
         {
-            OutputTextBox.Text = ModifyInputForAudioExport();
-            //FolderBrowserDialog fbd = new FolderBrowserDialog();
-            //fbd.RootFolder  = Environment.SpecialFolder.Desktop;
-            //fbd.Description = "Choose output destination";
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Choose output destination";
 
-            //if (fbd.ShowDialog() == DialogResult.OK)
-            //{
-            //    string filePath = fbd.SelectedPath + "\\MorseCode.wav";
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = fbd.SelectedPath + "\\MorseCode.wav";
 
-            //    MorseCodeGenerator audioData = new MorseCodeGenerator(ModifyInputForAudioExport());
-            //    audioData.Save(filePath);
+                MorseCodeGenerator audioData = new MorseCodeGenerator(ModifyInputTextForAudioExport(InputTextBox.Text));
+                audioData.Save(filePath);
 
-            //    //Confirmation message
-            //    string Text = "Your file is generated successfully!"
-            //                + "\n\n"
-            //                + "The output destination is:\n"
-            //                + fbd.SelectedPath;
+                //Confirmation message
+                string Text = "Your file is generated successfully!"
+                            + "\n\n"
+                            + "The output destination is:\n"
+                            + fbd.SelectedPath;
 
-            //    MessageBox.Show(Text, "MorseCode.wav");
-            //}
+                MessageBox.Show(Text, "MorseCode.wav");
+            }
         }
 
 
