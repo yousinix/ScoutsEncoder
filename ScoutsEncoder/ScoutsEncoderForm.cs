@@ -266,7 +266,7 @@ namespace ScoutsEncoder
             return modifiedText;
         }
 
-        private void Encode(string[] cipher)
+        private string Encode(string[] cipher)
         {
             string inputTextCopy  = ModifyText(InputTextBox.Text);
             string outputTextCopy = "";
@@ -311,24 +311,25 @@ namespace ScoutsEncoder
                 }
             }
 
-            OutputTextBox.Text = outputTextCopy;
+            return outputTextCopy;
         }
 
-        private void ShowEncodingKey(string[] cipher)
+        private string ShowEncodingKey(string[] cipher)
         {
             int index;
-            OutputTextBox.Text = "";
+            string outputTextCopy = "";
 
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
                     index = (i + j * 7 + keyIndex) % 28;
-                    OutputTextBox.Text += (arabicLetters[i + j * 7] + " = " + cipher[index]).PadRight(12);
+                    outputTextCopy += (arabicLetters[i + j * 7] + " = " + cipher[index]).PadRight(12);
                 }
-                OutputTextBox.Text += "\r\n";
+                outputTextCopy += "\r\n";
             }
-       
+
+            return outputTextCopy;
         }
 
         private string[] InitializeKeysList(string[] cipher)
@@ -533,62 +534,62 @@ namespace ScoutsEncoder
                 switch (cipherIndex)
                 {
                     case 0:
-                        Encode(jesusCipher);
+                        OutputTextBox.Text = Encode(jesusCipher);
                         break;
 
                     case 1:
-                        Encode(numericCipher);
+                        OutputTextBox.Text = Encode(numericCipher);
                         break;
 
                     case 2:
-                        Encode(invertedCipher);
+                        OutputTextBox.Text = Encode(invertedCipher);
                         break;
 
                     case 3:
-                        if (KeysComboBox.SelectedIndex == -1)
+                        if (KeysComboBox.SelectedIndex == -1) 
                         {
-                            KeysComboBox.SelectedIndex = 0;
+                            KeysComboBox.SelectedIndex = 0; // If no key is chosen, encode using first key
                         }
-                        keyIndex = KeysComboBox.SelectedIndex + 1;
-                        Encode(caesarCipher);
+                        keyIndex = KeysComboBox.SelectedIndex + 1; // Add one to the chosen key as caesar keys are not zero based
+                        OutputTextBox.Text = Encode(caesarCipher);
                         break;
 
                     case 4:
-                        Encode(manuscriptCipher);
+                        OutputTextBox.Text = Encode(manuscriptCipher);
                         if (!isSlashesChecked && !isWordsSpacingChecked)
                             OutputTextBox.Text = OutputTextBox.Text.Replace("  ", " ");
                         break;
 
                     case 5:
-                        Encode(morseCipher);
+                        OutputTextBox.Text = Encode(morseCipher);
                         break;
 
                     case 6:
-                        Encode(binaryCipher);
+                        OutputTextBox.Text = Encode(binaryCipher);
                         break;
                         
                     case 7:
-                        Encode(compassCipher);
+                        OutputTextBox.Text = Encode(compassCipher);
                         break;
 
                     case 8:
                         if (keyIndex == 0)
-                            Encode(clockwiseCipher);
+                            OutputTextBox.Text = Encode(clockwiseCipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            Encode(antiClockwiseCipher);
+                            OutputTextBox.Text = Encode(antiClockwiseCipher);
                             keyIndex = 1;
                         }
                         break;
 
                     case 9:
                         if (keyIndex == 0)
-                            Encode(mobile01Cipher);
+                            OutputTextBox.Text = Encode(mobile01Cipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            Encode(mobile02Cipher);
+                            OutputTextBox.Text = Encode(mobile02Cipher);
                             keyIndex = 1;
                         }
                         break;
@@ -599,7 +600,7 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        Encode(xCipher);
+                        OutputTextBox.Text = Encode(xCipher);
                         break;
 
                     case 11:
@@ -608,21 +609,21 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        Encode(starCipher);
+                        OutputTextBox.Text = Encode(starCipher);
                         break;
 
                     case 12:
-                        Encode(rhombusCipher);
+                        OutputTextBox.Text = Encode(rhombusCipher);
                         break;
 
                     case 13:
-                        Encode(triangleCipher);
+                        OutputTextBox.Text = Encode(triangleCipher);
                         break;
 
 
                     /////////////////////////// NEW CIPHER : ADD HERE ///////////////////////////
                     ///  case X: (where X is the index of the new cipher in CiphersComboBox)  ///
-                    ///     Encode(newCipher);                                                ///
+                    ///     OutputTextBox.Text = Encode(newCipher);                           ///
                     ///     break;                                                            ///
                     /////////////////////////////////////////////////////////////////////////////
                 }
@@ -640,15 +641,15 @@ namespace ScoutsEncoder
                 switch (cipherIndex)
                 {
                     case 0:
-                        ShowEncodingKey(jesusCipher);
+                        OutputTextBox.Text = ShowEncodingKey(jesusCipher);
                         break;
 
                     case 1:
-                        ShowEncodingKey(numericCipher);
+                        OutputTextBox.Text = ShowEncodingKey(numericCipher);
                         break;
 
                     case 2:
-                        ShowEncodingKey(invertedCipher);
+                        OutputTextBox.Text = ShowEncodingKey(invertedCipher);
                         break;
 
                     case 3:
@@ -657,44 +658,43 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex + 1;
-                        ShowEncodingKey(caesarCipher);
+                        OutputTextBox.Text = ShowEncodingKey(caesarCipher);
                         break;
 
                     case 4:
-                        ShowEncodingKey(manuscriptCipher);
+                        OutputTextBox.Text = ShowEncodingKey(manuscriptCipher);
                         break;
 
                     case 5:
-                        ShowEncodingKey(morseCipher);
-                        OutputTextBox.Text = OutputTextBox.Text.Replace("(", "").Replace(")", "");
+                        OutputTextBox.Text = ShowEncodingKey(morseCipher).Replace("(", "").Replace(")", "");
                         break;
 
                     case 6:
-                        ShowEncodingKey(binaryCipher);
+                        OutputTextBox.Text = ShowEncodingKey(binaryCipher);
                         break;
 
                     case 7:
-                        ShowEncodingKey(compassCipher);
+                        OutputTextBox.Text = ShowEncodingKey(compassCipher);
                         break;
 
                     case 8:
                         if (keyIndex == 0)
-                            ShowEncodingKey(clockwiseCipher);
+                            OutputTextBox.Text = ShowEncodingKey(clockwiseCipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            ShowEncodingKey(antiClockwiseCipher);
+                            OutputTextBox.Text = ShowEncodingKey(antiClockwiseCipher);
                             keyIndex = 1;
                         }
                         break;
 
                     case 9:
                         if (keyIndex == 0)
-                            ShowEncodingKey(mobile01Cipher);
+                            OutputTextBox.Text = ShowEncodingKey(mobile01Cipher);
                         if (keyIndex == 1)
                         {
                             keyIndex = 0;
-                            ShowEncodingKey(mobile02Cipher);
+                            OutputTextBox.Text = ShowEncodingKey(mobile02Cipher);
                             keyIndex = 1;
                         }
                         break;
@@ -705,7 +705,7 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        ShowEncodingKey(xCipher);
+                        OutputTextBox.Text = ShowEncodingKey(xCipher);
                         break;
 
                     case 11:
@@ -714,21 +714,21 @@ namespace ScoutsEncoder
                             KeysComboBox.SelectedIndex = 0;
                         }
                         keyIndex = KeysComboBox.SelectedIndex * 7;
-                        ShowEncodingKey(starCipher);
+                        OutputTextBox.Text = ShowEncodingKey(starCipher);
                         break;
 
                     case 12:
-                        ShowEncodingKey(rhombusCipher);
+                        OutputTextBox.Text = ShowEncodingKey(rhombusCipher);
                         break;
 
                     case 13:
-                        ShowEncodingKey(triangleCipher);
+                        OutputTextBox.Text = ShowEncodingKey(triangleCipher);
                         break;
 
 
                     /////////////////////////// NEW CIPHER : ADD HERE ///////////////////////////
                     ///  case X: (where X is the index of the new cipher in CiphersComboBox)  ///
-                    ///     ShowEncodingKey(newCipher);                                       ///
+                    ///     OutputTextBox.Text = ShowEncodingKey(newCipher);                  ///
                     ///     break;                                                            ///
                     /////////////////////////////////////////////////////////////////////////////
                 }
@@ -959,7 +959,6 @@ namespace ScoutsEncoder
                     DropdownTimer.Stop();
                     isCollapsed = false;
                 }
-
             }
             else
             {
