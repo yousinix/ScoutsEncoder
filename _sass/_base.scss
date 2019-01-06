@@ -78,7 +78,6 @@ aside {
         color: $theme-primary;
         @include sans-serif-font;
         font-weight: 700;
-        text-transform: uppercase;
         &:hover,
         &:focus {
             color: darken($theme-primary, 10%);
@@ -166,7 +165,8 @@ header {
         .header-content-inner {
             h1 {
                 font-weight: 700;
-                text-transform: uppercase;
+                font-size: 72px;
+                text-shadow: 2px 2px 18px #000000;
                 margin-top: 0;
                 margin-bottom: 0;
             }
