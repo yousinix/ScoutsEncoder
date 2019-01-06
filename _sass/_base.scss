@@ -59,10 +59,6 @@ section {
     padding: 100px 0;
 }
 
-aside {
-    padding: 50px 0;
-}
-
 .no-padding {
     padding: 0;
 }
@@ -168,16 +164,7 @@ header {
                 font-size: 72px;
                 text-shadow: 2px 2px 18px #000000;
                 margin-top: 0;
-                margin-bottom: 0;
-            }
-            hr {
-                margin: 30px auto;
-            }
-            p {
-                font-weight: 300;
-                color: rgba(white, .7);
-                font-size: 16px;
-                margin-bottom: 50px;
+                margin-bottom: 35px;
             }
         }
     }
@@ -194,12 +181,6 @@ header {
                 max-width: 1000px;
                 margin-left: auto;
                 margin-right: auto;
-                p {
-                    font-size: 18px;
-                    max-width: 80%;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
             }
         }
     }
@@ -222,20 +203,9 @@ header {
     }
 }
 
-.call-to-action {
-    h2 {
-        margin: 0 auto 20px;
-    }
-}
-
 // Bootstrap Overrides
 .text-primary {
     color: $theme-primary;
-}
-
-.no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
 }
 
 // Button Styles
@@ -281,16 +251,6 @@ header {
     color: white;
     text-shadow: none;
     background: $theme-dark;
-}
-
-img::selection {
-    color: white;
-    background: transparent;
-}
-
-img::-moz-selection {
-    color: white;
-    background: transparent;
 }
 
 body {
