@@ -1,9 +1,9 @@
 # Site settings
 title: ScoutsEncoder
 description: encode plain text into scouts' ciphers.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
 
+# Author Info
+linkedin_username: YoussefRaafatNasry
 email: YoussefRaafatNasry@gmail.com
 github_username: YoussefRaafatNasry
 

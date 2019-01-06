@@ -260,9 +260,13 @@ header {
 }
 
 // Contact
-#contact .fa {
+#contact .fas, #contact .fab {
     color: $theme-dark;
-    font-size: 4em;
+    margin: 5px;
+}
+
+.footer {
+    margin-top: -30px;
 }
 
 // Extras

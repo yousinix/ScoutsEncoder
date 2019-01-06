@@ -1,7 +1,7 @@
 <section id="contact">
     <div class="container">
 
-        <div class="row">
+        <div class="row text-center">
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">Let's Get In Touch!</h2>
                 <hr class="primary">
@@ -9,23 +9,26 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row text-center">
+                
+            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
+                <i class="fab fa-linkedin-in fa-2x wow bounceIn" data-wow-delay=".1s"></i>
+            </a>
 
-            <div class="col-lg-1 col-lg-offset-5 text-center">
-                <a href="mailto:{{ site.email }}">
+            <a href="mailto:{{ site.email }}">
                 <i class="fas fa-envelope fa-2x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p>E-mail</p>
-                </a>
-            </div>
+            </a>
 
-            <div class="col-lg-1 text-center">
-                <a href="https://github.com/{{ site.github_username }}">
+            <a href="https://github.com/{{ site.github_username }}">
                 <i class="fab fa-github fa-2x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p>GitHub</p>
-                </a>
-            </div>
-
+            </a>
+    
         </div>
-
     </div>
+
 </section>
+
+
+<footer class="footer text-center">
+    <p>Copyright © 2018 - ScoutsEncoder</p>
+</footer>
