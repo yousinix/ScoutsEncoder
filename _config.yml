@@ -1,8 +1,9 @@
 # Site settings
 title: ScoutsEncoder
-description: encode plain text into scouts' ciphers.
+description: Encode plain text into scouts' ciphers.
 
 # Author Info
+author: Youssef Raafat
 linkedin_username: YoussefRaafatNasry
 email: YoussefRaafatNasry@gmail.com
 github_username: YoussefRaafatNasry
