@@ -31,9 +31,14 @@
 
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="feature-box">
-                    <i class="fas fa-4x fa-volume-up wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                    <audio id="audio-player" src="wav/MorseCode.wav"></audio>
+                    <div>
+                         <a onclick="document.getElementById('audio-player').play()">
+                            <i class="fas fa-4x fa-volume-up wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        </a>
+                     </div>
                     <h3>Audio Output</h3>
-                    <p class="text-muted">Export audio output for your Morse encoding.</p>
+                    <p class="text-muted">Export audio output for your Morse encoding. <i>(click on the above icon to listen)</i></p>
                 </div>
             </div>
 
