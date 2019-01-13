@@ -1,6 +1,7 @@
 # Site settings
 title: ScoutsEncoder
 description: Encode plain text into scouts' ciphers.
+baseurl: /ScoutsEncoder
 
 # Author Info
 author: Youssef Raafat
@@ -10,3 +11,7 @@ github_username: YoussefRaafatNasry
 
 # Build settings
 markdown: kramdown
+
+collections:
+  docs:
+    output: true
