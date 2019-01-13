@@ -1,5 +1,5 @@
 ---
-layout: doc-item
+layout: doc
 title: Available Ciphers
 permalink: /docs/available-ciphers/
 ---

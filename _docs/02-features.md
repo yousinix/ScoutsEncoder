@@ -1,5 +1,5 @@
 ---
-layout: doc-item
+layout: doc
 title: Features
 permalink: /docs/features/
 ---

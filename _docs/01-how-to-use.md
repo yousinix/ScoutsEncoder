@@ -1,5 +1,5 @@
 ---
-layout: doc-item
+layout: doc
 title: How to Use ScoutsEncoder?
 permalink: /docs/how-to-use/
 ---
