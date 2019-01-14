@@ -113,9 +113,29 @@ namespace ScoutsEncoder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DarkIcon_help {
+            get {
+                object obj = ResourceManager.GetObject("DarkIcon_help", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DarkIcon_Paste {
             get {
                 object obj = ResourceManager.GetObject("DarkIcon_Paste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DarkIcon_site {
+            get {
+                object obj = ResourceManager.GetObject("DarkIcon_site", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +203,29 @@ namespace ScoutsEncoder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LightIcon_help {
+            get {
+                object obj = ResourceManager.GetObject("LightIcon_help", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LightIcon_Paste {
             get {
                 object obj = ResourceManager.GetObject("LightIcon_Paste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LightIcon_site {
+            get {
+                object obj = ResourceManager.GetObject("LightIcon_site", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

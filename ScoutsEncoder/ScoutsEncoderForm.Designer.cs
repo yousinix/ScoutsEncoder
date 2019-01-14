@@ -55,6 +55,8 @@
             this.ScoutsEncoder = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
             this.SideMenu = new System.Windows.Forms.Panel();
+            this.WebsiteButton = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
             this.ButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.DropdownPanel = new System.Windows.Forms.Panel();
             this.SetCipherButton = new System.Windows.Forms.Button();
@@ -360,6 +362,8 @@
             // SideMenu
             // 
             this.SideMenu.BackColor = System.Drawing.Color.Gainsboro;
+            this.SideMenu.Controls.Add(this.WebsiteButton);
+            this.SideMenu.Controls.Add(this.HelpButton);
             this.SideMenu.Controls.Add(this.ExitButton);
             this.SideMenu.Controls.Add(this.Title);
             this.SideMenu.Controls.Add(this.ButtonsPanel);
@@ -369,6 +373,32 @@
             this.SideMenu.Controls.Add(this.ReportButton);
             resources.ApplyResources(this.SideMenu, "SideMenu");
             this.SideMenu.Name = "SideMenu";
+            // 
+            // WebsiteButton
+            // 
+            this.WebsiteButton.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.WebsiteButton, "WebsiteButton");
+            this.WebsiteButton.FlatAppearance.BorderSize = 0;
+            this.WebsiteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.WebsiteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.WebsiteButton.ForeColor = System.Drawing.Color.Black;
+            this.WebsiteButton.Name = "WebsiteButton";
+            this.Tips.SetToolTip(this.WebsiteButton, resources.GetString("WebsiteButton.ToolTip"));
+            this.WebsiteButton.UseVisualStyleBackColor = false;
+            this.WebsiteButton.Click += new System.EventHandler(this.WebsiteButton_Click);
+            // 
+            // HelpButton
+            // 
+            this.HelpButton.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.HelpButton, "HelpButton");
+            this.HelpButton.FlatAppearance.BorderSize = 0;
+            this.HelpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.HelpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.HelpButton.ForeColor = System.Drawing.Color.Black;
+            this.HelpButton.Name = "HelpButton";
+            this.Tips.SetToolTip(this.HelpButton, resources.GetString("HelpButton.ToolTip"));
+            this.HelpButton.UseVisualStyleBackColor = false;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
             // ButtonsPanel
             // 
@@ -608,6 +638,8 @@
         private System.Windows.Forms.TextBox InputTextBox;
         private System.Windows.Forms.TextBox OutputTextBox;
         private System.Windows.Forms.Button ExportAudio;
+        private System.Windows.Forms.Button WebsiteButton;
+        private System.Windows.Forms.Button HelpButton;
     }
 }
 

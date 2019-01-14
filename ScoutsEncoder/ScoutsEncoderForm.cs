@@ -758,17 +758,27 @@ namespace ScoutsEncoder
             }
         }
 
+        // Links Buttons
         private void GitHubButton_Click(object sender, EventArgs e)
         {
-            //Project link on GitHub
             System.Diagnostics.Process.Start("https://www.github.com/YoussefRaafatNasry/scouts-encoder");
         }
 
         private void DocsButton_Click(object sender, EventArgs e)
         {
-            //Google Docs link
             System.Diagnostics.Process.Start("https://docs.google.com");
         }
+
+        private void WebsiteButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://youssefraafatnasry.github.io/ScoutsEncoder/");
+        }
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://youssefraafatnasry.github.io/ScoutsEncoder/docs/all/");
+        }
+
 
         private void ThemeButton_Click(object sender, EventArgs e)
         {
@@ -823,25 +833,26 @@ namespace ScoutsEncoder
                 OutputTextBox.ForeColor = ColorTranslator.FromHtml("#ffffff");
 
 
-                //Image Buttons
-                InputCopy   .BackgroundImage = Properties.Resources.LightIcon_Copy;
-                InputCut    .BackgroundImage = Properties.Resources.LightIcon_Cut;
-                InputPaste  .BackgroundImage = Properties.Resources.LightIcon_Paste;
-                InputClear  .BackgroundImage = Properties.Resources.LightIcon_Clear;
-                            
-                OutputCopy  .BackgroundImage = Properties.Resources.LightIcon_Copy;
-                OutputCut   .BackgroundImage = Properties.Resources.LightIcon_Cut;
-                OutputPaste .BackgroundImage = Properties.Resources.LightIcon_Paste;
-                OutputClear .BackgroundImage = Properties.Resources.LightIcon_Clear;
+                //Image Buttons                             
+                InputCopy    .BackgroundImage = Properties.Resources.LightIcon_Copy;
+                InputCut     .BackgroundImage = Properties.Resources.LightIcon_Cut;
+                InputPaste   .BackgroundImage = Properties.Resources.LightIcon_Paste;
+                InputClear   .BackgroundImage = Properties.Resources.LightIcon_Clear;
+                             
+                OutputCopy   .BackgroundImage = Properties.Resources.LightIcon_Copy;
+                OutputCut    .BackgroundImage = Properties.Resources.LightIcon_Cut;
+                OutputPaste  .BackgroundImage = Properties.Resources.LightIcon_Paste;
+                OutputClear  .BackgroundImage = Properties.Resources.LightIcon_Clear;
+                ExportAudio  .BackgroundImage = Properties.Resources.LightIcon_ExportAudio;
 
-                ExportAudio .BackgroundImage = Properties.Resources.LightIcon_ExportAudio;
-
-                ExitButton  .BackgroundImage = Properties.Resources.LightIcon_Clear;
-                GitHubButton.BackgroundImage = Properties.Resources.LightIcon_github;
+                ExitButton   .BackgroundImage = Properties.Resources.LightIcon_Clear;
+                GitHubButton .BackgroundImage = Properties.Resources.LightIcon_github;
+                WebsiteButton.BackgroundImage = Properties.Resources.LightIcon_site;
+                HelpButton   .BackgroundImage = Properties.Resources.LightIcon_help;
 
 
                 //Mouse Down & Over Events
-                InputCopy  .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
+                InputCopy.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
                 InputCopy  .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
                 InputCut   .FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#1c1c1c");
                 InputCut   .FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#3e3e42");
@@ -916,20 +927,21 @@ namespace ScoutsEncoder
 
 
                 //Image Buttons
-                InputCopy   .BackgroundImage = Properties.Resources.DarkIcon_Copy;
-                InputCut    .BackgroundImage = Properties.Resources.DarkIcon_Cut;
-                InputPaste  .BackgroundImage = Properties.Resources.DarkIcon_Paste;
-                InputClear  .BackgroundImage = Properties.Resources.DarkIcon_Clear;
-                            
-                OutputCopy  .BackgroundImage = Properties.Resources.DarkIcon_Copy;
-                OutputCut   .BackgroundImage = Properties.Resources.DarkIcon_Cut;
-                OutputPaste .BackgroundImage = Properties.Resources.DarkIcon_Paste;
-                OutputClear .BackgroundImage = Properties.Resources.DarkIcon_Clear;
+                InputCopy    .BackgroundImage = Properties.Resources.DarkIcon_Copy;
+                InputCut     .BackgroundImage = Properties.Resources.DarkIcon_Cut;
+                InputPaste   .BackgroundImage = Properties.Resources.DarkIcon_Paste;
+                InputClear   .BackgroundImage = Properties.Resources.DarkIcon_Clear;
+                             
+                OutputCopy   .BackgroundImage = Properties.Resources.DarkIcon_Copy;
+                OutputCut    .BackgroundImage = Properties.Resources.DarkIcon_Cut;
+                OutputPaste  .BackgroundImage = Properties.Resources.DarkIcon_Paste;
+                OutputClear  .BackgroundImage = Properties.Resources.DarkIcon_Clear;
+                ExportAudio  .BackgroundImage = Properties.Resources.DarkIcon_ExportAudio;
 
-                ExportAudio .BackgroundImage = Properties.Resources.DarkIcon_ExportAudio;
-
-                ExitButton  .BackgroundImage = Properties.Resources.DarkIcon_Clear;
-                GitHubButton.BackgroundImage = Properties.Resources.DarkIcon_github;
+                ExitButton   .BackgroundImage = Properties.Resources.DarkIcon_Clear;
+                GitHubButton .BackgroundImage = Properties.Resources.DarkIcon_github;
+                WebsiteButton.BackgroundImage = Properties.Resources.DarkIcon_site;
+                HelpButton   .BackgroundImage = Properties.Resources.DarkIcon_help;
 
 
                 //Mouse Down & Over Events
@@ -1156,5 +1168,6 @@ namespace ScoutsEncoder
             if (InputTextBox.Text == "")
                 InputTextBox.Text = "أدخل الشفرة هنا...";
         }
+
     }
 }

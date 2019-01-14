@@ -157,6 +157,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogoSE.ico" />
+    <None Include="Resources\LightIcon_site.png" />
+    <None Include="Resources\LightIcon_help.png" />
+    <None Include="Resources\DarkIcon_site.png" />
+    <None Include="Resources\DarkIcon_help.png" />
     <EmbeddedResource Include="Resources\LightIcon_ExportAudio.png" />
     <EmbeddedResource Include="Resources\DarkIcon_ExportAudio.png" />
     <EmbeddedResource Include="Resources\Icon_docs.png" />
