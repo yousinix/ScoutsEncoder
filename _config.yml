@@ -2,6 +2,7 @@
 title: ScoutsEncoder
 description: Encode plain text into scouts' ciphers.
 baseurl: /ScoutsEncoder/
+repository: YoussefRaafatNasry/ScoutsEncoder
 
 # Author Info
 author: Youssef Raafat

@@ -12,22 +12,22 @@
     
                 <!-- Project on GitHub -->
                 <h2>View Full Project</h2>
-                <a href="https://github.com/{{ site.github_username }}/{{ site.title }}" class="btn btn-default btn-xl wow tada">
+                <a href="{{ site.github.repository_url }}" class="btn btn-default btn-xl wow tada">
                    View on GitHub
                 </a>
                 <p><br>— or —</p>
     
-                <!-- Download Version -->
+                <!-- Download Latest Version -->
                 <h2>Download For Free</h2>
-                <a id="latest-version-download-link" class="btn btn-default btn-xl wow tada">
+                <a href="{{ site.github.latest_release.assets[0].browser_download_url }}" class="btn btn-default btn-xl wow tada">
                    Download Now
                 </a>
 
                 <div class="row justify-content-center mt-4">
-                    <a href="https://github.com/{{ site.github_username }}/{{ site.title }}/releases/latest">
-                        <img class="mx-1" src="https://img.shields.io/github/release/{{ site.github_username }}/{{ site.title }}.svg?style=flat-square" alt="version">
+                    <a href="{{ site.github.repository_url }}/releases/latest">
+                        <img class="mx-1" src="https://img.shields.io/github/release/{{ site.repository }}.svg?style=flat-square" alt="version">
                     </a>
-                    <img class="mx-1" src="https://img.shields.io/github/downloads/{{ site.github_username }}/{{ site.title }}/total.svg?style=flat-square" alt="downloads">
+                    <img class="mx-1" src="https://img.shields.io/github/downloads/{{ site.repository }}/total.svg?style=flat-square" alt="downloads">
                 </div>
 
             </div>
