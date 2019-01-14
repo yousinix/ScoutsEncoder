@@ -1,7 +1,7 @@
 # Site settings
 title: ScoutsEncoder
 description: Encode plain text into scouts' ciphers.
-baseurl: /ScoutsEncoder
+baseurl: /ScoutsEncoder/
 
 # Author Info
 author: Youssef Raafat
