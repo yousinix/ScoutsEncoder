@@ -6,21 +6,21 @@
             <div class="col-lg-4 text-center">
                 <h2 class="section-heading">Let's Get In Touch!</h2>
                 <hr class="primary">
-                <p>ScoutsEncoder is Maintained by {{ site.author }}. A student in Faculty of Computer and Information Sciences at Ain Shams University.</p>
+                <p>ScoutsEncoder is Maintained by {{ site.author.name }}. A student in Faculty of Computer and Information Sciences at Ain Shams University.</p>
             </div>
         </div>
 
         <div class="row justify-content-center">
                 
-            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
+            <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">
                 <i class="fab fa-linkedin-in fa-2x wow bounceIn" data-wow-delay=".1s"></i>
             </a>
 
-            <a href="mailto:{{ site.email }}">
+            <a href="mailto:{{ site.author.email }}">
                 <i class="fas fa-envelope fa-2x wow bounceIn" data-wow-delay=".1s"></i>
             </a>
 
-            <a href="https://github.com/{{ site.github_username }}">
+            <a href="https://github.com/{{ site.author.github }}">
                 <i class="fab fa-github fa-2x wow bounceIn" data-wow-delay=".1s"></i>
             </a>
     
@@ -32,6 +32,6 @@
 
 
 <footer class="footer text-center">
-    <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <strong>{{ site.author }}</strong></br>
+    <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <strong>{{ site.author.name }}</strong></br>
     <small>© 2019 {{ site.title }}</small></p>
 </footer>

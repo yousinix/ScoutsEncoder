@@ -5,10 +5,11 @@ baseurl: /ScoutsEncoder/
 repository: YoussefRaafatNasry/ScoutsEncoder
 
 # Author Info
-author: Youssef Raafat
-linkedin_username: YoussefRaafatNasry
-email: YoussefRaafatNasry@gmail.com
-github_username: YoussefRaafatNasry
+author:
+  name: Youssef Raafat
+  email: YoussefRaafatNasry@gmail.com
+  linkedin: YoussefRaafatNasry
+  github: YoussefRaafatNasry
 
 # Build settings
 markdown: kramdown
