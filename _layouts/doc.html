@@ -21,13 +21,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/docs.css" type="text/css">
 
+    {% if page.title != 'Docs' %}
+    <!-- GitHub flavored markdown CSS-->
+    <link rel="stylesheet" href="../../css/github-markdown.css" type="text/css">
+    {% endif %}
+
 </head>
 
 <body>
 
     <div class="container">
         <div class="row mt-5 justify-content-center">
-            <div class="col-10">
+            <div class="col-10 markdown-body">
                 {{ content }}
             </div>
         </div>
