@@ -3,22 +3,229 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="ScoutsEncoder" Height="350" Width="525"
-        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        
+        Title="ScoutsEncoder"
+        Height="720" MinHeight="600"
+        Width="1024" MinWidth="480"
+        WindowStartupLocation="CenterScreen"
+        
+        FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
-    
+        Background="{DynamicResource MaterialDesignPaper}">
+
     <Grid>
-        <materialDesign:Card Padding="32" Margin="16">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">ScoutsEncoder</TextBlock>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+
+
+        <!-- Input -->
+        <materialDesign:Card Padding="16" Margin="16" VerticalAlignment="Stretch">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Margin="0 0 0 16"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         TextAlignment="Right"
+                         VerticalContentAlignment="Top"
+                         VerticalScrollBarVisibility="Auto"
+                         materialDesign:HintAssist.Hint="Enter Text here..." />
+
+                <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
+
+                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
+                             Background="Transparent">
+
+                        <Button Command="Cut" ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="ContentCut" />
+                        </Button>
+
+                        <Button Command="Copy" ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="ContentCopy" />
+                        </Button>
+
+                        <Button Command="Paste" ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="ContentPaste" />
+                        </Button>
+
+                        <Button ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="Close" />
+                        </Button>
+
+                        <Separator />
+
+                        <StackPanel Orientation="Horizontal" Margin="16 0">
+                            <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Language" />
+                            <ComboBox Width="100">
+                                <ComboBoxItem IsSelected="True" Content="Cipher #0" />
+                                <ComboBoxItem Content="Cipher #1" />
+                                <ComboBoxItem Content="Cipher #2" />
+                                <ComboBoxItem Content="Cipher #3" />
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="16 0">
+                            <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Key" />
+                            <ComboBox Width="50">
+                                <ComboBoxItem IsSelected="True" Content="0" />
+                                <ComboBoxItem Content="1" />
+                                <ComboBoxItem Content="2" />
+                                <ComboBoxItem Content="3" />
+                            </ComboBox>
+                        </StackPanel>
+
+                        <Button ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="FormatColumns" />
+                        </Button>
+
+                        <Button ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="ProgressTick" />
+                        </Button>
+
+                    </ToolBar>
+                </ToolBarTray>
+
+            </Grid>
+
         </materialDesign:Card>
+
+
+
+        <!-- Output -->
+        <materialDesign:Card Grid.Row="1" Padding="16" Margin="16 0 16 16" VerticalAlignment="Stretch">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Margin="0 0 0 16"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         TextAlignment="Right"
+                         VerticalContentAlignment="Top"
+                         VerticalScrollBarVisibility="Auto"
+                         IsReadOnly="True" />
+
+                <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
+
+                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
+                             Background="Transparent">
+
+                        <Button Command="Cut" ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="ContentCut" />
+                        </Button>
+
+                        <Button Command="Copy" ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="ContentCopy" />
+                        </Button>
+
+                        <Button ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="Close" />
+                        </Button>
+
+                        <Separator />
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
+                            <Label Content="Char Separator:" />
+                            <TextBox MaxLength="1" Width="24" TextAlignment="Center" Text="-" />
+                            <Label Content="Spacing:" Margin="8 0 0 0" />
+                            <CheckBox IsChecked="True"/>
+                        </StackPanel>
+
+                        <Separator />
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
+                            <Label Content="Word Separator:" />
+                            <TextBox MaxLength="1" Width="24" TextAlignment="Center" Text="/" />
+                            <Label Content="Spacing:" Margin="8 0 0 0" />
+                            <CheckBox IsChecked="True"/>
+                        </StackPanel>
+
+                        <Separator />
+
+                        <Button ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="FormatColourFill" />
+                        </Button>
+
+                        <Button ToolBar.OverflowMode="Never">
+                            <materialDesign:PackIcon Kind="Audio" />
+                        </Button>
+
+                    </ToolBar>
+                </ToolBarTray>
+
+            </Grid>
+
+        </materialDesign:Card>
+
+
+
+        <!-- Footer -->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="16 0 16 16">
+
+            <ToolBarTray IsLocked="True" Background="Transparent">
+                <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
+                         Background="Transparent">
+
+                    <Button ToolBar.OverflowMode="Never">
+                        <materialDesign:PackIcon Kind="ThemeLightDark" />
+                    </Button>
+
+                    <Button ToolBar.OverflowMode="Never">
+                        <materialDesign:PackIcon Kind="GithubCircle" />
+                    </Button>
+
+                    <Button ToolBar.OverflowMode="Never">
+                        <materialDesign:PackIcon Kind="FileDocument" />
+                    </Button>
+
+                    <Button ToolBar.OverflowMode="Never">
+                        <materialDesign:PackIcon Kind="Web" />
+                    </Button>
+
+                    <Button ToolBar.OverflowMode="Never">
+                        <materialDesign:PackIcon Kind="HelpOutline" />
+                    </Button>
+
+                    <Button ToolBar.OverflowMode="Never">
+                        <materialDesign:PackIcon Kind="BugReport" />
+                    </Button>
+
+                </ToolBar>
+            </ToolBarTray>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 -8">
+                <materialDesign:PackIcon Kind="CodeTags" Margin="-2 6 -2 0"/>
+                <Label Content="with"/>
+                <materialDesign:PackIcon Kind="Heart" Margin="-2 6 -2 0"/>
+                <Label Content="by"/>
+                <Label Content="Youssef Raafat" FontWeight="Bold" Margin="-8 0"/>
+                <Label Content="  |  © 2019 ScoutsEncoder"/>
+            </StackPanel>
+
+        </StackPanel>
+
+
+
     </Grid>
-    
+
 </Window>
