@@ -40,12 +40,14 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Margin="0 0 0 16"
+                         FontFamily="Courier New"
+                         FontSize="14"
                          TextWrapping="Wrap"
                          AcceptsReturn="True"
                          TextAlignment="Right"
                          VerticalContentAlignment="Top"
                          VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="Enter Text here..." />
+                         materialDesign:HintAssist.Hint="Enter text here..." />
 
                 <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
@@ -118,6 +120,8 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Margin="0 0 0 16"
+                         FontFamily="Courier New"
+                         FontSize="14"
                          TextWrapping="Wrap"
                          AcceptsReturn="True"
                          TextAlignment="Right"
