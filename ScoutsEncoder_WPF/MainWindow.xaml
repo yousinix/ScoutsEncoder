@@ -46,10 +46,10 @@
                          FontSize="14"
                          TextWrapping="Wrap"
                          AcceptsReturn="True"
-                         TextAlignment="Right"
+                         FlowDirection="RightToLeft"
                          VerticalContentAlignment="Top"
                          VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="Enter text here..." />
+                         materialDesign:HintAssist.Hint="أدخل النص هنا..." />
 
                 <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
@@ -141,7 +141,7 @@
                          FontSize="14"
                          TextWrapping="Wrap"
                          AcceptsReturn="True"
-                         TextAlignment="Right"
+                         FlowDirection="RightToLeft"
                          VerticalContentAlignment="Top"
                          VerticalScrollBarVisibility="Auto"
                          IsReadOnly="True" />

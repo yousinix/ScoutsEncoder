@@ -109,7 +109,7 @@ namespace ScoutsEncoder_WPF
                 {
                     index = (i + j * numberOfRows + Key) % numberOfAlphabetCharacters;
                     outputText += (_arabicAlphabet[i + j * numberOfRows] + " = "
-                                        + CipherCharacters[index]).PadLeft(12);
+                                   + CipherCharacters[index]).PadRight(12);
                 }
                 outputText += "\r\n";
             }
