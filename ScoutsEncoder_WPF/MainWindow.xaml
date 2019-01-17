@@ -57,25 +57,26 @@
                              Background="Transparent">
 
                         <Button x:Name="InputCutButton"
-                                Command="Cut"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="InputCutButton_Click">
                             <materialDesign:PackIcon Kind="ContentCut" />
                         </Button>
 
                         <Button x:Name="InputCopyButton"
-                                Command="Copy"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="InputCopyButton_Click">
                             <materialDesign:PackIcon Kind="ContentCopy" />
                         </Button>
 
                         <Button x:Name="InputPasteButton"
-                                Command="Paste"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="InputPasteButton_Click">
                             <materialDesign:PackIcon Kind="ContentPaste" />
                         </Button>
 
                         <Button x:Name="InputClearButton"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="InputClearButton_Click">
                             <materialDesign:PackIcon Kind="Close" />
                         </Button>
 
@@ -147,19 +148,20 @@
                              Background="Transparent">
 
                         <Button x:Name="OutputCutButton"
-                                Command="Cut"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="OutputCutButton_Click">
                             <materialDesign:PackIcon Kind="ContentCut" />
                         </Button>
 
                         <Button x:Name="OutputCopyButton"
-                                Command="Copy"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="OutputCopyButton_Click">
                             <materialDesign:PackIcon Kind="ContentCopy" />
                         </Button>
 
                         <Button x:Name="OutputClearButton"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="OutputClearButton_Click">
                             <materialDesign:PackIcon Kind="Close" />
                         </Button>
 
