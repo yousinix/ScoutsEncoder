@@ -84,22 +84,22 @@
 
                         <StackPanel Orientation="Horizontal" Margin="16 0">
                             <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Language" />
-                            <ComboBox x:Name="CiphersComboBox" Width="100">
-                                <ComboBoxItem IsSelected="True" Content="Cipher #0" />
-                                <ComboBoxItem Content="Cipher #1" />
-                                <ComboBoxItem Content="Cipher #2" />
-                                <ComboBoxItem Content="Cipher #3" />
-                            </ComboBox>
+                            <ComboBox x:Name="CiphersComboBox"
+                                      Width="64"
+                                      HorizontalContentAlignment="Right"
+                                      materialDesign:HintAssist.Hint="الشفرة"
+                                      SelectionChanged="CiphersComboBox_SelectionChanged" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="16 0">
                             <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Key" />
-                            <ComboBox x:Name="KeysComboBox" Width="50">
-                                <ComboBoxItem IsSelected="True" Content="0" />
-                                <ComboBoxItem Content="1" />
-                                <ComboBoxItem Content="2" />
-                                <ComboBoxItem Content="3" />
-                            </ComboBox>
+                            <ComboBox x:Name="KeysComboBox"
+                                      Width="64"
+                                      HorizontalContentAlignment="Right"
+                                      materialDesign:HintAssist.Hint="المفتاح"
+                                      ItemsSource="{Binding KeysList}"
+                                      IsEnabled="{Binding HasKeys}"
+                                      SelectionChanged="KeysComboBox_SelectionChanged" />
                         </StackPanel>
 
                         <Button x:Name="ShowKeyButton"
@@ -200,12 +200,14 @@
                         <Separator />
 
                         <Button x:Name="ToggleShapeFillButton"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                IsEnabled="{Binding HasShapes}">
                             <materialDesign:PackIcon Kind="FormatColourFill" />
                         </Button>
 
                         <Button x:Name="ExportAudioButton"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                IsEnabled="{Binding IsAudible}">
                             <materialDesign:PackIcon Kind="Audio" />
                         </Button>
 

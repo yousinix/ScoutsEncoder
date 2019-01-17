@@ -13,8 +13,61 @@ namespace ScoutsEncoder_WPF
         public MainWindow()
         {
             InitializeComponent();
+
+            // Initialize CiphersComboBox
+            foreach (Cipher x in ciphers)
+                CiphersComboBox.Items.Add(x.DisplayName);
+
         }
 
+        Cipher chosenCipher;
+
+        Cipher[] ciphers = new[]
+        {
+            new Cipher
+            {
+                DisplayName = "الرقمية",
+                HasKeys = true,
+                CipherCharacters = {"١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
+                                    "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
+                                    "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
+                                    "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"}
+            },
+
+            new Cipher
+            {
+                DisplayName = "العكسية",
+                HasKeys = true,
+                CipherCharacters = {"ي", "و", "ه", "ن", "م", "ل", "ك",
+                                    "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
+                                    "ص", "ش", "س", "ز", "ر", "ذ", "د",
+                                    "خ", "ح", "ج", "ث", "ت", "ب", "ا"}
+            },
+
+            new Cipher
+            {
+                DisplayName = "المورس",
+                IsAudible = true,
+                CipherCharacters = {"(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
+                                    "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
+                                    "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
+                                    "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"  }
+            },
+
+            new Cipher
+            {
+                DisplayName = "المعين",
+                HasShapes = true,
+                CipherCharacters = {"١◣", "١◢", "١◤", "١◥",
+                                    "٢◣", "٢◢", "٢◤", "٢◥",
+                                    "٣◣", "٣◢", "٣◤", "٣◥",
+                                    "٤◣", "٤◢", "٤◤", "٤◥",
+                                    "٥◣", "٥◢", "٥◤", "٥◥",
+                                    "٦◣", "٦◢", "٦◤", "٦◥",
+                                    "٧◣", "٧◢", "٧◤", "٧◥"}
+            }
+
+        };
 
 
 
@@ -47,7 +100,19 @@ namespace ScoutsEncoder_WPF
             InputTextBox.Text = "";
         }
 
+        private void CiphersComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
+            DataContext = chosenCipher;
 
+            if (chosenCipher.HasKeys)
+                KeysComboBox.SelectedIndex = 0;
+        }
+
+        private void KeysComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            chosenCipher.Key = KeysComboBox.SelectedIndex;
+        }
 
 
         //// Output Event Handlers ////
@@ -126,3 +191,4 @@ namespace ScoutsEncoder_WPF
         }
     }
 }
+
