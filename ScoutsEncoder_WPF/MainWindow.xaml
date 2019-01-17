@@ -205,7 +205,8 @@
 
                         <Button x:Name="ToggleShapeFillButton"
                                 ToolBar.OverflowMode="Never"
-                                IsEnabled="{Binding HasShapes}">
+                                IsEnabled="{Binding HasShapes}"
+                                Click="ToggleShapeFillButton_Click">
                             <materialDesign:PackIcon Kind="FormatColourFill" />
                         </Button>
 

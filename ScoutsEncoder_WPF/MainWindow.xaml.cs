@@ -177,6 +177,33 @@ namespace ScoutsEncoder_WPF
             }
         }
 
+        string currentFormat = "Fill";
+        private void ToggleShapeFillButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            char[] filledShapes = { '◼', '▲', '▼', '◀', '▶', '◢', '◣', '◥', '◤' };
+            char[] StrokedShapes = { '◻', '△', '▽', '◁', '▷', '◿', '◺', '◹', '◸' };
+
+            if (currentFormat == "Fill")
+            {
+                for (int i = 0; i < filledShapes.Length; i++)
+                {
+                    OutputTextBox.Text = OutputTextBox.Text.Replace(filledShapes[i], StrokedShapes[i]);
+                }
+
+                currentFormat = "Stroke";
+            }
+            else if (currentFormat == "Stroke")
+            {
+                for (int i = 0; i < filledShapes.Length; i++)
+                {
+                    OutputTextBox.Text = OutputTextBox.Text.Replace(StrokedShapes[i], filledShapes[i]);
+                }
+
+                currentFormat = "Fill";
+            }
+        }
+
 
 
 
