@@ -102,8 +102,11 @@ namespace ScoutsEncoder_WPF
 
         private void CiphersComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            EncodeButton .IsEnabled = true;
+            ShowKeyButton.IsEnabled = true;
+
             chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
-            DataContext = chosenCipher;
+            DataContext  = chosenCipher;
 
             if (chosenCipher.HasKeys)
                 KeysComboBox.SelectedIndex = 0;
@@ -111,11 +114,24 @@ namespace ScoutsEncoder_WPF
 
         private void KeysComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            chosenCipher.Key = KeysComboBox.SelectedIndex;
+            if (KeysComboBox.SelectedIndex != -1)
+                chosenCipher.Key = KeysComboBox.SelectedIndex;
+        }
+
+        private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
+        {
+            OutputTextBox.Text = chosenCipher.ShowKey();
+        }
+
+        private void EncodeButton_Click(object sender, RoutedEventArgs e)
+        {
+            OutputTextBox.Text = chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
         }
 
 
-        //// Output Event Handlers ////
+
+
+        //// Output Event Handlers & Properties ////
 
         private void OutputCutButton_Click(object sender, RoutedEventArgs e)
         {
@@ -137,6 +153,28 @@ namespace ScoutsEncoder_WPF
         private void OutputClearButton_Click(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Text = "";
+        }
+
+        public string CharsDelimiter
+        {
+            get
+            {
+                if (CharSpacingCheckBox.IsChecked == true)
+                    return " " + CharsDelimiterTextBox.Text + " ";
+                else
+                    return CharsDelimiterTextBox.Text;
+            }
+        }
+
+        public string WordsDelimiter
+        {
+            get
+            {
+                if (WordSpacingCheckBox.IsChecked == true)
+                    return "  " + WordsDelimiterTextBox.Text + "  ";
+                else
+                    return " " + WordsDelimiterTextBox.Text + " ";
+            }
         }
 
 

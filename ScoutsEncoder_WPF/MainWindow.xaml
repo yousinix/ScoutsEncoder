@@ -103,12 +103,16 @@
                         </StackPanel>
 
                         <Button x:Name="ShowKeyButton"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                IsEnabled="False"
+                                Click="ShowKeyButton_Click">
                             <materialDesign:PackIcon Kind="FormatColumns" />
                         </Button>
 
                         <Button x:Name="EncodeButton"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                IsEnabled="False"
+                                Click="EncodeButton_Click">
                             <materialDesign:PackIcon Kind="ProgressTick" />
                         </Button>
 
