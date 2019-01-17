@@ -191,27 +191,39 @@
                 <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
                          Background="Transparent">
 
-                    <Button ToolBar.OverflowMode="Never">
+                    <Button x:Name="ToggleThemeButton"
+                            ToolBar.OverflowMode="Never"
+                            Click="ToggleThemeButton_Click">
                         <materialDesign:PackIcon Kind="ThemeLightDark" />
                     </Button>
 
-                    <Button ToolBar.OverflowMode="Never">
+                    <Button x:Name="GitHubButton"
+                            ToolBar.OverflowMode="Never"
+                            Click="GitHubButton_Click">
                         <materialDesign:PackIcon Kind="GithubCircle" />
                     </Button>
 
-                    <Button ToolBar.OverflowMode="Never">
+                    <Button x:Name="GoogleDocsButton"
+                            ToolBar.OverflowMode="Never"
+                            Click="GoogleDocsButton_Click">
                         <materialDesign:PackIcon Kind="FileDocument" />
                     </Button>
 
-                    <Button ToolBar.OverflowMode="Never">
+                    <Button x:Name="WebsiteButton"
+                            ToolBar.OverflowMode="Never"
+                            Click="WebsiteButton_Click">
                         <materialDesign:PackIcon Kind="Web" />
                     </Button>
 
-                    <Button ToolBar.OverflowMode="Never">
+                    <Button x:Name="ScoutsEncoderDocsButton"
+                            ToolBar.OverflowMode="Never"
+                            Click="ScoutsEncoderDocsButton_Click">
                         <materialDesign:PackIcon Kind="HelpOutline" />
                     </Button>
 
-                    <Button ToolBar.OverflowMode="Never">
+                    <Button x:Name="BugReportButton"
+                            ToolBar.OverflowMode="Never"
+                            Click="BugReportButton_Click">
                         <materialDesign:PackIcon Kind="BugReport" />
                     </Button>
 
