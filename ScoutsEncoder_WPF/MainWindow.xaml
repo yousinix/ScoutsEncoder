@@ -40,7 +40,8 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Margin="0 0 0 16"
+                <TextBox x:Name="InputTextBox"
+                         Margin="0 0 0 16"
                          FontFamily="Courier New"
                          FontSize="14"
                          TextWrapping="Wrap"
@@ -55,19 +56,26 @@
                     <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
                              Background="Transparent">
 
-                        <Button Command="Cut" ToolBar.OverflowMode="Never">
+                        <Button x:Name="InputCutButton"
+                                Command="Cut"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="ContentCut" />
                         </Button>
 
-                        <Button Command="Copy" ToolBar.OverflowMode="Never">
+                        <Button x:Name="InputCopyButton"
+                                Command="Copy"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="ContentCopy" />
                         </Button>
 
-                        <Button Command="Paste" ToolBar.OverflowMode="Never">
+                        <Button x:Name="InputPasteButton"
+                                Command="Paste"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="ContentPaste" />
                         </Button>
 
-                        <Button ToolBar.OverflowMode="Never">
+                        <Button x:Name="InputClearButton"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="Close" />
                         </Button>
 
@@ -75,7 +83,7 @@
 
                         <StackPanel Orientation="Horizontal" Margin="16 0">
                             <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Language" />
-                            <ComboBox Width="100">
+                            <ComboBox x:Name="CiphersComboBox" Width="100">
                                 <ComboBoxItem IsSelected="True" Content="Cipher #0" />
                                 <ComboBoxItem Content="Cipher #1" />
                                 <ComboBoxItem Content="Cipher #2" />
@@ -85,7 +93,7 @@
 
                         <StackPanel Orientation="Horizontal" Margin="16 0">
                             <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Key" />
-                            <ComboBox Width="50">
+                            <ComboBox x:Name="KeysComboBox" Width="50">
                                 <ComboBoxItem IsSelected="True" Content="0" />
                                 <ComboBoxItem Content="1" />
                                 <ComboBoxItem Content="2" />
@@ -93,11 +101,13 @@
                             </ComboBox>
                         </StackPanel>
 
-                        <Button ToolBar.OverflowMode="Never">
+                        <Button x:Name="ShowKeyButton"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="FormatColumns" />
                         </Button>
 
-                        <Button ToolBar.OverflowMode="Never">
+                        <Button x:Name="EncodeButton"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="ProgressTick" />
                         </Button>
 
@@ -120,7 +130,8 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Margin="0 0 0 16"
+                <TextBox x:Name="OutputTextBox"
+                         Margin="0 0 0 16"
                          FontFamily="Courier New"
                          FontSize="14"
                          TextWrapping="Wrap"
@@ -135,43 +146,64 @@
                     <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
                              Background="Transparent">
 
-                        <Button Command="Cut" ToolBar.OverflowMode="Never">
+                        <Button x:Name="OutputCutButton"
+                                Command="Cut"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="ContentCut" />
                         </Button>
 
-                        <Button Command="Copy" ToolBar.OverflowMode="Never">
+                        <Button x:Name="OutputCopyButton"
+                                Command="Copy"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="ContentCopy" />
                         </Button>
 
-                        <Button ToolBar.OverflowMode="Never">
+                        <Button x:Name="OutputClearButton"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="Close" />
                         </Button>
 
                         <Separator />
 
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
-                            <Label Content="Char Separator:" />
-                            <TextBox MaxLength="1" Width="24" TextAlignment="Center" Text="-" />
+
+                            <Label Content="Chars Delimiter:" />
+                            <TextBox x:Name="CharsDelimiterTextBox"
+                                     MaxLength="1"
+                                     Width="24"
+                                     TextAlignment="Center"
+                                     Text="-" />
+                            
                             <Label Content="Spacing:" Margin="8 0 0 0" />
-                            <CheckBox IsChecked="True"/>
+                            <CheckBox x:Name="CharSpacingCheckBox" IsChecked="True"/>
+                            
                         </StackPanel>
 
                         <Separator />
 
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
-                            <Label Content="Word Separator:" />
-                            <TextBox MaxLength="1" Width="24" TextAlignment="Center" Text="/" />
+
+                            <Label Content="Words Delimiter:" />
+                            <TextBox x:Name="WordsDelimiterTextBox"
+                                     MaxLength="1"
+                                     Width="24"
+                                     TextAlignment="Center"
+                                     Text="/" />
+                            
                             <Label Content="Spacing:" Margin="8 0 0 0" />
-                            <CheckBox IsChecked="True"/>
+                            <CheckBox x:Name="WordSpacingCheckBox" IsChecked="True"/>
+                            
                         </StackPanel>
 
                         <Separator />
 
-                        <Button ToolBar.OverflowMode="Never">
+                        <Button x:Name="ToggleShapeFillButton"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="FormatColourFill" />
                         </Button>
 
-                        <Button ToolBar.OverflowMode="Never">
+                        <Button x:Name="ExportAudioButton"
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="Audio" />
                         </Button>
 
