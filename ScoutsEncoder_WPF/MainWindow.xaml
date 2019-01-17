@@ -104,14 +104,12 @@
 
                         <Button x:Name="ShowKeyButton"
                                 ToolBar.OverflowMode="Never"
-                                IsEnabled="False"
                                 Click="ShowKeyButton_Click">
                             <materialDesign:PackIcon Kind="FormatColumns" />
                         </Button>
 
                         <Button x:Name="EncodeButton"
                                 ToolBar.OverflowMode="Never"
-                                IsEnabled="False"
                                 Click="EncodeButton_Click">
                             <materialDesign:PackIcon Kind="ProgressTick" />
                         </Button>
@@ -205,14 +203,12 @@
 
                         <Button x:Name="ToggleShapeFillButton"
                                 ToolBar.OverflowMode="Never"
-                                IsEnabled="{Binding HasShapes}"
                                 Click="ToggleShapeFillButton_Click">
                             <materialDesign:PackIcon Kind="FormatColourFill" />
                         </Button>
 
                         <Button x:Name="ExportAudioButton"
-                                ToolBar.OverflowMode="Never"
-                                IsEnabled="{Binding IsAudible}">
+                                ToolBar.OverflowMode="Never">
                             <materialDesign:PackIcon Kind="Audio" />
                         </Button>
 

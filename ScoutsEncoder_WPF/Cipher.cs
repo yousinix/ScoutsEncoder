@@ -36,6 +36,8 @@ namespace ScoutsEncoder_WPF
             {
                 List<string> _keysList = new List<string>();
 
+                if (HasKeys == false) return _keysList;
+
                 int numberOfAlphabetCharacters = _arabicAlphabet.Count;
 
                 for (int i = 0; i < numberOfAlphabetCharacters; i++)

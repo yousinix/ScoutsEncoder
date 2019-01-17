@@ -18,6 +18,10 @@ namespace ScoutsEncoder_WPF
             foreach (Cipher x in ciphers)
                 CiphersComboBox.Items.Add(x.DisplayName);
 
+            EncodeButton .IsEnabled = false;
+            ShowKeyButton.IsEnabled = false;
+            ToggleShapeFillButton.IsEnabled = false;
+            ExportAudioButton    .IsEnabled = false;
         }
 
         Cipher chosenCipher;
@@ -102,20 +106,20 @@ namespace ScoutsEncoder_WPF
 
         private void CiphersComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            EncodeButton .IsEnabled = true;
-            ShowKeyButton.IsEnabled = true;
-
             chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
             DataContext  = chosenCipher;
 
-            if (chosenCipher.HasKeys)
-                KeysComboBox.SelectedIndex = 0;
+            EncodeButton .IsEnabled = true;
+            ShowKeyButton.IsEnabled = true;
+            ToggleShapeFillButton.IsEnabled = chosenCipher.HasShapes;
+            ExportAudioButton    .IsEnabled = chosenCipher.IsAudible;
+
+            KeysComboBox.SelectedIndex = 0;
         }
 
         private void KeysComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (KeysComboBox.SelectedIndex != -1)
-                chosenCipher.Key = KeysComboBox.SelectedIndex;
+            chosenCipher.Key = KeysComboBox.SelectedIndex;
         }
 
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
