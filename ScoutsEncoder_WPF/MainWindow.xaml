@@ -179,7 +179,9 @@
                                      Text="-" />
                             
                             <Label Content="Spacing:" Margin="8 0 0 0" />
-                            <CheckBox x:Name="CharSpacingCheckBox" IsChecked="True"/>
+                            <CheckBox x:Name="CharSpacingCheckBox"
+                                      IsChecked="True"
+                                      Background="{DynamicResource MaterialDesignBody}"/>
                             
                         </StackPanel>
 
@@ -195,7 +197,9 @@
                                      Text="/" />
                             
                             <Label Content="Spacing:" Margin="8 0 0 0" />
-                            <CheckBox x:Name="WordSpacingCheckBox" IsChecked="True"/>
+                            <CheckBox x:Name="WordSpacingCheckBox"
+                                      IsChecked="True"
+                                      Background="{DynamicResource MaterialDesignBody}"/>
                             
                         </StackPanel>
 
