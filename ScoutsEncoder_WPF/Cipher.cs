@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace ScoutsEncoder_WPF
 {
@@ -51,8 +52,30 @@ namespace ScoutsEncoder_WPF
 
         // Methods
 
+        private void ModifyText(ref string textToModify)
+        {
+            // Replace odd characters with known characters
+            textToModify = textToModify
+                           .Replace("أ", "ا")
+                           .Replace("إ", "ا")
+                           .Replace("آ", "ا")
+                           .Replace("ء", "ا")
+                           .Replace("ة", "ه")
+                           .Replace("ؤ", "و")
+                           .Replace("ى", "ي")
+                           .Replace("ئ", "ي");
+
+            // Replace multiple spaces with a single space
+            textToModify = Regex.Replace(textToModify, " {2,}", " ");
+
+            // Remove Space at the end of the string
+            if (textToModify[textToModify.Length - 1] == ' ')
+                textToModify = textToModify.Remove(textToModify.Length - 1);
+        }
+
         public string Encode(string text, string charDelimiter, string wordDelimiter)
         {
+            ModifyText(ref text);
             string encodedText = "";
             int textLength = text.Length;
             int numberOfAlphabetCharacters = _arabicAlphabet.Count;
