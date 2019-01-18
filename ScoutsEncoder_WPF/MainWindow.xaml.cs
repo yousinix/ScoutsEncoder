@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 
 namespace ScoutsEncoder_WPF
@@ -21,12 +23,14 @@ namespace ScoutsEncoder_WPF
             foreach (Cipher x in ciphers)
                 CiphersComboBox.Items.Add(x.DisplayName);
 
-            EncodeButton      .IsEnabled = false;
-            ShowKeyButton     .IsEnabled = false;
-            ToggleFillButton  .IsEnabled = false;
-            ExportAudioButton .IsEnabled = false;
-            KeysComboBox      .IsEnabled = false;
-            AudioSpeedComboBox.IsEnabled = false;
+            // Disable all controls until a cipher is chosen
+            EncodeButton        .IsEnabled = false;
+            ShowKeyButton       .IsEnabled = false;
+            ToggleFillButton    .IsEnabled = false;
+            ExportAudioButton   .IsEnabled = false;
+            KeysComboBox        .IsEnabled = false;
+            AudioSpeedComboBox  .IsEnabled = false;
+            RealTimeToggleButton.IsEnabled = false;
 
             // Intialize messageQueue and Assign it to Snackbar's MessageQueue
             var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
@@ -248,10 +252,11 @@ namespace ScoutsEncoder_WPF
             InputTextBox.Text = "";
         }
 
-        private void CiphersComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             EncodeButton .IsEnabled = true;
             ShowKeyButton.IsEnabled = true;
+            RealTimeToggleButton.IsEnabled = true;
 
             chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
 
@@ -266,7 +271,7 @@ namespace ScoutsEncoder_WPF
             chosenCipher.Key = KeysComboBox.SelectedIndex = 0;
         }
 
-        private void KeysComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             chosenCipher.Key = KeysComboBox.SelectedIndex;
         }
@@ -281,7 +286,59 @@ namespace ScoutsEncoder_WPF
             OutputTextBox.Text = chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
         }
 
+        // Real-time Encoding
 
+        private void RealTimeToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RealTimeToggleButton.Foreground = new SolidColorBrush(Colors.White);
+
+            OutputTextBox.Text = chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+
+            InputTextBox.TextChanged          += TextBox_TextChanged;
+            CharsDelimiterTextBox.TextChanged += TextBox_TextChanged;
+            WordsDelimiterTextBox.TextChanged += TextBox_TextChanged;
+
+            CharSpacingCheckBox.Checked   += CheckBox_CheckChanged;
+            CharSpacingCheckBox.Unchecked += CheckBox_CheckChanged;
+            WordSpacingCheckBox.Checked   += CheckBox_CheckChanged;
+            WordSpacingCheckBox.Unchecked += CheckBox_CheckChanged;
+
+            CiphersComboBox.SelectionChanged += ComboBox_SelectionChanged;
+            KeysComboBox   .SelectionChanged += ComboBox_SelectionChanged;
+        }
+
+        private void RealTimeToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            RealTimeToggleButton.Foreground = (Brush)Application.Current.Resources["MaterialDesignBody"];
+
+            OutputTextBox.Text = "";
+
+            InputTextBox         .TextChanged -= TextBox_TextChanged;
+            CharsDelimiterTextBox.TextChanged -= TextBox_TextChanged;
+            WordsDelimiterTextBox.TextChanged -= TextBox_TextChanged;
+
+            CharSpacingCheckBox.Checked   -= CheckBox_CheckChanged;
+            CharSpacingCheckBox.Unchecked -= CheckBox_CheckChanged;
+            WordSpacingCheckBox.Checked   -= CheckBox_CheckChanged;
+            WordSpacingCheckBox.Unchecked -= CheckBox_CheckChanged;
+
+            CiphersComboBox.SelectionChanged -= ComboBox_SelectionChanged;
+            KeysComboBox   .SelectionChanged -= ComboBox_SelectionChanged;
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            OutputTextBox.Text = chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+        }
+
+        private void CheckBox_CheckChanged(object sender, RoutedEventArgs e)
+        {
+            OutputTextBox.Text = chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            OutputTextBox.Text = chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+        }
 
 
         //// Output Event Handlers & Properties ////
