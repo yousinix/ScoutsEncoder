@@ -23,6 +23,7 @@ namespace ScoutsEncoder_WPF
             ShowKeyButton    .IsEnabled = false;
             ToggleFillButton .IsEnabled = false;
             ExportAudioButton.IsEnabled = false;
+            KeysComboBox     .IsEnabled = false;
         }
 
         Cipher chosenCipher;
