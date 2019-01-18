@@ -210,7 +210,8 @@
                         </Button>
 
                         <Button x:Name="ExportAudioButton"
-                                ToolBar.OverflowMode="Never">
+                                ToolBar.OverflowMode="Never"
+                                Click="ExportAudioButton_Click">
                             <materialDesign:PackIcon Kind="Audio" />
                         </Button>
 
@@ -286,6 +287,8 @@
             </StackPanel>
 
         </StackPanel>
+
+        <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" />
 
 
 

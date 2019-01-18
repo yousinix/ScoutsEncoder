@@ -1,4 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
@@ -24,6 +26,10 @@ namespace ScoutsEncoder_WPF
             ToggleFillButton .IsEnabled = false;
             ExportAudioButton.IsEnabled = false;
             KeysComboBox     .IsEnabled = false;
+
+            // Intialize messageQueue and Assign it to Snackbar's MessageQueue
+            var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
+            Snackbar.MessageQueue = messageQueue;
         }
 
         Cipher chosenCipher;
@@ -349,6 +355,23 @@ namespace ScoutsEncoder_WPF
             }
         }
 
+        private void ExportAudioButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog
+            {
+                FileName = "MorseCode", // Default file name
+                DefaultExt = ".wav",    // Default file extension
+                Filter = "Waveform Audio File (.wav)|*.wav" // Filter files by extension
+            };
+
+            // Process save file dialog box results
+            if (dlg.ShowDialog() == true)
+            {
+                MorseCodeGenerator audioData = new MorseCodeGenerator(OutputTextBox.Text, CharsDelimiter, WordsDelimiter);
+                audioData.Save(dlg.FileName);
+                Snackbar.MessageQueue.Enqueue(dlg.SafeFileName + " saved!");
+            }
+        }
 
 
 
