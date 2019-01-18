@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Navigation;
@@ -28,7 +29,18 @@ namespace ScoutsEncoder_WPF
 
         Cipher[] ciphers = new[]
         {
+
             new Cipher
+            {
+                DisplayName = "يسوع",
+                HasKeys = true,
+                CipherCharacters = {"ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
+                                    "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
+                                    "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
+                                    "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"}
+            },
+
+             new Cipher
             {
                 DisplayName = "الرقمية",
                 HasKeys = true,
@@ -36,6 +48,15 @@ namespace ScoutsEncoder_WPF
                                     "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
                                     "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
                                     "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"}
+            },
+
+             new Cipher
+            {
+                DisplayName = "الأعداد الثنائية",
+                CipherCharacters = {"00001", "00010", "00011", "00100", "00101", "00110", "00111",
+                                    "01000", "01001", "01010", "01011", "01100", "01101", "01110",
+                                    "01111", "10000", "10001", "10010", "10011", "10100", "10101",
+                                    "10110", "10111", "11000", "11001", "11010", "11011", "11100"}
             },
 
             new Cipher
@@ -50,12 +71,97 @@ namespace ScoutsEncoder_WPF
 
             new Cipher
             {
+                DisplayName = "قيصر",
+                HasKeys = true,
+                CipherCharacters = {"ب", "ت", "ث", "ج", "ح", "خ", "د",
+                                    "ذ", "ر", "ز", "س", "ش", "ص", "ض",
+                                    "ط", "ظ", "ع", "غ", "ف", "ق", "ك",
+                                    "ل", "م", "ن", "ه", "و", "ي", "ا"}
+            },
+
+            new Cipher
+            {
+                DisplayName = "عربي مفرط",
+                CipherCharacters = {"ا ", "ب ", "ت ", "ث ", "ج ", "ح ", "خ ",
+                                    "د ", "ذ ", "ر ", "ز ", "س ", "ش ", "ص ",
+                                    "ض ", "ط ", "ظ ", "ع ", "غ ", "ف ", "ق ",
+                                    "ك ", "ل ", "م ", "ن ", "ه ", "و ", "ي "}
+            },
+
+            new Cipher
+            {
                 DisplayName = "المورس",
                 IsAudible = true,
                 CipherCharacters = {"(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
                                     "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
                                     "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
                                     "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"  }
+            },
+
+            new Cipher
+            {
+                DisplayName = "البوصلة",
+                CipherCharacters = {"N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
+                                    "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
+                                    "N(٣)", "NE(٣)", "E(٣)", "SE(٣)", "S(٣)", "SW(٣)", "W(٣)", "NW(٣)",
+                                    "N(٤)", "NE(٤)", "E(٤)", "SE(٤)"}
+            },
+
+            new Cipher
+            {
+                DisplayName = "الساعة cw",
+                CipherCharacters = {"١:١٢", "١:١" , "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
+                                    "١:٧" , "١:٨" , "١:٩" , "١:١٠", "١:١١", "٢:١٢", "٢:١",
+                                    "٢:٢" , "٢:٣" , "٢:٤" , "٢:٥" , "٢:٦" , "٢:٧" , "٢:٨",
+                                    "٢:٩" , "٢:١٠", "٢:١١", "٣:١٢", "٣:١" , "٣:٢" , "٣:٣" }
+            },
+
+            new Cipher
+            {
+                DisplayName = "الساعة ccw",
+                CipherCharacters = {"١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
+                                    "١:٥" , "١:٤" , "١:٣" , "١:٢" , "١:١" , "٢:١٢", "٢:١١",
+                                    "٢:١٠", "٢:٩" , "٢:٨" , "٢:٧" , "٢:٦" , "٢:٥" , "٢:٤" ,
+                                    "٢:٣" , "٢:٢" , "٢:١" , "٣:١٢", "٣:١١", "٣:١٠", "٣:٩" }
+            },
+
+            new Cipher
+            {
+                DisplayName = "الجوال1",
+                CipherCharacters = {"٣"   , "٢"   , "٢٢"    , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦"  ,
+                                    "٥"   , "٥٥"  , "٥٥٥"   , "٥٥٥٥", "٤"   , "٤٤" , "٤٤٤"  ,
+                                    "٤٤٤٤", "٩"   , "٩٩"    , "٩٩٩" , "٩٩٩٩", "٨"  , "٨٨"   ,
+                                    "٨٨٨" , "٨٨٨٨", "٨٨٨٨٨", "٧"    , "٧٧"  , "٧٧٧", "٧٧٧٧"}
+            },
+
+            new Cipher
+            {
+                DisplayName = "الجوال2",
+                CipherCharacters = {"٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
+                                    "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
+                                    "٤^٤", "٩^١", "٩^٢", "٩^٣", "٩^٤", "٨^١", "٨^٢",
+                                    "٨^٣", "٨^٤", "٨^٥", "٧^١", "٧^٢", "٧^٣", "٧^٤"}
+            },
+
+            new Cipher
+            {
+                DisplayName = "إكس",
+                HasKeys = true,
+                CipherCharacters = {"V(١)", "V(٢)", "V(٣)", "V(٤)", "V(٥)", "V(٦)", "V(٧)",
+                                    ">(١)", ">(٢)", ">(٣)", ">(٤)", ">(٥)", ">(٦)", ">(٧)",
+                                    "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
+                                    "<(١)", "<(٢)", "<(٣)", "<(٤)", "<(٥)", "<(٦)", "<(٧)"}
+            },
+
+            new Cipher
+            {
+                DisplayName = "النجمة",
+                HasKeys = true,
+                HasShapes = true,
+                CipherCharacters = {"▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
+                                    "▶١", "▶٢", "▶٣", "▶٤", "▶٥", "▶٦", "▶٧",
+                                    "◀١", "◀٢", "◀٣", "◀٤", "◀٥", "◀٦", "◀٧",
+                                    "▼١", "▼٢", "▼٣", "▼٤", "▼٥", "▼٦", "▼٧"}
             },
 
             new Cipher
@@ -69,9 +175,22 @@ namespace ScoutsEncoder_WPF
                                     "٥◣", "٥◢", "٥◤", "٥◥",
                                     "٦◣", "٦◢", "٦◤", "٦◥",
                                     "٧◣", "٧◢", "٧◤", "٧◥"}
-            }
+            },
 
+            new Cipher
+            {
+                DisplayName = "المثلث",
+                HasShapes = true,
+                CipherCharacters = {"١▲",
+                                    "٢◣◼",  "٢◼◢",
+                                    "٣◣◼", "٣◼(١)",  "٣◼◢",
+                                    "٤◣◼", "٤◼(١)", "٤◼(٢)",  "٤◼◢",
+                                    "٥◣◼", "٥◼(١)", "٥◼(٢)", "٥◼(٣)",  "٥◼◢",
+                                    "٦◣◼", "٦◼(١)", "٦◼(٢)", "٦◼(٣)", "٦◼(٤)",  "٦◼◢",
+                                    "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)", "٧◼◢"}
+            }
         };
+
 
 
 
@@ -114,7 +233,9 @@ namespace ScoutsEncoder_WPF
             ToggleShapeFillButton.IsEnabled = chosenCipher.HasShapes;
             ExportAudioButton    .IsEnabled = chosenCipher.IsAudible;
 
-            KeysComboBox.SelectedIndex = 0;
+            // Set Key to zero because empty KeysList
+            // makes Key = KeysComboBox.SelectedIndex = -1
+            chosenCipher.Key = KeysComboBox.SelectedIndex = 0;
         }
 
         private void KeysComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
