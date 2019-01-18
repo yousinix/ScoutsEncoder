@@ -215,6 +215,14 @@
                             <materialDesign:PackIcon Kind="Audio" />
                         </Button>
 
+                        <ComboBox x:Name="AudioSpeedComboBox"
+                                  Width="64"
+                                  ToolBar.OverflowMode="Never">
+                            <ComboBoxItem Content="Slow" />
+                            <ComboBoxItem Content="Medium" IsSelected="True" />
+                            <ComboBoxItem Content="Fast" />
+                        </ComboBox>
+
                     </ToolBar>
                 </ToolBarTray>
 

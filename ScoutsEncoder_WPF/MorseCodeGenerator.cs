@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace ScoutsEncoder_WPF
@@ -83,7 +84,7 @@ namespace ScoutsEncoder_WPF
         private const char _wordsDelimeter = ' ';
 
 
-        public MorseCodeGenerator(string encodedText, string charsDelimeter, string wordsDelimeter)
+        public MorseCodeGenerator(string encodedText, string charsDelimeter, string wordsDelimeter, int speed)
         {
 
             _encodedText = ModifyEncodedText(ref encodedText, charsDelimeter, wordsDelimeter);
@@ -94,8 +95,8 @@ namespace ScoutsEncoder_WPF
             data   = new WaveDataChunk();
 
             // Initialize the 16-bit array
-            data.dotArray     = new short[format.dwSamplesPerSec / 10];
-            data.silenceArray = new short[format.dwSamplesPerSec / 10]; //automatically Initialized with zeroes
+            data.dotArray     = new short[(format.dwSamplesPerSec / 10) * (3 - speed)];
+            data.silenceArray = new short[(format.dwSamplesPerSec / 10) * (3 - speed)]; //automatically Initialized with zeroes
 
             // Sine wave Properties
             int amplitude = 32760;  // Max amplitude for 16-bit audio
@@ -103,7 +104,8 @@ namespace ScoutsEncoder_WPF
             double periodOfWave = (Math.PI * 2 * freq) / (format.dwSamplesPerSec);
 
             // Fill dot array with sine waves
-            for (uint i = 0; i < format.dwSamplesPerSec / 10; i++)
+            long size = (format.dwSamplesPerSec / 10) * (3 - speed);
+            for (uint i = 0; i < size; i++)
             {
                 data.dotArray[i] = Convert.ToInt16(amplitude * Math.Sin(periodOfWave * i));
             }
@@ -250,7 +252,7 @@ namespace ScoutsEncoder_WPF
 
             // Surround string with whitespaces to leave about 1 second
             // of silence at the begining and the end of the audio.
-            encodedText = "  " + encodedText + "  ";
+            encodedText = " " + encodedText + " ";
 
             return encodedText;
         }

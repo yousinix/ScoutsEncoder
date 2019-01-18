@@ -21,11 +21,12 @@ namespace ScoutsEncoder_WPF
             foreach (Cipher x in ciphers)
                 CiphersComboBox.Items.Add(x.DisplayName);
 
-            EncodeButton     .IsEnabled = false;
-            ShowKeyButton    .IsEnabled = false;
-            ToggleFillButton .IsEnabled = false;
-            ExportAudioButton.IsEnabled = false;
-            KeysComboBox     .IsEnabled = false;
+            EncodeButton      .IsEnabled = false;
+            ShowKeyButton     .IsEnabled = false;
+            ToggleFillButton  .IsEnabled = false;
+            ExportAudioButton .IsEnabled = false;
+            KeysComboBox      .IsEnabled = false;
+            AudioSpeedComboBox.IsEnabled = false;
 
             // Intialize messageQueue and Assign it to Snackbar's MessageQueue
             var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
@@ -254,10 +255,11 @@ namespace ScoutsEncoder_WPF
 
             chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
 
-            KeysComboBox     .IsEnabled = chosenCipher.HasKeys || chosenCipher.HasOverloads;
-            KeysComboBox   .ItemsSource = chosenCipher.KeysList;
-            ToggleFillButton .IsEnabled = chosenCipher.HasShapes;
-            ExportAudioButton.IsEnabled = chosenCipher.IsAudible;
+            KeysComboBox      .IsEnabled = chosenCipher.HasKeys || chosenCipher.HasOverloads;
+            KeysComboBox    .ItemsSource = chosenCipher.KeysList;
+            ToggleFillButton  .IsEnabled = chosenCipher.HasShapes;
+            ExportAudioButton .IsEnabled = chosenCipher.IsAudible;
+            AudioSpeedComboBox.IsEnabled = chosenCipher.IsAudible;
 
             // Set Key to zero because empty KeysList
             // makes Key = KeysComboBox.SelectedIndex = -1
@@ -359,7 +361,7 @@ namespace ScoutsEncoder_WPF
         {
             SaveFileDialog dlg = new SaveFileDialog
             {
-                FileName = "MorseCode", // Default file name
+                FileName = "MorseCode - " + AudioSpeedComboBox.Text, // Default file name
                 DefaultExt = ".wav",    // Default file extension
                 Filter = "Waveform Audio File (.wav)|*.wav" // Filter files by extension
             };
@@ -367,9 +369,9 @@ namespace ScoutsEncoder_WPF
             // Process save file dialog box results
             if (dlg.ShowDialog() == true)
             {
-                MorseCodeGenerator audioData = new MorseCodeGenerator(OutputTextBox.Text, CharsDelimiter, WordsDelimiter);
+                MorseCodeGenerator audioData = new MorseCodeGenerator(OutputTextBox.Text, CharsDelimiter, WordsDelimiter, AudioSpeedComboBox.SelectedIndex);
                 audioData.Save(dlg.FileName);
-                Snackbar.MessageQueue.Enqueue(dlg.SafeFileName + " saved!");
+                Snackbar.MessageQueue.Enqueue("\"" + dlg.SafeFileName + "\"" + " Saved!");
             }
         }
 
