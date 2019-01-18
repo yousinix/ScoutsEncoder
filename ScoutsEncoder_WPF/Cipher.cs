@@ -12,7 +12,6 @@ namespace ScoutsEncoder_WPF
         private static string arabicletters    = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
         private List<char>   _arabicAlphabet   = new List<char>(arabicletters);
         private List<string> _cipherCharacters = new List<string>(arabicletters.Length);
-        private List<string> _keysList         = new List<string>();
 
 
 
@@ -69,6 +68,8 @@ namespace ScoutsEncoder_WPF
         {
             get
             {
+                List<string> _keysList = new List<string>();
+
                 if (HasKeys)
                 {
                     int numberOfAlphabetCharacters = _arabicAlphabet.Count;
