@@ -97,8 +97,6 @@
                                       Width="64"
                                       FlowDirection="RightToLeft"
                                       materialDesign:HintAssist.Hint="المفتاح"
-                                      ItemsSource="{Binding KeysList}"
-                                      IsEnabled="{Binding HasKeys}"
                                       SelectionChanged="KeysComboBox_SelectionChanged" />
                         </StackPanel>
 

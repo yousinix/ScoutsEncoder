@@ -9,34 +9,66 @@ namespace ScoutsEncoder_WPF
 
         // Local Fields
 
-        private static string arabicletters = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
-        private static List<char> _arabicAlphabet = new List<char>(arabicletters);
+        private static string arabicletters    = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
+        private List<char>   _arabicAlphabet   = new List<char>(arabicletters);
+        private List<string> _cipherCharacters = new List<string>(arabicletters.Length);
+        private List<string> _keysList         = new List<string>();
+
+
 
 
         // Properties
 
-        public List<string> CipherCharacters { get; set; } = new List<string>(_arabicAlphabet.Count);
+        //// Basic Properties
 
         public string DisplayName { get; set; }
 
-        public bool HasKeys { get; set; } = false;
+        public List<string> CipherCharacters
+        {
+            get
+            {
+                if (HasOverloads)
+                    return Overloads[Key].CipherCharacters;
+                else
+                    return _cipherCharacters;
+            }
+
+            set { _cipherCharacters = value; }
+        }
 
         public bool HasShapes { get; set; } = false;
 
         public bool IsAudible { get; set; } = false;
 
+
+        //// Overloads Properties
+
+        public bool HasOverloads { get; set; } = false;
+
+        public List<Cipher> Overloads { get; set; }
+
+
+        //// Key Properties
+
+        public bool HasKeys { get; set; } = false;
+
         public int Key { get; set; } = 0;
 
         public int KeyWeight { get; set; } = 1;
 
-        private int WeightedKey { get { return Key * KeyWeight; } }
+        private int EncodingKey
+        {
+            get
+            {
+                if (HasOverloads) return 0;
+                return Key * KeyWeight;
+            }
+        }
 
         public List<string> KeysList
         {
             get
             {
-                List<string> _keysList = new List<string>();
-
                 if (HasKeys)
                 {
                     int numberOfAlphabetCharacters = _arabicAlphabet.Count;
@@ -44,11 +76,20 @@ namespace ScoutsEncoder_WPF
                         _keysList.Add("أ = " + CipherCharacters[i]);
                 }
 
+                else if (HasOverloads)
+                {
+                    int numberOfOverloads = Overloads.Count;
+                    for (int i = 0; i < numberOfOverloads; i++)
+                        _keysList.Add(Overloads[i].DisplayName);
+                }
+
                 return _keysList;
             }
 
             set { KeysList = value; }
         }
+
+
 
 
         // Methods
@@ -105,7 +146,7 @@ namespace ScoutsEncoder_WPF
                 else
                 {
                     // Encoding the character
-                    index = (index + WeightedKey) % numberOfAlphabetCharacters;
+                    index = (index + EncodingKey) % numberOfAlphabetCharacters;
                     encodedText += CipherCharacters[index];
 
                     // Add a delimeter after the character if the next character
@@ -131,7 +172,7 @@ namespace ScoutsEncoder_WPF
             {
                 for (int j = 0; j < numberOfColumns; j++)
                 {
-                    index = (i + j * numberOfRows + WeightedKey) % numberOfAlphabetCharacters;
+                    index = (i + j * numberOfRows + EncodingKey) % numberOfAlphabetCharacters;
                     outputText += (_arabicAlphabet[i + j * numberOfRows] + " = "
                                    + CipherCharacters[index]).PadRight(12);
                 }

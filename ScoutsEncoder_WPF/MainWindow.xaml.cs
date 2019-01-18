@@ -29,7 +29,6 @@ namespace ScoutsEncoder_WPF
 
         Cipher[] ciphers = new[]
         {
-
             new Cipher
             {
                 DisplayName = "يسوع",
@@ -40,7 +39,7 @@ namespace ScoutsEncoder_WPF
                                     "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"}
             },
 
-             new Cipher
+            new Cipher
             {
                 DisplayName = "الرقمية",
                 HasKeys = true,
@@ -50,7 +49,7 @@ namespace ScoutsEncoder_WPF
                                     "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"}
             },
 
-             new Cipher
+            new Cipher
             {
                 DisplayName = "الأعداد الثنائية",
                 CipherCharacters = {"00001", "00010", "00011", "00100", "00101", "00110", "00111",
@@ -109,38 +108,54 @@ namespace ScoutsEncoder_WPF
 
             new Cipher
             {
-                DisplayName = "الساعة cw",
-                CipherCharacters = {"١:١٢", "١:١" , "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
-                                    "١:٧" , "١:٨" , "١:٩" , "١:١٠", "١:١١", "٢:١٢", "٢:١",
-                                    "٢:٢" , "٢:٣" , "٢:٤" , "٢:٥" , "٢:٦" , "٢:٧" , "٢:٨",
-                                    "٢:٩" , "٢:١٠", "٢:١١", "٣:١٢", "٣:١" , "٣:٢" , "٣:٣" }
+                DisplayName = "الساعة",
+                HasOverloads = true,
+                Overloads = new List<Cipher>
+                {
+                    new Cipher
+                    {
+                        DisplayName = "CW",
+                        CipherCharacters = {"١:١٢", "١:١" , "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
+                                            "١:٧" , "١:٨" , "١:٩" , "١:١٠", "١:١١", "٢:١٢", "٢:١",
+                                            "٢:٢" , "٢:٣" , "٢:٤" , "٢:٥" , "٢:٦" , "٢:٧" , "٢:٨",
+                                            "٢:٩" , "٢:١٠", "٢:١١", "٣:١٢", "٣:١" , "٣:٢" , "٣:٣" }
+                    },
+
+                    new Cipher
+                    {
+                        DisplayName = "CCW",
+                        CipherCharacters = {"١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
+                                            "١:٥" , "١:٤" , "١:٣" , "١:٢" , "١:١" , "٢:١٢", "٢:١١",
+                                            "٢:١٠", "٢:٩" , "٢:٨" , "٢:٧" , "٢:٦" , "٢:٥" , "٢:٤" ,
+                                            "٢:٣" , "٢:٢" , "٢:١" , "٣:١٢", "٣:١١", "٣:١٠", "٣:٩" }
+                    }
+                }
             },
 
             new Cipher
             {
-                DisplayName = "الساعة ccw",
-                CipherCharacters = {"١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
-                                    "١:٥" , "١:٤" , "١:٣" , "١:٢" , "١:١" , "٢:١٢", "٢:١١",
-                                    "٢:١٠", "٢:٩" , "٢:٨" , "٢:٧" , "٢:٦" , "٢:٥" , "٢:٤" ,
-                                    "٢:٣" , "٢:٢" , "٢:١" , "٣:١٢", "٣:١١", "٣:١٠", "٣:٩" }
-            },
+                DisplayName = "الجوال",
+                HasOverloads = true,
+                Overloads = new List<Cipher>
+                {
+                    new Cipher
+                    {
+                        DisplayName = "أ = ٣",
+                        CipherCharacters = {"٣"   , "٢"   , "٢٢"    , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦"  ,
+                                            "٥"   , "٥٥"  , "٥٥٥"   , "٥٥٥٥", "٤"   , "٤٤" , "٤٤٤"  ,
+                                            "٤٤٤٤", "٩"   , "٩٩"    , "٩٩٩" , "٩٩٩٩", "٨"  , "٨٨"   ,
+                                            "٨٨٨" , "٨٨٨٨", "٨٨٨٨٨", "٧"    , "٧٧"  , "٧٧٧", "٧٧٧٧"}
+                    },
 
-            new Cipher
-            {
-                DisplayName = "الجوال1",
-                CipherCharacters = {"٣"   , "٢"   , "٢٢"    , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦"  ,
-                                    "٥"   , "٥٥"  , "٥٥٥"   , "٥٥٥٥", "٤"   , "٤٤" , "٤٤٤"  ,
-                                    "٤٤٤٤", "٩"   , "٩٩"    , "٩٩٩" , "٩٩٩٩", "٨"  , "٨٨"   ,
-                                    "٨٨٨" , "٨٨٨٨", "٨٨٨٨٨", "٧"    , "٧٧"  , "٧٧٧", "٧٧٧٧"}
-            },
-
-            new Cipher
-            {
-                DisplayName = "الجوال2",
-                CipherCharacters = {"٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
-                                    "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
-                                    "٤^٤", "٩^١", "٩^٢", "٩^٣", "٩^٤", "٨^١", "٨^٢",
-                                    "٨^٣", "٨^٤", "٨^٥", "٧^١", "٧^٢", "٧^٣", "٧^٤"}
+                    new Cipher
+                    {
+                        DisplayName = "أ = ٣^١",
+                        CipherCharacters = {"٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
+                                            "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
+                                            "٤^٤", "٩^١", "٩^٢", "٩^٣", "٩^٤", "٨^١", "٨^٢",
+                                            "٨^٣", "٨^٤", "٨^٥", "٧^١", "٧^٢", "٧^٣", "٧^٤"}
+                    }
+                }
             },
 
             new Cipher
@@ -228,10 +243,13 @@ namespace ScoutsEncoder_WPF
         private void CiphersComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
-            DataContext  = chosenCipher;
+
+            KeysComboBox.IsEnabled   = chosenCipher.HasKeys || chosenCipher.HasOverloads;
+            KeysComboBox.ItemsSource = chosenCipher.KeysList;
 
             EncodeButton .IsEnabled = true;
             ShowKeyButton.IsEnabled = true;
+
             ToggleShapeFillButton.IsEnabled = chosenCipher.HasShapes;
             ExportAudioButton    .IsEnabled = chosenCipher.IsAudible;
 
