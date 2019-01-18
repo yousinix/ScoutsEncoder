@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ScoutsEncoder_WPF
+namespace ScoutsEncoder
 {
     /// <summary>
     /// Interaction logic for App.xaml

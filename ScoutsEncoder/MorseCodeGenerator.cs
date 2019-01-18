@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ScoutsEncoder
 {
@@ -76,37 +78,42 @@ namespace ScoutsEncoder
         WaveHeader header;
         WaveFormatChunk format;
         WaveDataChunk data;
-        string cipher;
 
-        public MorseCodeGenerator(string morseCode)
+        private string _encodedText;
+        private const char _charsDelimeter = '+';
+        private const char _wordsDelimeter = ' ';
+
+
+        public MorseCodeGenerator(string encodedText, string charsDelimeter, string wordsDelimeter, int speed)
         {
+
+            _encodedText = ModifyEncodedText(ref encodedText, charsDelimeter, wordsDelimeter);
+
             // Init chunks
             header = new WaveHeader();
             format = new WaveFormatChunk();
             data   = new WaveDataChunk();
-            cipher = morseCode;
 
             // Initialize the 16-bit array
-            data.dotArray     = new short[format.dwSamplesPerSec / 10];
-            data.silenceArray = new short[format.dwSamplesPerSec / 10]; //automatically Initialized with zeroes
+            data.dotArray     = new short[(format.dwSamplesPerSec / 10) * (3 - speed)];
+            data.silenceArray = new short[(format.dwSamplesPerSec / 10) * (3 - speed)]; //automatically Initialized with zeroes
 
             // Sine wave Properties
             int amplitude = 32760;  // Max amplitude for 16-bit audio
             double freq   = 750.0f;
             double periodOfWave = (Math.PI * 2 * freq) / (format.dwSamplesPerSec);
 
-
             // Fill dot array with sine waves
-            for (uint i = 0; i < format.dwSamplesPerSec / 10; i++)
+            long size = (format.dwSamplesPerSec / 10) * (3 - speed);
+            for (uint i = 0; i < size; i++)
             {
                 data.dotArray[i] = Convert.ToInt16(amplitude * Math.Sin(periodOfWave * i));
             }
 
-
             // Calculate data chunk size in bytes
-            for (int index = 0; index < cipher.Length; index++)
+            for (int index = 0; index < _encodedText.Length; index++)
             {
-                switch (cipher[index])
+                switch (_encodedText[index])
                 {
                     case '-': // 4 frames
                         data.dwChunkSize += (uint)((data.dotArray.Length * (format.wBitsPerSample / 8)) * 4);
@@ -116,11 +123,11 @@ namespace ScoutsEncoder
                         data.dwChunkSize += (uint)((data.dotArray.Length * (format.wBitsPerSample / 8)) * 2);
                         break;
 
-                    case '.': // 3 frames
+                    case _charsDelimeter: // 3 frames
                         data.dwChunkSize += (uint)((data.dotArray.Length * (format.wBitsPerSample / 8)) * 3);
                         break;
 
-                    case ' ': // 7 frames
+                    case _wordsDelimeter: // 7 frames
                         data.dwChunkSize += (uint)((data.dotArray.Length * (format.wBitsPerSample / 8)) * 7);
                         break;
 
@@ -167,9 +174,9 @@ namespace ScoutsEncoder
 
 
             // Write the cipher
-            for (int index = 0; index < cipher.Length; index++)
+            for (int index = 0; index < _encodedText.Length; index++)
             {
-                switch (cipher[index])
+                switch (_encodedText[index])
                 {
                     case '-': // Dash = 3 dots + period
 
@@ -194,7 +201,7 @@ namespace ScoutsEncoder
 
                         break;
 
-                    case '.': // Letter space = 3 dots
+                    case _charsDelimeter: // Letter space = 3 dots
 
                         for (int i = 0; i < 3; i++)
                         {
@@ -204,7 +211,7 @@ namespace ScoutsEncoder
 
                         break;
 
-                    case ' ': // Word Space = 7 dots
+                    case _wordsDelimeter: // Word Space = 7 dots
 
                         for (int i = 0; i < 7; i++)
                         {
@@ -228,5 +235,26 @@ namespace ScoutsEncoder
             fileStream.Close();
         }
 
+
+        private string ModifyEncodedText(ref string encodedText, string charsDelimeter, string wordsDelimeter)
+        {
+            // Replace sent delimeters with local delimeters
+            encodedText = encodedText.Replace(charsDelimeter, _charsDelimeter.ToString())
+                                     .Replace(wordsDelimeter, _wordsDelimeter.ToString());
+
+            // Replace multiple new lines with 2 x words delimeter
+            encodedText = Regex.Replace(encodedText, @"[\r\n]{2,}", new String(_wordsDelimeter, 2));
+
+            string morseRegex = "[^\\-\\•]" + "\\" + _charsDelimeter + "\\" + _wordsDelimeter + "]";
+
+            // Remove anything that doesn't belong to the morse syntax
+            encodedText = Regex.Replace(encodedText, morseRegex, String.Empty);
+
+            // Surround string with whitespaces to leave about 1 second
+            // of silence at the begining and the end of the audio.
+            encodedText = " " + encodedText + " ";
+
+            return encodedText;
+        }
     }
 }
