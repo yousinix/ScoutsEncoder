@@ -136,7 +136,7 @@ namespace ScoutsEncoder_WPF
                     // to avoid mixing them up with the cipher characters
                     // as some ciphers may contain punctuation marks
                     else if (Char.IsPunctuation(text[i]))
-                        encodedText += ' ' + text[i] + ' ';
+                        encodedText += " " + text[i] + " ";
 
                     // Add any new line or strange character as is
                     else
