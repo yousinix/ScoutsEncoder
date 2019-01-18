@@ -86,7 +86,7 @@
                             <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Language" />
                             <ComboBox x:Name="CiphersComboBox"
                                       Width="64"
-                                      HorizontalContentAlignment="Right"
+                                      FlowDirection="RightToLeft"
                                       materialDesign:HintAssist.Hint="الشفرة"
                                       SelectionChanged="CiphersComboBox_SelectionChanged" />
                         </StackPanel>
@@ -95,7 +95,7 @@
                             <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Key" />
                             <ComboBox x:Name="KeysComboBox"
                                       Width="64"
-                                      HorizontalContentAlignment="Right"
+                                      FlowDirection="RightToLeft"
                                       materialDesign:HintAssist.Hint="المفتاح"
                                       ItemsSource="{Binding KeysList}"
                                       IsEnabled="{Binding HasKeys}"
