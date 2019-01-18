@@ -203,9 +203,9 @@
 
                         <Separator />
 
-                        <Button x:Name="ToggleShapeFillButton"
+                        <Button x:Name="ToggleFillButton"
                                 ToolBar.OverflowMode="Never"
-                                Click="ToggleShapeFillButton_Click">
+                                Click="ToggleFillButton_Click">
                             <materialDesign:PackIcon Kind="FormatColourFill" />
                         </Button>
 

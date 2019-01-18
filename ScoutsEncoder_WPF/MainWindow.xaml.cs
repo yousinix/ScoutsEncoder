@@ -19,10 +19,10 @@ namespace ScoutsEncoder_WPF
             foreach (Cipher x in ciphers)
                 CiphersComboBox.Items.Add(x.DisplayName);
 
-            EncodeButton .IsEnabled = false;
-            ShowKeyButton.IsEnabled = false;
-            ToggleShapeFillButton.IsEnabled = false;
-            ExportAudioButton    .IsEnabled = false;
+            EncodeButton     .IsEnabled = false;
+            ShowKeyButton    .IsEnabled = false;
+            ToggleFillButton .IsEnabled = false;
+            ExportAudioButton.IsEnabled = false;
         }
 
         Cipher chosenCipher;
@@ -242,16 +242,15 @@ namespace ScoutsEncoder_WPF
 
         private void CiphersComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
-
-            KeysComboBox.IsEnabled   = chosenCipher.HasKeys || chosenCipher.HasOverloads;
-            KeysComboBox.ItemsSource = chosenCipher.KeysList;
-
             EncodeButton .IsEnabled = true;
             ShowKeyButton.IsEnabled = true;
 
-            ToggleShapeFillButton.IsEnabled = chosenCipher.HasShapes;
-            ExportAudioButton    .IsEnabled = chosenCipher.IsAudible;
+            chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
+
+            KeysComboBox     .IsEnabled = chosenCipher.HasKeys || chosenCipher.HasOverloads;
+            KeysComboBox   .ItemsSource = chosenCipher.KeysList;
+            ToggleFillButton .IsEnabled = chosenCipher.HasShapes;
+            ExportAudioButton.IsEnabled = chosenCipher.IsAudible;
 
             // Set Key to zero because empty KeysList
             // makes Key = KeysComboBox.SelectedIndex = -1
@@ -322,8 +321,8 @@ namespace ScoutsEncoder_WPF
             }
         }
 
-        string currentFormat = "Fill";
-        private void ToggleShapeFillButton_Click(object sender, RoutedEventArgs e)
+        string currentFormat = "Fill"; // Default Format
+        private void ToggleFillButton_Click(object sender, RoutedEventArgs e)
         {
 
             char[] filledShapes = { '◼', '▲', '▼', '◀', '▶', '◢', '◣', '◥', '◤' };
