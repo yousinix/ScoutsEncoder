@@ -9,11 +9,8 @@ namespace ScoutsEncoder_WPF
 
         // Local Fields
 
-        private static List<char> _arabicAlphabet = new List<char>
-                                                    { 'ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ',
-                                                      'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص',
-                                                      'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق',
-                                                      'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي' };
+        private static string arabicletters = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
+        private static List<char> _arabicAlphabet = new List<char>(arabicletters);
 
 
         // Properties
@@ -30,19 +27,21 @@ namespace ScoutsEncoder_WPF
 
         public int Key { get; set; } = 0;
 
+        public int KeyWeight { get; set; } = 1;
+
+        private int WeightedKey { get { return Key * KeyWeight; } }
+
         public List<string> KeysList
         {
             get
             {
                 List<string> _keysList = new List<string>();
 
-                if (HasKeys == false) return _keysList;
-
-                int numberOfAlphabetCharacters = _arabicAlphabet.Count;
-
-                for (int i = 0; i < numberOfAlphabetCharacters; i++)
+                if (HasKeys)
                 {
-                    _keysList.Add("أ = " + CipherCharacters[i]);
+                    int numberOfAlphabetCharacters = _arabicAlphabet.Count;
+                    for (int i = 0; i < numberOfAlphabetCharacters; i += KeyWeight)
+                        _keysList.Add("أ = " + CipherCharacters[i]);
                 }
 
                 return _keysList;
@@ -71,7 +70,7 @@ namespace ScoutsEncoder_WPF
             textToModify = Regex.Replace(textToModify, " {2,}", " ");
 
             // Remove Space at the end of the string
-            if (textToModify[textToModify.Length - 1] == ' ')
+            if (textToModify.Length > 0 && textToModify[textToModify.Length - 1] == ' ')
                 textToModify = textToModify.Remove(textToModify.Length - 1);
         }
 
@@ -106,7 +105,7 @@ namespace ScoutsEncoder_WPF
                 else
                 {
                     // Encoding the character
-                    index = (index + Key) % numberOfAlphabetCharacters;
+                    index = (index + WeightedKey) % numberOfAlphabetCharacters;
                     encodedText += CipherCharacters[index];
 
                     // Add a delimeter after the character if the next character
@@ -132,7 +131,7 @@ namespace ScoutsEncoder_WPF
             {
                 for (int j = 0; j < numberOfColumns; j++)
                 {
-                    index = (i + j * numberOfRows + Key) % numberOfAlphabetCharacters;
+                    index = (i + j * numberOfRows + WeightedKey) % numberOfAlphabetCharacters;
                     outputText += (_arabicAlphabet[i + j * numberOfRows] + " = "
                                    + CipherCharacters[index]).PadRight(12);
                 }

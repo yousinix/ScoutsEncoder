@@ -147,6 +147,7 @@ namespace ScoutsEncoder_WPF
             {
                 DisplayName = "إكس",
                 HasKeys = true,
+                KeyWeight = 7,
                 CipherCharacters = {"V(١)", "V(٢)", "V(٣)", "V(٤)", "V(٥)", "V(٦)", "V(٧)",
                                     ">(١)", ">(٢)", ">(٣)", ">(٤)", ">(٥)", ">(٦)", ">(٧)",
                                     "Λ(١)", "Λ(٢)", "Λ(٣)", "Λ(٤)", "Λ(٥)", "Λ(٦)", "Λ(٧)",
@@ -158,6 +159,7 @@ namespace ScoutsEncoder_WPF
                 DisplayName = "النجمة",
                 HasKeys = true,
                 HasShapes = true,
+                KeyWeight = 7,
                 CipherCharacters = {"▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
                                     "▶١", "▶٢", "▶٣", "▶٤", "▶٥", "▶٦", "▶٧",
                                     "◀١", "◀٢", "◀٣", "◀٤", "◀٥", "◀٦", "◀٧",
