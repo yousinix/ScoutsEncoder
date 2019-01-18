@@ -8,7 +8,7 @@
         
         Title="ScoutsEncoder"
         Height="720" MinHeight="600"
-        Width="1024" MinWidth="480"
+        Width="1024" MinWidth="504"
         WindowStartupLocation="CenterScreen"
         Icon=".\logo.png"
         
@@ -119,6 +119,8 @@
                         <ToggleButton x:Name="RealTimeToggleButton"
                                       Width="24"
                                       Height="24"
+                                      Margin="8 0 0 0"
+                                      ToolBar.OverflowMode="Never"
                                       Style="{StaticResource MaterialDesignFlatToggleButton}"
                                       Background="{DynamicResource PrimaryHueMidBrush}"
                                       Foreground="{DynamicResource MaterialDesignBody}"
