@@ -102,12 +102,16 @@
 
                         <Button x:Name="ShowKeyButton"
                                 ToolBar.OverflowMode="Never"
+                                ToolTip="Show Encoding Key"
+                                ToolTipService.InitialShowDelay="1200"
                                 Click="ShowKeyButton_Click">
                             <materialDesign:PackIcon Kind="FormatColumns" />
                         </Button>
 
                         <Button x:Name="EncodeButton"
                                 ToolBar.OverflowMode="Never"
+                                ToolTip="Encode Text"
+                                ToolTipService.InitialShowDelay="1200"
                                 Click="EncodeButton_Click">
                             <materialDesign:PackIcon Kind="ProgressTick" />
                         </Button>
@@ -118,6 +122,8 @@
                                       Style="{StaticResource MaterialDesignFlatToggleButton}"
                                       Background="{DynamicResource PrimaryHueMidBrush}"
                                       Foreground="{DynamicResource MaterialDesignBody}"
+                                      ToolTip="Toggle Real-Time Encoding"
+                                      ToolTipService.InitialShowDelay="1200"
                                       Checked="RealTimeToggleButton_Checked"
                                       Unchecked="RealTimeToggleButton_Unchecked">
                             <materialDesign:PackIcon Kind="LinkVariant" Width="16" Height="16" />
@@ -216,19 +222,25 @@
 
                         <Button x:Name="ToggleFillButton"
                                 ToolBar.OverflowMode="Never"
+                                ToolTip="Toggle Shapes Fill/Stroke"
+                                ToolTipService.InitialShowDelay="1200"
                                 Click="ToggleFillButton_Click">
                             <materialDesign:PackIcon Kind="FormatColourFill" />
                         </Button>
 
                         <Button x:Name="ExportAudioButton"
                                 ToolBar.OverflowMode="Never"
+                                ToolTip="Export Audio"
+                                ToolTipService.InitialShowDelay="1200"
                                 Click="ExportAudioButton_Click">
                             <materialDesign:PackIcon Kind="Audio" />
                         </Button>
 
                         <ComboBox x:Name="AudioSpeedComboBox"
                                   Width="64"
-                                  ToolBar.OverflowMode="Never">
+                                  ToolBar.OverflowMode="Never"
+                                  ToolTip="Audio Speed"
+                                  ToolTipService.InitialShowDelay="1200">
                             <ComboBoxItem Content="Slow" />
                             <ComboBoxItem Content="Medium" IsSelected="True" />
                             <ComboBoxItem Content="Fast" />
@@ -252,36 +264,48 @@
 
                     <Button x:Name="ToggleThemeButton"
                             ToolBar.OverflowMode="Never"
+                            ToolTip="Toggle Light/Dark Themes"
+                            ToolTipService.InitialShowDelay="1200"
                             Click="ToggleThemeButton_Click">
                         <materialDesign:PackIcon Kind="ThemeLightDark" />
                     </Button>
 
                     <Button x:Name="GitHubButton"
                             ToolBar.OverflowMode="Never"
+                            ToolTip="Project on GitHub"
+                            ToolTipService.InitialShowDelay="1200"
                             Click="GitHubButton_Click">
                         <materialDesign:PackIcon Kind="GithubCircle" />
                     </Button>
 
                     <Button x:Name="GoogleDocsButton"
                             ToolBar.OverflowMode="Never"
+                            ToolTip="Google Docs (Recommended Text Editor)"
+                            ToolTipService.InitialShowDelay="1200"
                             Click="GoogleDocsButton_Click">
                         <materialDesign:PackIcon Kind="FileDocument" />
                     </Button>
 
                     <Button x:Name="WebsiteButton"
                             ToolBar.OverflowMode="Never"
+                            ToolTip="ScoutsEncoder Site"
+                            ToolTipService.InitialShowDelay="1200"
                             Click="WebsiteButton_Click">
                         <materialDesign:PackIcon Kind="Web" />
                     </Button>
 
                     <Button x:Name="ScoutsEncoderDocsButton"
                             ToolBar.OverflowMode="Never"
+                            ToolTip="Help"
+                            ToolTipService.InitialShowDelay="1200"
                             Click="ScoutsEncoderDocsButton_Click">
                         <materialDesign:PackIcon Kind="HelpOutline" />
                     </Button>
 
                     <Button x:Name="BugReportButton"
                             ToolBar.OverflowMode="Never"
+                            ToolTip="Report a Bug via Email"
+                            ToolTipService.InitialShowDelay="1200"
                             Click="BugReportButton_Click">
                         <materialDesign:PackIcon Kind="BugReport" />
                     </Button>
@@ -298,7 +322,9 @@
                     <Hyperlink NavigateUri="https://www.linkedin.com/in/youssefraafatnasry/"
                                RequestNavigate="Hyperlink_RequestNavigate"
                                Foreground="{DynamicResource MaterialDesignBody}"
-                               FontWeight="Bold">
+                               FontWeight="Bold"
+                               ToolTip="LinkedIn Profile"
+                               ToolTipService.InitialShowDelay="1200">
                                Youssef Raafat
                     </Hyperlink>
                 </TextBlock>
