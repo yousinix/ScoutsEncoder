@@ -6,13 +6,21 @@ permalink: /docs/available-ciphers/
 
 # Available Ciphers
 
-- cipher #01
-- cipher #02
-- cipher #03
-- cipher #04
-- cipher #05
-- cipher #06
-- cipher #07
-- cipher #08
-- cipher #09
-- cipher #10
+ScoutsEncoder currently has **13** available ciphers, each one has its own keys and features.<br/>
+Check the table below for more info:
+
+| Cipher            | Multiple Keys | Other Features            |
+| :---------------: | :-----------: | :-----------------------: |
+| يسوع              | Yes           | -                         |
+| رقمية             | Yes           | -                         |
+| الأعداد الثنائية  | -             | -                         |
+| عكسية             | Yes           | -                         |
+| قيصر              | Yes           | -                         |
+| المورس            | -             | Audio Exporting (3 speeds)|
+| البوصلة           | Yes           | -                         |
+| الساعة            | Yes           | -                         |
+| الجوال            | Yes           | -                         |
+| إكس               | Yes           | -                         |
+| النجمة            | Yes           | Fill/Stroke shapes        |
+| المعين            | -             | Fill/Stroke shapes        |
+| المثلث            | -             | Fill/Stroke shapes        |
