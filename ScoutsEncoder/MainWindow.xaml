@@ -10,7 +10,7 @@
         Height="720" MinHeight="600"
         Width="1024" MinWidth="504"
         WindowStartupLocation="CenterScreen"
-        Icon=".\logo.png"
+        Icon=".\logo.ico"
         
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
