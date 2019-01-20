@@ -6,22 +6,111 @@ permalink: /docs/features/
 
 # Features
 
-## First Feature
+## Ciphers
 
-Lorem ipsum dolor sit amet, iisque feugiat efficiantur sit ad, qui dolorem comprehensam cu. Ex illum laoreet corpora sed, eam constituto definitiones eu. Mel debet iracundia ea, quo decore gubergren evertitur ea. In assum inani expetenda eum, vix stet putent dissentiunt ex. Ipsum accusata at per, cu deleniti voluptatum dissentiunt usu. Eam in atqui tollit legendos.
+- Check ciphers list from [here](docs/available-ciphers).
+- [Add](#clean-code) your own cipher.
+- Request a cipher via [Email](mailto:{{site.author.email}}?subject={{site.title}} - Cipher Request) or via [GitHub Issues]({{site.github.repository_url}}/issues/new?title=Cipher Request)
+- Check [Ciphers Handbook](docs/ciphers-handbook) to know more about the ciphers used in ScoutsEncoder.
 
-## Second Feature
+## Keys
 
-Qui aliquip fuisset ad, wisi euismod vivendum ne vim. Vidit instructior cu per. Putent repudiandae eum in. Impetus antiopam pri cu, utroque scripserit et vix, propriae accusamus ad est. Magna decore splendide ne vix.
+- You can use different keys for each cipher to get different encodings.
+- You can also view the full cipher's encoding with the key used.
 
-## Third Feature
+![full-cipher](../../img/features/full-cipher.jpg)
 
-Et vim agam graeco. Eu atqui dolor vim, cu nec quidam vituperata. In animal corpora expetenda mea, sea legere doctus reprehendunt eu, an paulo menandri est. Malis tritani te est. Et docendi dolores hendrerit est. Ne usu nihil prompta interpretaris, vim ne solum vituperata, labore expetenda iudicabit te vel.
+## Encoding
 
-## Fourth Feature
+### Real-time Encoding
 
-Elitr epicurei vel an, maiorum pericula te vis, percipitur delicatissimi et est. Id ferri elitr tempor mei, at dicam quaestio partiendo mea, habeo utamur civibus eum ut. Eam ullum graeci inimicus an, vocibus aliquando ei mea. Duo accumsan principes ne, sea ne dolor aliquip, eam efficiendi constituam cu.
+Encode your text while typing without the need to press any button. Change anything (cipher, key, chars/words delimiter or shape format) and the changes will be reflected instantly.
 
-## Fifth Feature
+![real-time](../../img/features/real-time.gif)
 
-Eos at movet paulo putent. At molestie imperdiet est, ne mea veritus noluisse eloquentiam, sea at modo suas. Euismod docendi te vix. Ea sit dolores placerat invenire, quidam dictas laoreet qui eu, et facer sententiae sea. Idque qualisque prodesset no usu, id usu temporibus concludaturque.
+### Output Styles
+
+Customize your output depending on your preferences. Change the chars/words delimiters and their spacing or the fill and stroke of shapes.
+
+![output-styles](../../img/features/output-styles.gif)
+
+### Audio Output
+
+Export [audio](../../wav/MorseCode.wav) output for your Morse encoding with different speeds (slow - medium - fast).
+
+![audio-speeds](../../img/features/audio-speeds.jpg)
+
+## Design
+
+### Light/Dark Themes
+
+Choose the theme that makes you more comfortable.
+
+![themes](../../img/features/themes.jpg)
+
+### Responsive Layout
+
+Choose whatever size you like. You can either use it in full screen or side by side with any other window.
+
+![responsive](../../img/features/responsive.gif)
+
+### Material Design
+
+Designed with Google's [material design](https://material.io/design/) standards using [Material Design In XAML Toolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit).
+
+## Code
+
+### Clean Code
+
+Readable and easy to maintain OOP code using XAML and C#. Adding Ciphers is so easy, anyone can add them even if he doesn't know how to code! Just add the cipher type you want, from the types below, to ciphers array and the rest is done for you.
+
+Check out the following pre-declared ciphers from that [link](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/d19c185cb6046c8969ddf68125a90e116da8f88a/ScoutsEncoder/MainWindow.xaml.cs#L42-L212).
+
+```c#
+
+// 1] Normal Cipher:
+new Cipher
+{
+    DisplayName = "اسم_الشفرة", // Add Cipher Name Here (displayed in Ciphers ComboBox)
+    HasKeys = true,              // Enables Keys ComboBox
+    KeyWeight = n,               // Offsets Keys with the given value (n) where:  0 < n < 28
+    IsAudible = true,            // Enables Audio Button
+    HasShapes = true,            // Enables Shape Format Button
+    CipherCharacters = {"x", "x", "x", "x", "x", "x", "x",  // Add Cipher body Here.
+                        "x", "x", "x", "x", "x", "x", "x",  // Must contain 28 values,
+                        "x", "x", "x", "x", "x", "x", "x",  // written in an array form
+                        "x", "x", "x", "x", "x", "x", "x"}
+},
+
+// 2] Overloaded Cipher:
+new Cipher
+{
+    DisplayName = "اسم_الشفرة", // Add Cipher Name Here (displayed in Ciphers ComboBox)
+    HasOverloads = true,         // Don't declare any key-related property or CipherCharacters property
+    Overloads = new List<Cipher> // Overloads appear in Keys ComboBox, and are initialized as a list
+    {
+        new Cipher
+        {
+            DisplayName = "اسم 1", // First overload name (displayed in Keys ComboBox)
+            CipherCharacters = {"x", "x", "x", "x", "x", "x", "x", // Add First overload body Here.
+                                "x", "x", "x", "x", "x", "x", "x", // Must contain 28 values,
+                                "x", "x", "x", "x", "x", "x", "x", // written in an array form
+                                "x", "x", "x", "x", "x", "x", "x"}
+        },
+
+        new Cipher
+        {
+            DisplayName = "اسم 2", // Second overload name (displayed in Keys ComboBox)
+            CipherCharacters = {"x", "x", "x", "x", "x", "x", "x", // Add Second overload body Here.
+                                "x", "x", "x", "x", "x", "x", "x", // Must contain 28 values,
+                                "x", "x", "x", "x", "x", "x", "x", // written in an array form
+                                "x", "x", "x", "x", "x", "x", "x"}
+        }
+    }
+},
+
+```
+
+### Open Source
+
+Source code is available on [Github]({{ site.github.repository_url }}). Open for contributions and improvements.
