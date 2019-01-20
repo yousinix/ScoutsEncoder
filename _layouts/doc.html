@@ -10,20 +10,20 @@
     <meta charset="utf-8">
 
     <title>{{ page.title }}</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ '/img/logo.ico' | relative_url }}">
 
     <!-- Bootstrap Core CSS CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Bootstrap Grid CSS-->
-    <link rel="stylesheet" href="../../css/bootstrap-grid.css" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/bootstrap-grid.css' | relative_url }}" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../css/docs.css" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/docs.css' | relative_url }}" type="text/css">
 
     {% if page.title != 'Docs' %}
     <!-- GitHub flavored markdown CSS-->
-    <link rel="stylesheet" href="../../css/github-markdown.css" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/github-markdown.css' | relative_url }}" type="text/css">
     {% endif %}
 
 </head>

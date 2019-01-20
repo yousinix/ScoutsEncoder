@@ -8,17 +8,17 @@ permalink: /docs/features/
 
 ## Ciphers
 
-- Check ciphers list from [here](docs/available-ciphers).
+- Check ciphers list from [here]({{ '/docs/available-ciphers' | relative_url }}).
 - [Add](#clean-code) your own cipher.
 - Request a cipher via [Email](mailto:{{site.author.email}}?subject={{site.title}} - Cipher Request) or via [GitHub Issues]({{site.github.repository_url}}/issues/new?title=Cipher Request)
-- Check [Ciphers Handbook](docs/ciphers-handbook) to know more about the ciphers used in ScoutsEncoder.
+- Check [Ciphers Handbook]({{ '/docs/ciphers-handbook' | relative_url }}) to know more about the ciphers used in ScoutsEncoder.
 
 ## Keys
 
 - You can use different keys for each cipher to get different encodings.
 - You can also view the full cipher's encoding with the key used.
 
-![full-cipher](../../img/features/full-cipher.jpg)
+![full-cipher]({{ 'img/features/full-cipher.jpg' | relative_url }})
 
 ## Encoding
 
@@ -26,19 +26,19 @@ permalink: /docs/features/
 
 Encode your text while typing without the need to press any button. Change anything (cipher, key, chars/words delimiter or shape format) and the changes will be reflected instantly.
 
-![real-time](../../img/features/real-time.gif)
+![real-time]({{ 'img/features/real-time.gif' | relative_url }})
 
 ### Output Styles
 
 Customize your output depending on your preferences. Change the chars/words delimiters and their spacing or the fill and stroke of shapes.
 
-![output-styles](../../img/features/output-styles.gif)
+![output-styles]({{ 'img/features/output-styles.gif' | relative_url }})
 
 ### Audio Output
 
-Export [audio](../../wav/MorseCode.wav) output for your Morse encoding with different speeds (slow - medium - fast).
+Export [audio]({{ 'wav/MorseCode.wav' | relative_url }}) output for your Morse encoding with different speeds (slow - medium - fast).
 
-![audio-speeds](../../img/features/audio-speeds.jpg)
+![audio-speeds]({{ 'img/features/audio-speeds.jpg' | relative_url }})
 
 ## Design
 
@@ -46,13 +46,13 @@ Export [audio](../../wav/MorseCode.wav) output for your Morse encoding with diff
 
 Choose the theme that makes you more comfortable.
 
-![themes](../../img/features/themes.jpg)
+![themes]({{ 'img/features/themes.jpg'  | relative_url }})
 
 ### Responsive Layout
 
 Choose whatever size you like. You can either use it in full screen or side by side with any other window.
 
-![responsive](../../img/features/responsive.gif)
+![responsive]({{ 'img/features/responsive.gif' | relative_url }})
 
 ### Material Design
 
