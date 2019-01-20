@@ -114,3 +114,11 @@ new Cipher
 ### Open Source
 
 Source code is available on [Github]({{ site.github.repository_url }}). Open for contributions and improvements.
+
+## Feature Request
+
+The feature you are searching for isn't mentioned?<br/>
+Request your desired feature now!
+
+<a class="btn btn-primary" href="mailto:{{ site.author.email }}?subject={{ site.title }} | Feature Request">via E-Mail</a>
+<a class="btn btn-primary" href="{{ site.github.repository_url }}/issues/new?title=Feature Request">via GitHub</a>
