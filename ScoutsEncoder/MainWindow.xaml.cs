@@ -300,7 +300,8 @@ namespace ScoutsEncoder
 
         private void RealTimeToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            RealTimeToggleButton.Foreground = (Brush)Application.Current.Resources["MaterialDesignBody"];
+            if (currentTheme == "Light")
+                RealTimeToggleButton.Foreground = (Brush)Application.Current.Resources["MaterialDesignBody"];
 
             OutputTextBox.Text = "";
 
@@ -316,6 +317,7 @@ namespace ScoutsEncoder
             CiphersComboBox.SelectionChanged -= ComboBox_SelectionChanged;
             KeysComboBox   .SelectionChanged -= ComboBox_SelectionChanged;
         }
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             OutputTextBox.Text = chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
@@ -434,11 +436,16 @@ namespace ScoutsEncoder
             {
                 ThemeAssist.SetTheme(this, BaseTheme.Dark);
                 currentTheme = "Dark";
+
+                RealTimeToggleButton.Foreground = new SolidColorBrush(Colors.White);
             }
             else if (currentTheme == "Dark")
             {
                 ThemeAssist.SetTheme(this, BaseTheme.Light);
                 currentTheme = "Light";
+
+                if (RealTimeToggleButton.IsChecked == false)
+                    RealTimeToggleButton.Foreground = (Brush)Application.Current.Resources["MaterialDesignBody"];
             }
         }
 
