@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace ScoutsEncoder
 {
-    class Cipher
+    public class Cipher
     {
 
         // Local Fields
