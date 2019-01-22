@@ -59,6 +59,10 @@ section {
     padding: 100px 0;
 }
 
+footer {
+    margin-top: -40px;
+}
+
 .no-padding {
     padding: 0;
 }
@@ -233,10 +237,6 @@ header {
 #contact .fas, #contact .fab {
     color: $theme-dark;
     margin: 5px;
-}
-
-.footer {
-    margin-top: -30px;
 }
 
 // Extras
