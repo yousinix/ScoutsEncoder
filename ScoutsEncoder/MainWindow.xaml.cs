@@ -236,26 +236,30 @@ namespace ScoutsEncoder
 
         private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
+            
+            KeysComboBox.IsEnabled     = chosenCipher.HasKeys || chosenCipher.HasOverloads;
+            KeysComboBox.ItemsSource   = chosenCipher.KeysList;
+            KeysComboBox.SelectedIndex = 0;
+
             EncodeButton        .IsEnabled = true;
             ShowKeyButton       .IsEnabled = true;
             RealTimeToggleButton.IsEnabled = true;
-
-            chosenCipher = ciphers[CiphersComboBox.SelectedIndex];
-
-            KeysComboBox      .IsEnabled = chosenCipher.HasKeys || chosenCipher.HasOverloads;
-            KeysComboBox    .ItemsSource = chosenCipher.KeysList;
-            ToggleFillButton  .IsEnabled = chosenCipher.HasShapes;
-            ExportAudioButton .IsEnabled = chosenCipher.IsAudible;
-            AudioSpeedComboBox.IsEnabled = chosenCipher.IsAudible;
-
-            // Set Key to zero because empty KeysList
-            // makes Key = KeysComboBox.SelectedIndex = -1
-            chosenCipher.Key = KeysComboBox.SelectedIndex = 0;
+            ToggleFillButton    .IsEnabled = chosenCipher.HasShapes;
+            ExportAudioButton   .IsEnabled = chosenCipher.IsAudible;
+            AudioSpeedComboBox  .IsEnabled = chosenCipher.IsAudible;
         }
 
         private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            chosenCipher.Key = KeysComboBox.SelectedIndex;
+            if (KeysComboBox.SelectedIndex == -1)
+                // Set Key to zero if KeysComboBox is empty
+                // or while changing the KeysComboBox's ItemsSource,
+                // instead of making Key = SelectedIndex = -1
+                // which will cause an error while encoding
+                chosenCipher.Key = 0;
+            else
+                chosenCipher.Key = KeysComboBox.SelectedIndex;
         }
 
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
