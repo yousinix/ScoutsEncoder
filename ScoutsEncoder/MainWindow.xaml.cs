@@ -23,15 +23,6 @@ namespace ScoutsEncoder
             foreach (Cipher x in ciphers)
                 CiphersComboBox.Items.Add(x.DisplayName);
 
-            // Disable all controls until a cipher is chosen
-            EncodeButton        .IsEnabled = false;
-            ShowKeyButton       .IsEnabled = false;
-            ToggleFillButton    .IsEnabled = false;
-            ExportAudioButton   .IsEnabled = false;
-            KeysComboBox        .IsEnabled = false;
-            AudioSpeedComboBox  .IsEnabled = false;
-            RealTimeToggleButton.IsEnabled = false;
-
             // Intialize messageQueue and Assign it to Snackbar's MessageQueue
             var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
             Snackbar.MessageQueue = messageQueue;
@@ -245,8 +236,8 @@ namespace ScoutsEncoder
 
         private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            EncodeButton .IsEnabled = true;
-            ShowKeyButton.IsEnabled = true;
+            EncodeButton        .IsEnabled = true;
+            ShowKeyButton       .IsEnabled = true;
             RealTimeToggleButton.IsEnabled = true;
 
             chosenCipher = ciphers[CiphersComboBox.SelectedIndex];

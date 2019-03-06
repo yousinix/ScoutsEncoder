@@ -97,14 +97,16 @@
                                       Width="64"
                                       FlowDirection="RightToLeft"
                                       materialDesign:HintAssist.Hint="المفتاح"
-                                      SelectionChanged="KeysComboBox_SelectionChanged" />
+                                      SelectionChanged="KeysComboBox_SelectionChanged"
+                                      IsEnabled="False" />
                         </StackPanel>
 
                         <Button x:Name="ShowKeyButton"
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="Show Encoding Key"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="ShowKeyButton_Click">
+                                Click="ShowKeyButton_Click"
+                                IsEnabled="False">
                             <materialDesign:PackIcon Kind="FormatColumns" />
                         </Button>
 
@@ -112,7 +114,8 @@
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="Encode Text"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="EncodeButton_Click">
+                                Click="EncodeButton_Click"
+                                IsEnabled="False">
                             <materialDesign:PackIcon Kind="ProgressTick" />
                         </Button>
 
@@ -127,7 +130,8 @@
                                       ToolTip="Toggle Real-Time Encoding"
                                       ToolTipService.InitialShowDelay="1200"
                                       Checked="RealTimeToggleButton_Checked"
-                                      Unchecked="RealTimeToggleButton_Unchecked">
+                                      Unchecked="RealTimeToggleButton_Unchecked"
+                                      IsEnabled="False">
                             <materialDesign:PackIcon Kind="LinkVariant" Width="16" Height="16" />
                         </ToggleButton>
 
@@ -226,7 +230,8 @@
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="Toggle Shapes Fill/Stroke"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="ToggleFillButton_Click">
+                                Click="ToggleFillButton_Click"
+                                IsEnabled="False">
                             <materialDesign:PackIcon Kind="FormatColourFill" />
                         </Button>
 
@@ -234,7 +239,8 @@
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="Export Audio"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="ExportAudioButton_Click">
+                                Click="ExportAudioButton_Click"
+                                IsEnabled="False">
                             <materialDesign:PackIcon Kind="Audio" />
                         </Button>
 
@@ -242,7 +248,8 @@
                                   Width="64"
                                   ToolBar.OverflowMode="Never"
                                   ToolTip="Audio Speed"
-                                  ToolTipService.InitialShowDelay="1200">
+                                  ToolTipService.InitialShowDelay="1200"
+                                  IsEnabled="False">
                             <ComboBoxItem Content="Slow" />
                             <ComboBoxItem Content="Medium" IsSelected="True" />
                             <ComboBoxItem Content="Fast" />
