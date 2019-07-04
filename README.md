@@ -1,8 +1,12 @@
 <div align="center">
     <a href="https://youssefraafatnasry.github.io/ScoutsEncoder/">
-        <img src="https://user-images.githubusercontent.com/41103290/51106433-6bd39c00-17f4-11e9-9ec1-0e45b85537ea.JPG">
+        <img src="https://user-images.githubusercontent.com/41103290/60645919-4be37380-9e3a-11e9-982a-6981d231da0d.png">
     </a>
-    <strong><br/>An open source windows application that encodes<br/>arabic plain text into scouts' ciphers with a single button click.</strong>
+    <br/>
+    <strong>
+    An open source WPF application that encodes<br/>
+    arabic plain text into scouts' ciphers with a single button click.
+    </strong>
     <br/><br/>
     <a href="https://github.com/YoussefRaafatNasry/ScoutsEncoder/releases/latest">
         <img src="https://img.shields.io/github/release/YoussefRaafatNasry/ScoutsEncoder.svg?style=flat-square">
