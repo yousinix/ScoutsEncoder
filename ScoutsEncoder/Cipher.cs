@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace ScoutsEncoder
 {
     public class Cipher
     {
+        //////////// Local Fields ////////////
 
-        // Local Fields
-
-        private static string arabicletters    = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
-        private List<char>   _arabicAlphabet   = new List<char>(arabicletters);
-        private List<string> _cipherCharacters = new List<string>(arabicletters.Length);
-
+        private const string ArabicLetters = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
+        private readonly List<char> _arabicAlphabet = new List<char>(ArabicLetters);
+        private List<string> _cipherCharacters = new List<string>(ArabicLetters.Length);
 
 
-
-        // Properties
+        //////////// Properties ////////////
 
         //// Basic Properties
 
@@ -24,28 +20,19 @@ namespace ScoutsEncoder
 
         public List<string> CipherCharacters
         {
-            get
-            {
-                if (HasOverloads)
-                    return Overloads[Key].CipherCharacters;
-                else
-                    return _cipherCharacters;
-            }
-
-            set { _cipherCharacters = value; }
+            get => HasOverloads ? Overloads[Key].CipherCharacters : _cipherCharacters;
+            set => _cipherCharacters = value;
         }
 
         public bool HasShapes { get; set; } = false;
 
         public bool IsAudible { get; set; } = false;
 
-
         //// Overloads Properties
 
         public bool HasOverloads { get; set; } = false;
 
         public List<Cipher> Overloads { get; set; }
-
 
         //// Key Properties
 
@@ -68,45 +55,42 @@ namespace ScoutsEncoder
         {
             get
             {
-                List<string> _keysList = new List<string>();
+                var keysList = new List<string>();
 
                 if (HasKeys)
                 {
-                    int numberOfAlphabetCharacters = _arabicAlphabet.Count;
-                    for (int i = 0; i < numberOfAlphabetCharacters; i += KeyWeight)
-                        _keysList.Add("أ = " + CipherCharacters[i]);
+                    var numberOfAlphabetCharacters = _arabicAlphabet.Count;
+                    for (var i = 0; i < numberOfAlphabetCharacters; i += KeyWeight)
+                        keysList.Add("أ = " + CipherCharacters[i]);
                 }
-
                 else if (HasOverloads)
                 {
-                    int numberOfOverloads = Overloads.Count;
-                    for (int i = 0; i < numberOfOverloads; i++)
-                        _keysList.Add(Overloads[i].DisplayName);
+                    var numberOfOverloads = Overloads.Count;
+                    for (var i = 0; i < numberOfOverloads; i++)
+                        keysList.Add(Overloads[i].DisplayName);
                 }
 
-                return _keysList;
+                return keysList;
             }
 
-            set { KeysList = value; }
+            set => KeysList = value;
         }
 
 
+        //////////// Methods ////////////
 
-
-        // Methods
-
-        private void ModifyText(ref string textToModify)
+        private static void ModifyText(ref string textToModify)
         {
             // Replace odd characters with known characters
             textToModify = textToModify
-                           .Replace("أ", "ا")
-                           .Replace("إ", "ا")
-                           .Replace("آ", "ا")
-                           .Replace("ء", "ا")
-                           .Replace("ة", "ه")
-                           .Replace("ؤ", "و")
-                           .Replace("ى", "ي")
-                           .Replace("ئ", "ي");
+                .Replace("أ", "ا")
+                .Replace("إ", "ا")
+                .Replace("آ", "ا")
+                .Replace("ء", "ا")
+                .Replace("ة", "ه")
+                .Replace("ؤ", "و")
+                .Replace("ى", "ي")
+                .Replace("ئ", "ي");
 
             // Replace multiple spaces with a single space
             textToModify = Regex.Replace(textToModify, " {2,}", " ");
@@ -119,24 +103,24 @@ namespace ScoutsEncoder
         public string Encode(string text, string charDelimiter, string wordDelimiter)
         {
             ModifyText(ref text);
-            string encodedText = "";
-            int textLength = text.Length;
-            int numberOfAlphabetCharacters = _arabicAlphabet.Count;
+            var encodedText = "";
+            var textLength = text.Length;
+            var numberOfAlphabetCharacters = _arabicAlphabet.Count;
 
-            for (int i = 0; i < textLength; i++)
+            for (var i = 0; i < textLength; i++)
             {
                 // Get the index of the current character from Arabic Alphabet's list
-                int index = _arabicAlphabet.IndexOf(text[i]);
+                var index = _arabicAlphabet.IndexOf(text[i]);
 
-                if (index == -1)  // If the character is not a Valid Arabic letter
+                if (index == -1) // If the character is not a Valid Arabic letter
                 {
                     if (text[i] == ' ')
                         encodedText += wordDelimiter;
 
-                    // Surrond punctuation marks with spaces
+                    // Surround punctuation marks with spaces
                     // to avoid mixing them up with the cipher characters
                     // as some ciphers may contain punctuation marks
-                    else if (Char.IsPunctuation(text[i]))
+                    else if (char.IsPunctuation(text[i]))
                         encodedText += " " + text[i] + " ";
 
                     // Add any new line or strange character as is
@@ -150,12 +134,12 @@ namespace ScoutsEncoder
                     index = (index + EncodingKey) % numberOfAlphabetCharacters;
                     encodedText += CipherCharacters[index];
 
-                    // Add a delimeter after the character if the next character
-                    // isn't: (last charcter, space, new line, punctuation mark)
-                    if (i + 1 != textLength && text[i + 1] != ' ' && text[i + 1] != '\r' && !Char.IsPunctuation(text[i + 1]))
+                    // Add a delimiter after the character if the next character
+                    // isn't: (last character, space, new line, punctuation mark)
+                    if (i + 1 != textLength && text[i + 1] != ' ' && text[i + 1] != '\r' &&
+                        !char.IsPunctuation(text[i + 1]))
                         encodedText += charDelimiter;
                 }
-
             }
 
             return encodedText;
@@ -163,25 +147,24 @@ namespace ScoutsEncoder
 
         public string ShowKey()
         {
-            string outputText = "";
-            int numberOfAlphabetCharacters = _arabicAlphabet.Count;
-            int numberOfColumns = 4;
-            int numberOfRows = numberOfAlphabetCharacters / numberOfColumns;
-            int index;
+            var outputText = "";
+            var numberOfAlphabetCharacters = _arabicAlphabet.Count;
+            const int numberOfColumns = 4;
+            var numberOfRows = numberOfAlphabetCharacters / numberOfColumns;
 
-            for (int i = 0; i < numberOfRows; i++)
+            for (var i = 0; i < numberOfRows; i++)
             {
-                for (int j = 0; j < numberOfColumns; j++)
+                for (var j = 0; j < numberOfColumns; j++)
                 {
-                    index = (i + j * numberOfRows + EncodingKey) % numberOfAlphabetCharacters;
-                    outputText += (_arabicAlphabet[i + j * numberOfRows] + " = "
-                                   + CipherCharacters[index]).PadRight(12);
+                    var index_1 = i + j * numberOfRows;
+                    var index_2 = (index_1 + EncodingKey) % numberOfAlphabetCharacters;
+                    outputText += (_arabicAlphabet[index_1] + " = " + CipherCharacters[index_2]).PadRight(12);
                 }
+
                 outputText += "\r\n";
             }
 
             return outputText;
         }
-
     }
 }
