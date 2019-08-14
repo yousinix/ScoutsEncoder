@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -12,7 +13,7 @@ namespace ScoutsEncoder
 {
     public partial class MainWindow : Window
     {
-        private readonly Cipher[] _ciphers =
+        private List<Cipher> _ciphers = new List<Cipher>
         {
             new Cipher
             {
@@ -229,6 +230,7 @@ namespace ScoutsEncoder
             }
         };
 
+        private List<TextBox> _lettersTextBoxes = new List<TextBox>();
         private Cipher _chosenCipher;
 
         private bool _isFilled = true;   // Default Format
@@ -240,7 +242,17 @@ namespace ScoutsEncoder
 
             // Initialize CiphersComboBox
             foreach (var x in _ciphers)
+            {
                 CiphersComboBox.Items.Add(x.DisplayName);
+            }
+
+            // Initialize lettersTextBoxes (used while adding new ciphers)
+            var dialogContent = NewCipherDialogHost.DialogContent as Grid;
+            foreach (var stackPanel in dialogContent.Children.OfType<StackPanel>())
+            {
+                var children = (stackPanel as StackPanel).Children;
+                _lettersTextBoxes.AddRange(children.OfType<TextBox>());
+            }
 
             // Initialize messageQueue and Assign it to Snackbar's MessageQueue
             var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
@@ -265,6 +277,38 @@ namespace ScoutsEncoder
                 string spaces = new string(' ', count);
                 return string.Format("{0}{1}{0}", spaces, WordsDelimiterTextBox.Text);
             }
+        }
+
+
+        //// Dialog Event Handlers ////
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            var newCipher = new Cipher
+            {
+                DisplayName = NewCipherNameTextBox.Text,
+                CipherCharacters = _lettersTextBoxes.Select(t => t.Text).ToList()
+            };
+
+            _ciphers.Add(newCipher);
+            CiphersComboBox.Items.Add(newCipher.DisplayName);
+
+            CloseDialog();
+            Snackbar.MessageQueue.Enqueue("Cipher added");
+
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            CloseDialog();
+        }
+
+        private void CloseDialog()
+        {
+            _lettersTextBoxes.ForEach(t => t.Clear());
+            NewCipherNameTextBox.Clear();
+            NewCipherDialogHost.IsOpen = false;
         }
 
 

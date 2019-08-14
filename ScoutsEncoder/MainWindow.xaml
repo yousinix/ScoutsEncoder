@@ -20,332 +20,607 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}">
 
-    <Grid>
+    <materialDesign:DialogHost x:Name="NewCipherDialogHost">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-
-
-
-        <!-- Input -->
-        <materialDesign:Card Padding="16" Margin="16" VerticalAlignment="Stretch">
-
+        <materialDesign:DialogHost.DialogContent>
+            
             <Grid>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="32"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="32"/>
                 </Grid.RowDefinitions>
 
-                <TextBox x:Name="InputTextBox"
-                         Margin="0 0 0 16"
-                         FontFamily="Courier New"
-                         FontSize="14"
-                         TextWrapping="Wrap"
-                         AcceptsReturn="True"
-                         FlowDirection="RightToLeft"
-                         VerticalContentAlignment="Top"
-                         VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="أدخل النص هنا..." />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="32"/>
+                </Grid.ColumnDefinitions>
 
-                <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
-
-                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
+                <ToolBarTray Grid.Row="1" 
+                             Grid.Column="1"
+                             Grid.ColumnSpan="4" 
+                             Margin="0 0 0 16"
+                             IsLocked="True"
                              Background="Transparent">
 
-                        <Button x:Name="InputCutButton"
-                                ToolBar.OverflowMode="Never"
-                                Click="InputCutButton_Click">
-                            <materialDesign:PackIcon Kind="ContentCut" />
+                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}" Background="Transparent">
+
+                        <Button  x:Name="AddButton"
+                                 Click="AddButton_Click">
+                            <materialDesign:PackIcon Kind="Tick" />
                         </Button>
 
-                        <Button x:Name="InputCopyButton"
-                                ToolBar.OverflowMode="Never"
-                                Click="InputCopyButton_Click">
-                            <materialDesign:PackIcon Kind="ContentCopy" />
-                        </Button>
-
-                        <Button x:Name="InputPasteButton"
-                                ToolBar.OverflowMode="Never"
-                                Click="InputPasteButton_Click">
-                            <materialDesign:PackIcon Kind="ContentPaste" />
-                        </Button>
-
-                        <Button x:Name="InputClearButton"
-                                ToolBar.OverflowMode="Never"
-                                Click="InputClearButton_Click">
+                        <Button x:Name="CloseButton"
+                                Click="CloseButton_Click">
                             <materialDesign:PackIcon Kind="Close" />
                         </Button>
 
-                        <Separator />
+                        <TextBox x:Name="NewCipherNameTextBox"
+                                 Width="128"
+                                 FontFamily="Courier New"
+                                 FontSize="14"
+                                 FlowDirection="RightToLeft"
+                                 TextAlignment="Center"
+                                 materialDesign:HintAssist.Hint="اسم الشفرة" />
 
-                        <StackPanel Orientation="Horizontal" Margin="16 0">
-                            <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Language" />
-                            <ComboBox x:Name="CiphersComboBox"
+                    </ToolBar>
+
+                </ToolBarTray>
+
+                <StackPanel Grid.Row="2" Grid.Column="4" Margin="4 0">
+                    
+                    <TextBox x:Name="Letter1TextBox"
+                             TabIndex="1"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="أ" />
+                    
+                    <TextBox x:Name="Letter2TextBox"
+                             TabIndex="2"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ب" />
+                    
+                    <TextBox x:Name="Letter3TextBox"
+                             TabIndex="3"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ت" />
+                    
+                    <TextBox x:Name="Letter4TextBox"
+                             TabIndex="4"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ث" />
+                    
+                    <TextBox x:Name="Letter5TextBox"
+                             TabIndex="5"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ج" />
+                    
+                    <TextBox x:Name="Letter6TextBox"
+                             TabIndex="6"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ح" />
+                    
+                    <TextBox x:Name="Letter7TextBox"
+                             TabIndex="7"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="خ" />
+
+                </StackPanel>
+                
+                <StackPanel Grid.Row="2" Grid.Column="3" Margin="4 0">
+                    
+                    <TextBox x:Name="Letter8TextBox"
+                             TabIndex="8"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="د" />
+                    
+                    <TextBox x:Name="Letter9TextBox"
+                             TabIndex="9"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ذ" />
+                    
+                    <TextBox x:Name="Letter10TextBox"
+                             TabIndex="10"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ر" />
+                    
+                    <TextBox x:Name="Letter11TextBox"
+                             TabIndex="11"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ز" />
+                    
+                    <TextBox x:Name="Letter12TextBox"
+                             TabIndex="12"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="س" />
+                    
+                    <TextBox x:Name="Letter13TextBox"
+                             TabIndex="13"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ش" />
+                    
+                    <TextBox x:Name="Letter14TextBox"
+                             TabIndex="14"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ص" />
+
+                </StackPanel>
+                
+                <StackPanel Grid.Row="2" Grid.Column="2" Margin="4 0">
+                    
+                    <TextBox x:Name="Letter15TextBox"
+                             TabIndex="15"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ض" />
+                    
+                    <TextBox x:Name="Letter16TextBox"
+                             TabIndex="16"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ط" />
+                    
+                    <TextBox x:Name="Letter17TextBox"
+                             TabIndex="17"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ظ" />
+                    
+                    <TextBox x:Name="Letter18TextBox"
+                             TabIndex="18"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ع" />
+                    
+                    <TextBox x:Name="Letter19TextBox"
+                             TabIndex="19"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="غ" />
+                    
+                    <TextBox x:Name="Letter20TextBox"
+                             TabIndex="20"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ف" />
+                    
+                    <TextBox x:Name="Letter21TextBox"
+                             TabIndex="21"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ق" />
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="4 0">
+
+                    <TextBox x:Name="Letter22TextBox"
+                             TabIndex="22"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ك" />
+
+                    <TextBox x:Name="Letter23TextBox"
+                             TabIndex="23"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ل" />
+
+                    <TextBox x:Name="Letter24TextBox"
+                             TabIndex="24"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="م" />
+
+                    <TextBox x:Name="Letter25TextBox"
+                             TabIndex="25"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ن" />
+
+                    <TextBox x:Name="Letter26TextBox"
+                             TabIndex="26"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ه" />
+
+                    <TextBox x:Name="Letter27TextBox"
+                             TabIndex="27"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="و" />
+
+                    <TextBox x:Name="Letter28TextBox"
+                             TabIndex="28"
+                             Margin="4"
+                             FontFamily="Courier New"
+                             FlowDirection="RightToLeft"
+                             materialDesign:HintAssist.Hint="ي" />
+
+                </StackPanel>
+
+            </Grid>
+            
+        </materialDesign:DialogHost.DialogContent>
+        
+        
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- Input -->
+            <materialDesign:Card Padding="16" Margin="16" VerticalAlignment="Stretch">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox x:Name="InputTextBox"
+                             Margin="0 0 0 16"
+                             FontFamily="Courier New"
+                             FontSize="14"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             FlowDirection="RightToLeft"
+                             VerticalContentAlignment="Top"
+                             VerticalScrollBarVisibility="Auto"
+                             materialDesign:HintAssist.Hint="أدخل النص هنا..." />
+
+                    <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
+
+                        <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
+                                 Background="Transparent">
+
+                            <Button x:Name="InputCutButton"
+                                    ToolBar.OverflowMode="Never"
+                                    Click="InputCutButton_Click">
+                                <materialDesign:PackIcon Kind="ContentCut" />
+                            </Button>
+
+                            <Button x:Name="InputCopyButton"
+                                    ToolBar.OverflowMode="Never"
+                                    Click="InputCopyButton_Click">
+                                <materialDesign:PackIcon Kind="ContentCopy" />
+                            </Button>
+
+                            <Button x:Name="InputPasteButton"
+                                    ToolBar.OverflowMode="Never"
+                                    Click="InputPasteButton_Click">
+                                <materialDesign:PackIcon Kind="ContentPaste" />
+                            </Button>
+
+                            <Button x:Name="InputClearButton"
+                                    ToolBar.OverflowMode="Never"
+                                    Click="InputClearButton_Click">
+                                <materialDesign:PackIcon Kind="Close" />
+                            </Button>
+
+                            <Separator />
+                            
+                            <StackPanel Orientation="Horizontal" Margin="16 0">
+                                <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Language" />
+                                <ComboBox x:Name="CiphersComboBox"
+                                          Width="64"
+                                          FlowDirection="RightToLeft"
+                                          materialDesign:HintAssist.Hint="الشفرة"
+                                          SelectionChanged="CiphersComboBox_SelectionChanged" />
+                            </StackPanel>
+
+                            <Button x:Name="AddNewCipherButton"
+                                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                                <materialDesign:PackIcon Kind="Add" />
+                            </Button>
+                            
+                            <StackPanel Orientation="Horizontal" Margin="16 0">
+                                <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Key" />
+                                <ComboBox x:Name="KeysComboBox"
+                                          Width="64"
+                                          FlowDirection="RightToLeft"
+                                          materialDesign:HintAssist.Hint="المفتاح"
+                                          SelectionChanged="KeysComboBox_SelectionChanged"
+                                          IsEnabled="False" />
+                            </StackPanel>
+
+                            <Button x:Name="ShowKeyButton"
+                                    ToolBar.OverflowMode="Never"
+                                    ToolTip="Show Encoding Key"
+                                    ToolTipService.InitialShowDelay="1200"
+                                    Click="ShowKeyButton_Click"
+                                    IsEnabled="False">
+                                <materialDesign:PackIcon Kind="FormatColumns" />
+                            </Button>
+
+                            <Button x:Name="EncodeButton"
+                                    ToolBar.OverflowMode="Never"
+                                    ToolTip="Encode Text"
+                                    ToolTipService.InitialShowDelay="1200"
+                                    Click="EncodeButton_Click"
+                                    IsEnabled="False">
+                                <materialDesign:PackIcon Kind="ProgressTick" />
+                            </Button>
+
+                            <ToggleButton x:Name="RealTimeToggleButton"
+                                          Width="24"
+                                          Height="24"
+                                          Margin="8 0 0 0"
+                                          ToolBar.OverflowMode="Never"
+                                          Style="{StaticResource MaterialDesignFlatToggleButton}"
+                                          Background="{DynamicResource PrimaryHueMidBrush}"
+                                          Foreground="{DynamicResource MaterialDesignBody}"
+                                          ToolTip="Toggle Real-Time Encoding"
+                                          ToolTipService.InitialShowDelay="1200"
+                                          Checked="RealTimeToggleButton_Checked"
+                                          Unchecked="RealTimeToggleButton_Unchecked"
+                                          IsEnabled="False">
+                                <materialDesign:PackIcon Kind="LinkVariant" Width="16" Height="16" />
+                            </ToggleButton>
+
+                        </ToolBar>
+                    </ToolBarTray>
+
+                </Grid>
+
+            </materialDesign:Card>
+
+
+
+            <!-- Output -->
+            <materialDesign:Card Grid.Row="1" Padding="16" Margin="16 0 16 16" VerticalAlignment="Stretch">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox x:Name="OutputTextBox"
+                             Margin="0 0 0 16"
+                             FontFamily="Courier New"
+                             FontSize="14"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             FlowDirection="RightToLeft"
+                             VerticalContentAlignment="Top"
+                             VerticalScrollBarVisibility="Auto"
+                             IsReadOnly="True" />
+
+                    <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
+
+                        <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
+                                 Background="Transparent">
+
+                            <Button x:Name="OutputCutButton"
+                                    ToolBar.OverflowMode="Never"
+                                    Click="OutputCutButton_Click">
+                                <materialDesign:PackIcon Kind="ContentCut" />
+                            </Button>
+
+                            <Button x:Name="OutputCopyButton"
+                                    ToolBar.OverflowMode="Never"
+                                    Click="OutputCopyButton_Click">
+                                <materialDesign:PackIcon Kind="ContentCopy" />
+                            </Button>
+
+                            <Button x:Name="OutputClearButton"
+                                    ToolBar.OverflowMode="Never"
+                                    Click="OutputClearButton_Click">
+                                <materialDesign:PackIcon Kind="Close" />
+                            </Button>
+
+                            <Separator />
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
+
+                                <Label Content="Chars Delimiter:" />
+                                <TextBox x:Name="CharsDelimiterTextBox"
+                                         MaxLength="1"
+                                         Width="24"
+                                         TextAlignment="Center"
+                                         Text="-" />
+                            
+                                <Label Content="Spacing:" Margin="8 0 0 0" />
+                                <CheckBox x:Name="CharSpacingCheckBox"
+                                          IsChecked="True"
+                                          Background="{DynamicResource MaterialDesignBody}" />
+                            
+                            </StackPanel>
+
+                            <Separator />
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
+
+                                <Label Content="Words Delimiter:" />
+                                <TextBox x:Name="WordsDelimiterTextBox"
+                                         MaxLength="1"
+                                         Width="24"
+                                         TextAlignment="Center"
+                                         Text="/" />
+                            
+                                <Label Content="Spacing:" Margin="8 0 0 0" />
+                                <CheckBox x:Name="WordSpacingCheckBox"
+                                          IsChecked="True"
+                                          Background="{DynamicResource MaterialDesignBody}" />
+                            
+                            </StackPanel>
+
+                            <Separator />
+
+                            <Button x:Name="ToggleFillButton"
+                                    ToolBar.OverflowMode="Never"
+                                    ToolTip="Toggle Shapes Fill/Stroke"
+                                    ToolTipService.InitialShowDelay="1200"
+                                    Click="ToggleFillButton_Click"
+                                    IsEnabled="False">
+                                <materialDesign:PackIcon Kind="FormatColourFill" />
+                            </Button>
+
+                            <Button x:Name="ExportAudioButton"
+                                    ToolBar.OverflowMode="Never"
+                                    ToolTip="Export Audio"
+                                    ToolTipService.InitialShowDelay="1200"
+                                    Click="ExportAudioButton_Click"
+                                    IsEnabled="False">
+                                <materialDesign:PackIcon Kind="Audio" />
+                            </Button>
+
+                            <ComboBox x:Name="AudioSpeedComboBox"
                                       Width="64"
-                                      FlowDirection="RightToLeft"
-                                      materialDesign:HintAssist.Hint="الشفرة"
-                                      SelectionChanged="CiphersComboBox_SelectionChanged" />
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal" Margin="16 0">
-                            <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Key" />
-                            <ComboBox x:Name="KeysComboBox"
-                                      Width="64"
-                                      FlowDirection="RightToLeft"
-                                      materialDesign:HintAssist.Hint="المفتاح"
-                                      SelectionChanged="KeysComboBox_SelectionChanged"
-                                      IsEnabled="False" />
-                        </StackPanel>
-
-                        <Button x:Name="ShowKeyButton"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Show Encoding Key"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="ShowKeyButton_Click"
-                                IsEnabled="False">
-                            <materialDesign:PackIcon Kind="FormatColumns" />
-                        </Button>
-
-                        <Button x:Name="EncodeButton"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Encode Text"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="EncodeButton_Click"
-                                IsEnabled="False">
-                            <materialDesign:PackIcon Kind="ProgressTick" />
-                        </Button>
-
-                        <ToggleButton x:Name="RealTimeToggleButton"
-                                      Width="24"
-                                      Height="24"
-                                      Margin="8 0 0 0"
                                       ToolBar.OverflowMode="Never"
-                                      Style="{StaticResource MaterialDesignFlatToggleButton}"
-                                      Background="{DynamicResource PrimaryHueMidBrush}"
-                                      Foreground="{DynamicResource MaterialDesignBody}"
-                                      ToolTip="Toggle Real-Time Encoding"
+                                      ToolTip="Audio Speed"
                                       ToolTipService.InitialShowDelay="1200"
-                                      Checked="RealTimeToggleButton_Checked"
-                                      Unchecked="RealTimeToggleButton_Unchecked"
                                       IsEnabled="False">
-                            <materialDesign:PackIcon Kind="LinkVariant" Width="16" Height="16" />
-                        </ToggleButton>
+                                <ComboBoxItem Content="Slow" />
+                                <ComboBoxItem Content="Medium" IsSelected="True" />
+                                <ComboBoxItem Content="Fast" />
+                            </ComboBox>
 
-                    </ToolBar>
-                </ToolBarTray>
+                        </ToolBar>
+                    </ToolBarTray>
 
-            </Grid>
+                </Grid>
 
-        </materialDesign:Card>
+            </materialDesign:Card>
 
 
 
-        <!-- Output -->
-        <materialDesign:Card Grid.Row="1" Padding="16" Margin="16 0 16 16" VerticalAlignment="Stretch">
+            <!-- Footer -->
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="16 0 16 16">
 
-            <Grid>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-
-                <TextBox x:Name="OutputTextBox"
-                         Margin="0 0 0 16"
-                         FontFamily="Courier New"
-                         FontSize="14"
-                         TextWrapping="Wrap"
-                         AcceptsReturn="True"
-                         FlowDirection="RightToLeft"
-                         VerticalContentAlignment="Top"
-                         VerticalScrollBarVisibility="Auto"
-                         IsReadOnly="True" />
-
-                <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
-
+                <ToolBarTray IsLocked="True" Background="Transparent">
                     <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
                              Background="Transparent">
 
-                        <Button x:Name="OutputCutButton"
+                        <Button x:Name="ToggleThemeButton"
                                 ToolBar.OverflowMode="Never"
-                                Click="OutputCutButton_Click">
-                            <materialDesign:PackIcon Kind="ContentCut" />
-                        </Button>
-
-                        <Button x:Name="OutputCopyButton"
-                                ToolBar.OverflowMode="Never"
-                                Click="OutputCopyButton_Click">
-                            <materialDesign:PackIcon Kind="ContentCopy" />
-                        </Button>
-
-                        <Button x:Name="OutputClearButton"
-                                ToolBar.OverflowMode="Never"
-                                Click="OutputClearButton_Click">
-                            <materialDesign:PackIcon Kind="Close" />
-                        </Button>
-
-                        <Separator />
-
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
-
-                            <Label Content="Chars Delimiter:" />
-                            <TextBox x:Name="CharsDelimiterTextBox"
-                                     MaxLength="1"
-                                     Width="24"
-                                     TextAlignment="Center"
-                                     Text="-" />
-                            
-                            <Label Content="Spacing:" Margin="8 0 0 0" />
-                            <CheckBox x:Name="CharSpacingCheckBox"
-                                      IsChecked="True"
-                                      Background="{DynamicResource MaterialDesignBody}" />
-                            
-                        </StackPanel>
-
-                        <Separator />
-
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
-
-                            <Label Content="Words Delimiter:" />
-                            <TextBox x:Name="WordsDelimiterTextBox"
-                                     MaxLength="1"
-                                     Width="24"
-                                     TextAlignment="Center"
-                                     Text="/" />
-                            
-                            <Label Content="Spacing:" Margin="8 0 0 0" />
-                            <CheckBox x:Name="WordSpacingCheckBox"
-                                      IsChecked="True"
-                                      Background="{DynamicResource MaterialDesignBody}" />
-                            
-                        </StackPanel>
-
-                        <Separator />
-
-                        <Button x:Name="ToggleFillButton"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Toggle Shapes Fill/Stroke"
+                                ToolTip="Toggle Light/Dark Themes"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="ToggleFillButton_Click"
-                                IsEnabled="False">
-                            <materialDesign:PackIcon Kind="FormatColourFill" />
+                                Click="ToggleThemeButton_Click">
+                            <materialDesign:PackIcon Kind="ThemeLightDark" />
                         </Button>
 
-                        <Button x:Name="ExportAudioButton"
+                        <Button x:Name="GitHubButton"
                                 ToolBar.OverflowMode="Never"
-                                ToolTip="Export Audio"
+                                ToolTip="Project on GitHub"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="ExportAudioButton_Click"
-                                IsEnabled="False">
-                            <materialDesign:PackIcon Kind="Audio" />
+                                Click="GitHubButton_Click">
+                            <materialDesign:PackIcon Kind="GithubCircle" />
                         </Button>
 
-                        <ComboBox x:Name="AudioSpeedComboBox"
-                                  Width="64"
-                                  ToolBar.OverflowMode="Never"
-                                  ToolTip="Audio Speed"
-                                  ToolTipService.InitialShowDelay="1200"
-                                  IsEnabled="False">
-                            <ComboBoxItem Content="Slow" />
-                            <ComboBoxItem Content="Medium" IsSelected="True" />
-                            <ComboBoxItem Content="Fast" />
-                        </ComboBox>
+                        <Button x:Name="GoogleDocsButton"
+                                ToolBar.OverflowMode="Never"
+                                ToolTip="Google Docs (Recommended Text Editor)"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="GoogleDocsButton_Click">
+                            <materialDesign:PackIcon Kind="FileDocument" />
+                        </Button>
+
+                        <Button x:Name="WebsiteButton"
+                                ToolBar.OverflowMode="Never"
+                                ToolTip="ScoutsEncoder Site"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="WebsiteButton_Click">
+                            <materialDesign:PackIcon Kind="Web" />
+                        </Button>
+
+                        <Button x:Name="ScoutsEncoderDocsButton"
+                                ToolBar.OverflowMode="Never"
+                                ToolTip="Help"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="ScoutsEncoderDocsButton_Click">
+                            <materialDesign:PackIcon Kind="HelpOutline" />
+                        </Button>
+
+                        <Button x:Name="BugReportButton"
+                                ToolBar.OverflowMode="Never"
+                                ToolTip="Report a Bug via Email"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="BugReportButton_Click">
+                            <materialDesign:PackIcon Kind="BugReport" />
+                        </Button>
 
                     </ToolBar>
                 </ToolBarTray>
 
-            </Grid>
+                <StackPanel Orientation="Horizontal" Margin="4 -6 0 -6">
+                    <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
+                    <Label Content="with" Margin="-2 0" />
+                    <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" />
+                    <Label Content="by" Margin="-2 0" />
+                    <TextBlock VerticalAlignment="Center">
+                        <Hyperlink NavigateUri="https://www.linkedin.com/in/youssefraafatnasry/"
+                                   RequestNavigate="Hyperlink_RequestNavigate"
+                                   Foreground="{DynamicResource MaterialDesignBody}"
+                                   FontWeight="Bold"
+                                   ToolTip="LinkedIn Profile"
+                                   ToolTipService.InitialShowDelay="1200">
+                                   Youssef Raafat
+                        </Hyperlink>
+                    </TextBlock>
+                    <Label Content=" |  © 2019 ScoutsEncoder" />
+                </StackPanel>
 
-        </materialDesign:Card>
-
-
-
-        <!-- Footer -->
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="16 0 16 16">
-
-            <ToolBarTray IsLocked="True" Background="Transparent">
-                <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
-                         Background="Transparent">
-
-                    <Button x:Name="ToggleThemeButton"
-                            ToolBar.OverflowMode="Never"
-                            ToolTip="Toggle Light/Dark Themes"
-                            ToolTipService.InitialShowDelay="1200"
-                            Click="ToggleThemeButton_Click">
-                        <materialDesign:PackIcon Kind="ThemeLightDark" />
-                    </Button>
-
-                    <Button x:Name="GitHubButton"
-                            ToolBar.OverflowMode="Never"
-                            ToolTip="Project on GitHub"
-                            ToolTipService.InitialShowDelay="1200"
-                            Click="GitHubButton_Click">
-                        <materialDesign:PackIcon Kind="GithubCircle" />
-                    </Button>
-
-                    <Button x:Name="GoogleDocsButton"
-                            ToolBar.OverflowMode="Never"
-                            ToolTip="Google Docs (Recommended Text Editor)"
-                            ToolTipService.InitialShowDelay="1200"
-                            Click="GoogleDocsButton_Click">
-                        <materialDesign:PackIcon Kind="FileDocument" />
-                    </Button>
-
-                    <Button x:Name="WebsiteButton"
-                            ToolBar.OverflowMode="Never"
-                            ToolTip="ScoutsEncoder Site"
-                            ToolTipService.InitialShowDelay="1200"
-                            Click="WebsiteButton_Click">
-                        <materialDesign:PackIcon Kind="Web" />
-                    </Button>
-
-                    <Button x:Name="ScoutsEncoderDocsButton"
-                            ToolBar.OverflowMode="Never"
-                            ToolTip="Help"
-                            ToolTipService.InitialShowDelay="1200"
-                            Click="ScoutsEncoderDocsButton_Click">
-                        <materialDesign:PackIcon Kind="HelpOutline" />
-                    </Button>
-
-                    <Button x:Name="BugReportButton"
-                            ToolBar.OverflowMode="Never"
-                            ToolTip="Report a Bug via Email"
-                            ToolTipService.InitialShowDelay="1200"
-                            Click="BugReportButton_Click">
-                        <materialDesign:PackIcon Kind="BugReport" />
-                    </Button>
-
-                </ToolBar>
-            </ToolBarTray>
-
-            <StackPanel Orientation="Horizontal" Margin="4 -6 0 -6">
-                <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
-                <Label Content="with" Margin="-2 0" />
-                <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" />
-                <Label Content="by" Margin="-2 0" />
-                <TextBlock VerticalAlignment="Center">
-                    <Hyperlink NavigateUri="https://www.linkedin.com/in/youssefraafatnasry/"
-                               RequestNavigate="Hyperlink_RequestNavigate"
-                               Foreground="{DynamicResource MaterialDesignBody}"
-                               FontWeight="Bold"
-                               ToolTip="LinkedIn Profile"
-                               ToolTipService.InitialShowDelay="1200">
-                               Youssef Raafat
-                    </Hyperlink>
-                </TextBlock>
-                <Label Content=" |  © 2019 ScoutsEncoder" />
             </StackPanel>
 
-        </StackPanel>
+            <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" />
 
-        <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" />
-
-
-
-    </Grid>
-
+        </Grid>
+        
+        
+    </materialDesign:DialogHost>
+    
 </Window>
