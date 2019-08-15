@@ -14,226 +14,10 @@ namespace ScoutsEncoder
 {
     public partial class MainWindow : Window
     {
-        private List<Cipher> _ciphers = new List<Cipher>
-        {
-            new Cipher
-            {
-                DisplayName = "يسوع",
-                HasKeys = true,
-                Characters =
-                {
-                    "ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
-                    "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
-                    "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
-                    "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "الرقمية",
-                HasKeys = true,
-                Characters =
-                {
-                    "١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
-                    "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
-                    "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
-                    "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "الأعداد الثنائية",
-                Characters =
-                {
-                    "00001", "00010", "00011", "00100", "00101", "00110", "00111",
-                    "01000", "01001", "01010", "01011", "01100", "01101", "01110",
-                    "01111", "10000", "10001", "10010", "10011", "10100", "10101",
-                    "10110", "10111", "11000", "11001", "11010", "11011", "11100"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "العكسية",
-                HasKeys = true,
-                Characters =
-                {
-                    "ي", "و", "ه", "ن", "م", "ل", "ك",
-                    "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
-                    "ص", "ش", "س", "ز", "ر", "ذ", "د",
-                    "خ", "ح", "ج", "ث", "ت", "ب", "ا"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "قيصر",
-                HasKeys = true,
-                Characters =
-                {
-                    "ب", "ت", "ث", "ج", "ح", "خ", "د",
-                    "ذ", "ر", "ز", "س", "ش", "ص", "ض",
-                    "ط", "ظ", "ع", "غ", "ف", "ق", "ك",
-                    "ل", "م", "ن", "ه", "و", "ي", "ا"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "المورس",
-                IsAudible = true,
-                Characters =
-                {
-                    "(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
-                    "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
-                    "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
-                    "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "البوصلة",
-                Characters =
-                {
-                    "N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
-                    "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
-                    "N(٣)", "NE(٣)", "E(٣)", "SE(٣)", "S(٣)", "SW(٣)", "W(٣)", "NW(٣)",
-                    "N(٤)", "NE(٤)", "E(٤)", "SE(٤)"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "الساعة",
-                HasOverloads = true,
-                Overloads = new List<Cipher>
-                {
-                    new Cipher
-                    {
-                        DisplayName = "CW",
-                        Characters =
-                        {
-                            "١:١٢", "١:١" , "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
-                            "١:٧" , "١:٨" , "١:٩" , "١:١٠", "١:١١", "٢:١٢", "٢:١",
-                            "٢:٢" , "٢:٣" , "٢:٤" , "٢:٥" , "٢:٦" , "٢:٧" , "٢:٨",
-                            "٢:٩" , "٢:١٠", "٢:١١", "٣:١٢", "٣:١" , "٣:٢" , "٣:٣"
-                        }
-                    },
-
-                    new Cipher
-                    {
-                        DisplayName = "CCW",
-                        Characters =
-                        {
-                            "١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
-                            "١:٥" , "١:٤" , "١:٣" , "١:٢" , "١:١" , "٢:١٢", "٢:١١",
-                            "٢:١٠", "٢:٩" , "٢:٨" , "٢:٧" , "٢:٦" , "٢:٥" , "٢:٤" ,
-                            "٢:٣" , "٢:٢" , "٢:١" , "٣:١٢", "٣:١١", "٣:١٠", "٣:٩"
-                        }
-                    }
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "الجوال",
-                HasOverloads = true,
-                Overloads = new List<Cipher>
-                {
-                    new Cipher
-                    {
-                        DisplayName = "أ = ٣",
-                        Characters =
-                        {
-                            "٣"   , "٢"   , "٢٢"    , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦",
-                            "٥"   , "٥٥"  , "٥٥٥"   , "٥٥٥٥", "٤"   , "٤٤" , "٤٤٤",
-                            "٤٤٤٤", "٩"   , "٩٩"    , "٩٩٩" , "٩٩٩٩", "٨"  , "٨٨" ,
-                            "٨٨٨" , "٨٨٨٨", "٨٨٨٨٨", "٧"    , "٧٧"  , "٧٧٧", "٧٧٧٧"
-                        }
-                    },
-
-                    new Cipher
-                    {
-                        DisplayName = "أ = ٣^١",
-                        Characters =
-                        {
-                            "٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
-                            "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
-                            "٤^٤", "٩^١", "٩^٢", "٩^٣", "٩^٤", "٨^١", "٨^٢",
-                            "٨^٣", "٨^٤", "٨^٥", "٧^١", "٧^٢", "٧^٣", "٧^٤"
-                        }
-                    }
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "إكس",
-                HasKeys = true,
-                KeyWeight = 7,
-                Characters =
-                {
-                    "˅١", "˅٢", "˅٣", "˅٤", "˅٥", "˅٦", "˅٧",
-                    "˂١", "˂٢", "˂٣", "˂٤", "˂٥", "˂٦", "˂٧",
-                    "˄١", "˄٢", "˄٣", "˄٤", "˄٥", "˄٦", "˄٧",
-                    "˃١", "˃٢", "˃٣", "˃٤", "˃٥", "˃٦", "˃٧"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "النجمة",
-                HasKeys = true,
-                HasShapes = true,
-                KeyWeight = 7,
-                Characters =
-                {
-                    "▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
-                    "▶١", "▶٢", "▶٣", "▶٤", "▶٥", "▶٦", "▶٧",
-                    "▼١", "▼٢", "▼٣", "▼٤", "▼٥", "▼٦", "▼٧",
-                    "◀١", "◀٢", "◀٣", "◀٤", "◀٥", "◀٦", "◀٧"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "المعين",
-                HasShapes = true,
-                Characters =
-                {
-                    "١◣", "١◢", "١◤", "١◥",
-                    "٢◣", "٢◢", "٢◤", "٢◥",
-                    "٣◣", "٣◢", "٣◤", "٣◥",
-                    "٤◣", "٤◢", "٤◤", "٤◥",
-                    "٥◣", "٥◢", "٥◤", "٥◥",
-                    "٦◣", "٦◢", "٦◤", "٦◥",
-                    "٧◣", "٧◢", "٧◤", "٧◥"
-                }
-            },
-
-            new Cipher
-            {
-                DisplayName = "المثلث",
-                HasShapes = true,
-                Characters =
-                {
-                    "١▲",
-                    "٢◣◼", "٢◼◢",
-                    "٣◣◼", "٣◼(١)", "٣◼◢",
-                    "٤◣◼", "٤◼(١)", "٤◼(٢)", "٤◼◢",
-                    "٥◣◼", "٥◼(١)", "٥◼(٢)", "٥◼(٣)", "٥◼◢",
-                    "٦◣◼", "٦◼(١)", "٦◼(٢)", "٦◼(٣)", "٦◼(٤)", "٦◼◢",
-                    "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)", "٧◼◢"
-                }
-            }
-        };
-
         private Cipher _chosenCipher;
-        private FileStream _fileStream;
+        private readonly CiphersList _ciphers = new CiphersList();
 
+        private FileStream _fileStream;
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
         private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
         
@@ -251,35 +35,12 @@ namespace ScoutsEncoder
         private static readonly string DocsPath = "docs/all/";
         private static readonly string ReportSubject = Uri.EscapeUriString($"{RepoName} | Bug Report");
 
-        public MainWindow()
-        {
-            InitializeComponent();
-
-            // Initialize CiphersComboBox
-            foreach (var x in _ciphers)
-            {
-                CiphersComboBox.Items.Add(x.DisplayName);
-            }
-
-            // Initialize lettersTextBoxes (used while adding new ciphers)
-            var dialogContent = NewCipherDialogHost.DialogContent as Grid;
-            foreach (var stackPanel in dialogContent.Children.OfType<StackPanel>())
-            {
-                var children = (stackPanel as StackPanel).Children;
-                _lettersTextBoxes.AddRange(children.OfType<TextBox>());
-            }
-
-            // Initialize messageQueue and Assign it to Snackbar's MessageQueue
-            var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
-            Snackbar.MessageQueue = messageQueue;
-        }
-
         public string CharsDelimiter
         {
             get
             {
-                int count = CharSpacingCheckBox.IsChecked.Value ? 1 : 0;
-                string spaces = new string(' ', count);
+                var count = CharSpacingCheckBox.IsChecked.Value ? 1 : 0;
+                var spaces = new string(' ', count);
                 return string.Format("{0}{1}{0}", spaces, CharsDelimiterTextBox.Text);
             }
         }
@@ -288,10 +49,34 @@ namespace ScoutsEncoder
         {
             get
             {
-                int count = WordSpacingCheckBox.IsChecked.Value ? 2 : 1;
-                string spaces = new string(' ', count);
+                var count = WordSpacingCheckBox.IsChecked.Value ? 2 : 1;
+                var spaces = new string(' ', count);
                 return string.Format("{0}{1}{0}", spaces, WordsDelimiterTextBox.Text);
             }
+        }
+
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            // Initialize CiphersComboBox
+            foreach (var c in _ciphers)
+            {
+                CiphersComboBox.Items.Add(c.DisplayName);
+            }
+
+            // Initialize lettersTextBoxes (used while adding new ciphers)
+            var dialogContent = NewCipherDialogHost.DialogContent as Grid;
+            foreach (var stackPanel in dialogContent.Children.OfType<StackPanel>())
+            {
+                var children = stackPanel.Children;
+                _lettersTextBoxes.AddRange(children.OfType<TextBox>());
+            }
+
+            // Initialize messageQueue and Assign it to Snackbar's MessageQueue
+            var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
+            Snackbar.MessageQueue = messageQueue;
         }
 
 
@@ -359,7 +144,7 @@ namespace ScoutsEncoder
             _fileStream.Close();
 
             NewCipherNameTextBox.Text = newCipher.DisplayName;
-            for (int i = 0; i < newCipher.Characters.Count; i++)
+            for (var i = 0; i < newCipher.Characters.Count; i++)
             {
                 _lettersTextBoxes[i].Text = newCipher.Characters[i];
             }
