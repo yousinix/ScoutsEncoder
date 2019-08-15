@@ -51,14 +51,32 @@
 
                     <ToolBar Style="{DynamicResource MaterialDesignToolBar}" Background="Transparent">
 
-                        <Button  x:Name="AddButton"
-                                 Click="AddButton_Click">
+                        <Button x:Name="CloseDialogButton"
+                                ToolTip="Cancel"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="CloseDialogButton_Click">
+                            <materialDesign:PackIcon Kind="Close" />
+                        </Button>
+                        
+                        <Button x:Name="AddCipherButton"
+                                ToolTip="Add cipher to list"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="AddCipherButton_Click">
                             <materialDesign:PackIcon Kind="Tick" />
                         </Button>
 
-                        <Button x:Name="CloseButton"
-                                Click="CloseButton_Click">
-                            <materialDesign:PackIcon Kind="Close" />
+                        <Button x:Name="SaveCipherButton"
+                                ToolTip="Save cipher as file to use it again later"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="SaveCipherButton_Click">
+                            <materialDesign:PackIcon Kind="ContentSave" />
+                        </Button>
+
+                        <Button x:Name="ImportCipherButton"
+                                ToolTip="Import a saved cipher"
+                                ToolTipService.InitialShowDelay="1200"
+                                Click="ImportCipherButton_Click">
+                            <materialDesign:PackIcon Kind="Import" />
                         </Button>
 
                         <TextBox x:Name="NewCipherNameTextBox"
@@ -361,6 +379,8 @@
                             </StackPanel>
 
                             <Button x:Name="AddNewCipherButton"
+                                    ToolTip="Add new custom cipher"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
                                 <materialDesign:PackIcon Kind="Add" />
                             </Button>

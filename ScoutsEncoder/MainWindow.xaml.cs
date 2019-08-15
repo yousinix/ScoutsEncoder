@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace ScoutsEncoder
 {
@@ -19,7 +21,7 @@ namespace ScoutsEncoder
             {
                 DisplayName = "يسوع",
                 HasKeys = true,
-                CipherCharacters =
+                Characters =
                 {
                     "ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
                     "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
@@ -32,7 +34,7 @@ namespace ScoutsEncoder
             {
                 DisplayName = "الرقمية",
                 HasKeys = true,
-                CipherCharacters =
+                Characters =
                 {
                     "١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
                     "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
@@ -44,7 +46,7 @@ namespace ScoutsEncoder
             new Cipher
             {
                 DisplayName = "الأعداد الثنائية",
-                CipherCharacters =
+                Characters =
                 {
                     "00001", "00010", "00011", "00100", "00101", "00110", "00111",
                     "01000", "01001", "01010", "01011", "01100", "01101", "01110",
@@ -57,7 +59,7 @@ namespace ScoutsEncoder
             {
                 DisplayName = "العكسية",
                 HasKeys = true,
-                CipherCharacters =
+                Characters =
                 {
                     "ي", "و", "ه", "ن", "م", "ل", "ك",
                     "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
@@ -70,7 +72,7 @@ namespace ScoutsEncoder
             {
                 DisplayName = "قيصر",
                 HasKeys = true,
-                CipherCharacters =
+                Characters =
                 {
                     "ب", "ت", "ث", "ج", "ح", "خ", "د",
                     "ذ", "ر", "ز", "س", "ش", "ص", "ض",
@@ -83,7 +85,7 @@ namespace ScoutsEncoder
             {
                 DisplayName = "المورس",
                 IsAudible = true,
-                CipherCharacters =
+                Characters =
                 {
                     "(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
                     "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
@@ -95,7 +97,7 @@ namespace ScoutsEncoder
             new Cipher
             {
                 DisplayName = "البوصلة",
-                CipherCharacters =
+                Characters =
                 {
                     "N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
                     "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
@@ -113,7 +115,7 @@ namespace ScoutsEncoder
                     new Cipher
                     {
                         DisplayName = "CW",
-                        CipherCharacters =
+                        Characters =
                         {
                             "١:١٢", "١:١" , "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
                             "١:٧" , "١:٨" , "١:٩" , "١:١٠", "١:١١", "٢:١٢", "٢:١",
@@ -125,7 +127,7 @@ namespace ScoutsEncoder
                     new Cipher
                     {
                         DisplayName = "CCW",
-                        CipherCharacters =
+                        Characters =
                         {
                             "١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
                             "١:٥" , "١:٤" , "١:٣" , "١:٢" , "١:١" , "٢:١٢", "٢:١١",
@@ -145,7 +147,7 @@ namespace ScoutsEncoder
                     new Cipher
                     {
                         DisplayName = "أ = ٣",
-                        CipherCharacters =
+                        Characters =
                         {
                             "٣"   , "٢"   , "٢٢"    , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦",
                             "٥"   , "٥٥"  , "٥٥٥"   , "٥٥٥٥", "٤"   , "٤٤" , "٤٤٤",
@@ -157,7 +159,7 @@ namespace ScoutsEncoder
                     new Cipher
                     {
                         DisplayName = "أ = ٣^١",
-                        CipherCharacters =
+                        Characters =
                         {
                             "٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
                             "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
@@ -173,7 +175,7 @@ namespace ScoutsEncoder
                 DisplayName = "إكس",
                 HasKeys = true,
                 KeyWeight = 7,
-                CipherCharacters =
+                Characters =
                 {
                     "˅١", "˅٢", "˅٣", "˅٤", "˅٥", "˅٦", "˅٧",
                     "˂١", "˂٢", "˂٣", "˂٤", "˂٥", "˂٦", "˂٧",
@@ -188,7 +190,7 @@ namespace ScoutsEncoder
                 HasKeys = true,
                 HasShapes = true,
                 KeyWeight = 7,
-                CipherCharacters =
+                Characters =
                 {
                     "▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
                     "▶١", "▶٢", "▶٣", "▶٤", "▶٥", "▶٦", "▶٧",
@@ -201,7 +203,7 @@ namespace ScoutsEncoder
             {
                 DisplayName = "المعين",
                 HasShapes = true,
-                CipherCharacters =
+                Characters =
                 {
                     "١◣", "١◢", "١◤", "١◥",
                     "٢◣", "٢◢", "٢◤", "٢◥",
@@ -217,7 +219,7 @@ namespace ScoutsEncoder
             {
                 DisplayName = "المثلث",
                 HasShapes = true,
-                CipherCharacters =
+                Characters =
                 {
                     "١▲",
                     "٢◣◼", "٢◼◢",
@@ -230,8 +232,11 @@ namespace ScoutsEncoder
             }
         };
 
-        private List<TextBox> _lettersTextBoxes = new List<TextBox>();
         private Cipher _chosenCipher;
+
+        private List<TextBox> _lettersTextBoxes = new List<TextBox>();
+        private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
+        private FileStream _fileStream;
 
         private bool _isFilled = true;   // Default Format
         private bool _isLight  = true;   // Default Theme
@@ -282,26 +287,13 @@ namespace ScoutsEncoder
 
         //// Dialog Event Handlers ////
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private Cipher GetNewCipher()
         {
-
-            var newCipher = new Cipher
+            return new Cipher
             {
                 DisplayName = NewCipherNameTextBox.Text,
-                CipherCharacters = _lettersTextBoxes.Select(t => t.Text).ToList()
+                Characters = _lettersTextBoxes.Select(t => t.Text).ToList()
             };
-
-            _ciphers.Add(newCipher);
-            CiphersComboBox.Items.Add(newCipher.DisplayName);
-
-            CloseDialog();
-            Snackbar.MessageQueue.Enqueue("Cipher added");
-
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            CloseDialog();
         }
 
         private void CloseDialog()
@@ -309,6 +301,58 @@ namespace ScoutsEncoder
             _lettersTextBoxes.ForEach(t => t.Clear());
             NewCipherNameTextBox.Clear();
             NewCipherDialogHost.IsOpen = false;
+        }
+
+        private void CloseDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+            CloseDialog();
+        }
+
+        private void AddCipherButton_Click(object sender, RoutedEventArgs e)
+        {
+            var newCipher = GetNewCipher();
+            _ciphers.Add(newCipher);
+            CiphersComboBox.Items.Add(newCipher.DisplayName);
+
+            CloseDialog();
+            Snackbar.MessageQueue.Enqueue("Cipher added");
+        }
+
+        private void SaveCipherButton_Click(object sender, RoutedEventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog
+            {
+                FileName = NewCipherNameTextBox.Text,
+                DefaultExt = ".cipher.se",
+                Filter = "SE Cipher File (.cipher.se)|*.cipher.se"
+            };
+
+            if (saveFileDialog.ShowDialog() != true) return;
+
+            var newCipher = GetNewCipher();
+            _fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create);
+            _xmlSerializer.Serialize(_fileStream, newCipher);
+            _fileStream.Close();
+        }
+
+        private void ImportCipherButton_Click(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "SE Cipher File (.cipher.se)|*.cipher.se"
+            };
+
+            if (openFileDialog.ShowDialog() != true) return;
+
+            _fileStream = new FileStream(openFileDialog.FileName, FileMode.Open);
+            var newCipher = _xmlSerializer.Deserialize(_fileStream) as Cipher;
+            _fileStream.Close();
+
+            NewCipherNameTextBox.Text = newCipher.DisplayName;
+            for (int i = 0; i < newCipher.Characters.Count; i++)
+            {
+                _lettersTextBoxes[i].Text = newCipher.Characters[i];
+            }
         }
 
 
@@ -465,20 +509,20 @@ namespace ScoutsEncoder
 
         private void ExportAudioButton_Click(object sender, RoutedEventArgs e)
         {
-            var dlg = new SaveFileDialog
+            var saveFileDialog = new SaveFileDialog
             {
-                FileName = "MorseCode - " + AudioSpeedComboBox.Text, // Default file name
-                DefaultExt = ".wav",                                 // Default file extension
-                Filter = "Waveform Audio File (.wav)|*.wav"          // Filter files by extension
+                FileName = "MorseCode - " + AudioSpeedComboBox.Text,
+                DefaultExt = ".wav",
+                Filter = "Waveform Audio File (.wav)|*.wav"
             };
 
-            if (dlg.ShowDialog() != true) return;
+            if (saveFileDialog.ShowDialog() != true) return;
 
             // Process save file dialog box results
             var audioData = new MorseCodeGenerator(OutputTextBox.Text, CharsDelimiter, WordsDelimiter,
                 AudioSpeedComboBox.SelectedIndex);
-            audioData.Save(dlg.FileName);
-            Snackbar.MessageQueue.Enqueue("\"" + dlg.SafeFileName + "\"" + " Saved!");
+            audioData.Save(saveFileDialog.FileName);
+            Snackbar.MessageQueue.Enqueue("\"" + saveFileDialog.SafeFileName + "\"" + " Saved!");
         }
 
 

@@ -16,7 +16,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
                     "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
@@ -36,7 +36,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "١", "٢", "٣", "٤", "٥", "٦", "٧",
                     "٨", "٩", "١٠", "١١", "١٢", "١٣", "١٤",
@@ -56,7 +56,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "00001", "00010", "00011", "00100", "00101", "00110", "00111",
                     "01000", "01001", "01010", "01011", "01100", "01101", "01110",
@@ -77,7 +77,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "ي", "و", "ه", "ن", "م", "ل", "ك",
                     "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
@@ -96,7 +96,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "ب", "ت", "ث", "ج", "ح", "خ", "د",
                     "ذ", "ر", "ز", "س", "ش", "ص", "ض",
@@ -115,7 +115,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "(•-)", "(-•••)", "(-)", "(-•-•)", "(•---)", "(••••)", "(---)",
                     "(-••)", "(--••)", "(•-•)", "(---•)", "(•••)", "(----)", "(-••-)",
@@ -137,7 +137,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
                     "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
@@ -157,7 +157,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "١:١٢", "١:١", "١:٢", "١:٣", "١:٤", "١:٥", "١:٦",
                     "١:٧", "١:٨", "١:٩", "١:١٠", "١:١١", "٢:١٢", "٢:١",
@@ -177,7 +177,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "١:١٢", "١:١١", "١:١٠", "١:٩", "١:٨", "١:٧", "١:٦",
                     "١:٥", "١:٤", "١:٣", "١:٢", "١:١", "٢:١٢", "٢:١١",
@@ -197,7 +197,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "٣", "٢", "٢٢", "٢٢٢", "٦", "٦٦", "٦٦٦",
                     "٥", "٥٥", "٥٥٥", "٥٥٥٥", "٤", "٤٤", "٤٤٤",
@@ -217,7 +217,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
                     "٥^١", "٥^٢", "٥^٣", "٥^٤", "٤^١", "٤^٢", "٤^٣",
@@ -237,7 +237,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "˅١", "˅٢", "˅٣", "˅٤", "˅٥", "˅٦", "˅٧",
                     "˂١", "˂٢", "˂٣", "˂٤", "˂٥", "˂٦", "˂٧",
@@ -257,7 +257,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
                     "▶١", "▶٢", "▶٣", "▶٤", "▶٥", "▶٦", "▶٧",
@@ -277,7 +277,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "١◣", "١◢", "١◤", "١◥",
                     "٢◣", "٢◢", "٢◤", "٢◥",
@@ -300,7 +300,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "١▲",
                     "٢◣◼", "٢◼◢",
@@ -334,7 +334,7 @@ namespace Tests
         {
             var cipher = new Cipher
             {
-                CipherCharacters =
+                Characters =
                 {
                     "ا", "ب", "ت", "ث", "ج", "ح", "خ",
                     "د", "ذ", "ر", "ز", "س", "ش", "ص",

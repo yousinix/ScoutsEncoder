@@ -18,9 +18,9 @@ namespace ScoutsEncoder
 
         public string DisplayName { get; set; }
 
-        public List<string> CipherCharacters
+        public List<string> Characters
         {
-            get => HasOverloads ? Overloads[Key].CipherCharacters : _cipherCharacters;
+            get => HasOverloads ? Overloads[Key].Characters : _cipherCharacters;
             set => _cipherCharacters = value;
         }
 
@@ -61,7 +61,7 @@ namespace ScoutsEncoder
                 {
                     var numberOfAlphabetCharacters = _arabicAlphabet.Count;
                     for (var i = 0; i < numberOfAlphabetCharacters; i += KeyWeight)
-                        keysList.Add("أ = " + CipherCharacters[i]);
+                        keysList.Add("أ = " + Characters[i]);
                 }
                 else if (HasOverloads)
                 {
@@ -132,7 +132,7 @@ namespace ScoutsEncoder
                 {
                     // Encoding the character
                     index = (index + EncodingKey) % numberOfAlphabetCharacters;
-                    encodedText += CipherCharacters[index];
+                    encodedText += Characters[index];
 
                     // Add a delimiter after the character if the next character
                     // isn't: (last character, space, new line, punctuation mark)
@@ -158,7 +158,7 @@ namespace ScoutsEncoder
                 {
                     var index_1 = i + j * numberOfRows;
                     var index_2 = (index_1 + EncodingKey) % numberOfAlphabetCharacters;
-                    outputText += (_arabicAlphabet[index_1] + " = " + CipherCharacters[index_2]).PadRight(12);
+                    outputText += (_arabicAlphabet[index_1] + " = " + Characters[index_2]).PadRight(12);
                 }
 
                 outputText += "\r\n";
