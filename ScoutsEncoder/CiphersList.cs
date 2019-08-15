@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ScoutsEncoder
 {
-    public class CiphersList : List<Cipher>
+    public class CiphersList : ObservableCollection<Cipher>
     {
 
         public CiphersList()

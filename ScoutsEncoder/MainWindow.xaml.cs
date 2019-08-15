@@ -18,8 +18,9 @@ namespace ScoutsEncoder
 {
     public partial class MainWindow : Window
     {
-        private Cipher _chosenCipher;
-        private readonly CiphersList _ciphers = new CiphersList();
+
+        private Cipher _selectedCipher;
+        private CiphersList _ciphers = new CiphersList();
 
         private FileStream _fileStream;
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
@@ -68,11 +69,12 @@ namespace ScoutsEncoder
             var messageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
             Snackbar.MessageQueue = messageQueue;
 
+            // Check for updates
+            CheckForUpdates();
+
             // Initialize CiphersComboBox
-            foreach (var c in _ciphers)
-            {
-                CiphersComboBox.Items.Add(c.DisplayName);
-            }
+            CiphersComboBox.ItemsSource = _ciphers;
+            CiphersComboBox.DisplayMemberPath = "DisplayName";
 
             // Initialize lettersTextBoxes (used while adding new ciphers)
             var dialogContent = NewCipherDialogHost.DialogContent as Grid;
@@ -81,9 +83,6 @@ namespace ScoutsEncoder
                 var children = stackPanel.Children;
                 _lettersTextBoxes.AddRange(children.OfType<TextBox>());
             }
-
-            // Check for updates
-            CheckForUpdates();
         }
 
 
@@ -136,10 +135,8 @@ namespace ScoutsEncoder
 
         private void AddCipherButton_Click(object sender, RoutedEventArgs e)
         {
-            var newCipher = GetNewCipher();
-            _ciphers.Add(newCipher);
-            CiphersComboBox.Items.Add(newCipher.DisplayName);
-
+            _ciphers.Add(GetNewCipher());
+            CiphersComboBox.SelectedIndex = _ciphers.Count - 1;
             CloseDialog();
             Snackbar.MessageQueue.Enqueue("Cipher added");
         }
@@ -155,9 +152,8 @@ namespace ScoutsEncoder
 
             if (saveFileDialog.ShowDialog() != true) return;
 
-            var newCipher = GetNewCipher();
             _fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create);
-            _xmlSerializer.Serialize(_fileStream, newCipher);
+            _xmlSerializer.Serialize(_fileStream, GetNewCipher());
             _fileStream.Close();
         }
 
@@ -207,18 +203,18 @@ namespace ScoutsEncoder
 
         private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _chosenCipher = _ciphers[CiphersComboBox.SelectedIndex];
+            _selectedCipher = (Cipher) CiphersComboBox.SelectedItem;
 
-            KeysComboBox.IsEnabled     = _chosenCipher.HasKeys || _chosenCipher.HasOverloads;
-            KeysComboBox.ItemsSource   = _chosenCipher.KeysList;
+            KeysComboBox.IsEnabled     = _selectedCipher.HasKeys || _selectedCipher.HasOverloads;
+            KeysComboBox.ItemsSource   = _selectedCipher.KeysList;
             KeysComboBox.SelectedIndex = 0;
 
             EncodeButton        .IsEnabled = true;
             ShowKeyButton       .IsEnabled = true;
             RealTimeToggleButton.IsEnabled = true;
-            ToggleFillButton    .IsEnabled = _chosenCipher.HasShapes;
-            ExportAudioButton   .IsEnabled = _chosenCipher.IsAudible;
-            AudioSpeedComboBox  .IsEnabled = _chosenCipher.IsAudible;
+            ToggleFillButton    .IsEnabled = _selectedCipher.HasShapes;
+            ExportAudioButton   .IsEnabled = _selectedCipher.IsAudible;
+            AudioSpeedComboBox  .IsEnabled = _selectedCipher.IsAudible;
         }
 
         private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -227,17 +223,17 @@ namespace ScoutsEncoder
             // or while changing the KeysComboBox's ItemsSource,
             // instead of making Key = SelectedIndex = -1
             // which will cause an error while encoding
-            _chosenCipher.Key = KeysComboBox.SelectedIndex == -1 ? 0 : KeysComboBox.SelectedIndex;
+            _selectedCipher.Key = KeysComboBox.SelectedIndex == -1 ? 0 : KeysComboBox.SelectedIndex;
         }
 
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
         {
-            OutputTextBox.Text = _chosenCipher.ShowKey();
+            OutputTextBox.Text = _selectedCipher.ShowKey();
         }
 
         private void EncodeButton_Click(object sender, RoutedEventArgs e)
         {
-            OutputTextBox.Text = _chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
         }
 
         // Real-time Encoding
@@ -246,7 +242,7 @@ namespace ScoutsEncoder
         {
             RealTimeToggleButton.Foreground = new SolidColorBrush(Colors.White);
 
-            OutputTextBox.Text = _chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
 
             InputTextBox         .TextChanged += TextBox_TextChanged;
             CharsDelimiterTextBox.TextChanged += TextBox_TextChanged;
@@ -282,17 +278,17 @@ namespace ScoutsEncoder
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            OutputTextBox.Text = _chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
         }
 
         private void CheckBox_CheckChanged(object sender, RoutedEventArgs e)
         {
-            OutputTextBox.Text = _chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            OutputTextBox.Text = _chosenCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
         }
 
 
@@ -345,8 +341,8 @@ namespace ScoutsEncoder
             if (saveFileDialog.ShowDialog() != true) return;
 
             // Process save file dialog box results
-            var audioData = new MorseCodeGenerator(OutputTextBox.Text, CharsDelimiter, WordsDelimiter,
-                AudioSpeedComboBox.SelectedIndex);
+            var speed = AudioSpeedComboBox.SelectedIndex;
+            var audioData = new MorseCodeGenerator(OutputTextBox.Text, CharsDelimiter, WordsDelimiter, speed);
             audioData.Save(saveFileDialog.FileName);
             Snackbar.MessageQueue.Enqueue("\"" + saveFileDialog.SafeFileName + "\"" + " Saved!");
         }
