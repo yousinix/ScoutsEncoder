@@ -23,11 +23,12 @@ namespace ScoutsEncoder
         private CiphersList _ciphers = new CiphersList();
 
         private FileStream _fileStream;
+        private readonly List<Control> _inputControls;
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
         private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
         
-        private bool _isFilled = true;   // Default Format
-        private bool _isLight  = true;   // Default Theme
+        private bool _isFilled = true;
+        private bool _isLight = true;
 
         private const string GoogleDocsBase = "https://doc.new/";
         private const string GitHubBase = "https://github.com/";
@@ -76,6 +77,19 @@ namespace ScoutsEncoder
             CiphersComboBox.ItemsSource = _ciphers;
             CiphersComboBox.DisplayMemberPath = "DisplayName";
 
+            // Initialize inputControls (used in real-time encoding)
+            _inputControls = new List<Control> {
+                InputTextBox,
+                CharsDelimiterTextBox,
+                WordsDelimiterTextBox,
+                CharSpacingCheckBox,
+                CharSpacingCheckBox,
+                WordSpacingCheckBox,
+                WordSpacingCheckBox,
+                CiphersComboBox,
+                KeysComboBox
+            };
+
             // Initialize lettersTextBoxes (used while adding new ciphers)
             var dialogContent = NewCipherDialogHost.DialogContent as Grid;
             foreach (var stackPanel in dialogContent.Children.OfType<StackPanel>())
@@ -84,7 +98,6 @@ namespace ScoutsEncoder
                 _lettersTextBoxes.AddRange(children.OfType<TextBox>());
             }
         }
-
 
         private void CheckForUpdates()
         {
@@ -109,6 +122,7 @@ namespace ScoutsEncoder
             void Action() => Process.Start(latest.Assets[0].BrowserDownloadUrl);
             Snackbar.MessageQueue.Enqueue(content, "Download", Action);
         }
+
 
         //// Dialog Event Handlers ////
 
@@ -233,62 +247,73 @@ namespace ScoutsEncoder
 
         private void EncodeButton_Click(object sender, RoutedEventArgs e)
         {
+            Encode();
+        }
+
+        private void Encode()
+        {
             OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
         }
 
+
         // Real-time Encoding
+
+        private void ChangeEvent(object sender, RoutedEventArgs e)
+        {
+            Encode();
+        }
 
         private void RealTimeToggleButton_Checked(object sender, RoutedEventArgs e)
         {
+            Encode();
+
             RealTimeToggleButton.Foreground = new SolidColorBrush(Colors.White);
 
-            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
-
-            InputTextBox         .TextChanged += TextBox_TextChanged;
-            CharsDelimiterTextBox.TextChanged += TextBox_TextChanged;
-            WordsDelimiterTextBox.TextChanged += TextBox_TextChanged;
-
-            CharSpacingCheckBox.Checked   += CheckBox_CheckChanged;
-            CharSpacingCheckBox.Unchecked += CheckBox_CheckChanged;
-            WordSpacingCheckBox.Checked   += CheckBox_CheckChanged;
-            WordSpacingCheckBox.Unchecked += CheckBox_CheckChanged;
-
-            CiphersComboBox.SelectionChanged += ComboBox_SelectionChanged;
-            KeysComboBox   .SelectionChanged += ComboBox_SelectionChanged;
+            UpdateEventHandlers(
+                t => t.TextChanged += ChangeEvent,
+                c => c.SelectionChanged += ChangeEvent,
+                c =>
+                {
+                    c.Checked += ChangeEvent;
+                    c.Unchecked += ChangeEvent;
+                }
+            );
         }
 
         private void RealTimeToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            if (_isLight) RealTimeToggleButton.Foreground = (Brush) Application.Current.Resources["MaterialDesignBody"];
+            OutputTextBox.Clear();
 
-            OutputTextBox.Text = "";
+            if (_isLight) RealTimeToggleButton.Foreground = (Brush)Application.Current.Resources["MaterialDesignBody"];
 
-            InputTextBox         .TextChanged -= TextBox_TextChanged;
-            CharsDelimiterTextBox.TextChanged -= TextBox_TextChanged;
-            WordsDelimiterTextBox.TextChanged -= TextBox_TextChanged;
-
-            CharSpacingCheckBox.Checked   -= CheckBox_CheckChanged;
-            CharSpacingCheckBox.Unchecked -= CheckBox_CheckChanged;
-            WordSpacingCheckBox.Checked   -= CheckBox_CheckChanged;
-            WordSpacingCheckBox.Unchecked -= CheckBox_CheckChanged;
-
-            CiphersComboBox.SelectionChanged -= ComboBox_SelectionChanged;
-            KeysComboBox   .SelectionChanged -= ComboBox_SelectionChanged;
+            UpdateEventHandlers(
+                t => t.TextChanged -= ChangeEvent,
+                c => c.SelectionChanged -= ChangeEvent,
+                c =>
+                {
+                    c.Checked -= ChangeEvent;
+                    c.Unchecked -= ChangeEvent;
+                }
+            );
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        public void UpdateEventHandlers(Action<TextBox> a1, Action<ComboBox> a2, Action<CheckBox> a3)
         {
-            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
-        }
-
-        private void CheckBox_CheckChanged(object sender, RoutedEventArgs e)
-        {
-            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            OutputTextBox.Text = _selectedCipher.Encode(InputTextBox.Text, CharsDelimiter, WordsDelimiter);
+            foreach (var c in _inputControls)
+            {
+                switch (c)
+                {
+                    case TextBox textBox:
+                        a1(textBox);
+                        break;
+                    case ComboBox comboBox:
+                        a2(comboBox);
+                        break;
+                    case CheckBox checkBox:
+                        a3(checkBox);
+                        break;
+                }
+            }
         }
 
 
