@@ -622,11 +622,10 @@
                     <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" />
                     <Label Content="by" Margin="-2 0" />
                     <TextBlock VerticalAlignment="Center">
-                        <Hyperlink NavigateUri="https://www.linkedin.com/in/youssefraafatnasry/"
-                                   RequestNavigate="Hyperlink_RequestNavigate"
-                                   Foreground="{DynamicResource MaterialDesignBody}"
+                        <Hyperlink Foreground="{DynamicResource MaterialDesignBody}"
                                    FontWeight="Bold"
-                                   ToolTip="LinkedIn Profile"
+                                   ToolTip="Who am I?"
+                                   Click="Hyperlink_Click"
                                    ToolTipService.InitialShowDelay="1200">
                                    Youssef Raafat
                         </Hyperlink>

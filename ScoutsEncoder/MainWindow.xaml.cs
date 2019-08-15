@@ -1,14 +1,13 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Navigation;
-using MaterialDesignThemes.Wpf;
-using Microsoft.Win32;
-using System.IO;
 using System.Xml.Serialization;
 
 namespace ScoutsEncoder
@@ -233,13 +232,24 @@ namespace ScoutsEncoder
         };
 
         private Cipher _chosenCipher;
-
-        private List<TextBox> _lettersTextBoxes = new List<TextBox>();
-        private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
         private FileStream _fileStream;
 
+        private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
+        private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
+        
         private bool _isFilled = true;   // Default Format
         private bool _isLight  = true;   // Default Theme
+
+        private const string GoogleDocsBase = "https://doc.new/";
+        private const string GitHubBase = "https://github.com/";
+        private const string OwnerName = "YoussefRaafatNasry";
+        private const string OwnerEmail = "YoussefRaafatNasry@gmail.com";
+        private const string RepoName = "ScoutsEncoder";
+
+        private static readonly string SiteBase = $"https://{OwnerName}.github.io/";
+        private static readonly string RepoPath = $"{RepoName}/";
+        private static readonly string DocsPath = "docs/all/";
+        private static readonly string ReportSubject = Uri.EscapeUriString($"{RepoName} | Bug Report");
 
         public MainWindow()
         {
@@ -547,32 +557,32 @@ namespace ScoutsEncoder
 
         private void GitHubButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/YoussefRaafatNasry/ScoutsEncoder/");
+            Process.Start($"{GitHubBase}{OwnerName}/{RepoName}");
         }
 
         private void GoogleDocsButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://doc.new/");
+            Process.Start(GoogleDocsBase);
         }
 
         private void WebsiteButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://youssefraafatnasry.github.io/ScoutsEncoder/");
+            Process.Start($"{SiteBase}{RepoPath}");
         }
 
         private void ScoutsEncoderDocsButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://youssefraafatnasry.github.io/ScoutsEncoder/docs/all/");
+            Process.Start($"{SiteBase}{RepoPath}{DocsPath}");
         }
 
         private void BugReportButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("mailto:YoussefRaafatNasry@gmail.com?subject=ScoutsEncoder%20|%20Bug%20Report");
+            Process.Start($"mailto:{OwnerEmail}?subject={ReportSubject}");
         }
 
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            Process.Start(SiteBase);
         }
     }
 }
