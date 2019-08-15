@@ -1,14 +1,18 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
+using Octokit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Xml.Serialization;
+using Application = System.Windows.Application;
+using FileMode = System.IO.FileMode;
 
 namespace ScoutsEncoder
 {
@@ -60,6 +64,10 @@ namespace ScoutsEncoder
         {
             InitializeComponent();
 
+            // Initialize messageQueue and Assign it to Snackbar's MessageQueue
+            var messageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
+            Snackbar.MessageQueue = messageQueue;
+
             // Initialize CiphersComboBox
             foreach (var c in _ciphers)
             {
@@ -74,11 +82,34 @@ namespace ScoutsEncoder
                 _lettersTextBoxes.AddRange(children.OfType<TextBox>());
             }
 
-            // Initialize messageQueue and Assign it to Snackbar's MessageQueue
-            var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1800));
-            Snackbar.MessageQueue = messageQueue;
+            // Check for updates
+            CheckForUpdates();
         }
 
+
+        private void CheckForUpdates()
+        {
+            Release latest;
+
+            try
+            {
+                var client = new GitHubClient(new ProductHeaderValue(RepoName));
+                latest = client.Repository.Release.GetLatest(OwnerName, RepoName).Result;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            var currentVersion = Assembly.GetEntryAssembly()?.GetName().Version;
+            var latestVersion = new Version(latest.TagName.Substring(1) + ".0");
+            var isUpToDate = currentVersion.Equals(latestVersion);
+
+            if (isUpToDate) return;
+            var content = $"ScoutsEncoder {latest.TagName} is Now Available!";
+            void Action() => Process.Start(latest.Assets[0].BrowserDownloadUrl);
+            Snackbar.MessageQueue.Enqueue(content, "Download", Action);
+        }
 
         //// Dialog Event Handlers ////
 
