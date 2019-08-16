@@ -266,9 +266,6 @@ namespace ScoutsEncoder
         private void RealTimeToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             Encode();
-
-            RealTimeToggleButton.Foreground = new SolidColorBrush(Colors.White);
-
             UpdateEventHandlers(
                 t => t.TextChanged += ChangeEvent,
                 c => c.SelectionChanged += ChangeEvent,
@@ -283,9 +280,6 @@ namespace ScoutsEncoder
         private void RealTimeToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Clear();
-
-            if (_isLight) RealTimeToggleButton.Foreground = (Brush)Application.Current.Resources["MaterialDesignBody"];
-
             UpdateEventHandlers(
                 t => t.TextChanged -= ChangeEvent,
                 c => c.SelectionChanged -= ChangeEvent,
@@ -381,14 +375,11 @@ namespace ScoutsEncoder
             {
                 _isLight = false;
                 ThemeAssist.SetTheme(this, BaseTheme.Dark);
-                RealTimeToggleButton.Foreground = new SolidColorBrush(Colors.White);
             }
             else
             {
                 _isLight = true;
                 ThemeAssist.SetTheme(this, BaseTheme.Light);
-                if (!RealTimeToggleButton.IsChecked.Value)
-                    RealTimeToggleButton.Foreground = (Brush) Application.Current.Resources["MaterialDesignBody"];
             }
         }
 

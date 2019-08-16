@@ -414,19 +414,18 @@
                             </Button>
 
                             <ToggleButton x:Name="RealTimeToggleButton"
-                                          Width="24"
-                                          Height="24"
+                                          Width="32"
+                                          Height="32"
                                           Margin="8 0 0 0"
                                           ToolBar.OverflowMode="Never"
-                                          Style="{StaticResource MaterialDesignFlatToggleButton}"
-                                          Background="{DynamicResource PrimaryHueMidBrush}"
+                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                           Foreground="{DynamicResource MaterialDesignBody}"
                                           ToolTip="Toggle Real-Time Encoding"
                                           ToolTipService.InitialShowDelay="1200"
                                           Checked="RealTimeToggleButton_Checked"
                                           Unchecked="RealTimeToggleButton_Unchecked"
                                           IsEnabled="False">
-                                <materialDesign:PackIcon Kind="LinkVariant" Width="16" Height="16" />
+                                <materialDesign:PackIcon Kind="Sync" Width="16" Height="16" />
                             </ToggleButton>
 
                         </ToolBar>
