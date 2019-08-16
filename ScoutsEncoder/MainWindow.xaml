@@ -22,6 +22,9 @@
 
     <materialDesign:DialogHost x:Name="NewCipherDialogHost">
 
+
+        <!-- DialogContent -->
+
         <materialDesign:DialogHost.DialogContent>
             
             <Grid>
@@ -318,6 +321,7 @@
 
 
             <!-- Input -->
+            
             <materialDesign:Card Padding="16" Margin="16" VerticalAlignment="Stretch">
 
                 <Grid>
@@ -327,16 +331,16 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox x:Name="InputTextBox"
-                             Margin="0 0 0 16"
-                             FontFamily="Courier New"
-                             FontSize="14"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             FlowDirection="RightToLeft"
-                             VerticalContentAlignment="Top"
-                             VerticalScrollBarVisibility="Auto"
-                             materialDesign:HintAssist.Hint="أدخل النص هنا..." />
+                    <RichTextBox x:Name="InputRichTextBox"
+                                 Margin="0 0 0 16"
+                                 FontFamily="Courier New"
+                                 FontSize="14"
+                                 AcceptsReturn="True"
+                                 FlowDirection="RightToLeft"
+                                 Block.LineHeight="4"
+                                 VerticalContentAlignment="Top"
+                                 VerticalScrollBarVisibility="Auto"
+                                 materialDesign:HintAssist.Hint="أدخل النص هنا..." />
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
@@ -436,8 +440,8 @@
             </materialDesign:Card>
 
 
-
             <!-- Output -->
+            
             <materialDesign:Card Grid.Row="1" Padding="16" Margin="16 0 16 16" VerticalAlignment="Stretch">
 
                 <Grid>
@@ -447,16 +451,16 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox x:Name="OutputTextBox"
-                             Margin="0 0 0 16"
-                             FontFamily="Courier New"
-                             FontSize="14"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             FlowDirection="RightToLeft"
-                             VerticalContentAlignment="Top"
-                             VerticalScrollBarVisibility="Auto"
-                             IsReadOnly="True" />
+                    <RichTextBox x:Name="OutputRichTextBox"
+                                 Margin="0 0 0 16"
+                                 FontFamily="Courier New"
+                                 FontSize="14"
+                                 AcceptsReturn="True"
+                                 FlowDirection="RightToLeft"
+                                 Block.LineHeight="4"
+                                 VerticalContentAlignment="Top"
+                                 VerticalScrollBarVisibility="Auto"
+                                 IsReadOnly="True" />
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
@@ -556,8 +560,8 @@
             </materialDesign:Card>
 
 
-
             <!-- Footer -->
+            
             <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="16 0 16 16">
 
                 <ToolBarTray IsLocked="True" Background="Transparent">
@@ -634,6 +638,9 @@
 
             </StackPanel>
 
+
+            <!-- Snackbar -->
+            
             <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" />
 
         </Grid>
