@@ -392,11 +392,14 @@ namespace ScoutsEncoder
 
             if (saveFileDialog.ShowDialog() != true) return;
 
-            // Process save file dialog box results
             var speed = AudioSpeedComboBox.SelectedIndex;
             var audioData = new MorseCodeGenerator(OutputRichTextBox.GetText(), CharsDelimiter, WordsDelimiter, speed);
             audioData.Save(saveFileDialog.FileName);
-            Snackbar.MessageQueue.Enqueue($"'{saveFileDialog.SafeFileName}' Saved!");
+
+            var content = $"{saveFileDialog.SafeFileName} is Saved!";
+            var arguments = $"/select, \"{saveFileDialog.FileName}\"";
+            void Action() => Process.Start("explorer.exe", arguments);
+            Snackbar.MessageQueue.Enqueue(content, "Open", Action);
         }
 
 
