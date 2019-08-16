@@ -4,8 +4,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Media;
 using System.Xml.Serialization;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
@@ -75,6 +78,10 @@ namespace ScoutsEncoder
                 var children = stackPanel.Children;
                 _lettersTextBoxes.AddRange(children.OfType<TextBox>());
             }
+
+            // Clear initial block from RichTextBoxes
+            InputRichTextBox.Clear();
+            OutputRichTextBox.Clear();
         }
 
         public string CharsDelimiter
@@ -218,12 +225,13 @@ namespace ScoutsEncoder
             KeysComboBox.ItemsSource   = _selectedCipher.KeysList;
             KeysComboBox.SelectedIndex = 0;
 
-            EncodeButton        .IsEnabled = true;
-            ShowKeyButton       .IsEnabled = true;
-            RealTimeToggleButton.IsEnabled = true;
-            ToggleFillButton    .IsEnabled = _selectedCipher.HasShapes;
-            ExportAudioButton   .IsEnabled = _selectedCipher.IsAudible;
-            AudioSpeedComboBox  .IsEnabled = _selectedCipher.IsAudible;
+            EncodeButton               .IsEnabled = true;
+            ShowKeyButton              .IsEnabled = true;
+            RealTimeToggleButton       .IsEnabled = true;
+            MirrorSelectionToggleButton.IsEnabled = true;
+            ToggleFillButton           .IsEnabled = _selectedCipher.HasShapes;
+            ExportAudioButton          .IsEnabled = _selectedCipher.IsAudible;
+            AudioSpeedComboBox         .IsEnabled = _selectedCipher.IsAudible;
         }
 
         private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -256,11 +264,6 @@ namespace ScoutsEncoder
 
         // Real-time Encoding
 
-        private void ChangeEvent(object sender, RoutedEventArgs e)
-        {
-            Encode();
-        }
-
         private void RealTimeToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             Encode();
@@ -289,6 +292,11 @@ namespace ScoutsEncoder
             );
         }
 
+        private void ChangeEvent(object sender, RoutedEventArgs e)
+        {
+            Encode();
+        }
+
         public void UpdateEventHandlers(Action<RichTextBox> a1, Action<ComboBox> a2, Action<CheckBox> a3)
         {
             foreach (var c in _inputControls)
@@ -306,6 +314,43 @@ namespace ScoutsEncoder
                 }
         }
 
+
+        // Mirror Selection
+
+        private void MirrorSelectionToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            InputRichTextBox.SelectionChanged += InputRichTextBox_OnSelectionChanged;
+        }
+
+        private void MirrorSelectionToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            InputRichTextBox.Selection.Select(InputRichTextBox.CaretPosition, InputRichTextBox.CaretPosition);
+            InputRichTextBox.SelectionChanged -= InputRichTextBox_OnSelectionChanged;
+        }
+
+        private void InputRichTextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            var outputStartPointer = OutputRichTextBox.Document.ContentStart;
+            var outputEndPointer   = OutputRichTextBox.Document.ContentEnd;
+            var outputText         = new TextRange(outputStartPointer, outputEndPointer);
+
+            outputText.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
+            if (_selectedCipher == null || InputRichTextBox.Selection.IsEmpty || outputText.IsEmpty) return;
+
+            var inputStartPointer     = InputRichTextBox.Document.ContentStart;
+            var selectionStartPointer = InputRichTextBox.Selection.Start;
+            var selectedText          = InputRichTextBox.Selection.Text;
+            var precedingText         = new TextRange(inputStartPointer, selectionStartPointer).Text;
+            var encodedSelectedText   = _selectedCipher.Encode(selectedText, CharsDelimiter, WordsDelimiter);
+            var encodedPrecedingText  = _selectedCipher.Encode(precedingText, CharsDelimiter, WordsDelimiter);
+
+            var highlightStartPointer = outputStartPointer.GetPositionAtOffset(encodedPrecedingText.Length);
+            var highlightEndPointer   = highlightStartPointer?.GetPositionAtOffset(encodedSelectedText.Length + 2);
+            var highlightTextRange    = new TextRange(highlightStartPointer, highlightEndPointer);
+
+            highlightTextRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Yellow);
+        }
+        
 
         //// Output Event Handlers & Properties ////
 
@@ -393,5 +438,6 @@ namespace ScoutsEncoder
         {
             Process.Start(SiteBase);
         }
+
     }
 }

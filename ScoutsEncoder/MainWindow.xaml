@@ -432,7 +432,29 @@
                                 <materialDesign:PackIcon Kind="Sync" Width="16" Height="16" />
                             </ToggleButton>
 
+                            <materialDesign:Badged Badge="beta"
+                                                   BadgeColorZoneMode="Inverted"
+                                                   Margin="0 10 0 0">
+                                
+                                <ToggleButton x:Name="MirrorSelectionToggleButton"
+                                              Width="32"
+                                              Height="32"
+                                              Margin="16 0 0 0"
+                                              ToolBar.OverflowMode="Never"
+                                              Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                              Foreground="{DynamicResource MaterialDesignBody}"
+                                              ToolTip="Toggle Mirror Selection"
+                                              ToolTipService.InitialShowDelay="1200"
+                                              Checked="MirrorSelectionToggleButton_Checked"
+                                              Unchecked="MirrorSelectionToggleButton_Unchecked"
+                                              IsEnabled="False">
+                                    <materialDesign:PackIcon Kind="Highlighter" Width="16" Height="16" />
+                                </ToggleButton>
+                                
+                            </materialDesign:Badged>
+                            
                         </ToolBar>
+                        
                     </ToolBarTray>
 
                 </Grid>

@@ -94,10 +94,6 @@ namespace ScoutsEncoder
 
             // Replace multiple spaces with a single space
             textToModify = Regex.Replace(textToModify, " {2,}", " ");
-
-            // Remove Space at the end of the string
-            if (textToModify.Length > 0 && textToModify[textToModify.Length - 1] == ' ')
-                textToModify = textToModify.Remove(textToModify.Length - 1);
         }
 
         public string Encode(string text, string charDelimiter, string wordDelimiter)
