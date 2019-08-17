@@ -260,9 +260,10 @@ namespace ScoutsEncoder
 
             if (saveFileDialog.ShowDialog() != true) return;
 
-            var speed = AudioSpeedComboBox.SelectedIndex;
-            var audioData = new MorseCodeGenerator(OutputRichTextBox.GetText(), CharsDelimiter, WordsDelimiter, speed);
-            audioData.Save(saveFileDialog.FileName);
+            var text      = OutputRichTextBox.GetText();
+            var speed     = AudioSpeedComboBox.SelectedIndex;
+            var generator = new MorseAudioGenerator(text, CharsDelimiter, WordsDelimiter, speed);
+            generator.Save(saveFileDialog.FileName);
 
             var content = $"{saveFileDialog.SafeFileName} is Saved!";
             var arguments = $"/select, \"{saveFileDialog.FileName}\"";
