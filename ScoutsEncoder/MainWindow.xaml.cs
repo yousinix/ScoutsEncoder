@@ -21,8 +21,9 @@ namespace ScoutsEncoder
         private Cipher _selectedCipher;
         private FileStream _fileStream;
 
-        private bool _isFilled = true;
-        private bool _isLight  = true;
+        private bool _isFilled    = true;
+        private bool _isLight     = true;
+        private bool _containKeys = false;
 
         private readonly CiphersList _ciphers            = new CiphersList();
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
@@ -235,11 +236,13 @@ namespace ScoutsEncoder
         {
             var keys = _selectedCipher.ShowKey();
             OutputRichTextBox.SetText(keys);
+            _containKeys = true; // Used in mirror selection 
         }
 
         private void EncodeButton_Click(object sender, RoutedEventArgs e)
         {
             Encode();
+            _containKeys = false; // Used in mirror selection
         }
 
         private void Encode()
@@ -259,16 +262,15 @@ namespace ScoutsEncoder
 
         private void MirrorSelectionToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            OutputRichTextBox.ClearHighlight();
+            OutputRichTextBox.ClearFormatting();
         }
 
         private void InputRichTextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             if (!MirrorSelectionToggleButton.IsChecked.Value) return;
 
-            OutputRichTextBox.ClearHighlight();
-
-            if (_selectedCipher == null || InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty()) return;
+            OutputRichTextBox.ClearFormatting();
+            if (InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty() || _containKeys) return;
 
             var inputStartPointer     = InputRichTextBox.GetStart();
             var outputStartPointer    = OutputRichTextBox.GetStart();
@@ -279,13 +281,14 @@ namespace ScoutsEncoder
             var encodedSelectedText   = _selectedCipher.Encode(selectedText, CharsDelimiter, WordsDelimiter);
             var encodedPrecedingText  = _selectedCipher.Encode(precedingText, CharsDelimiter, WordsDelimiter);
 
-            var highlightStartPointer = outputStartPointer.GetPositionAtOffset(encodedPrecedingText.Length);
+            var highlightStartPointer = outputStartPointer.GetPositionAtOffset(encodedPrecedingText.Length + 2);
             var highlightEndPointer   = highlightStartPointer?.GetPositionAtOffset(encodedSelectedText.Length + 2);
             var highlightTextRange    = new TextRange(highlightStartPointer, highlightEndPointer);
 
-            highlightTextRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Yellow);
+            var brush = _isLight ? Brushes.Yellow : Brushes.DarkMagenta;
+            highlightTextRange.ApplyPropertyValue(TextElement.BackgroundProperty, brush);
         }
-        
+
 
         //// Output Event Handlers & Properties ////
 
@@ -345,6 +348,7 @@ namespace ScoutsEncoder
             var mode = _isLight ? BaseTheme.Dark : BaseTheme.Light;
             ThemeAssist.SetTheme(this, mode);
             _isLight ^= true;
+            OutputRichTextBox.ClearFormatting();
         }
 
         private Dictionary<string, string> _links = new Dictionary<string, string>()

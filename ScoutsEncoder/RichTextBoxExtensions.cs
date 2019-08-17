@@ -51,7 +51,7 @@ namespace ScoutsEncoder
             richTextBox.Document.Blocks.Clear();
         }
 
-        public static void ClearHighlight(this RichTextBox richTextBox)
+        public static void ClearFormatting(this RichTextBox richTextBox)
         {
             richTextBox.GetRange().ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
         }
