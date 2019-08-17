@@ -317,6 +317,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
 
@@ -589,88 +590,100 @@
 
 
             <!-- Footer -->
-            
-            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="16 0 16 16">
 
-                <ToolBarTray IsLocked="True" Background="Transparent">
-                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
-                             Background="Transparent">
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
 
-                        <Button x:Name="ToggleThemeButton"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Toggle Light/Dark Themes"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="ToggleThemeButton_Click">
-                            <materialDesign:PackIcon Kind="ThemeLightDark" />
-                        </Button>
+                <Button x:Name="ToggleThemeButton"
+                        Width="32"
+                        Height="32"
+                        ToolTip="Toggle Light/Dark Themes"
+                        ToolTipService.InitialShowDelay="1200"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                        Click="ToggleThemeButton_Click">
+                    <materialDesign:PackIcon Kind="ThemeLightDark" Width="18" Height="18" />
+                </Button>
 
-                        <Button x:Name="Repo"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Project on GitHub"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="Footer_Click">
-                            <materialDesign:PackIcon Kind="GithubCircle" />
-                        </Button>
+                <Button x:Name="Repo"
+                        Width="32"
+                        Height="32"
+                        ToolTip="Project on GitHub"
+                        ToolTipService.InitialShowDelay="1200"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                        Click="Footer_Click">
+                    <materialDesign:PackIcon Kind="GithubCircle" Width="18" Height="18" />
+                </Button>
 
-                        <Button x:Name="GoogleDocs"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Google Docs (Recommended Text Editor)"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="Footer_Click">
-                            <materialDesign:PackIcon Kind="FileDocument" />
-                        </Button>
+                <Button x:Name="GoogleDocs"
+                        Width="32"
+                        Height="32"
+                        ToolTip="Google Docs (Recommended Text Editor)"
+                        ToolTipService.InitialShowDelay="1200"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                        Click="Footer_Click">
+                    <materialDesign:PackIcon Kind="FileDocument" Width="18" Height="18" />
+                </Button>
 
-                        <Button x:Name="Website"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="ScoutsEncoder Site"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="Footer_Click">
-                            <materialDesign:PackIcon Kind="Web" />
-                        </Button>
+                <Button x:Name="Website"
+                        Width="32"
+                        Height="32"
+                        ToolTip="ScoutsEncoder Site"
+                        ToolTipService.InitialShowDelay="1200"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                        Click="Footer_Click">
+                    <materialDesign:PackIcon Kind="Web" Width="18" Height="18" />
+                </Button>
 
-                        <Button x:Name="Documentation"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Documentation"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="Footer_Click">
-                            <materialDesign:PackIcon Kind="HelpOutline" />
-                        </Button>
+                <Button x:Name="Documentation"
+                        Width="32"
+                        Height="32"
+                        ToolTip="Documentation"
+                        ToolTipService.InitialShowDelay="1200"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                        Click="Footer_Click">
+                    <materialDesign:PackIcon Kind="HelpOutline" Width="18" Height="18" />
+                </Button>
 
-                        <Button x:Name="BugReport"
-                                ToolBar.OverflowMode="Never"
-                                ToolTip="Report a Bug via Email"
-                                ToolTipService.InitialShowDelay="1200"
-                                Click="Footer_Click">
-                            <materialDesign:PackIcon Kind="BugReport" />
-                        </Button>
+                <Button x:Name="BugReport"
+                        Width="32"
+                        Height="32"
+                        ToolTip="Report a Bug via Email"
+                        ToolTipService.InitialShowDelay="1200"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                        Click="Footer_Click">
+                    <materialDesign:PackIcon Kind="BugReport" Width="18" Height="18" />
+                </Button>
 
-                    </ToolBar>
-                </ToolBarTray>
+            </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="4 -6 0 -6">
-                    <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
-                    <Label Content="with" Margin="-2 0" />
-                    <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" />
-                    <Label Content="by" Margin="-2 0" />
-                    <TextBlock VerticalAlignment="Center">
-                        <Hyperlink x:Name="Owner"
-                                   Foreground="{DynamicResource MaterialDesignBody}"
-                                   FontWeight="Bold"
-                                   ToolTip="Who am I?"
-                                   Click="Footer_Click"
-                                   ToolTipService.InitialShowDelay="1200">
-                                   Youssef Raafat
-                        </Hyperlink>
-                    </TextBlock>
-                    <Label Content=" |  © 2019 ScoutsEncoder" />
-                </StackPanel>
-
+            <StackPanel Grid.Row="3"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0 0 0 16">
+                    
+                <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
+                <Label Content="with" Margin="-1 0" />
+                <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" Foreground="Red" />
+                <Label Content="by" Margin="-1 0" />
+                    
+                <TextBlock VerticalAlignment="Center">
+                    <Hyperlink x:Name="Owner"
+                               Foreground="{DynamicResource MaterialDesignBody}"
+                               FontWeight="Bold"
+                               ToolTip="Who am I?"
+                               ToolTipService.InitialShowDelay="1200"
+                               Click="Footer_Click">
+                               YoussefRaafatNasry
+                    </Hyperlink>
+                </TextBlock>
+                    
             </StackPanel>
 
 
             <!-- Snackbar -->
             
-            <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" />
+            <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" Grid.RowSpan="2" />
 
         </Grid>
         
