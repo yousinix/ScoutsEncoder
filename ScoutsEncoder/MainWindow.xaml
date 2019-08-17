@@ -68,38 +68,37 @@
 
                             <Button x:Name="InputCutButton"
                                     ToolBar.OverflowMode="Never"
+                                    ToolTip="Cut Input"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Click="InputCutButton_Click">
                                 <materialDesign:PackIcon Kind="ContentCut" />
                             </Button>
 
                             <Button x:Name="InputCopyButton"
                                     ToolBar.OverflowMode="Never"
+                                    ToolTip="Copy Input"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Click="InputCopyButton_Click">
                                 <materialDesign:PackIcon Kind="ContentCopy" />
                             </Button>
 
                             <Button x:Name="InputPasteButton"
                                     ToolBar.OverflowMode="Never"
+                                    ToolTip="Paste into Input"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Click="InputPasteButton_Click">
                                 <materialDesign:PackIcon Kind="ContentPaste" />
                             </Button>
 
                             <Button x:Name="InputClearButton"
                                     ToolBar.OverflowMode="Never"
+                                    ToolTip="Clear Input"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Click="InputClearButton_Click">
                                 <materialDesign:PackIcon Kind="Close" />
                             </Button>
 
                             <Separator />
-                            
-                            <StackPanel Orientation="Horizontal" Margin="16 0">
-                                <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Language" />
-                                <ComboBox x:Name="CiphersComboBox"
-                                          Width="64"
-                                          FlowDirection="RightToLeft"
-                                          materialDesign:HintAssist.Hint="الشفرة"
-                                          SelectionChanged="CiphersComboBox_SelectionChanged" />
-                            </StackPanel>
 
                             <Button x:Name="AddNewCipherButton"
                                     ToolTip="Add new custom cipher"
@@ -109,7 +108,16 @@
                             </Button>
                             
                             <StackPanel Orientation="Horizontal" Margin="16 0">
-                                <materialDesign:PackIcon Margin="0 0 8 0" VerticalAlignment="Center" Kind="Key" />
+                                <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Language" />
+                                <ComboBox x:Name="CiphersComboBox"
+                                          Width="64"
+                                          FlowDirection="RightToLeft"
+                                          materialDesign:HintAssist.Hint="الشفرة"
+                                          SelectionChanged="CiphersComboBox_SelectionChanged" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="16 0">
+                                <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Key" />
                                 <ComboBox x:Name="KeysComboBox"
                                           Width="64"
                                           FlowDirection="RightToLeft"
@@ -117,6 +125,8 @@
                                           SelectionChanged="KeysComboBox_SelectionChanged"
                                           IsEnabled="False" />
                             </StackPanel>
+
+                            <Separator />
 
                             <Button x:Name="ShowKeyButton"
                                     ToolBar.OverflowMode="Never"
@@ -202,18 +212,24 @@
 
                             <Button x:Name="OutputCutButton"
                                     ToolBar.OverflowMode="Never"
+                                    ToolTip="Cut Output"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Click="OutputCutButton_Click">
                                 <materialDesign:PackIcon Kind="ContentCut" />
                             </Button>
 
                             <Button x:Name="OutputCopyButton"
                                     ToolBar.OverflowMode="Never"
+                                    ToolTip="Copy Output"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Click="OutputCopyButton_Click">
                                 <materialDesign:PackIcon Kind="ContentCopy" />
                             </Button>
 
                             <Button x:Name="OutputClearButton"
                                     ToolBar.OverflowMode="Never"
+                                    ToolTip="Clear Output"
+                                    ToolTipService.InitialShowDelay="1200"
                                     Click="OutputClearButton_Click">
                                 <materialDesign:PackIcon Kind="Close" />
                             </Button>
@@ -222,42 +238,56 @@
 
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
 
-                                <Label Content="Chars Delimiter:" />
+                                <TextBlock FontSize="10">
+                                    Characters<LineBreak/>Separator
+                                </TextBlock>
+
                                 <TextBox x:Name="CharsDelimiterTextBox"
                                          MaxLength="1"
                                          Width="24"
+                                         Margin="12 0"
                                          TextAlignment="Center"
                                          Text="-"
+                                         ToolTip="Symbol to separate encoded characters"
+                                         ToolTipService.InitialShowDelay="1200"
                                          TextChanged="RealtimeEventHandler"/>
-                            
-                                <Label Content="Spacing:" Margin="8 0 0 0" />
+
                                 <CheckBox x:Name="CharSpacingCheckBox"
-                                          IsChecked="True"
                                           Background="{DynamicResource MaterialDesignBody}"
+                                          ToolTip="Surround symbol with spaces"
+                                          ToolTipService.InitialShowDelay="1200"
+                                          IsChecked="True"
                                           Checked="RealtimeEventHandler" 
                                           Unchecked="RealtimeEventHandler" />
-                            
+
                             </StackPanel>
 
                             <Separator />
 
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
 
-                                <Label Content="Words Delimiter:" />
+                                <TextBlock FontSize="10">
+                                    Words<LineBreak/>Separator
+                                </TextBlock>
+
                                 <TextBox x:Name="WordsDelimiterTextBox"
                                          MaxLength="1"
                                          Width="24"
+                                         Margin="12 0"
                                          TextAlignment="Center"
                                          Text="/"
-                                         TextChanged="RealtimeEventHandler" />
-                            
-                                <Label Content="Spacing:" Margin="8 0 0 0" />
+                                         ToolTip="Symbol to separate encoded words"
+                                         ToolTipService.InitialShowDelay="1200"
+                                         TextChanged="RealtimeEventHandler"/>
+
                                 <CheckBox x:Name="WordSpacingCheckBox"
-                                          IsChecked="True"
                                           Background="{DynamicResource MaterialDesignBody}"
+                                          ToolTip="Surround symbol with spaces"
+                                          ToolTipService.InitialShowDelay="1200"
+                                          IsChecked="True"
                                           Checked="RealtimeEventHandler" 
                                           Unchecked="RealtimeEventHandler" />
-                            
+                                
                             </StackPanel>
 
                             <Separator />
@@ -282,6 +312,7 @@
 
                             <ComboBox x:Name="AudioSpeedComboBox"
                                       Width="64"
+                                      Margin="8 0 16 0"
                                       ToolBar.OverflowMode="Never"
                                       ToolTip="Audio Speed"
                                       ToolTipService.InitialShowDelay="1200"
@@ -291,7 +322,9 @@
                                 <ComboBoxItem Content="Fast" />
                             </ComboBox>
 
+                            
                         </ToolBar>
+                        
                     </ToolBarTray>
 
                 </Grid>
