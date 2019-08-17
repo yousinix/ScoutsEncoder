@@ -34,10 +34,10 @@ namespace ScoutsEncoder
         private const string OwnerEmail     = "YoussefRaafatNasry@gmail.com";
         private const string RepoName       = "ScoutsEncoder";
 
-        private static readonly string SiteBase      = $"https://{OwnerName}.github.io/";
-        private static readonly string RepoPath      = $"{RepoName}/";
-        private static readonly string DocsPath      = "docs/all/";
-        private static readonly string ReportSubject = Uri.EscapeUriString($"{RepoName} | Bug Report");
+        private static readonly string SiteBase          = $"https://{OwnerName}.github.io/";
+        private static readonly string RepoPath          = $"{RepoName}/";
+        private static readonly string DocumentationPath = "docs/all/";
+        private static readonly string ReportSubject     = Uri.EscapeUriString($"{RepoName} | Bug Report");
         
 
         public MainWindow()
@@ -347,34 +347,20 @@ namespace ScoutsEncoder
             _isLight ^= true;
         }
 
-        private void GitHubButton_Click(object sender, RoutedEventArgs e)
+        private Dictionary<string, string> _links = new Dictionary<string, string>()
         {
-            Process.Start($"{GitHubBase}{OwnerName}/{RepoName}");
-        }
+            { "Repo"          , $"{GitHubBase}{OwnerName}/{RepoName}"          },
+            { "GoogleDocs"    , GoogleDocsBase                                 },
+            { "Website"       , $"{SiteBase}{RepoPath}"                        },
+            { "Documentation" , $"{SiteBase}{RepoPath}{DocumentationPath}"     },
+            { "BugReport"     , $"mailto:{OwnerEmail}?subject={ReportSubject}" },
+            { "Owner"         , SiteBase                                       }
+        };
 
-        private void GoogleDocsButton_Click(object sender, RoutedEventArgs e)
+        private void Footer_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(GoogleDocsBase);
-        }
-
-        private void WebsiteButton_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start($"{SiteBase}{RepoPath}");
-        }
-
-        private void ScoutsEncoderDocsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start($"{SiteBase}{RepoPath}{DocsPath}");
-        }
-
-        private void BugReportButton_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start($"mailto:{OwnerEmail}?subject={ReportSubject}");
-        }
-
-        private void Hyperlink_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(SiteBase);
+            var key = sender is Control ? (sender as Control).Name : (sender as Hyperlink).Name;
+            Process.Start(_links[key]);
         }
 
     }

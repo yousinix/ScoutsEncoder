@@ -604,43 +604,43 @@
                             <materialDesign:PackIcon Kind="ThemeLightDark" />
                         </Button>
 
-                        <Button x:Name="GitHubButton"
+                        <Button x:Name="Repo"
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="Project on GitHub"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="GitHubButton_Click">
+                                Click="Footer_Click">
                             <materialDesign:PackIcon Kind="GithubCircle" />
                         </Button>
 
-                        <Button x:Name="GoogleDocsButton"
+                        <Button x:Name="GoogleDocs"
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="Google Docs (Recommended Text Editor)"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="GoogleDocsButton_Click">
+                                Click="Footer_Click">
                             <materialDesign:PackIcon Kind="FileDocument" />
                         </Button>
 
-                        <Button x:Name="WebsiteButton"
+                        <Button x:Name="Website"
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="ScoutsEncoder Site"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="WebsiteButton_Click">
+                                Click="Footer_Click">
                             <materialDesign:PackIcon Kind="Web" />
                         </Button>
 
-                        <Button x:Name="ScoutsEncoderDocsButton"
+                        <Button x:Name="Documentation"
                                 ToolBar.OverflowMode="Never"
-                                ToolTip="Help"
+                                ToolTip="Documentation"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="ScoutsEncoderDocsButton_Click">
+                                Click="Footer_Click">
                             <materialDesign:PackIcon Kind="HelpOutline" />
                         </Button>
 
-                        <Button x:Name="BugReportButton"
+                        <Button x:Name="BugReport"
                                 ToolBar.OverflowMode="Never"
                                 ToolTip="Report a Bug via Email"
                                 ToolTipService.InitialShowDelay="1200"
-                                Click="BugReportButton_Click">
+                                Click="Footer_Click">
                             <materialDesign:PackIcon Kind="BugReport" />
                         </Button>
 
@@ -653,10 +653,11 @@
                     <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" />
                     <Label Content="by" Margin="-2 0" />
                     <TextBlock VerticalAlignment="Center">
-                        <Hyperlink Foreground="{DynamicResource MaterialDesignBody}"
+                        <Hyperlink x:Name="Owner"
+                                   Foreground="{DynamicResource MaterialDesignBody}"
                                    FontWeight="Bold"
                                    ToolTip="Who am I?"
-                                   Click="Hyperlink_Click"
+                                   Click="Footer_Click"
                                    ToolTipService.InitialShowDelay="1200">
                                    Youssef Raafat
                         </Hyperlink>
