@@ -1,73 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
-using System.Xml.Serialization;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using Octokit;
-using FileMode = System.IO.FileMode;
 
 namespace ScoutsEncoder
 {
     public partial class MainWindow : Window
     {
+        public readonly CiphersList Ciphers = new CiphersList();
+
         private Cipher _selectedCipher;
-        private FileStream _fileStream;
 
         private bool _isFilled    = true;
         private bool _isLight     = true;
         private bool _containKeys = false;
 
-        private readonly CiphersList _ciphers            = new CiphersList();
-        private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
-        private readonly XmlSerializer _xmlSerializer    = new XmlSerializer(typeof(Cipher));
-
-        private const string GoogleDocsBase = "https://doc.new/";
-        private const string GitHubBase     = "https://github.com/";
         private const string OwnerName      = "YoussefRaafatNasry";
         private const string OwnerEmail     = "YoussefRaafatNasry@gmail.com";
+        private const string GoogleDocsBase = "https://doc.new/";
+        private const string GitHubBase     = "https://github.com/";
+        private const string SiteBase       = "https://" + OwnerName + ".github.io/";
         private const string RepoName       = "ScoutsEncoder";
+        private const string RepoPath       = RepoName + "/";
+        private const string DocsPath       = "docs/all/";
+        private const string ReportSubject  = RepoName + " | Bug Report";
 
-        private static readonly string SiteBase          = $"https://{OwnerName}.github.io/";
-        private static readonly string RepoPath          = $"{RepoName}/";
-        private static readonly string DocumentationPath = "docs/all/";
-        private static readonly string ReportSubject     = Uri.EscapeUriString($"{RepoName} | Bug Report");
-        
-
-        public MainWindow()
-        {
-            InitializeComponent();
-
-            // Initialize messageQueue and Assign it to Snackbar's MessageQueue
-            var messageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
-            Snackbar.MessageQueue = messageQueue;
-
-            // Check for updates
-            CheckForUpdates();
-
-            // Initialize CiphersComboBox
-            CiphersComboBox.ItemsSource = _ciphers;
-            CiphersComboBox.DisplayMemberPath = "DisplayName";
-
-            // Initialize lettersTextBoxes (used while adding new ciphers)
-            var dialogContent = NewCipherDialogHost.DialogContent as Grid;
-            foreach (var stackPanel in dialogContent.Children.OfType<StackPanel>())
-            {
-                var children = stackPanel.Children;
-                _lettersTextBoxes.AddRange(children.OfType<TextBox>());
-            }
-
-            // Clear initial block from RichTextBoxes
-            InputRichTextBox.Clear();
-            OutputRichTextBox.Clear();
-        }
 
         public string CharsDelimiter
         {
@@ -89,6 +53,30 @@ namespace ScoutsEncoder
             }
         }
 
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            // Initialize messageQueue and Assign it to Snackbar's MessageQueue
+            var messageQueue      = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
+            Snackbar.MessageQueue = messageQueue;
+
+            // Initialize CiphersComboBox
+            CiphersComboBox.ItemsSource       = Ciphers;
+            CiphersComboBox.DisplayMemberPath = "DisplayName";
+
+            // Initialize NewCipherDialog
+            NewCipherDialog.Context = this;
+
+            // Clear initial block from RichTextBoxes
+            InputRichTextBox.Clear();
+            OutputRichTextBox.Clear();
+
+            // Check for updates
+            CheckForUpdates();
+        }
+
         private void CheckForUpdates()
         {
             Release latest;
@@ -108,74 +96,9 @@ namespace ScoutsEncoder
             var isUpToDate = currentVersion.Equals(latestVersion);
 
             if (isUpToDate) return;
-            var content = $"ScoutsEncoder {latest.TagName} is Now Available!";
+            var content = $"{RepoName} {latest.TagName} is Now Available!";
             void Action() => Process.Start(latest.Assets[0].BrowserDownloadUrl);
             Snackbar.MessageQueue.Enqueue(content, "Download", Action);
-        }
-
-
-        //// Dialog Event Handlers ////
-
-        private Cipher GetNewCipher()
-        {
-            return new Cipher
-            {
-                DisplayName = NewCipherNameTextBox.Text,
-                Characters = _lettersTextBoxes.Select(t => t.Text).ToList()
-            };
-        }
-
-        private void CloseDialog()
-        {
-            _lettersTextBoxes.ForEach(t => t.Clear());
-            NewCipherNameTextBox.Clear();
-            NewCipherDialogHost.IsOpen = false;
-        }
-
-        private void CloseDialogButton_Click(object sender, RoutedEventArgs e)
-        {
-            CloseDialog();
-        }
-
-        private void AddCipherButton_Click(object sender, RoutedEventArgs e)
-        {
-            _ciphers.Add(GetNewCipher());
-            CiphersComboBox.SelectedIndex = _ciphers.Count - 1;
-            CloseDialog();
-            Snackbar.MessageQueue.Enqueue("Cipher added");
-        }
-
-        private void SaveCipherButton_Click(object sender, RoutedEventArgs e)
-        {
-            var saveFileDialog = new SaveFileDialog
-            {
-                FileName = NewCipherNameTextBox.Text,
-                DefaultExt = ".cipher.se",
-                Filter = "SE Cipher File (.cipher.se)|*.cipher.se"
-            };
-
-            if (saveFileDialog.ShowDialog() != true) return;
-
-            _fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create);
-            _xmlSerializer.Serialize(_fileStream, GetNewCipher());
-            _fileStream.Close();
-        }
-
-        private void ImportCipherButton_Click(object sender, RoutedEventArgs e)
-        {
-            var openFileDialog = new OpenFileDialog
-            {
-                Filter = "SE Cipher File (.cipher.se)|*.cipher.se"
-            };
-
-            if (openFileDialog.ShowDialog() != true) return;
-
-            _fileStream = new FileStream(openFileDialog.FileName, FileMode.Open);
-            var newCipher = _xmlSerializer.Deserialize(_fileStream) as Cipher;
-            _fileStream.Close();
-
-            NewCipherNameTextBox.Text = newCipher.DisplayName;
-            for (var i = 0; i < newCipher.Characters.Count; i++) _lettersTextBoxes[i].Text = newCipher.Characters[i];
         }
 
 
@@ -325,7 +248,7 @@ namespace ScoutsEncoder
             {
                 FileName = "MorseCode - " + AudioSpeedComboBox.Text,
                 DefaultExt = ".wav",
-                Filter = "Waveform Audio File (.wav)|*.wav"
+                Filter = "Waveform Audio File|*.wav"
             };
 
             if (saveFileDialog.ShowDialog() != true) return;
@@ -353,12 +276,12 @@ namespace ScoutsEncoder
 
         private Dictionary<string, string> _links = new Dictionary<string, string>()
         {
-            { "Repo"          , $"{GitHubBase}{OwnerName}/{RepoName}"          },
-            { "GoogleDocs"    , GoogleDocsBase                                 },
-            { "Website"       , $"{SiteBase}{RepoPath}"                        },
-            { "Documentation" , $"{SiteBase}{RepoPath}{DocumentationPath}"     },
-            { "BugReport"     , $"mailto:{OwnerEmail}?subject={ReportSubject}" },
-            { "Owner"         , SiteBase                                       }
+            { "Repo"          , $"{GitHubBase}{OwnerName}/{RepoName}"                               },
+            { "GoogleDocs"    , GoogleDocsBase                                                      },
+            { "Website"       , $"{SiteBase}{RepoPath}"                                             },
+            { "Documentation" , $"{SiteBase}{RepoPath}{DocsPath}"                                   },
+            { "BugReport"     , $"mailto:{OwnerEmail}?subject={Uri.EscapeUriString(ReportSubject)}" },
+            { "Owner"         , SiteBase                                                            }
         };
 
         private void Footer_Click(object sender, RoutedEventArgs e)
