@@ -69,6 +69,9 @@ namespace ScoutsEncoder
             // Initialize NewCipherDialog
             NewCipherDialog.Context = this;
 
+            // Disable Actions
+            EnableActions(false);
+
             // Clear initial block from RichTextBoxes
             InputRichTextBox.Clear();
             OutputRichTextBox.Clear();
@@ -129,35 +132,31 @@ namespace ScoutsEncoder
         {
             _selectedCipher = (Cipher) CiphersComboBox.SelectedItem;
 
-            KeysComboBox.IsEnabled     = _selectedCipher.HasKeys || _selectedCipher.HasOverloads;
-            KeysComboBox.ItemsSource   = _selectedCipher.KeysList;
-            KeysComboBox.SelectedIndex = 0;
+            KeysComboBox.IsEnabled       = _selectedCipher.HasKeys || _selectedCipher.HasOverloads;
+            KeysComboBox.ItemsSource     = _selectedCipher.KeysList;
+            KeysComboBox.SelectedIndex   = 0;
 
-            EncodeButton               .IsEnabled = true;
-            ShowKeyButton              .IsEnabled = true;
-            RealTimeToggleButton       .IsEnabled = true;
-            MirrorSelectionToggleButton.IsEnabled = true;
-            ToggleFillButton           .IsEnabled = _selectedCipher.HasShapes;
-            ExportAudioButton          .IsEnabled = _selectedCipher.IsAudible;
-            AudioSpeedComboBox         .IsEnabled = _selectedCipher.IsAudible;
+            ToggleFillButton  .IsEnabled = _selectedCipher.HasShapes;
+            ExportAudioButton .IsEnabled = _selectedCipher.IsAudible;
+            AudioSpeedComboBox.IsEnabled = _selectedCipher.IsAudible;
 
             RealtimeEventHandler(sender, e); // Real-time syncing 
+            EnableActions(true);
         }
 
         private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Set Key to zero if KeysComboBox is empty
-            // or while changing the KeysComboBox's ItemsSource,
-            // instead of making Key = SelectedIndex = -1
+            // Since this event is raised while selecting first key when cipher is changed, therefore
+            // set Key to zero if KeysComboBox is empty instead of making Key = SelectedIndex = -1
             // which will cause an error while encoding
-            _selectedCipher.Key = KeysComboBox.SelectedIndex == -1 ? 0 : KeysComboBox.SelectedIndex;
+            _selectedCipher.Key = KeysComboBox.Items.IsEmpty ? 0 : KeysComboBox.SelectedIndex;
 
             RealtimeEventHandler(sender, e); // Real-time syncing 
         }
 
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
         {
-            var keys = _selectedCipher.ShowKey();
+            var keys = _selectedCipher.GetKeysMapping();
             OutputRichTextBox.SetText(keys);
             _containKeys = true; // Used in mirror selection 
         }
@@ -175,6 +174,14 @@ namespace ScoutsEncoder
             OutputRichTextBox.SetText(encodedText);
         }
 
+        private void EnableActions(bool state)
+        {
+            ShowKeyButton       .IsEnabled = state;
+            EncodeButton        .IsEnabled = state;
+            RealTimeToggleButton.IsEnabled = state;
+            MirrorToggleButton  .IsEnabled = state;
+        }
+
         // Real-time Encoding & Mirror Selection Modes
 
         private void RealtimeEventHandler(object sender, RoutedEventArgs e)
@@ -190,7 +197,7 @@ namespace ScoutsEncoder
 
         private void InputRichTextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
-            if (!MirrorSelectionToggleButton.IsChecked.Value) return;
+            if (!MirrorToggleButton.IsChecked.Value) return;
 
             OutputRichTextBox.ClearFormatting();
             if (InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty() || _containKeys) return;

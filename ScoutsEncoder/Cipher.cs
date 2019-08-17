@@ -141,7 +141,7 @@ namespace ScoutsEncoder
             return encodedText;
         }
 
-        public string ShowKey()
+        public string GetKeysMapping()
         {
             var outputText = "";
             var numberOfAlphabetCharacters = _arabicAlphabet.Count;
