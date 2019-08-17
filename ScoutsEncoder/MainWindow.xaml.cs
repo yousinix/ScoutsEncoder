@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -25,7 +24,6 @@ namespace ScoutsEncoder
         private bool _isFilled = true;
         private bool _isLight  = true;
 
-        private readonly List<Control> _inputControls;
         private readonly CiphersList _ciphers            = new CiphersList();
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
         private readonly XmlSerializer _xmlSerializer    = new XmlSerializer(typeof(Cipher));
@@ -56,20 +54,6 @@ namespace ScoutsEncoder
             // Initialize CiphersComboBox
             CiphersComboBox.ItemsSource = _ciphers;
             CiphersComboBox.DisplayMemberPath = "DisplayName";
-
-            // Initialize inputControls (used in real-time encoding)
-            _inputControls = new List<Control>
-            {
-                InputRichTextBox,
-                CharsDelimiterTextBox,
-                WordsDelimiterTextBox,
-                CharSpacingCheckBox,
-                CharSpacingCheckBox,
-                WordSpacingCheckBox,
-                WordSpacingCheckBox,
-                CiphersComboBox,
-                KeysComboBox
-            };
 
             // Initialize lettersTextBoxes (used while adding new ciphers)
             var dialogContent = NewCipherDialogHost.DialogContent as Grid;
@@ -232,6 +216,8 @@ namespace ScoutsEncoder
             ToggleFillButton           .IsEnabled = _selectedCipher.HasShapes;
             ExportAudioButton          .IsEnabled = _selectedCipher.IsAudible;
             AudioSpeedComboBox         .IsEnabled = _selectedCipher.IsAudible;
+
+            RealtimeEventHandler(sender, e); // Real-time syncing 
         }
 
         private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -241,6 +227,8 @@ namespace ScoutsEncoder
             // instead of making Key = SelectedIndex = -1
             // which will cause an error while encoding
             _selectedCipher.Key = KeysComboBox.SelectedIndex == -1 ? 0 : KeysComboBox.SelectedIndex;
+
+            RealtimeEventHandler(sender, e); // Real-time syncing 
         }
 
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
@@ -261,83 +249,30 @@ namespace ScoutsEncoder
             OutputRichTextBox.SetText(encodedText);
         }
 
+        // Real-time Encoding & Mirror Selection Modes
 
-        // Real-time Encoding
-
-        private void RealTimeToggleButton_Checked(object sender, RoutedEventArgs e)
+        private void RealtimeEventHandler(object sender, RoutedEventArgs e)
         {
+            if (!RealTimeToggleButton.IsChecked.Value) return;
             Encode();
-            UpdateEventHandlers(
-                r => r.TextChanged += ChangeEvent,
-                c => c.SelectionChanged += ChangeEvent,
-                c =>
-                {
-                    c.Checked += ChangeEvent;
-                    c.Unchecked += ChangeEvent;
-                }
-            );
-        }
-
-        private void RealTimeToggleButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            OutputRichTextBox.Clear();
-            UpdateEventHandlers(
-                r => r.TextChanged -= ChangeEvent,
-                c => c.SelectionChanged -= ChangeEvent,
-                c =>
-                {
-                    c.Checked -= ChangeEvent;
-                    c.Unchecked -= ChangeEvent;
-                }
-            );
-        }
-
-        private void ChangeEvent(object sender, RoutedEventArgs e)
-        {
-            Encode();
-        }
-
-        public void UpdateEventHandlers(Action<RichTextBox> a1, Action<ComboBox> a2, Action<CheckBox> a3)
-        {
-            foreach (var c in _inputControls)
-                switch (c)
-                {
-                    case RichTextBox richTextBox:
-                        a1(richTextBox);
-                        break;
-                    case ComboBox comboBox:
-                        a2(comboBox);
-                        break;
-                    case CheckBox checkBox:
-                        a3(checkBox);
-                        break;
-                }
-        }
-
-
-        // Mirror Selection
-
-        private void MirrorSelectionToggleButton_Checked(object sender, RoutedEventArgs e)
-        {
-            InputRichTextBox.SelectionChanged += InputRichTextBox_OnSelectionChanged;
         }
 
         private void MirrorSelectionToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            InputRichTextBox.Selection.Select(InputRichTextBox.CaretPosition, InputRichTextBox.CaretPosition);
-            InputRichTextBox.SelectionChanged -= InputRichTextBox_OnSelectionChanged;
+            OutputRichTextBox.ClearHighlight();
         }
 
         private void InputRichTextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
-            var outputStartPointer = OutputRichTextBox.Document.ContentStart;
-            var outputEndPointer   = OutputRichTextBox.Document.ContentEnd;
-            var outputText         = new TextRange(outputStartPointer, outputEndPointer);
+            if (!MirrorSelectionToggleButton.IsChecked.Value) return;
 
-            outputText.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
-            if (_selectedCipher == null || InputRichTextBox.Selection.IsEmpty || outputText.IsEmpty) return;
+            OutputRichTextBox.ClearHighlight();
 
-            var inputStartPointer     = InputRichTextBox.Document.ContentStart;
+            if (_selectedCipher == null || InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty()) return;
+
+            var inputStartPointer     = InputRichTextBox.GetStart();
+            var outputStartPointer    = OutputRichTextBox.GetStart();
+
             var selectionStartPointer = InputRichTextBox.Selection.Start;
             var selectedText          = InputRichTextBox.Selection.Text;
             var precedingText         = new TextRange(inputStartPointer, selectionStartPointer).Text;

@@ -340,7 +340,9 @@
                                  Block.LineHeight="4"
                                  VerticalContentAlignment="Top"
                                  VerticalScrollBarVisibility="Auto"
-                                 materialDesign:HintAssist.Hint="أدخل النص هنا..." />
+                                 materialDesign:HintAssist.Hint="أدخل النص هنا..."
+                                 TextChanged="RealtimeEventHandler"
+                                 SelectionChanged="InputRichTextBox_OnSelectionChanged" />
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
@@ -426,8 +428,7 @@
                                           Foreground="{DynamicResource MaterialDesignBody}"
                                           ToolTip="Toggle Real-Time Encoding"
                                           ToolTipService.InitialShowDelay="1200"
-                                          Checked="RealTimeToggleButton_Checked"
-                                          Unchecked="RealTimeToggleButton_Unchecked"
+                                          Checked="RealtimeEventHandler"
                                           IsEnabled="False">
                                 <materialDesign:PackIcon Kind="Sync" Width="16" Height="16" />
                             </ToggleButton>
@@ -445,7 +446,6 @@
                                               Foreground="{DynamicResource MaterialDesignBody}"
                                               ToolTip="Toggle Mirror Selection"
                                               ToolTipService.InitialShowDelay="1200"
-                                              Checked="MirrorSelectionToggleButton_Checked"
                                               Unchecked="MirrorSelectionToggleButton_Unchecked"
                                               IsEnabled="False">
                                     <materialDesign:PackIcon Kind="Highlighter" Width="16" Height="16" />
@@ -516,12 +516,15 @@
                                          MaxLength="1"
                                          Width="24"
                                          TextAlignment="Center"
-                                         Text="-" />
+                                         Text="-"
+                                         TextChanged="RealtimeEventHandler"/>
                             
                                 <Label Content="Spacing:" Margin="8 0 0 0" />
                                 <CheckBox x:Name="CharSpacingCheckBox"
                                           IsChecked="True"
-                                          Background="{DynamicResource MaterialDesignBody}" />
+                                          Background="{DynamicResource MaterialDesignBody}"
+                                          Checked="RealtimeEventHandler" 
+                                          Unchecked="RealtimeEventHandler" />
                             
                             </StackPanel>
 
@@ -534,12 +537,15 @@
                                          MaxLength="1"
                                          Width="24"
                                          TextAlignment="Center"
-                                         Text="/" />
+                                         Text="/"
+                                         TextChanged="RealtimeEventHandler" />
                             
                                 <Label Content="Spacing:" Margin="8 0 0 0" />
                                 <CheckBox x:Name="WordSpacingCheckBox"
                                           IsChecked="True"
-                                          Background="{DynamicResource MaterialDesignBody}" />
+                                          Background="{DynamicResource MaterialDesignBody}"
+                                          Checked="RealtimeEventHandler" 
+                                          Unchecked="RealtimeEventHandler" />
                             
                             </StackPanel>
 

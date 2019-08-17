@@ -2,19 +2,31 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media;
 
 namespace ScoutsEncoder
 {
     public static class RichTextBoxExtensions
     {
-        public static string GetText(this RichTextBox richTextBox)
+
+        public static TextPointer GetStart(this RichTextBox richTextBox)
         {
-            return new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd).Text;
+            return richTextBox.Document.ContentStart;
         }
 
-        public static void Clear(this RichTextBox richTextBox)
+        public static TextPointer GetEnd(this RichTextBox richTextBox)
         {
-            richTextBox.Document.Blocks.Clear();
+            return richTextBox.Document.ContentEnd;
+        }
+
+        public static TextRange GetRange(this RichTextBox richTextBox)
+        {
+            return new TextRange(richTextBox.GetStart(), richTextBox.GetEnd());
+        }
+
+        public static string GetText(this RichTextBox richTextBox)
+        {
+            return richTextBox.GetRange().Text;
         }
 
         public static void AppendText(this RichTextBox richTextBox, string text)
@@ -27,6 +39,21 @@ namespace ScoutsEncoder
         {
             richTextBox.Clear();
             richTextBox.AppendText(text);
+        }
+
+        public static bool IsEmpty(this RichTextBox richTextBox)
+        {
+            return richTextBox.GetRange().IsEmpty;
+        }
+
+        public static void Clear(this RichTextBox richTextBox)
+        {
+            richTextBox.Document.Blocks.Clear();
+        }
+
+        public static void ClearHighlight(this RichTextBox richTextBox)
+        {
+            richTextBox.GetRange().ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
         }
 
         public static void Replace(this RichTextBox richTextBox, List<char> old, List<char> @new)
@@ -47,5 +74,6 @@ namespace ScoutsEncoder
                 Clipboard.SetText(text);
             }
         }
+
     }
 }
