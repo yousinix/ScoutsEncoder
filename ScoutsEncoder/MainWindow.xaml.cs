@@ -286,7 +286,7 @@ namespace ScoutsEncoder
 
         private void Footer_Click(object sender, RoutedEventArgs e)
         {
-            var key = sender is Control ? (sender as Control).Name : (sender as Hyperlink).Name;
+            var key = (sender as FrameworkElement).Name;
             Process.Start(_links[key]);
         }
 

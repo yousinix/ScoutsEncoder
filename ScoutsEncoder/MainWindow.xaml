@@ -150,25 +150,19 @@
                                 <materialDesign:PackIcon Kind="Sync" Width="16" Height="16" />
                             </ToggleButton>
 
-                            <materialDesign:Badged Badge="beta"
-                                                   BadgeColorZoneMode="Inverted"
-                                                   Margin="0 10 0 0">
-                                
-                                <ToggleButton x:Name="MirrorSelectionToggleButton"
-                                              Width="32"
-                                              Height="32"
-                                              Margin="16 0 0 0"
-                                              ToolBar.OverflowMode="Never"
-                                              Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                              Foreground="{DynamicResource MaterialDesignBody}"
-                                              ToolTip="Toggle Mirror Selection"
-                                              ToolTipService.InitialShowDelay="1200"
-                                              Unchecked="MirrorSelectionToggleButton_Unchecked"
-                                              IsEnabled="False">
-                                    <materialDesign:PackIcon Kind="Highlighter" Width="16" Height="16" />
-                                </ToggleButton>
-                                
-                            </materialDesign:Badged>
+                            <ToggleButton x:Name="MirrorSelectionToggleButton"
+                                          Width="32"
+                                          Height="32"
+                                          Margin="16 0 0 0"
+                                          ToolBar.OverflowMode="Never"
+                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                          Foreground="{DynamicResource MaterialDesignBody}"
+                                          ToolTip="Toggle Mirror Selection"
+                                          ToolTipService.InitialShowDelay="1200"
+                                          Unchecked="MirrorSelectionToggleButton_Unchecked"
+                                          IsEnabled="False">
+                                <materialDesign:PackIcon Kind="Highlighter" Width="16" Height="16" />
+                            </ToggleButton>
                             
                         </ToolBar>
                         
@@ -373,27 +367,30 @@
 
             </StackPanel>
 
+            
             <StackPanel Grid.Row="3"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Margin="0 0 0 16">
                     
                 <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
+              
                 <Label Content="with" Margin="-1 0" />
+                
                 <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" Foreground="Red" />
+                
                 <Label Content="by" Margin="-1 0" />
-                    
-                <TextBlock VerticalAlignment="Center">
-                    <Hyperlink x:Name="Owner"
-                               Foreground="{DynamicResource MaterialDesignBody}"
-                               FontWeight="Bold"
-                               ToolTip="Who am I?"
-                               ToolTipService.InitialShowDelay="1200"
-                               Click="Footer_Click">
-                               YoussefRaafatNasry
-                    </Hyperlink>
-                </TextBlock>
-                    
+
+                <TextBlock x:Name="Owner"
+                           VerticalAlignment="Center"
+                           Text="YoussefRaafatNasry"
+                           FontWeight="Bold"
+                           TextDecorations="Underline"
+                           Cursor="Hand"
+                           ToolTip="Who am I?"
+                           ToolTipService.InitialShowDelay="1200"
+                           PreviewMouseDown="Footer_Click" />
+
             </StackPanel>
 
 
