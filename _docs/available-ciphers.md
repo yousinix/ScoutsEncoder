@@ -1,7 +1,7 @@
 ---
-layout: doc
+layout: docs
 title: Available Ciphers
-permalink: /docs/available-ciphers/
+order: 3
 ---
 
 # Available Ciphers

@@ -1,7 +1,7 @@
 ---
-layout: doc
+layout: docs
 title: Ciphers Handbook
-permalink: /docs/ciphers-handbook/
+order: 4
 ---
 
 {% assign url = "https://github.com/YoussefRaafatNasry/ScoutsEncoder/raw/gh-pages/_docs/CiphersHandbook.pdf" %}

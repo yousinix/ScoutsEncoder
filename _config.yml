@@ -1,19 +1,11 @@
 # Site settings
-title: ScoutsEncoder
-description: Encode plain text into scouts' ciphers.
-baseurl: /ScoutsEncoder/
+baseurl: /ScoutsEncoder
 repository: YoussefRaafatNasry/ScoutsEncoder
-
-# Author Info
-author:
-  name: Youssef Raafat
-  email: YoussefRaafatNasry@gmail.com
-  linkedin: YoussefRaafatNasry
-  github: YoussefRaafatNasry
 
 # Build settings
 markdown: kramdown
 
 collections:
   docs:
+    permalink: /docs/:title
     output: true

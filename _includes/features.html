@@ -1,126 +1,35 @@
 <section id="features">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Features</h2>
-                <hr class="primary">
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Features</h2>
+        <hr class="primary">
+      </div>
+    </div>
 
-        <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
 
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-list-ul wow bounceIn text-primary"></i>
-                    <h3>13 Ciphers</h3>
-                    <p class="text-muted">A lot of ciphers that get updated frequently. Many more coming soon!</p>
-                </div>
-            </div>
+      {% for feature in site.data.features %}
 
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-key wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                    <h3>Encoding Keys</h3>
-                    <p class="text-muted">You can use different encoding keys for each cipher to get different encodings.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="far fa-4x fa-clock wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Real-time Encoding</h3>
-                    <p class="text-muted">Encode your text while typing without the need to press any button!</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-align-center wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Output Styles</h3>
-                    <p class="text-muted">Customize your output depending on your preferences.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <audio id="audio-player" src="wav/MorseCode.wav"></audio>
-                    <i class="fas fa-4x fa-volume-up wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                    <h3>Audio Output</h3>
-                    <p class="text-muted">Export
-                        <a onclick="document.getElementById('audio-player').play()">audio</a>
-                        output for your Morse encoding with different speeds.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-book wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                    <h3>Full Documentation</h3>
-                    <p class="text-muted"><a href="docs/all">Docs</a> will help you get started with ScoutsEncoder.</p>
-                </div>
-            </div>
-            
-             <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-file-pdf wow bounceIn text-primary" data-wow-delay=".4s"></i>
-                    <h3>Ciphers Handbook</h3>
-                    <p class="text-muted">Know more about the ciphers used in ScoutsEncoder from our <a href="docs/ciphers-handbook/">Ciphers Handbook</a>.</p>
-                </div>
-            </div>   
-            
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-adjust wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                    <h3>Light/Dark Themes</h3>
-                    <p class="text-muted">Choose the theme that makes you more comfortable.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-expand-arrows-alt wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Responsive Design</h3>
-                    <p class="text-muted">Choose whatever size you like. You can either use it in full screen or side by side with any other window.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-bezier-curve wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Material Design</h3>
-                    <p class="text-muted">Designed with Google material design standards using Material Design In XAML Toolkit.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-code wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Clean Code</h3>
-                    <p class="text-muted">Readable and easy to maintain OOP code using XAML and C#.</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="feature-box">
-                    <i class="fas fa-4x fa-code-branch wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Open Source</h3>
-                    <p class="text-muted">Source code is available on GitHub. Open for contributions and improvements.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row mt-5">
-            <div class="col-lg-12 text-center">
-                <a class="btn btn-primary btn-xl wow tada" href="docs/features/">
-                    Read More
-                </a>
-            </div>
-        </div>
+      <div class="col-lg-3 col-md-6 text-center px-3 my-2">
+        <i class="text-theme-primary {{ feature.icon }} fa-3x wow bounceIn" data-wow-delay=".{{ forloop.index }}s"></i>
+        <h3 class="mt-3">{{ feature.title }}</h3>
+        <p class="mt-2 text-muted">{{ feature.desc | markdownify }}</p>
+      </div>
+      {% endfor %}
 
     </div>
+
+    <div class="row mt-5">
+      <div class="col-lg-12 text-center">
+        <a class="btn btn-primary btn-xl wow tada" href="./docs/features">
+          Read More
+        </a>
+      </div>
+    </div>
+
+  </div>
 
 </section>

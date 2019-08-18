@@ -1,0 +1,47 @@
+- title: 13 Ciphers
+  icon: fas fa-4x fa-list-ul
+  desc: A lot of ciphers that get updated frequently. Many more coming soon!
+
+- title: Encoding Keys
+  icon: fas fa-4x fa-key
+  desc: You can use different encoding keys for each cipher to get different encodings.
+
+- title: Real-time Encoding
+  icon: far fa-4x fa-clock
+  desc: Encode your text while typing without the need to press any button!
+
+- title: Output Styles
+  icon: fas fa-4x fa-align-center
+  desc: Customize your output depending on your preferences.
+
+- title: Audio Output
+  icon: fas fa-4x fa-volume-up
+  desc: Export audio output for your Morse encoding with different speeds.
+
+- title: Full Documentation
+  icon: fas fa-4x fa-book
+  desc: "[Docs](./docs) will help you get started with ScoutsEncoder."
+
+- title: Ciphers Handbook
+  icon: fas fa-4x fa-file-pdf
+  desc: Know more about the ciphers used in ScoutsEncoder from our [Ciphers Handbook](./docs/ciphers-handbook).
+
+- title: Light/Dark Themes
+  icon: fas fa-4x fa-adjust
+  desc: Choose the theme that makes you more comfortable.
+
+- title: Responsive Design
+  icon: fas fa-4x fa-expand-arrows-alt
+  desc: Choose whatever size you like. You can either use it in full screen or side by side with any other window.
+
+- title: Material Design
+  icon: fas fa-4x fa-bezier-curve
+  desc: Designed with Google material design standards using Material Design In XAML Toolkit.
+
+- title: Clean Code
+  icon: fas fa-4x fa-code
+  desc: Readable and easy to maintain OOP code using XAML and C#.
+
+- title: Open Source
+  icon: fas fa-4x fa-code-branch
+  desc: Source code is available on GitHub. Open for contributions and improvements.

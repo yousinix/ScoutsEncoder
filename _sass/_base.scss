@@ -1,30 +1,25 @@
 html,
 body {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    @include serif-font;
+  @include serif-font;
 }
 
 hr {
-    border-color: $theme-primary;
-    border-width: 3px;
-    max-width: 50px;
+  border-color: $theme-primary;
+  border-width: 3px;
+  max-width: 50px;
 }
 
 hr.light {
-    border-color: white;
+  border-color: white;
 }
 
 a {
-    @include transition-all;
-    color: $theme-primary;
-    &:hover,
-    &:focus {
-        color: darken($theme-primary, 10%);
-    }
+  @include transition-all;
 }
 
 h1,
@@ -33,227 +28,202 @@ h3,
 h4,
 h5,
 h6 {
-    @include sans-serif-font;
+  @include sans-serif-font;
 }
 
-p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+.theme-primary {
+  background-color: $theme-primary;
 }
 
-.bg-primary {
-    background-color: $theme-primary;
+.theme-dark {
+  background-color: $theme-dark;
+  color: white;
 }
 
-.bg-dark {
-    background-color: $theme-dark;
-    color: white;
+.text-theme-primary {
+  color: $theme-primary !important;
 }
 
 .text-faded {
-    color: rgba(white, .7);
+  color: rgba(white, 0.7);
 }
 
 section {
-    padding: 100px 0;
-}
-
-footer {
-    margin-top: -40px;
-}
-
-.no-padding {
-    padding: 0;
+  padding: 100px 0;
 }
 
 // Navigation
 
 .navbar-default {
-    background-color: white;
-    border-color: rgba($theme-dark, .5);
+  background-color: white;
+  border-bottom: 1px solid rgba($theme-dark, 0.5);
+  @include sans-serif-font;
+  @include transition-all;
+
+  .navbar-brand {
+    color: $theme-primary;
     @include sans-serif-font;
-    @include transition-all;
-    .navbar-header .navbar-brand {
+    font-weight: 700;
+    &:hover,
+    &:focus {
+      color: darken($theme-primary, 10%);
+    }
+  }
+
+  .nav {
+    > a,
+    > a:focus {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 13px;
+      color: $theme-dark;
+      &:hover {
         color: $theme-primary;
-        @include sans-serif-font;
-        font-weight: 700;
+      }
+    }
+    .active {
+      color: $theme-primary !important;
+      background-color: transparent;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(white, 0.3);
+    .navbar-brand {
+      color: rgba(white, 0.7);
+      &:hover,
+      &:focus {
+        color: white;
+      }
+    }
+    .nav > a,
+    .nav > a:focus {
+      color: rgba(white, 0.7);
+      &:hover {
+        color: white;
+      }
+    }
+    &.affix {
+      background-color: white;
+      border-color: rgba($theme-dark, 0.5);
+      border-width: 0 0 1px;
+      .navbar-brand {
+        color: $theme-primary;
+        font-size: 14px;
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+          color: darken($theme-primary, 10%);
         }
+      }
+      .nav > a,
+      .nav > a:focus {
+        color: $theme-dark;
+        &:hover {
+          color: $theme-primary;
+        }
+      }
     }
-    .nav {
-        > li {
-            > a,
-            > a:focus {
-                text-transform: uppercase;
-                font-weight: 700;
-                font-size: 13px;
-                color: $theme-dark;
-                &:hover {
-                    color: $theme-primary;
-                }
-            }
-            &.active {
-                > a,
-                > a:focus {
-                    color: $theme-primary !important;
-                    background-color: transparent;
-                    &:hover {
-                        background-color: transparent;
-                    }
-                }
-            }
-        }
-    }
-    @media (min-width: 768px) {
-        background-color: transparent;
-        border-color: rgba(white, .3);
-        .navbar-header .navbar-brand {
-            color: rgba(white, .7);
-            &:hover,
-            &:focus {
-                color: white;
-            }
-        }
-        .nav > li > a,
-        .nav > li > a:focus {
-            color: rgba(white, .7);
-            &:hover {
-                color: white;
-            }
-        }
-        &.affix {
-            background-color: white;
-            border-color: rgba($theme-dark, .5);
-            .navbar-header .navbar-brand {
-                color: $theme-primary;
-                font-size: 14px;
-                &:hover,
-                &:focus {
-                    color: darken($theme-primary, 10%);
-                }
-            }
-            .nav > li > a,
-            .nav > li > a:focus {
-                color: $theme-dark;
-                &:hover {
-                    color: $theme-primary;
-                }
-            }
-        }
-    }
+  }
 }
 
 // Homepage Header
 
 header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  @include background-cover;
+  background-position: center;
+  background-image: url("../assets/img/header.jpg");
+  text-align: center;
+  color: white;
+  .header-content {
     position: relative;
-    width: 100%;
-    min-height: auto;
-    @include background-cover;
-    background-position: center;
-    background-image: url('../img/header.jpg');
     text-align: center;
-    color: white;
+    padding: 100px 15px 100px;
+    width: 100%;
+    .header-content-inner {
+      h1 {
+        font-weight: 700;
+        font-size: 72px;
+        text-shadow: 2px 2px 18px #000000;
+        margin-top: 0;
+        margin-bottom: 35px;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    min-height: 100%;
     .header-content {
-        position: relative;
-        text-align: center;
-        padding: 100px 15px 100px;
-        width: 100%;
-        .header-content-inner {
-            h1 {
-                font-weight: 700;
-                font-size: 72px;
-                text-shadow: 2px 2px 18px #000000;
-                margin-top: 0;
-                margin-bottom: 35px;
-            }
-        }
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      padding: 0 50px;
+      .header-content-inner {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
-    @media (min-width: 768px) {
-        min-height: 100%;
-        .header-content {
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            padding: 0 50px;
-            .header-content-inner {
-                max-width: 1000px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-    }
+  }
 }
 
 // Sections
 
-.section-heading {
-    margin-top: 0;
-}
-
 .feature-box {
-    max-width: 400px;
-    margin: 50px auto 0;
-    @media (min-width: 992px) {
-        margin: 20px auto 0;
-    }
-    p {
-        margin-bottom: 0;
-    }
+  max-width: 400px;
+  margin: 50px auto 0;
+  @media (min-width: 992px) {
+    margin: 20px auto 0;
+  }
+  p {
+    margin-bottom: 0;
+  }
 }
 
-// Bootstrap Overrides
-.text-primary {
-    color: $theme-primary;
-}
+
 
 // Button Styles
 .btn-default {
-    @include button-variant($theme-dark, white, white);
+  @include button-variant($theme-dark, white, white);
 }
 
 .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+  @include button-variant(white, $theme-primary, $theme-primary);
 }
 
 .btn {
-    @include sans-serif-font;
-    border: none;
-    border-radius: 300px;
-    font-weight: 700;
-    text-transform: uppercase;
+  @include sans-serif-font;
+  border: none;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .btn-xl {
-    padding: 15px 30px;
-}
-
-// Contact
-#contact .fas, #contact .fab {
-    color: $theme-dark;
-    margin: 0 8px;
+  padding: 15px 30px;
 }
 
 // Extras
 // -- Highlight Color Customization
 ::-moz-selection {
-    color: white;
-    text-shadow: none;
-    background: $theme-dark;
+  color: white;
+  text-shadow: none;
+  background: $theme-dark;
 }
 
 ::selection {
-    color: white;
-    text-shadow: none;
-    background: $theme-dark;
+  color: white;
+  text-shadow: none;
+  background: $theme-dark;
 }
 
 body {
-    -webkit-tap-highlight-color: $theme-dark;
+  -webkit-tap-highlight-color: $theme-dark;
 }
-

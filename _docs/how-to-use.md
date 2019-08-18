@@ -1,7 +1,7 @@
 ---
-layout: doc
+layout: docs
 title: How to Use ScoutsEncoder?
-permalink: /docs/how-to-use/
+order: 1
 ---
 
 # How to Use ScoutsEncoder?
@@ -17,7 +17,7 @@ permalink: /docs/how-to-use/
 1. Press **Button J** to toggle shapes fill and stroke _(i.e. change ▲ to △ or vice versa)_. Only ciphers with shapes enable this button.
 1. Press **Button K** to export [audio]({{ '/docs/features/#audio-output' | relative_url }}) after choosing the audio speed from **ComboBox L**. Only Morse cipher enables this button.
 
-![tagged-screenshot]({{ 'img/dark-tagged-screenshot.jpg'  | relative_url }})
+![tagged-screenshot]({{ 'assets/img/dark-tagged-screenshot.jpg'  | relative_url }})
 
 - **Button M** toggles [Light/Dark Themes]({{ '/docs/features/#lightdark-themes' | relative_url }}).
 - **Button N** navigates to project repo on [GitHub]({{ site.github.repository_url }}).

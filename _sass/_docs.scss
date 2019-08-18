@@ -1,0 +1,22 @@
+.docs-container {
+
+  .box {
+    padding: 1px 24px 10px 24px;
+    @include transition-all;
+
+    &:hover {
+      background-color: rgba(22, 22, 22, 0.05);
+      border-radius: 10px;
+    }
+
+    a {
+      color: #333333;
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+}
