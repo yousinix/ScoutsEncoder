@@ -110,7 +110,7 @@
                             <StackPanel Orientation="Horizontal" Margin="16 0">
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Language" />
                                 <ComboBox x:Name="CiphersComboBox"
-                                          Width="64"
+                                          Width="90"
                                           FlowDirection="RightToLeft"
                                           materialDesign:HintAssist.Hint="الشفرة"
                                           SelectionChanged="CiphersComboBox_SelectionChanged" />
@@ -119,7 +119,7 @@
                             <StackPanel Orientation="Horizontal" Margin="16 0">
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Key" />
                                 <ComboBox x:Name="KeysComboBox"
-                                          Width="64"
+                                          Width="56"
                                           FlowDirection="RightToLeft"
                                           IsEnabled="False"
                                           materialDesign:HintAssist.Hint="المفتاح"

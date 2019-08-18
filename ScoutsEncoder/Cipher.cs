@@ -16,7 +16,15 @@ namespace ScoutsEncoder
 
         //// Basic Properties
 
-        public string DisplayName { get; set; }
+        private string _name;
+
+        public string DisplayName
+        {
+            get => IsNew ? $"{_name} 🆕" : _name;
+            set => _name = value;
+        }
+
+        public bool IsNew { get; set; }
 
         public List<string> Characters
         {
@@ -24,21 +32,21 @@ namespace ScoutsEncoder
             set => _cipherCharacters = value;
         }
 
-        public bool HasShapes { get; set; } = false;
+        public bool HasShapes { get; set; }
 
-        public bool IsAudible { get; set; } = false;
+        public bool IsAudible { get; set; }
 
         //// Overloads Properties
 
-        public bool HasOverloads { get; set; } = false;
+        public bool HasOverloads { get; set; }
 
         public List<Cipher> Overloads { get; set; }
 
         //// Key Properties
 
-        public bool HasKeys { get; set; } = false;
+        public bool HasKeys { get; set; }
 
-        public int Key { get; set; } = 0;
+        public int Key { get; set; }
 
         public int KeyWeight { get; set; } = 1;
 
@@ -72,8 +80,6 @@ namespace ScoutsEncoder
 
                 return keysList;
             }
-
-            set => KeysList = value;
         }
 
 
@@ -132,8 +138,7 @@ namespace ScoutsEncoder
 
                     // Add a delimiter after the character if the next character
                     // isn't: (last character, space, new line, punctuation mark)
-                    if (i + 1 != textLength && text[i + 1] != ' ' && text[i + 1] != '\r' &&
-                        !char.IsPunctuation(text[i + 1]))
+                    if (i + 1 != textLength && text[i + 1] != ' ' && text[i + 1] != '\r' && !char.IsPunctuation(text[i + 1]))
                         encodedText += charDelimiter;
                 }
             }
@@ -152,9 +157,9 @@ namespace ScoutsEncoder
             {
                 for (var j = 0; j < numberOfColumns; j++)
                 {
-                    var index_1 = i + j * numberOfRows;
-                    var index_2 = (index_1 + EncodingKey) % numberOfAlphabetCharacters;
-                    outputText += (_arabicAlphabet[index_1] + " = " + Characters[index_2]).PadRight(12);
+                    var index1 = i + j * numberOfRows;
+                    var index2 = (index1 + EncodingKey) % numberOfAlphabetCharacters;
+                    outputText += (_arabicAlphabet[index1] + " = " + Characters[index2]).PadRight(14);
                 }
 
                 outputText += "\r\n";
