@@ -121,9 +121,9 @@
                                 <ComboBox x:Name="KeysComboBox"
                                           Width="64"
                                           FlowDirection="RightToLeft"
+                                          IsEnabled="False"
                                           materialDesign:HintAssist.Hint="المفتاح"
-                                          SelectionChanged="KeysComboBox_SelectionChanged"
-                                          IsEnabled="False" />
+                                          SelectionChanged="KeysComboBox_SelectionChanged" />
                             </StackPanel>
 
                             <Separator />
@@ -132,8 +132,7 @@
                                     ToolBar.OverflowMode="Never"
                                     ToolTip="Show Encoding Key"
                                     ToolTipService.InitialShowDelay="1200"
-                                    Click="ShowKeyButton_Click"
-                                    IsEnabled="False">
+                                    Click="ShowKeyButton_Click">
                                 <materialDesign:PackIcon Kind="FormatColumns" />
                             </Button>
 
@@ -141,8 +140,7 @@
                                     ToolBar.OverflowMode="Never"
                                     ToolTip="Encode Text"
                                     ToolTipService.InitialShowDelay="1200"
-                                    Click="EncodeButton_Click"
-                                    IsEnabled="False">
+                                    Click="EncodeButton_Click">
                                 <materialDesign:PackIcon Kind="ProgressTick" />
                             </Button>
 
@@ -155,8 +153,7 @@
                                           Foreground="{DynamicResource MaterialDesignBody}"
                                           ToolTip="Toggle Real-Time Encoding"
                                           ToolTipService.InitialShowDelay="1200"
-                                          Checked="RealtimeEventHandler"
-                                          IsEnabled="False">
+                                          Checked="RealtimeEventHandler">
                                 <materialDesign:PackIcon Kind="Sync" Width="16" Height="16" />
                             </ToggleButton>
 
@@ -169,8 +166,7 @@
                                           Foreground="{DynamicResource MaterialDesignBody}"
                                           ToolTip="Toggle Mirror Selection"
                                           ToolTipService.InitialShowDelay="1200"
-                                          Unchecked="MirrorSelectionToggleButton_Unchecked"
-                                          IsEnabled="False">
+                                          Unchecked="MirrorSelectionToggleButton_Unchecked">
                                 <materialDesign:PackIcon Kind="Highlighter" Width="16" Height="16" />
                             </ToggleButton>
                             

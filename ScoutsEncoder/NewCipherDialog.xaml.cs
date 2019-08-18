@@ -8,16 +8,17 @@ using Microsoft.Win32;
 
 namespace ScoutsEncoder
 {
-    public partial class NewCipherDialog : UserControl
+    public partial class NewCipherDialog
     {
-        private const string ext    = ".se.cipher";
-        private const string filter = "ScoutsEncoder Cipher|*" + ext;
+        private const string Ext    = ".se.cipher";
+        private const string Filter = "ScoutsEncoder Cipher|*" + Ext;
 
         private FileStream _fileStream;
         private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
 
         public MainWindow Context { get; set; }
+
 
         public NewCipherDialog()
         {
@@ -50,8 +51,8 @@ namespace ScoutsEncoder
 
         private void AddCipherButton_Click(object sender, RoutedEventArgs e)
         {
-            Context.Ciphers.Add(GetNewCipher());
-            Context.CiphersComboBox.SelectedIndex = Context.Ciphers.Count - 1;
+            Ciphers.List.Add(GetNewCipher());
+            Context.CiphersComboBox.SelectedIndex = Ciphers.List.Count - 1;
             CloseDialog();
             Context.Snackbar.MessageQueue.Enqueue("Cipher Added!");
         }
@@ -61,8 +62,8 @@ namespace ScoutsEncoder
             var saveFileDialog = new SaveFileDialog
             {
                 FileName = NewCipherNameTextBox.Text,
-                DefaultExt = ext,
-                Filter = filter
+                DefaultExt = Ext,
+                Filter = Filter
             };
 
             if (saveFileDialog.ShowDialog() != true) return;
@@ -76,7 +77,7 @@ namespace ScoutsEncoder
         {
             var openFileDialog = new OpenFileDialog
             {
-                Filter = filter
+                Filter = Filter
             };
 
             if (openFileDialog.ShowDialog() != true) return;

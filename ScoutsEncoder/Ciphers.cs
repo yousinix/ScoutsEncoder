@@ -3,10 +3,13 @@ using System.Collections.ObjectModel;
 
 namespace ScoutsEncoder
 {
-    public class CiphersList : ObservableCollection<Cipher>
+    public class Ciphers : ObservableCollection<Cipher>
     {
+        private static Ciphers _list;
 
-        public CiphersList()
+        public static Ciphers List => _list ?? (_list = new Ciphers());
+
+        private Ciphers()
         {
             Add(new Cipher
             {
