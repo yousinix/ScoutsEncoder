@@ -113,9 +113,9 @@ namespace ScoutsEncoder
 
             const string dot       = ". ";                // Dot  = 1 dot  + 1 period
             const string dash      = "... ";              // Dash = 3 dots + 1 period
-            const string delimiter = "   ";               // Letter space  = 3 periods
-            const string space     = "       ";           // Word space    = 7 periods
-            const string paragraph = delimiter + space;   // New Line      = 10 periods
+            const string delimiter = "   ";               // Char space   =  3 periods
+            const string space     = "       ";           // Word space   =  7 periods
+            const string paragraph = delimiter + space;   // New Line     = 10 periods
 
             encodedText = encodedText
                 .Replace(charsDelimiter, delimiter)

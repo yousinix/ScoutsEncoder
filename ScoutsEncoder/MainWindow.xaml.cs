@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,7 +30,7 @@ namespace ScoutsEncoder
         private const string DocsPath       = "docs";
         private const string ReportSubject  = RepoName + " | Bug Report";
 
-        private readonly Dictionary<string, string> _links = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> Links = new Dictionary<string, string>
         {
             { "Repo"          , $"{GitHubBase}{OwnerName}/{RepoName}"                               },
             { "GoogleDocs"    , GoogleDocsBase                                                      },
@@ -39,6 +40,21 @@ namespace ScoutsEncoder
             { "Owner"         , SiteBase                                                            }
         };
 
+        private static readonly Dictionary<char, char> Shapes = new Dictionary<char, char>
+        {
+            { '◼', '◻' },
+            { '▲', '△' },
+            { '▼', '▽' },
+            { '◀', '◁' },
+            { '▶', '▷' },
+            { '◢', '◿' },
+            { '◣', '◺' },
+            { '◥', '◹' },
+            { '◤', '◸' },
+        };
+
+        private static readonly List<char> SolidShapes   = new List<char>(Shapes.Keys);
+        private static readonly List<char> OutlineShapes = new List<char>(Shapes.Values);
 
         private string CharsDelimiter => GetDelimiter(CharsDelimiterTextBox.Text, CharSpacingCheckBox.IsChecked, 0);
 
@@ -238,12 +254,8 @@ namespace ScoutsEncoder
 
         private void ToggleFillButton_Click(object sender, RoutedEventArgs e)
         {
-            var filledShapes = new List<char> {'◼', '▲', '▼', '◀', '▶', '◢', '◣', '◥', '◤'};
-            var strokedShapes = new List<char> {'◻', '△', '▽', '◁', '▷', '◿', '◺', '◹', '◸'};
-            var param = _isFilled
-                ? Tuple.Create(filledShapes, strokedShapes)
-                : Tuple.Create(strokedShapes, filledShapes);
-            OutputRichTextBox.Replace(param.Item1, param.Item2);
+            if (_isFilled) OutputRichTextBox.Replace(SolidShapes, OutlineShapes);
+            else OutputRichTextBox.Replace(OutlineShapes, SolidShapes);
             _isFilled ^= true;
         }
 
@@ -283,7 +295,7 @@ namespace ScoutsEncoder
         private void Footer_Click(object sender, RoutedEventArgs e)
         {
             var key = ((FrameworkElement) sender).Name;
-            Process.Start(_links[key]);
+            Process.Start(Links[key]);
         }
 
     }

@@ -67,8 +67,8 @@ namespace ScoutsEncoder
 
                 if (HasKeys)
                 {
-                    var numberOfAlphabetCharacters = _arabicAlphabet.Count;
-                    for (var i = 0; i < numberOfAlphabetCharacters; i += KeyWeight)
+                    var alphabetCount = _arabicAlphabet.Count;
+                    for (var i = 0; i < alphabetCount; i += KeyWeight)
                         keysList.Add("أ = " + Characters[i]);
                 }
                 else if (HasOverloads)
@@ -105,9 +105,10 @@ namespace ScoutsEncoder
         public string Encode(string text, string charDelimiter, string wordDelimiter)
         {
             ModifyText(ref text);
-            var encodedText = "";
-            var textLength = text.Length;
-            var numberOfAlphabetCharacters = _arabicAlphabet.Count;
+
+            var encodedText   = "";
+            var textLength    = text.Length;
+            var alphabetCount = _arabicAlphabet.Count;
 
             for (var i = 0; i < textLength; i++)
             {
@@ -133,13 +134,13 @@ namespace ScoutsEncoder
                 else
                 {
                     // Encoding the character
-                    index = (index + EncodingKey) % numberOfAlphabetCharacters;
+                    index = (index + EncodingKey) % alphabetCount;
                     encodedText += Characters[index];
 
                     // Add a delimiter after the character if the next character
                     // isn't: (last character, space, new line, punctuation mark)
-                    if (i + 1 != textLength && text[i + 1] != ' ' && text[i + 1] != '\r' && !char.IsPunctuation(text[i + 1]))
-                        encodedText += charDelimiter;
+                    var next = i != textLength - 1 ? text[i + 1] : ' ';
+                    encodedText += char.IsWhiteSpace(next) || char.IsPunctuation(next) ? "" : charDelimiter;
                 }
             }
 
@@ -148,17 +149,17 @@ namespace ScoutsEncoder
 
         public string GetKeysMapping()
         {
-            var outputText = "";
-            var numberOfAlphabetCharacters = _arabicAlphabet.Count;
-            const int numberOfColumns = 4;
-            var numberOfRows = numberOfAlphabetCharacters / numberOfColumns;
+            var outputText    = "";
+            var columnsCount  = 4;
+            var alphabetCount = _arabicAlphabet.Count;
+            var rowsCount     = alphabetCount / columnsCount;
 
-            for (var i = 0; i < numberOfRows; i++)
+            for (var i = 0; i < rowsCount; i++)
             {
-                for (var j = 0; j < numberOfColumns; j++)
+                for (var j = 0; j < columnsCount; j++)
                 {
-                    var index1 = i + j * numberOfRows;
-                    var index2 = (index1 + EncodingKey) % numberOfAlphabetCharacters;
+                    var index1 = i + j * rowsCount;
+                    var index2 = (index1 + EncodingKey) % alphabetCount;
                     outputText += (_arabicAlphabet[index1] + " = " + Characters[index2]).PadRight(14);
                 }
 
