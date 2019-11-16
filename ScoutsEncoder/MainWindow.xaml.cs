@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -56,9 +55,10 @@ namespace ScoutsEncoder
         private static readonly List<char> SolidShapes   = new List<char>(Shapes.Keys);
         private static readonly List<char> OutlineShapes = new List<char>(Shapes.Values);
 
-        private string CharsDelimiter => GetDelimiter(CharsDelimiterTextBox.Text, CharSpacingCheckBox.IsChecked, 0);
 
-        private string WordsDelimiter => GetDelimiter(WordsDelimiterTextBox.Text, WordSpacingCheckBox.IsChecked, 1);
+        private string CharsDelimiter => CharsDelimiterTextBox.Text;
+
+        private string WordsDelimiter => WordsDelimiterTextBox.Text;
 
 
         public MainWindow()
@@ -87,12 +87,6 @@ namespace ScoutsEncoder
             CheckForUpdates();
         }
 
-        private static string GetDelimiter(string symbol, bool? isPadded, int value)
-        {
-            var count = isPadded != null && isPadded.Value ? ++value : value;
-            var spaces = new string(' ', count);
-            return string.Format("{0}{1}{0}", spaces, symbol);
-        }
 
         private void CheckForUpdates()
         {

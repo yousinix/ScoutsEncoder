@@ -232,57 +232,37 @@
 
                             <Separator />
 
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0 8 0">
 
                                 <TextBlock FontSize="10">
                                     Characters<LineBreak/>Separator
                                 </TextBlock>
 
                                 <TextBox x:Name="CharsDelimiterTextBox"
-                                         MaxLength="1"
-                                         Width="24"
+                                         Width="32"
                                          Margin="12 0"
                                          TextAlignment="Center"
-                                         Text="-"
+                                         Text=" - "
                                          ToolTip="Symbol to separate encoded characters"
                                          ToolTipService.InitialShowDelay="1200"
                                          TextChanged="RealtimeEventHandler"/>
 
-                                <CheckBox x:Name="CharSpacingCheckBox"
-                                          Background="{DynamicResource MaterialDesignBody}"
-                                          ToolTip="Surround symbol with spaces"
-                                          ToolTipService.InitialShowDelay="1200"
-                                          IsChecked="True"
-                                          Checked="RealtimeEventHandler" 
-                                          Unchecked="RealtimeEventHandler" />
-
                             </StackPanel>
 
-                            <Separator />
-
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="8 0 16 0">
 
                                 <TextBlock FontSize="10">
                                     Words<LineBreak/>Separator
                                 </TextBlock>
 
                                 <TextBox x:Name="WordsDelimiterTextBox"
-                                         MaxLength="1"
-                                         Width="24"
+                                         Width="32"
                                          Margin="12 0"
                                          TextAlignment="Center"
-                                         Text="/"
+                                         Text="  /  "
                                          ToolTip="Symbol to separate encoded words"
                                          ToolTipService.InitialShowDelay="1200"
                                          TextChanged="RealtimeEventHandler"/>
-
-                                <CheckBox x:Name="WordSpacingCheckBox"
-                                          Background="{DynamicResource MaterialDesignBody}"
-                                          ToolTip="Surround symbol with spaces"
-                                          ToolTipService.InitialShowDelay="1200"
-                                          IsChecked="True"
-                                          Checked="RealtimeEventHandler" 
-                                          Unchecked="RealtimeEventHandler" />
                                 
                             </StackPanel>
 
