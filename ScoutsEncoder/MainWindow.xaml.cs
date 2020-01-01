@@ -32,12 +32,12 @@ namespace ScoutsEncoder
 
         private static readonly Dictionary<string, string> Links = new Dictionary<string, string>
         {
-            { "Repo"          , $"{GitHubBase}{OwnerName}/{RepoName}"                               },
-            { "GoogleDocs"    , GoogleDocsBase                                                      },
-            { "Website"       , $"{SiteBase}{RepoPath}"                                             },
-            { "Documentation" , $"{SiteBase}{RepoPath}{DocsPath}"                                   },
-            { "BugReport"     , $"mailto:{OwnerEmail}?subject={Uri.EscapeUriString(ReportSubject)}" },
-            { "Owner"         , SiteBase                                                            }
+            { "RepoButton"          , $"{GitHubBase}{OwnerName}/{RepoName}"                               },
+            { "GoogleDocsButton"    , GoogleDocsBase                                                      },
+            { "WebsiteButton"       , $"{SiteBase}{RepoPath}"                                             },
+            { "DocumentationButton" , $"{SiteBase}{RepoPath}{DocsPath}"                                   },
+            { "BugReportButton"     , $"mailto:{OwnerEmail}?subject={Uri.EscapeUriString(ReportSubject)}" },
+            { "OwnerTextBlock"      , SiteBase                                                            }
         };
 
         private static readonly Dictionary<char, char> Shapes = new Dictionary<char, char>

@@ -322,7 +322,7 @@
                     <materialDesign:PackIcon Kind="ThemeLightDark" Width="18" Height="18" />
                 </Button>
 
-                <Button x:Name="Repo"
+                <Button x:Name="RepoButton"
                         Width="32"
                         Height="32"
                         ToolTip="Project on GitHub"
@@ -332,7 +332,7 @@
                     <materialDesign:PackIcon Kind="GithubCircle" Width="18" Height="18" />
                 </Button>
 
-                <Button x:Name="GoogleDocs"
+                <Button x:Name="GoogleDocsButton"
                         Width="32"
                         Height="32"
                         ToolTip="Google Docs (Recommended Text Editor)"
@@ -342,7 +342,7 @@
                     <materialDesign:PackIcon Kind="FileDocument" Width="18" Height="18" />
                 </Button>
 
-                <Button x:Name="Website"
+                <Button x:Name="WebsiteButton"
                         Width="32"
                         Height="32"
                         ToolTip="ScoutsEncoder Site"
@@ -352,7 +352,7 @@
                     <materialDesign:PackIcon Kind="Web" Width="18" Height="18" />
                 </Button>
 
-                <Button x:Name="Documentation"
+                <Button x:Name="DocumentationButton"
                         Width="32"
                         Height="32"
                         ToolTip="Documentation"
@@ -362,7 +362,7 @@
                     <materialDesign:PackIcon Kind="HelpOutline" Width="18" Height="18" />
                 </Button>
 
-                <Button x:Name="BugReport"
+                <Button x:Name="BugReportButton"
                         Width="32"
                         Height="32"
                         ToolTip="Report a Bug via Email"
@@ -388,7 +388,7 @@
                 
                 <Label Content="by" Margin="-1 0" />
 
-                <TextBlock x:Name="Owner"
+                <TextBlock x:Name="OwnerTextBlock"
                            VerticalAlignment="Center"
                            Text="YoussefRaafatNasry"
                            FontWeight="Bold"
