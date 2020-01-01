@@ -150,7 +150,6 @@
                                           Margin="8 0 0 0"
                                           ToolBar.OverflowMode="Never"
                                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Foreground="{DynamicResource MaterialDesignBody}"
                                           ToolTip="Toggle Real-Time Encoding"
                                           ToolTipService.InitialShowDelay="1200"
                                           Checked="RealtimeEventHandler">
@@ -163,7 +162,6 @@
                                           Margin="16 0 0 0"
                                           ToolBar.OverflowMode="Never"
                                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Foreground="{DynamicResource MaterialDesignBody}"
                                           ToolTip="Toggle Mirror Selection"
                                           ToolTipService.InitialShowDelay="1200"
                                           Unchecked="MirrorSelectionToggleButton_Unchecked">
