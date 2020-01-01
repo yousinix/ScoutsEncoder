@@ -1,4 +1,8 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Win32;
+using Octokit;
+using ScoutsEncoder.Morse;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
@@ -6,9 +10,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
-using MaterialDesignThemes.Wpf;
-using Microsoft.Win32;
-using Octokit;
 
 namespace ScoutsEncoder
 {
@@ -266,11 +267,12 @@ namespace ScoutsEncoder
 
             var text      = OutputRichTextBox.GetText();
             var speed     = AudioSpeedComboBox.SelectedIndex;
-            var generator = new MorseAudioGenerator(text, CharsDelimiter, WordsDelimiter, speed);
-            generator.Save(saveFileDialog.FileName);
+            var fileName  = saveFileDialog.FileName;
+            
+            MorseAudioGenerator.Generate(fileName, text, CharsDelimiter, WordsDelimiter, speed);
 
             var content = $"{saveFileDialog.SafeFileName} is Saved!";
-            var arguments = $"/select, \"{saveFileDialog.FileName}\"";
+            var arguments = $"/select, \"{fileName}\"";
             void Action() => Process.Start("explorer.exe", arguments);
             Snackbar.MessageQueue.Enqueue(content, "Open", Action);
         }

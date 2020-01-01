@@ -76,6 +76,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Morse\MorseAudioGenerator.cs" />
+    <Compile Include="Morse\MorseDataChunk.cs" />
+    <Compile Include="Morse\WavFormatChunk.cs" />
+    <Compile Include="Morse\WavHeader.cs" />
     <Compile Include="RichTextBoxExtensions.cs" />
     <Compile Include="NewCipherDialog.xaml.cs">
       <DependentUpon>NewCipherDialog.xaml</DependentUpon>
@@ -100,7 +104,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MorseAudioGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
