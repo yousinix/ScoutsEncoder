@@ -51,8 +51,8 @@ namespace ScoutsEncoder
 
         private void AddCipherButton_Click(object sender, RoutedEventArgs e)
         {
-            Ciphers.List.Add(GetNewCipher());
-            Context.CiphersComboBox.SelectedIndex = Ciphers.List.Count - 1;
+            CiphersList.Instance.Add(GetNewCipher());
+            Context.CiphersComboBox.SelectedIndex = CiphersList.Instance.Count - 1;
             CloseDialog();
             Context.Snackbar.MessageQueue.Enqueue("Cipher Added!");
         }

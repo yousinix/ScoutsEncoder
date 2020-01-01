@@ -3,16 +3,11 @@ using System.Collections.ObjectModel;
 
 namespace ScoutsEncoder
 {
-    public class Ciphers : ObservableCollection<Cipher>
+    public static class CiphersList
     {
-        private static Ciphers _list;
-
-        public static Ciphers List => _list ?? (_list = new Ciphers());
-
-        private Ciphers()
+        public static ObservableCollection<Cipher> Instance { get; } = new ObservableCollection<Cipher>
         {
-
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "بوليبيوس",
                 IsNew = true,
@@ -46,9 +41,9 @@ namespace ScoutsEncoder
                         }
                     }
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "يسوع",
                 HasKeys = true,
@@ -59,9 +54,9 @@ namespace ScoutsEncoder
                     "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
                     "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "الرقمية",
                 HasKeys = true,
@@ -72,9 +67,9 @@ namespace ScoutsEncoder
                     "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
                     "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "الرومانية",
                 IsNew = true,
@@ -85,9 +80,9 @@ namespace ScoutsEncoder
                     "XV"  , "XVI"  , "XVII", "XVIII", "XIX" , "XX"   , "XXI",
                     "XXII", "XXIII", "XXIV", "XXV"  , "XXVI", "XXVII", "XXVIII"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "الأعداد الثنائية",
                 Characters =
@@ -97,9 +92,9 @@ namespace ScoutsEncoder
                     "01111", "10000", "10001", "10010", "10011", "10100", "10101",
                     "10110", "10111", "11000", "11001", "11010", "11011", "11100"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "العكسية",
                 HasKeys = true,
@@ -110,9 +105,9 @@ namespace ScoutsEncoder
                     "ص", "ش", "س", "ز", "ر", "ذ", "د",
                     "خ", "ح", "ج", "ث", "ت", "ب", "ا"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "قيصر",
                 HasKeys = true,
@@ -123,9 +118,9 @@ namespace ScoutsEncoder
                     "ط", "ظ", "ع", "غ", "ف", "ق", "ك",
                     "ل", "م", "ن", "ه", "و", "ي", "ا"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "المورس",
                 IsAudible = true,
@@ -136,9 +131,9 @@ namespace ScoutsEncoder
                     "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
                     "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "البوصلة",
                 Characters =
@@ -148,9 +143,9 @@ namespace ScoutsEncoder
                     "N(٣)", "NE(٣)", "E(٣)", "SE(٣)", "S(٣)", "SW(٣)", "W(٣)", "NW(٣)",
                     "N(٤)", "NE(٤)", "E(٤)", "SE(٤)"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "الساعة",
                 HasOverloads = true,
@@ -180,9 +175,9 @@ namespace ScoutsEncoder
                         }
                     }
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "الجوال",
                 HasOverloads = true,
@@ -212,9 +207,9 @@ namespace ScoutsEncoder
                         }
                     }
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "إكس",
                 HasKeys = true,
@@ -226,9 +221,9 @@ namespace ScoutsEncoder
                     "˄١", "˄٢", "˄٣", "˄٤", "˄٥", "˄٦", "˄٧",
                     "˃١", "˃٢", "˃٣", "˃٤", "˃٥", "˃٦", "˃٧"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "النجمة",
                 HasKeys = true,
@@ -241,9 +236,9 @@ namespace ScoutsEncoder
                     "▼١", "▼٢", "▼٣", "▼٤", "▼٥", "▼٦", "▼٧",
                     "◀١", "◀٢", "◀٣", "◀٤", "◀٥", "◀٦", "◀٧"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "المعين",
                 HasShapes = true,
@@ -257,9 +252,9 @@ namespace ScoutsEncoder
                     "٦◣", "٦◢", "٦◤", "٦◥",
                     "٧◣", "٧◢", "٧◤", "٧◥"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "المثلث",
                 HasShapes = true,
@@ -273,9 +268,9 @@ namespace ScoutsEncoder
                     "٦◣◼", "٦◼(١)", "٦◼(٢)", "٦◼(٣)", "٦◼(٤)", "٦◼◢",
                     "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)", "٧◼◢"
                 }
-            });
+            },
 
-            Add(new Cipher
+            new Cipher
             {
                 DisplayName = "الاسماء",
                 IsNew = true,
@@ -286,9 +281,7 @@ namespace ScoutsEncoder
                     "ضرار"   , "طيب"   , "ظاهر"     , "عمار"    , "غولييلمو", "فيودور", "قيصر" ,
                     "كلارنس"  , "ليونتي", "موراساكي", "نيلس"    , "هيلج"     , "ويلارد", "يافيم"
                 }
-            });
-
-        }
-
+            }
+        };
     }
 }

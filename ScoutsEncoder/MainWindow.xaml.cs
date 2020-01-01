@@ -71,7 +71,7 @@ namespace ScoutsEncoder
             Snackbar.MessageQueue = messageQueue;
 
             // Initialize CiphersComboBox
-            CiphersComboBox.ItemsSource       = Ciphers.List;
+            CiphersComboBox.ItemsSource       = CiphersList.Instance;
             CiphersComboBox.DisplayMemberPath = "DisplayName";
 
             // Initialize NewCipherDialog
