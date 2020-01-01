@@ -105,7 +105,7 @@ namespace ScoutsEncoder
 
             var currentVersion = Assembly.GetEntryAssembly()?.GetName().Version;
             var latestVersion = new Version(latest.TagName.Substring(1) + ".0");
-            var isUpToDate = currentVersion != null && currentVersion.Equals(latestVersion);
+            var isUpToDate = currentVersion != null && currentVersion.CompareTo(latestVersion) >= 0;
 
             if (isUpToDate) return;
             var content = $"{RepoName} {latest.TagName} is Now Available!";
