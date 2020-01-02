@@ -1,6 +1,9 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using Octokit;
+using ScoutsEncoder.Data;
+using ScoutsEncoder.Extensions;
+using ScoutsEncoder.Models;
 using ScoutsEncoder.Morse;
 using System;
 using System.Collections.Generic;
@@ -11,7 +14,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace ScoutsEncoder
+namespace ScoutsEncoder.Views
 {
     public partial class MainWindow
     {

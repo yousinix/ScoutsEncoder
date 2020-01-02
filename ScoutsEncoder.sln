@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoutsEncoder", "ScoutsEncoder\ScoutsEncoder.csproj", "{47107894-541D-457E-AADB-8886E6ABD373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0EA823B8-FC7E-4743-B707-B32511A72595}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoutsEncoder.Tests", "ScoutsEncoder.Tests\ScoutsEncoder.Tests.csproj", "{0EA823B8-FC7E-4743-B707-B32511A72595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

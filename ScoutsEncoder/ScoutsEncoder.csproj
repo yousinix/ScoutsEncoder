@@ -38,7 +38,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <ApplicationIcon>Properties\Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -77,11 +77,11 @@
     <Compile Include="Morse\MorseDataChunk.cs" />
     <Compile Include="Morse\WavFormatChunk.cs" />
     <Compile Include="Morse\WavHeader.cs" />
-    <Compile Include="RichTextBoxExtensions.cs" />
-    <Compile Include="NewCipherDialog.xaml.cs">
+    <Compile Include="Extensions\RichTextBoxExtensions.cs" />
+    <Compile Include="Views\NewCipherDialog.xaml.cs">
       <DependentUpon>NewCipherDialog.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -89,13 +89,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Cipher.cs" />
-    <Compile Include="CiphersList.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Models\Cipher.cs" />
+    <Compile Include="Data\CiphersList.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewCipherDialog.xaml">
+    <Page Include="Views\NewCipherDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,8 +134,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logo.ico" />
+    <Resource Include="Properties\Logo.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

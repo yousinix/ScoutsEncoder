@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using ScoutsEncoder.Data;
+using ScoutsEncoder.Models;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml.Serialization;
-using Microsoft.Win32;
 
-namespace ScoutsEncoder
+namespace ScoutsEncoder.Views
 {
     public partial class NewCipherDialog
     {

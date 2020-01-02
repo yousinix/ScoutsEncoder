@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ScoutsEncoder;
+using ScoutsEncoder.Models;
 
 namespace Tests
 {
