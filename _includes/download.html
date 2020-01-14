@@ -26,13 +26,14 @@
         <small><br>For Windows Only <i class="fab fa-windows"></i></small>
 
         <div class="row justify-content-center mt-4">
-          <a href="{{ site.github.repository_url }}/releases/latest">
-            <img class="mx-1" src="https://img.shields.io/github/release/{{ site.repository }}.svg?style=flat-square"
-              alt="version">
-          </a>
-          <img class="mx-1"
-            src="https://img.shields.io/github/downloads/{{ site.repository }}/total.svg?style=flat-square"
-            alt="downloads">
+          <div class="col">
+            {% assign shield = "https://img.shields.io/github" %}
+            {% assign style = "style=flat-square" %}
+            <a class="text-decoration-none" href="{{ site.github.repository_url }}/releases/latest">
+              <img class="mx-1" src="{{ shield }}/release/{{ site.repository }}.svg?{{ style }}" alt="version">
+            </a>
+            <img class="mx-1" src="{{ shield }}/downloads/{{ site.repository }}/total.svg?{{ style }}" alt="downloads">
+          </div>
         </div>
 
       </div>
