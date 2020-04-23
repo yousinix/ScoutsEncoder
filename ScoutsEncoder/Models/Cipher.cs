@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace ScoutsEncoder.Models
@@ -28,7 +29,7 @@ namespace ScoutsEncoder.Models
 
         public List<string> Characters
         {
-            get => HasOverloads ? Overloads[Key].Characters : _cipherCharacters;
+            get => HasOverloads ? Overloads[OverloadKey].Characters : _cipherCharacters;
             set => _cipherCharacters = value;
         }
 
@@ -46,6 +47,8 @@ namespace ScoutsEncoder.Models
 
         public bool HasKeys { get; set; }
 
+        public int OverloadKey { get; set; }
+
         public int Key { get; set; }
 
         public int KeyWeight { get; set; } = 1;
@@ -59,28 +62,7 @@ namespace ScoutsEncoder.Models
             }
         }
 
-        public List<string> KeysList
-        {
-            get
-            {
-                var keysList = new List<string>();
-
-                if (HasKeys)
-                {
-                    var alphabetCount = _arabicAlphabet.Count;
-                    for (var i = 0; i < alphabetCount; i += KeyWeight)
-                        keysList.Add("أ = " + Characters[i]);
-                }
-                else if (HasOverloads)
-                {
-                    var numberOfOverloads = Overloads.Count;
-                    for (var i = 0; i < numberOfOverloads; i++)
-                        keysList.Add(Overloads[i].DisplayName);
-                }
-
-                return keysList;
-            }
-        }
+        public List<string> KeysList => Characters.Select(c => "أ = " + c).ToList();
 
 
         //////////// Methods ////////////

@@ -74,8 +74,9 @@ namespace ScoutsEncoder.Views
             Snackbar.MessageQueue = messageQueue;
 
             // Initialize CiphersComboBox
-            CiphersComboBox.ItemsSource       = CiphersList.Instance;
-            CiphersComboBox.DisplayMemberPath = "DisplayName";
+            CiphersComboBox.ItemsSource         = CiphersList.Instance;
+            CiphersComboBox.DisplayMemberPath   = nameof(Cipher.DisplayName);
+            OverloadsComboBox.DisplayMemberPath = nameof(Cipher.DisplayName);
 
             // Initialize NewCipherDialog
             NewCipherDialog.Context = this;
@@ -144,25 +145,33 @@ namespace ScoutsEncoder.Views
         {
             _selectedCipher = (Cipher) CiphersComboBox.SelectedItem;
 
-            KeysComboBox.IsEnabled       = _selectedCipher.HasKeys || _selectedCipher.HasOverloads;
-            KeysComboBox.ItemsSource     = _selectedCipher.KeysList;
-            KeysComboBox.SelectedIndex   = 0;
+            OverloadsComboBox.IsEnabled     = _selectedCipher.HasOverloads;
+            OverloadsComboBox.ItemsSource   = _selectedCipher.HasOverloads ? _selectedCipher.Overloads : new List<Cipher>();
+            OverloadsComboBox.SelectedIndex = 0;
+            _selectedCipher.OverloadKey     = 0;
 
-            ToggleFillButton  .IsEnabled = _selectedCipher.HasShapes;
-            ExportAudioButton .IsEnabled = _selectedCipher.IsAudible;
-            AudioSpeedComboBox.IsEnabled = _selectedCipher.IsAudible;
+            KeysComboBox.IsEnabled          = _selectedCipher.HasKeys;
+            KeysComboBox.ItemsSource        = _selectedCipher.HasKeys ? _selectedCipher.KeysList : new List<string>();
+            KeysComboBox.SelectedIndex      = 0;
+            _selectedCipher.Key             = 0;
+
+            ToggleFillButton.IsEnabled    = _selectedCipher.HasShapes;
+            ExportAudioButton .IsEnabled    = _selectedCipher.IsAudible;
+            AudioSpeedComboBox.IsEnabled    = _selectedCipher.IsAudible;
 
             RealtimeEventHandler(sender, e); // Real-time syncing 
             EnableActions(true);
         }
 
+        private void OverloadsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _selectedCipher.OverloadKey = OverloadsComboBox.SelectedIndex;
+            RealtimeEventHandler(sender, e); // Real-time syncing 
+        }
+
         private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Since this event is raised while selecting first key when cipher is changed, therefore
-            // set Key to zero if KeysComboBox is empty instead of making Key = SelectedIndex = -1
-            // which will cause an error while encoding
-            _selectedCipher.Key = KeysComboBox.Items.IsEmpty ? 0 : KeysComboBox.SelectedIndex;
-
+            _selectedCipher.Key = KeysComboBox.SelectedIndex;
             RealtimeEventHandler(sender, e); // Real-time syncing 
         }
 
@@ -296,6 +305,5 @@ namespace ScoutsEncoder.Views
             var key = ((FrameworkElement) sender).Name;
             Process.Start(Links[key]);
         }
-
     }
 }
