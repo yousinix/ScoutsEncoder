@@ -1,24 +1,26 @@
-﻿using MaterialDesignThemes.Wpf;
+﻿using Core.Data;
+using Core.Models.Ciphers;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
+using MorseGenerator;
 using Octokit;
 using ScoutsEncoder.Extensions;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Media;
-using Core.Data;
-using Core.Models;
-using MorseGenerator;
 
 namespace ScoutsEncoder.Views
 {
     public partial class MainWindow
     {
-        private Cipher _selectedCipher;
+        private CipherBase _selectedCipher;
         private bool _isFilled = true;
         private bool _isLight  = true;
         private bool _containKeys;
@@ -75,8 +77,8 @@ namespace ScoutsEncoder.Views
 
             // Initialize CiphersComboBox
             CiphersComboBox.ItemsSource         = CiphersList.Instance;
-            CiphersComboBox.DisplayMemberPath   = nameof(Cipher.DisplayName);
-            OverloadsComboBox.DisplayMemberPath = nameof(Cipher.DisplayName);
+            CiphersComboBox.DisplayMemberPath   = nameof(CipherBase.Name);
+            StandardsComboBox.DisplayMemberPath = nameof(CipherStandard.Name);
 
             // Initialize NewCipherDialog
             NewCipherDialog.Context = this;
@@ -143,41 +145,66 @@ namespace ScoutsEncoder.Views
 
         private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _selectedCipher = (Cipher) CiphersComboBox.SelectedItem;
+            _selectedCipher = (CipherBase) CiphersComboBox.SelectedItem;
 
-            OverloadsComboBox.IsEnabled     = _selectedCipher.HasOverloads;
-            OverloadsComboBox.ItemsSource   = _selectedCipher.HasOverloads ? _selectedCipher.Overloads : new List<Cipher>();
-            OverloadsComboBox.SelectedIndex = 0;
-            _selectedCipher.OverloadKey     = 0;
+            // Standards
+            if (_selectedCipher is MultiStandardCipher c)
+            {
+                c.StandardIndex = 0;
+                ConfigureComboBox(StandardsComboBox, true, c.Standards);
+            }
+            else
+            {
+                ConfigureComboBox(StandardsComboBox, false);
+            }
 
-            KeysComboBox.IsEnabled          = _selectedCipher.HasKeys;
-            KeysComboBox.ItemsSource        = _selectedCipher.HasKeys ? _selectedCipher.KeysList : new List<string>();
-            KeysComboBox.SelectedIndex      = 0;
-            _selectedCipher.Key             = 0;
+            // Keys
+            _selectedCipher.Key.Base = 0;
+            ConfigureComboBox(KeysComboBox, _selectedCipher.Key.IsEnabled, _selectedCipher.KeysList);
 
-            ToggleFillButton.IsEnabled    = _selectedCipher.HasShapes;
-            ExportAudioButton .IsEnabled    = _selectedCipher.IsAudible;
-            AudioSpeedComboBox.IsEnabled    = _selectedCipher.IsAudible;
+            // Output
+            ToggleFillButton  .IsEnabled = _selectedCipher.Type == CipherType.Geometric;
+            ExportAudioButton .IsEnabled = _selectedCipher.Type == CipherType.Audible;
+            AudioSpeedComboBox.IsEnabled = _selectedCipher.Type == CipherType.Audible;
 
             RealtimeEventHandler(sender, e); // Real-time syncing 
             EnableActions(true);
         }
 
-        private void OverloadsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ConfigureComboBox(Selector comboBox, bool state, IEnumerable items = null)
         {
-            _selectedCipher.OverloadKey = OverloadsComboBox.SelectedIndex;
+            comboBox.IsEnabled = state;
+
+            if (state)
+            {
+                comboBox.ItemsSource   = items;
+                comboBox.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBox.ItemsSource   = null;
+                comboBox.SelectedIndex = -1;
+            }
+        }
+
+        private void StandardsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_selectedCipher is MultiStandardCipher c)
+            {
+                c.StandardIndex = StandardsComboBox.SelectedIndex;
+            }
             RealtimeEventHandler(sender, e); // Real-time syncing 
         }
 
         private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _selectedCipher.Key = KeysComboBox.SelectedIndex;
+            _selectedCipher.Key.Base = KeysComboBox.SelectedIndex;
             RealtimeEventHandler(sender, e); // Real-time syncing 
         }
 
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
         {
-            var keys = _selectedCipher.GetKeysMapping();
+            var keys = _selectedCipher.GetSchema();
             OutputRichTextBox.SetText(keys);
             _containKeys = true; // Used in mirror selection 
         }

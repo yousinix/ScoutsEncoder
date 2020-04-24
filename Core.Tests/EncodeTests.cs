@@ -1,4 +1,5 @@
 ﻿using Core.Models;
+using Core.Models.Ciphers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Core.Tests
@@ -14,7 +15,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_JesusCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -34,7 +35,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_NumericCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -54,7 +55,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_BinaryCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -75,7 +76,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_ReverseCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -94,7 +95,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_CaesarCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -113,7 +114,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_MorseCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -135,7 +136,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_CompassCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -155,7 +156,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_ClockCWCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -175,7 +176,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_ClockCCWCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -195,7 +196,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_Mobile1stCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -215,7 +216,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_Mobile2ndCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -235,7 +236,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_XCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -255,7 +256,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_StarCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -275,7 +276,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_RhombusCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -298,7 +299,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_TriangleCipher()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {
@@ -322,7 +323,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_PunctuationMarks()
         {
-            var cipher = new Cipher();
+            var cipher = new RegularCipher();
 
             var result = cipher.Encode(".,:\"\"''-?؟!()[]", _charDelimiter, _wordDelimiter);
 
@@ -332,7 +333,7 @@ namespace Core.Tests
         [TestMethod]
         public void Encode_OddCharacters()
         {
-            var cipher = new Cipher
+            var cipher = new RegularCipher
             {
                 Characters =
                 {

@@ -118,12 +118,12 @@
 
                             <StackPanel Orientation="Horizontal" Margin="16 0">
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Settings" />
-                                <ComboBox x:Name="OverloadsComboBox"
+                                <ComboBox x:Name="StandardsComboBox"
                                           Width="56"
                                           FlowDirection="RightToLeft"
                                           IsEnabled="False"
                                           materialDesign:HintAssist.Hint="النسخة"
-                                          SelectionChanged="OverloadsComboBox_SelectionChanged" />
+                                          SelectionChanged="StandardsComboBox_SelectionChanged" />
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="16 0">

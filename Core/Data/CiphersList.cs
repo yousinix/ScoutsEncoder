@@ -1,23 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Core.Models;
+using Core.Models.Ciphers;
 
 namespace Core.Data
 {
     public static class CiphersList
     {
-        public static ObservableCollection<Cipher> Instance { get; } = new ObservableCollection<Cipher>
+        public static ObservableCollection<CipherBase> Instance { get; } = new ObservableCollection<CipherBase>
         {
-            new Cipher
+            new MultiStandardCipher
             {
-                DisplayName = "بوليبيوس",
-                IsNew = true,
-                HasOverloads = true,
-                Overloads = new List<Cipher>
+                Name = "بوليبيوس",
+                Standards = new List<CipherStandard>
                 {
-                    new Cipher
+                    new CipherStandard
                     {
-                        DisplayName = "٧×٤",
+                        Name = "٧×٤",
                         Characters =
                         {
                             "١١", "١٢", "١٣", "١٤", "١٥", "١٦", "١٧",
@@ -27,9 +25,9 @@ namespace Core.Data
                         }
                     },
 
-                    new Cipher
+                    new CipherStandard
                     {
-                        DisplayName = "٤×٧",
+                        Name = "٤×٧",
                         Characters =
                         {
                             "١١", "١٢", "١٣", "١٤",
@@ -44,10 +42,9 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "يسوع",
-                HasKeys = true,
+                Name = "يسوع",
                 Characters =
                 {
                     "ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
@@ -57,10 +54,9 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "الرقمية",
-                HasKeys = true,
+                Name = "الرقمية",
                 Characters =
                 {
                     "١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
@@ -70,11 +66,10 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "الرومانية",
-                IsNew = true,
-                Characters =
+                Name = "الرومانية",
+                Characters = 
                 {
                     "I"   , "II"   , "III" , "IV"   , "V"   , "VI"   , "VII",
                     "VIII", "IX"   , "X"   , "XI"   , "XII" , "XIII" , "XIV",
@@ -83,9 +78,9 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "الأعداد الثنائية",
+                Name = "الأعداد الثنائية",
                 Characters =
                 {
                     "00001", "00010", "00011", "00100", "00101", "00110", "00111",
@@ -95,10 +90,9 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "العكسية",
-                HasKeys = true,
+                Name = "العكسية",
                 Characters =
                 {
                     "ي", "و", "ه", "ن", "م", "ل", "ك",
@@ -108,10 +102,9 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "قيصر",
-                HasKeys = true,
+                Name = "قيصر",
                 Characters =
                 {
                     "ب", "ت", "ث", "ج", "ح", "خ", "د",
@@ -121,10 +114,11 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "المورس",
-                IsAudible = true,
+                Name = "المورس",
+                Key = new Key { IsEnabled = false },
+                Type = CipherType.Audible,
                 Characters =
                 {
                     "(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
@@ -134,9 +128,9 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "البوصلة",
+                Name = "البوصلة",
                 Characters =
                 {
                     "N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
@@ -146,15 +140,14 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new MultiStandardCipher
             {
-                DisplayName = "الساعة",
-                HasOverloads = true,
-                Overloads = new List<Cipher>
+                Name = "الساعة",
+                Standards = 
                 {
-                    new Cipher
+                    new CipherStandard
                     {
-                        DisplayName = "CW",
+                        Name = "CW",
                         Characters =
                         {
                             "١:١٢", "١:١", "١:٢" , "١:٣" , "١:٤" , "١:٥" , "١:٦",
@@ -164,9 +157,9 @@ namespace Core.Data
                         }
                     },
 
-                    new Cipher
+                    new CipherStandard
                     {
-                        DisplayName = "CCW",
+                        Name = "CCW",
                         Characters =
                         {
                             "١:١٢", "١:١١", "١:١٠", "١:٩" , "١:٨" , "١:٧" , "١:٦" ,
@@ -178,15 +171,15 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new MultiStandardCipher
             {
-                DisplayName = "الجوال",
-                HasOverloads = true,
-                Overloads = new List<Cipher>
+                Name = "الجوال",
+                Key = new Key { IsEnabled = false },
+                Standards = 
                 {
-                    new Cipher
+                    new CipherStandard
                     {
-                        DisplayName = "أ = ٣",
+                        Name = "أ = ٣",
                         Characters =
                         {
                             "٣"   , "٢"   , "٢٢"   , "٢٢٢" , "٦"   , "٦٦" , "٦٦٦",
@@ -196,9 +189,9 @@ namespace Core.Data
                         }
                     },
 
-                    new Cipher
+                    new CipherStandard
                     {
-                        DisplayName = "أ = ٣^١",
+                        Name = "أ = ٣^١",
                         Characters =
                         {
                             "٣^١", "٢^١", "٢^٢", "٢^٣", "٦^١", "٦^٢", "٦^٣",
@@ -210,11 +203,10 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "إكس",
-                HasKeys = true,
-                KeyWeight = 7,
+                Name = "إكس",
+                Key = new Key { Weight = 7 },
                 Characters =
                 {
                     "˅١", "˅٢", "˅٣", "˅٤", "˅٥", "˅٦", "˅٧",
@@ -224,12 +216,11 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "النجمة",
-                HasKeys = true,
-                HasShapes = true,
-                KeyWeight = 7,
+                Name = "النجمة",
+                Key = new Key { Weight = 7 },
+                Type = CipherType.Geometric,
                 Characters =
                 {
                     "▲١", "▲٢", "▲٣", "▲٤", "▲٥", "▲٦", "▲٧",
@@ -239,10 +230,10 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "المعين",
-                HasShapes = true,
+                Name = "المعين",
+                Type = CipherType.Geometric,
                 Characters =
                 {
                     "١◣", "١◢", "١◤", "١◥",
@@ -255,15 +246,15 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "المثلث",
-                HasShapes = true,
+                Name = "المثلث",
+                Type = CipherType.Geometric,
                 Characters =
                 {
                     "١▲",
                     "٢◣◼", "٢◼◢",
-                    "٣◣◼", "٣◼(١)", "٣◼◢",
+                    "٣◣◼", "٣◼(١)", "٣◼◢", 
                     "٤◣◼", "٤◼(١)", "٤◼(٢)", "٤◼◢",
                     "٥◣◼", "٥◼(١)", "٥◼(٢)", "٥◼(٣)", "٥◼◢",
                     "٦◣◼", "٦◼(١)", "٦◼(٢)", "٦◼(٣)", "٦◼(٤)", "٦◼◢",
@@ -271,10 +262,10 @@ namespace Core.Data
                 }
             },
 
-            new Cipher
+            new RegularCipher
             {
-                DisplayName = "الاسماء",
-                IsNew = true,
+                Name = "الاسماء",
+                Key = new Key { IsEnabled = false },
                 Characters =
                 {
                     "ايفغيني", "باتراش", "تيفادار" , "ثيوفيلوس", "جينريش"  , "حيرام", "خوارزم",

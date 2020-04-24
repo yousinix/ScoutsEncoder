@@ -1,12 +1,12 @@
-﻿using Microsoft.Win32;
+﻿using Core.Data;
+using Core.Models.Ciphers;
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml.Serialization;
-using Core.Data;
-using Core.Models;
 
 namespace ScoutsEncoder.Views
 {
@@ -16,7 +16,7 @@ namespace ScoutsEncoder.Views
         private const string Filter = "ScoutsEncoder Cipher|*" + Ext;
 
         private FileStream _fileStream;
-        private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
+        private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(RegularCipher));
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
 
         public MainWindow Context { get; set; }
@@ -33,9 +33,9 @@ namespace ScoutsEncoder.Views
             }
         }
 
-        private Cipher GetNewCipher() => new Cipher
+        private RegularCipher GetNewCipher() => new RegularCipher
         {
-            DisplayName = NewCipherNameTextBox.Text,
+            Name = NewCipherNameTextBox.Text,
             Characters = _lettersTextBoxes.Select(t => t.Text).ToList()
         };
 
@@ -85,14 +85,14 @@ namespace ScoutsEncoder.Views
             if (openFileDialog.ShowDialog() != true) return;
 
             _fileStream = new FileStream(openFileDialog.FileName, FileMode.Open);
-            var newCipher = _xmlSerializer.Deserialize(_fileStream) as Cipher;
+            var newCipher = _xmlSerializer.Deserialize(_fileStream) as RegularCipher;
             _fileStream.Close();
             PopulateView(newCipher);
         }
 
-        private void PopulateView(Cipher cipher)
+        private void PopulateView(CipherBase cipher)
         {
-            NewCipherNameTextBox.Text = cipher.DisplayName;
+            NewCipherNameTextBox.Text = cipher.Name;
             for (var i = 0; i < cipher.Characters.Count; i++)
             {
                 _lettersTextBoxes[i].Text = cipher.Characters[i];
