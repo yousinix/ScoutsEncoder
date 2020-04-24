@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using ScoutsEncoder.Models;
+using Core.Models;
 
-namespace ScoutsEncoder.Data
+namespace Core.Data
 {
     public static class CiphersList
     {

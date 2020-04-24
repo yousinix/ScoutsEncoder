@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ScoutsEncoder.Models
+namespace Core.Models
 {
     public class Cipher
     {

@@ -1,10 +1,7 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using Octokit;
-using ScoutsEncoder.Data;
 using ScoutsEncoder.Extensions;
-using ScoutsEncoder.Models;
-using ScoutsEncoder.Morse;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,6 +10,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using Core.Data;
+using Core.Models;
+using MorseGenerator;
 
 namespace ScoutsEncoder.Views
 {

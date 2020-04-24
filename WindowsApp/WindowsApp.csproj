@@ -73,10 +73,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Morse\MorseAudioGenerator.cs" />
-    <Compile Include="Morse\MorseDataChunk.cs" />
-    <Compile Include="Morse\WavFormatChunk.cs" />
-    <Compile Include="Morse\WavHeader.cs" />
     <Compile Include="Extensions\RichTextBoxExtensions.cs" />
     <Compile Include="Views\NewCipherDialog.xaml.cs">
       <DependentUpon>NewCipherDialog.xaml</DependentUpon>
@@ -89,8 +85,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Cipher.cs" />
-    <Compile Include="Data\CiphersList.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -136,7 +130,16 @@
   <ItemGroup>
     <Resource Include="Properties\Logo.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{481cd48d-a208-4043-903e-da5a4dd90857}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MorseGenerator\MorseGenerator.csproj">
+      <Project>{EA1C3125-ADBD-4FF6-9638-82E6300E7FEB}</Project>
+      <Name>MorseGenerator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

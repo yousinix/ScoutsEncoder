@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ScoutsEncoder.Morse
+namespace MorseGenerator
 {
     public static class WavHeader
     {

@@ -1,8 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ScoutsEncoder;
-using ScoutsEncoder.Models;
+﻿using Core.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace Core.Tests
 {
     [TestClass]
     public class EncodeTests
