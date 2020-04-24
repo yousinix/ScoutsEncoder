@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using Core.Data;
 using Core.Models.Languages;
 
@@ -26,7 +27,7 @@ namespace Core.Models.Ciphers
         public string Encode(string text, string charDelimiter, string wordDelimiter)
         {
             text = Language.Normalize(text);
-            var encodedText = "";
+            var encodedText = new StringBuilder();
 
             for (var i = 0; i < text.Length; i++)
             {
@@ -36,41 +37,41 @@ namespace Core.Models.Ciphers
                 if (index == -1) // If the character is not a Valid Arabic letter
                 {
                     if (text[i] == ' ')
-                        encodedText += wordDelimiter;
+                        encodedText.Append(wordDelimiter);
 
                     // Surround punctuation marks with spaces
                     // to avoid mixing them up with the cipher characters
                     // as some ciphers may contain punctuation marks
                     else if (char.IsPunctuation(text[i]))
-                        encodedText += " " + text[i] + " ";
+                        encodedText.Append(" " + text[i] + " ");
 
                     // Add any new line or strange character as is
                     else
-                        encodedText += text[i];
+                        encodedText.Append(text[i]);
                 }
 
                 else
                 {
                     // Encoding the character
                     index = (index + Key.Value) % Language.Characters.Count;
-                    encodedText += Characters[index];
+                    encodedText.Append(Characters[index]);
 
                     // Add a delimiter after the character if the next character
                     // isn't: (last character, space, new line, punctuation mark)
                     var next = i != text.Length - 1 ? text[i + 1] : ' ';
-                    encodedText += char.IsWhiteSpace(next) || char.IsPunctuation(next) ? "" : charDelimiter;
+                    encodedText.Append(char.IsWhiteSpace(next) || char.IsPunctuation(next) ? "" : charDelimiter);
                 }
             }
 
-            return encodedText;
+            return encodedText.ToString();
         }
 
         public string GetSchema()
         {
-            var outputText    = "";
             var columnsCount  = 4;
             var alphabetCount = Language.Characters.Count;
             var rowsCount     = alphabetCount / columnsCount;
+            var outputText    = new StringBuilder();
 
             for (var i = 0; i < rowsCount; i++)
             {
@@ -78,13 +79,13 @@ namespace Core.Models.Ciphers
                 {
                     var index1 = i + j * rowsCount;
                     var index2 = (index1 + Key.Value) % alphabetCount;
-                    outputText += (Language.Characters[index1] + " = " + Characters[index2]).PadRight(14);
+                    outputText.Append((Language.Characters[index1] + " = " + Characters[index2]).PadRight(14));
                 }
 
-                outputText += "\r\n";
+                outputText.AppendLine();
             }
 
-            return outputText;
+            return outputText.ToString();
         }
     }
 }
