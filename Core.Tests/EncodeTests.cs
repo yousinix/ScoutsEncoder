@@ -1,5 +1,4 @@
-﻿using Core.Models;
-using Core.Models.Ciphers;
+﻿using Core.Models.Ciphers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Core.Tests

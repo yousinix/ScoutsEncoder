@@ -1,14 +1,14 @@
-﻿using Core.Data;
-using Core.Models.Ciphers;
-using Microsoft.Win32;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml.Serialization;
+using Core.Data;
+using Core.Models.Ciphers;
+using Microsoft.Win32;
 
-namespace ScoutsEncoder.Views
+namespace WindowsApp.Views
 {
     public partial class NewCipherDialog
     {
@@ -19,14 +19,14 @@ namespace ScoutsEncoder.Views
         private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(RegularCipher));
         private readonly List<TextBox> _lettersTextBoxes = new List<TextBox>();
 
-        public MainWindow Context { get; set; }
+        public WindowsApp.Views.MainWindow Context { get; set; }
 
 
         public NewCipherDialog()
         {
             InitializeComponent();
 
-            foreach (var stackPanel in MainGrid.Children.OfType<StackPanel>())
+            foreach (var stackPanel in Enumerable.OfType<StackPanel>(MainGrid.Children))
             {
                 var children = stackPanel.Children;
                 _lettersTextBoxes.AddRange(children.OfType<TextBox>());

@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Core.Models;
 using Core.Models.Ciphers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

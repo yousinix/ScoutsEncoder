@@ -1,11 +1,4 @@
-﻿using Core.Data;
-using Core.Models.Ciphers;
-using MaterialDesignThemes.Wpf;
-using Microsoft.Win32;
-using MorseGenerator;
-using Octokit;
-using ScoutsEncoder.Extensions;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,8 +8,15 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Media;
+using WindowsApp.Extensions;
+using Core.Data;
+using Core.Models.Ciphers;
+using MaterialDesignThemes.Wpf;
+using Microsoft.Win32;
+using MorseGenerator;
+using Octokit;
 
-namespace ScoutsEncoder.Views
+namespace WindowsApp.Views
 {
     public partial class MainWindow
     {
@@ -87,8 +87,8 @@ namespace ScoutsEncoder.Views
             EnableActions(false);
 
             // Clear initial block from RichTextBoxes
-            InputRichTextBox.Clear();
-            OutputRichTextBox.Clear();
+            RichTextBoxExtensions.Clear(InputRichTextBox);
+            RichTextBoxExtensions.Clear(OutputRichTextBox);
 
             // Check for updates
             CheckForUpdates();
@@ -124,13 +124,13 @@ namespace ScoutsEncoder.Views
 
         private void InputCutButton_Click(object sender, RoutedEventArgs e)
         {
-            InputRichTextBox.CopyToClipboard();
-            InputRichTextBox.Clear();
+            RichTextBoxExtensions.CopyToClipboard(InputRichTextBox);
+            RichTextBoxExtensions.Clear(InputRichTextBox);
         }
 
         private void InputCopyButton_Click(object sender, RoutedEventArgs e)
         {
-            InputRichTextBox.CopyToClipboard();
+            RichTextBoxExtensions.CopyToClipboard(InputRichTextBox);
         }
 
         private void InputPasteButton_Click(object sender, RoutedEventArgs e)
@@ -140,7 +140,7 @@ namespace ScoutsEncoder.Views
 
         private void InputClearButton_Click(object sender, RoutedEventArgs e)
         {
-            InputRichTextBox.Clear();
+            RichTextBoxExtensions.Clear(InputRichTextBox);
         }
 
         private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -205,7 +205,7 @@ namespace ScoutsEncoder.Views
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
         {
             var keys = _selectedCipher.GetSchema();
-            OutputRichTextBox.SetText(keys);
+            RichTextBoxExtensions.SetText(OutputRichTextBox, keys);
             _containKeys = true; // Used in mirror selection 
         }
 
@@ -217,9 +217,9 @@ namespace ScoutsEncoder.Views
 
         private void Encode()
         {
-            var text = InputRichTextBox.GetText();
+            var text = RichTextBoxExtensions.GetText(InputRichTextBox);
             var encodedText = _selectedCipher.Encode(text, CharsDelimiter, WordsDelimiter);
-            OutputRichTextBox.SetText(encodedText);
+            RichTextBoxExtensions.SetText(OutputRichTextBox, encodedText);
         }
 
         private void EnableActions(bool state)
@@ -240,18 +240,18 @@ namespace ScoutsEncoder.Views
 
         private void MirrorSelectionToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            OutputRichTextBox.ClearFormatting();
+            RichTextBoxExtensions.ClearFormatting(OutputRichTextBox);
         }
 
         private void InputRichTextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             if (MirrorToggleButton.IsChecked == false) return;
 
-            OutputRichTextBox.ClearFormatting();
-            if (InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty() || _containKeys) return;
+            RichTextBoxExtensions.ClearFormatting(OutputRichTextBox);
+            if (InputRichTextBox.Selection.IsEmpty || RichTextBoxExtensions.IsEmpty(OutputRichTextBox) || _containKeys) return;
 
-            var inputStartPointer     = InputRichTextBox.GetStart();
-            var outputStartPointer    = OutputRichTextBox.GetStart();
+            var inputStartPointer     = RichTextBoxExtensions.GetStart(InputRichTextBox);
+            var outputStartPointer    = RichTextBoxExtensions.GetStart(OutputRichTextBox);
 
             var selectionStartPointer = InputRichTextBox.Selection.Start;
             var selectedText          = InputRichTextBox.Selection.Text;
@@ -272,24 +272,24 @@ namespace ScoutsEncoder.Views
 
         private void OutputCutButton_Click(object sender, RoutedEventArgs e)
         {
-            OutputRichTextBox.CopyToClipboard();
-            OutputRichTextBox.Clear();
+            RichTextBoxExtensions.CopyToClipboard(OutputRichTextBox);
+            RichTextBoxExtensions.Clear(OutputRichTextBox);
         }
 
         private void OutputCopyButton_Click(object sender, RoutedEventArgs e)
         {
-            OutputRichTextBox.CopyToClipboard();
+            RichTextBoxExtensions.CopyToClipboard(OutputRichTextBox);
         }
 
         private void OutputClearButton_Click(object sender, RoutedEventArgs e)
         {
-            OutputRichTextBox.Clear();
+            RichTextBoxExtensions.Clear(OutputRichTextBox);
         }
 
         private void ToggleFillButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_isFilled) OutputRichTextBox.Replace(SolidShapes, OutlineShapes);
-            else OutputRichTextBox.Replace(OutlineShapes, SolidShapes);
+            if (_isFilled) RichTextBoxExtensions.Replace(OutputRichTextBox, SolidShapes, OutlineShapes);
+            else RichTextBoxExtensions.Replace(OutputRichTextBox, OutlineShapes, SolidShapes);
             _isFilled ^= true;
         }
 
@@ -304,7 +304,7 @@ namespace ScoutsEncoder.Views
 
             if (saveFileDialog.ShowDialog() != true) return;
 
-            var text      = OutputRichTextBox.GetText();
+            var text      = RichTextBoxExtensions.GetText(OutputRichTextBox);
             var speed     = AudioSpeedComboBox.SelectedIndex;
             var fileName  = saveFileDialog.FileName;
             
@@ -324,7 +324,7 @@ namespace ScoutsEncoder.Views
             var mode = _isLight ? BaseTheme.Dark : BaseTheme.Light;
             ThemeAssist.SetTheme(this, mode);
             _isLight ^= true;
-            OutputRichTextBox.ClearFormatting();
+            RichTextBoxExtensions.ClearFormatting(OutputRichTextBox);
         }
 
         private void Footer_Click(object sender, RoutedEventArgs e)

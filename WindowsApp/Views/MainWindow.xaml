@@ -1,14 +1,13 @@
-﻿<Window x:Class="ScoutsEncoder.Views.MainWindow"
+﻿<Window x:Class="WindowsApp.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:views="clr-namespace:ScoutsEncoder.Views"
+        xmlns:views1="clr-namespace:WindowsApp.Views"
 
         Title="ScoutsEncoder"
         Height="720" MinHeight="600"
         Width="1024" MinWidth="504"
         WindowStartupLocation="CenterScreen"
-        Icon="../Properties/Logo.ico"
         
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -23,7 +22,7 @@
         <!-- DialogContent -->
 
         <materialDesign:DialogHost.DialogContent>
-            <views:NewCipherDialog x:Name="NewCipherDialog" />
+            <views1:NewCipherDialog x:Name="NewCipherDialog" />
         </materialDesign:DialogHost.DialogContent>
         
         
@@ -339,7 +338,7 @@
                         ToolTipService.InitialShowDelay="1200"
                         Style="{StaticResource MaterialDesignIconForegroundButton}"
                         Click="Footer_Click">
-                    <materialDesign:PackIcon Kind="GithubCircle" Width="18" Height="18" />
+                    <materialDesign:PackIcon Kind="MicrosoftGithub" Width="18" Height="18" />
                 </Button>
 
                 <Button x:Name="GoogleDocsButton"

@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace ScoutsEncoder.Extensions
+namespace WindowsApp.Extensions
 {
     public static class RichTextBoxExtensions
     {
