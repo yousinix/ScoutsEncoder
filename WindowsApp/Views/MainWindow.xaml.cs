@@ -330,7 +330,7 @@ namespace WindowsApp.Views
         private void Footer_Click(object sender, RoutedEventArgs e)
         {
             var key = ((FrameworkElement) sender).Name;
-            Process.Start(Links[key]);
+            Process.Start(new ProcessStartInfo(Links[key]) { UseShellExecute = true });
         }
     }
 }
