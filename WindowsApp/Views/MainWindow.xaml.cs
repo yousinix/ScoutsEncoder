@@ -260,7 +260,7 @@ namespace WindowsApp.Views
             var encodedPrecedingText  = _selectedCipher.Encode(precedingText, CharsDelimiter, WordsDelimiter);
 
             var highlightStartPointer = outputStartPointer.GetPositionAtOffset(encodedPrecedingText.Length + 2);
-            var highlightEndPointer   = highlightStartPointer?.GetPositionAtOffset(encodedSelectedText.Length + 2);
+            var highlightEndPointer   = highlightStartPointer?.GetPositionAtOffset(encodedSelectedText.Length + 2) ?? OutputRichTextBox.GetEnd();
             var highlightTextRange    = new TextRange(highlightStartPointer, highlightEndPointer);
 
             var brush = _isLight ? Brushes.Yellow : Brushes.DarkMagenta;
