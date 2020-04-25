@@ -87,8 +87,8 @@ namespace WindowsApp.Views
             EnableActions(false);
 
             // Clear initial block from RichTextBoxes
-            RichTextBoxExtensions.Clear(InputRichTextBox);
-            RichTextBoxExtensions.Clear(OutputRichTextBox);
+            InputRichTextBox.Clear();
+            OutputRichTextBox.Clear();
 
             // Check for updates
             CheckForUpdates();
@@ -124,13 +124,13 @@ namespace WindowsApp.Views
 
         private void InputCutButton_Click(object sender, RoutedEventArgs e)
         {
-            RichTextBoxExtensions.CopyToClipboard(InputRichTextBox);
-            RichTextBoxExtensions.Clear(InputRichTextBox);
+            InputRichTextBox.CopyToClipboard();
+            InputRichTextBox.Clear();
         }
 
         private void InputCopyButton_Click(object sender, RoutedEventArgs e)
         {
-            RichTextBoxExtensions.CopyToClipboard(InputRichTextBox);
+            InputRichTextBox.CopyToClipboard();
         }
 
         private void InputPasteButton_Click(object sender, RoutedEventArgs e)
@@ -140,7 +140,7 @@ namespace WindowsApp.Views
 
         private void InputClearButton_Click(object sender, RoutedEventArgs e)
         {
-            RichTextBoxExtensions.Clear(InputRichTextBox);
+            InputRichTextBox.Clear();
         }
 
         private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -205,7 +205,7 @@ namespace WindowsApp.Views
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
         {
             var keys = _selectedCipher.GetSchema();
-            RichTextBoxExtensions.SetText(OutputRichTextBox, keys);
+            OutputRichTextBox.SetText(keys);
             _containKeys = true; // Used in mirror selection 
         }
 
@@ -217,9 +217,9 @@ namespace WindowsApp.Views
 
         private void Encode()
         {
-            var text = RichTextBoxExtensions.GetText(InputRichTextBox);
+            var text = InputRichTextBox.GetText();
             var encodedText = _selectedCipher.Encode(text, CharsDelimiter, WordsDelimiter);
-            RichTextBoxExtensions.SetText(OutputRichTextBox, encodedText);
+            OutputRichTextBox.SetText(encodedText);
         }
 
         private void EnableActions(bool state)
@@ -240,18 +240,18 @@ namespace WindowsApp.Views
 
         private void MirrorSelectionToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            RichTextBoxExtensions.ClearFormatting(OutputRichTextBox);
+            OutputRichTextBox.ClearFormatting();
         }
 
         private void InputRichTextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             if (MirrorToggleButton.IsChecked == false) return;
 
-            RichTextBoxExtensions.ClearFormatting(OutputRichTextBox);
-            if (InputRichTextBox.Selection.IsEmpty || RichTextBoxExtensions.IsEmpty(OutputRichTextBox) || _containKeys) return;
+            OutputRichTextBox.ClearFormatting();
+            if (InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty() || _containKeys) return;
 
-            var inputStartPointer     = RichTextBoxExtensions.GetStart(InputRichTextBox);
-            var outputStartPointer    = RichTextBoxExtensions.GetStart(OutputRichTextBox);
+            var inputStartPointer     = InputRichTextBox.GetStart();
+            var outputStartPointer    = OutputRichTextBox.GetStart();
 
             var selectionStartPointer = InputRichTextBox.Selection.Start;
             var selectedText          = InputRichTextBox.Selection.Text;
@@ -272,24 +272,24 @@ namespace WindowsApp.Views
 
         private void OutputCutButton_Click(object sender, RoutedEventArgs e)
         {
-            RichTextBoxExtensions.CopyToClipboard(OutputRichTextBox);
-            RichTextBoxExtensions.Clear(OutputRichTextBox);
+            OutputRichTextBox.CopyToClipboard();
+            OutputRichTextBox.Clear();
         }
 
         private void OutputCopyButton_Click(object sender, RoutedEventArgs e)
         {
-            RichTextBoxExtensions.CopyToClipboard(OutputRichTextBox);
+            OutputRichTextBox.CopyToClipboard();
         }
 
         private void OutputClearButton_Click(object sender, RoutedEventArgs e)
         {
-            RichTextBoxExtensions.Clear(OutputRichTextBox);
+            OutputRichTextBox.Clear();
         }
 
         private void ToggleFillButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_isFilled) RichTextBoxExtensions.Replace(OutputRichTextBox, SolidShapes, OutlineShapes);
-            else RichTextBoxExtensions.Replace(OutputRichTextBox, OutlineShapes, SolidShapes);
+            if (_isFilled) OutputRichTextBox.Replace(SolidShapes, OutlineShapes);
+            else OutputRichTextBox.Replace(OutlineShapes, SolidShapes);
             _isFilled ^= true;
         }
 
@@ -304,7 +304,7 @@ namespace WindowsApp.Views
 
             if (saveFileDialog.ShowDialog() != true) return;
 
-            var text      = RichTextBoxExtensions.GetText(OutputRichTextBox);
+            var text      = OutputRichTextBox.GetText();
             var speed     = AudioSpeedComboBox.SelectedIndex;
             var fileName  = saveFileDialog.FileName;
             
@@ -324,7 +324,7 @@ namespace WindowsApp.Views
             var mode = _isLight ? BaseTheme.Dark : BaseTheme.Light;
             ThemeAssist.SetTheme(this, mode);
             _isLight ^= true;
-            RichTextBoxExtensions.ClearFormatting(OutputRichTextBox);
+            OutputRichTextBox.ClearFormatting();
         }
 
         private void Footer_Click(object sender, RoutedEventArgs e)
