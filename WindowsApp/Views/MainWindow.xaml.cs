@@ -71,29 +71,28 @@ namespace WindowsApp.Views
         {
             InitializeComponent();
 
+            // Initialize NewCipherDialog
+            NewCipherDialog.Context = this;
+
             // Initialize messageQueue and Assign it to Snack bar's MessageQueue
             var messageQueue      = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
             Snackbar.MessageQueue = messageQueue;
 
-            // Initialize CiphersComboBox
+            // Initialize ComboBoxes
             CiphersComboBox.ItemsSource         = CiphersList.Instance;
+            CiphersComboBox.SelectedIndex       = 0;
             CiphersComboBox.DisplayMemberPath   = nameof(CipherBase.Name);
             StandardsComboBox.DisplayMemberPath = nameof(CipherStandard.Name);
-
-            // Initialize NewCipherDialog
-            NewCipherDialog.Context = this;
-
-            // Disable Actions
-            EnableActions(false);
 
             // Clear initial block from RichTextBoxes
             InputRichTextBox.Clear();
             OutputRichTextBox.Clear();
 
+            SubscribeToRealtimeEvent();
+
             // Check for updates
             CheckForUpdates();
         }
-
 
         private void CheckForUpdates()
         {
@@ -133,26 +132,17 @@ namespace WindowsApp.Views
 
             // Standards
             if (_selectedCipher is MultiStandardCipher c)
-            {
-                c.StandardIndex = 0;
                 ConfigureComboBox(StandardsComboBox, true, c.Standards);
-            }
             else
-            {
                 ConfigureComboBox(StandardsComboBox, false);
-            }
 
             // Keys
-            _selectedCipher.Key.Base = 0;
             ConfigureComboBox(KeysComboBox, _selectedCipher.Key.IsEnabled, _selectedCipher.KeysList);
 
-            // Output
+            // Configure Keys
             ToggleFillButton  .IsEnabled = _selectedCipher.Type == CipherType.Geometric;
             ExportAudioButton .IsEnabled = _selectedCipher.Type == CipherType.Audible;
             AudioSpeedComboBox.IsEnabled = _selectedCipher.Type == CipherType.Audible;
-
-            RealtimeEventHandler(sender, e); // Real-time syncing 
-            EnableActions(true);
         }
 
         private void ConfigureComboBox(Selector comboBox, bool state, IEnumerable items = null)
@@ -171,66 +161,47 @@ namespace WindowsApp.Views
             }
         }
 
-        private void StandardsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (_selectedCipher is MultiStandardCipher c)
-            {
-                c.StandardIndex = StandardsComboBox.SelectedIndex;
-            }
-            RealtimeEventHandler(sender, e); // Real-time syncing 
-        }
-
-        private void KeysComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            _selectedCipher.Key.Base = KeysComboBox.SelectedIndex;
-            RealtimeEventHandler(sender, e); // Real-time syncing 
-        }
-
         private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
         {
+            _containKeys = true; // Used in mirror selection 
+
             var keys = _selectedCipher.GetSchema();
             OutputRichTextBox.SetText(keys);
-            _containKeys = true; // Used in mirror selection 
         }
 
-        private void EncodeButton_Click(object sender, RoutedEventArgs e)
+        // Real-time Encoding & Mirror Selection Modes
+
+        private void SubscribeToRealtimeEvent()
         {
-            Encode();
+            var listeners = new List<Control>
+            {
+                InputRichTextBox, CharsDelimiterTextBox, WordsDelimiterTextBox,
+                CiphersComboBox, StandardsComboBox, KeysComboBox
+            };
+
+            listeners.ForEach(c =>
+            {
+                if (c is TextBoxBase t) t.TextChanged += RealtimeEventHandler;
+                else if (c is Selector s) s.SelectionChanged += RealtimeEventHandler;
+            });
+        }
+
+        private void RealtimeEventHandler(object sender, RoutedEventArgs e)
+        {
             _containKeys = false; // Used in mirror selection
-        }
 
-        private void Encode()
-        {
+            // Cipher Config
+            if (_selectedCipher is MultiStandardCipher c) c.StandardIndex = StandardsComboBox.SelectedIndex;
+            _selectedCipher.Key.Base = _selectedCipher.Key.IsEnabled ? KeysComboBox.SelectedIndex : 0;
+
+            // Encoding
             var text = InputRichTextBox.GetText();
             var encodedText = _selectedCipher.Encode(text, CharsDelimiter, WordsDelimiter);
             OutputRichTextBox.SetText(encodedText);
         }
 
-        private void EnableActions(bool state)
+        private void MirrorSelectionEventHandler(object sender, RoutedEventArgs e)
         {
-            ShowKeyButton       .IsEnabled = state;
-            EncodeButton        .IsEnabled = state;
-            RealTimeToggleButton.IsEnabled = state;
-            MirrorToggleButton  .IsEnabled = state;
-        }
-
-        // Real-time Encoding & Mirror Selection Modes
-
-        private void RealtimeEventHandler(object sender, RoutedEventArgs e)
-        {
-            if (RealTimeToggleButton.IsChecked == false) return;
-            Encode();
-        }
-
-        private void MirrorSelectionToggleButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            OutputRichTextBox.ClearFormatting();
-        }
-
-        private void InputRichTextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            if (MirrorToggleButton.IsChecked == false) return;
-
             OutputRichTextBox.ClearFormatting();
             if (InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty() || _containKeys) return;
 

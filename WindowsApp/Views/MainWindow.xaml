@@ -57,8 +57,7 @@
                                  VerticalContentAlignment="Top"
                                  VerticalScrollBarVisibility="Hidden"
                                  materialDesign:HintAssist.Hint="أدخل النص هنا..."
-                                 TextChanged="RealtimeEventHandler"
-                                 SelectionChanged="InputRichTextBox_OnSelectionChanged" />
+                                 SelectionChanged="MirrorSelectionEventHandler" />
 
                     <Button x:Name="InputClearButton"
                             Grid.Row="0"
@@ -101,8 +100,7 @@
                                           Width="56"
                                           FlowDirection="RightToLeft"
                                           IsEnabled="False"
-                                          materialDesign:HintAssist.Hint="النسخة"
-                                          SelectionChanged="StandardsComboBox_SelectionChanged" />
+                                          materialDesign:HintAssist.Hint="النسخة" />
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="16 0">
@@ -111,8 +109,7 @@
                                           Width="56"
                                           FlowDirection="RightToLeft"
                                           IsEnabled="False"
-                                          materialDesign:HintAssist.Hint="المفتاح"
-                                          SelectionChanged="KeysComboBox_SelectionChanged" />
+                                          materialDesign:HintAssist.Hint="المفتاح" />
                             </StackPanel>
 
                             <Separator />
@@ -124,38 +121,6 @@
                                     Click="ShowKeyButton_Click">
                                 <materialDesign:PackIcon Kind="FormatColumns" />
                             </Button>
-
-                            <Button x:Name="EncodeButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Encode Text"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="EncodeButton_Click">
-                                <materialDesign:PackIcon Kind="ProgressTick" />
-                            </Button>
-
-                            <ToggleButton x:Name="RealTimeToggleButton"
-                                          Width="32"
-                                          Height="32"
-                                          Margin="8 0 0 0"
-                                          ToolBar.OverflowMode="Never"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          ToolTip="Toggle Real-Time Encoding"
-                                          ToolTipService.InitialShowDelay="1200"
-                                          Checked="RealtimeEventHandler">
-                                <materialDesign:PackIcon Kind="Sync" Width="16" Height="16" />
-                            </ToggleButton>
-
-                            <ToggleButton x:Name="MirrorToggleButton"
-                                          Width="32"
-                                          Height="32"
-                                          Margin="16 0 0 0"
-                                          ToolBar.OverflowMode="Never"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          ToolTip="Toggle Mirror Selection"
-                                          ToolTipService.InitialShowDelay="1200"
-                                          Unchecked="MirrorSelectionToggleButton_Unchecked">
-                                <materialDesign:PackIcon Kind="Highlighter" Width="16" Height="16" />
-                            </ToggleButton>
 
                         </ToolBar>
 
@@ -229,8 +194,7 @@
                                          TextAlignment="Center"
                                          Text=" - "
                                          ToolTip="Symbol to separate encoded characters"
-                                         ToolTipService.InitialShowDelay="1200"
-                                         TextChanged="RealtimeEventHandler"/>
+                                         ToolTipService.InitialShowDelay="1200" />
 
                             </StackPanel>
 
@@ -246,8 +210,7 @@
                                          TextAlignment="Center"
                                          Text="  /  "
                                          ToolTip="Symbol to separate encoded words"
-                                         ToolTipService.InitialShowDelay="1200"
-                                         TextChanged="RealtimeEventHandler"/>
+                                         ToolTipService.InitialShowDelay="1200"/>
 
                             </StackPanel>
 
@@ -282,7 +245,6 @@
                                 <ComboBoxItem Content="Medium" IsSelected="True" />
                                 <ComboBoxItem Content="Fast" />
                             </ComboBox>
-
 
                         </ToolBar>
 
