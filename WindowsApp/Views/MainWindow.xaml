@@ -24,8 +24,8 @@
         <materialDesign:DialogHost.DialogContent>
             <views1:NewCipherDialog x:Name="NewCipherDialog" />
         </materialDesign:DialogHost.DialogContent>
-        
-        
+
+
         <Grid>
 
             <Grid.RowDefinitions>
@@ -35,9 +35,9 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            
+
             <!-- Input -->
-            
+
             <materialDesign:Card Padding="16" Margin="16" VerticalAlignment="Stretch">
 
                 <Grid>
@@ -55,57 +55,30 @@
                                  FlowDirection="RightToLeft"
                                  Block.LineHeight="4"
                                  VerticalContentAlignment="Top"
-                                 VerticalScrollBarVisibility="Auto"
+                                 VerticalScrollBarVisibility="Hidden"
                                  materialDesign:HintAssist.Hint="أدخل النص هنا..."
                                  TextChanged="RealtimeEventHandler"
                                  SelectionChanged="InputRichTextBox_OnSelectionChanged" />
+
+                    <Button x:Name="InputClearButton"
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Width="24"
+                            Height="24"
+                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                            Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                            ToolTip="Clear Input"
+                            ToolTipService.InitialShowDelay="1200"
+                            Click="InputClearButton_Click">
+                        <materialDesign:PackIcon Kind="Close" Width="12" />
+                    </Button>
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
                         <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
                                  Background="Transparent">
 
-                            <Button x:Name="InputCutButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Cut Input"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="InputCutButton_Click">
-                                <materialDesign:PackIcon Kind="ContentCut" />
-                            </Button>
-
-                            <Button x:Name="InputCopyButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Copy Input"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="InputCopyButton_Click">
-                                <materialDesign:PackIcon Kind="ContentCopy" />
-                            </Button>
-
-                            <Button x:Name="InputPasteButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Paste into Input"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="InputPasteButton_Click">
-                                <materialDesign:PackIcon Kind="ContentPaste" />
-                            </Button>
-
-                            <Button x:Name="InputClearButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Clear Input"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="InputClearButton_Click">
-                                <materialDesign:PackIcon Kind="Close" />
-                            </Button>
-
-                            <Separator />
-
-                            <Button x:Name="AddNewCipherButton"
-                                    ToolTip="Add new custom cipher"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
-                                <materialDesign:PackIcon Kind="Add" />
-                            </Button>
-                            
                             <StackPanel Orientation="Horizontal" Margin="16 0">
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Language" />
                                 <ComboBox x:Name="CiphersComboBox"
@@ -114,6 +87,13 @@
                                           materialDesign:HintAssist.Hint="الشفرة"
                                           SelectionChanged="CiphersComboBox_SelectionChanged" />
                             </StackPanel>
+
+                            <Button x:Name="AddNewCipherButton"
+                                    ToolTip="Add new custom cipher"
+                                    ToolTipService.InitialShowDelay="1200"
+                                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                                <materialDesign:PackIcon Kind="Add" />
+                            </Button>
 
                             <StackPanel Orientation="Horizontal" Margin="16 0">
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Settings" />
@@ -176,9 +156,9 @@
                                           Unchecked="MirrorSelectionToggleButton_Unchecked">
                                 <materialDesign:PackIcon Kind="Highlighter" Width="16" Height="16" />
                             </ToggleButton>
-                            
+
                         </ToolBar>
-                        
+
                     </ToolBarTray>
 
                 </Grid>
@@ -187,7 +167,7 @@
 
 
             <!-- Output -->
-            
+
             <materialDesign:Card Grid.Row="1" Padding="16" Margin="16 0 16 16" VerticalAlignment="Stretch">
 
                 <Grid>
@@ -205,21 +185,27 @@
                                  FlowDirection="RightToLeft"
                                  Block.LineHeight="4"
                                  VerticalContentAlignment="Top"
-                                 VerticalScrollBarVisibility="Auto"
+                                 VerticalScrollBarVisibility="Hidden"
                                  IsReadOnly="True" />
+
+                    <Button x:Name="OutputClearButton"
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Width="24"
+                            Height="24"
+                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                            Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                            ToolTip="Clear Output"
+                            ToolTipService.InitialShowDelay="1200"
+                            Click="OutputClearButton_Click">
+                        <materialDesign:PackIcon Kind="Close" Width="12" />
+                    </Button>
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
                         <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
                                  Background="Transparent">
-
-                            <Button x:Name="OutputCutButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Cut Output"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="OutputCutButton_Click">
-                                <materialDesign:PackIcon Kind="ContentCut" />
-                            </Button>
 
                             <Button x:Name="OutputCopyButton"
                                     ToolBar.OverflowMode="Never"
@@ -227,14 +213,6 @@
                                     ToolTipService.InitialShowDelay="1200"
                                     Click="OutputCopyButton_Click">
                                 <materialDesign:PackIcon Kind="ContentCopy" />
-                            </Button>
-
-                            <Button x:Name="OutputClearButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Clear Output"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="OutputClearButton_Click">
-                                <materialDesign:PackIcon Kind="Close" />
                             </Button>
 
                             <Separator />
@@ -270,7 +248,7 @@
                                          ToolTip="Symbol to separate encoded words"
                                          ToolTipService.InitialShowDelay="1200"
                                          TextChanged="RealtimeEventHandler"/>
-                                
+
                             </StackPanel>
 
                             <Separator />
@@ -305,9 +283,9 @@
                                 <ComboBoxItem Content="Fast" />
                             </ComboBox>
 
-                            
+
                         </ToolBar>
-                        
+
                     </ToolBarTray>
 
                 </Grid>
@@ -383,18 +361,18 @@
 
             </StackPanel>
 
-            
+
             <StackPanel Grid.Row="3"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Margin="0 0 0 16">
-                    
+
                 <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
-              
+
                 <Label Content="with" Margin="-1 0" />
-                
+
                 <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" Foreground="Red" />
-                
+
                 <Label Content="by" Margin="-1 0" />
 
                 <TextBlock x:Name="OwnerTextBlock"
@@ -411,12 +389,12 @@
 
 
             <!-- Snackbar -->
-            
+
             <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" Grid.RowSpan="2" />
 
         </Grid>
-        
-        
+
+
     </materialDesign:DialogHost>
-    
+
 </Window>

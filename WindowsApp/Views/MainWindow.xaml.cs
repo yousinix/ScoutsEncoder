@@ -122,22 +122,6 @@ namespace WindowsApp.Views
 
         //// Input Event Handlers ////
 
-        private void InputCutButton_Click(object sender, RoutedEventArgs e)
-        {
-            InputRichTextBox.CopyToClipboard();
-            InputRichTextBox.Clear();
-        }
-
-        private void InputCopyButton_Click(object sender, RoutedEventArgs e)
-        {
-            InputRichTextBox.CopyToClipboard();
-        }
-
-        private void InputPasteButton_Click(object sender, RoutedEventArgs e)
-        {
-            InputRichTextBox.AppendText(Clipboard.GetText());
-        }
-
         private void InputClearButton_Click(object sender, RoutedEventArgs e)
         {
             InputRichTextBox.Clear();
@@ -269,12 +253,6 @@ namespace WindowsApp.Views
 
 
         //// Output Event Handlers & Properties ////
-
-        private void OutputCutButton_Click(object sender, RoutedEventArgs e)
-        {
-            OutputRichTextBox.CopyToClipboard();
-            OutputRichTextBox.Clear();
-        }
 
         private void OutputCopyButton_Click(object sender, RoutedEventArgs e)
         {
