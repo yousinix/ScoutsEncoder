@@ -21,28 +21,10 @@ namespace WindowsApp.Views
     {
         private CipherBase _selectedCipher;
         private bool _isFilled = true;
-        private bool _isLight  = true;
         private bool _containKeys;
 
-        private const string OwnerName      = "YoussefRaafatNasry";
-        private const string OwnerEmail     = "YoussefRaafatNasry@gmail.com";
-        private const string GoogleDocsBase = "https://doc.new/";
-        private const string GitHubBase     = "https://github.com/";
-        private const string SiteBase       = "https://" + OwnerName + ".github.io/";
-        private const string RepoName       = "ScoutsEncoder";
-        private const string RepoPath       = RepoName + "/";
-        private const string DocsPath       = "docs";
-        private const string ReportSubject  = RepoName + " | Bug Report";
-
-        private static readonly Dictionary<string, string> Links = new Dictionary<string, string>
-        {
-            { "RepoButton"          , $"{GitHubBase}{OwnerName}/{RepoName}"                               },
-            { "GoogleDocsButton"    , GoogleDocsBase                                                      },
-            { "WebsiteButton"       , $"{SiteBase}{RepoPath}"                                             },
-            { "DocumentationButton" , $"{SiteBase}{RepoPath}{DocsPath}"                                   },
-            { "BugReportButton"     , $"mailto:{OwnerEmail}?subject={Uri.EscapeUriString(ReportSubject)}" },
-            { "OwnerTextBlock"      , SiteBase                                                            }
-        };
+        private const string OwnerName = "YoussefRaafatNasry";
+        private const string RepoName  = "ScoutsEncoder";
 
         private static readonly Dictionary<char, char> Shapes = new Dictionary<char, char>
         {
@@ -195,8 +177,7 @@ namespace WindowsApp.Views
             var highlightEndPointer   = highlightStartPointer?.GetPositionAtOffset(encodedSelectedText.Length + 2) ?? OutputRichTextBox.GetEnd();
             var highlightTextRange    = new TextRange(highlightStartPointer, highlightEndPointer);
 
-            var brush = _isLight ? Brushes.Yellow : Brushes.DarkMagenta;
-            highlightTextRange.ApplyPropertyValue(TextElement.BackgroundProperty, brush);
+            highlightTextRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.CornflowerBlue);
         }
 
 
@@ -240,23 +221,6 @@ namespace WindowsApp.Views
             var arguments = $"/select, \"{fileName}\"";
             void Action() => Process.Start("explorer.exe", arguments);
             Snackbar.MessageQueue.Enqueue(content, "Open", Action);
-        }
-
-
-        //// Footer Event Handlers ////
-
-        private void ToggleThemeButton_Click(object sender, RoutedEventArgs e)
-        {
-            var mode = _isLight ? BaseTheme.Dark : BaseTheme.Light;
-            ThemeAssist.SetTheme(this, mode);
-            _isLight ^= true;
-            OutputRichTextBox.ClearFormatting();
-        }
-
-        private void Footer_Click(object sender, RoutedEventArgs e)
-        {
-            var key = ((FrameworkElement) sender).Name;
-            Process.Start(new ProcessStartInfo(Links[key]) { UseShellExecute = true });
         }
     }
 }

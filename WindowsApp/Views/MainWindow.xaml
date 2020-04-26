@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:views1="clr-namespace:WindowsApp.Views"
+        xmlns:views="clr-namespace:WindowsApp.Views"
+        xmlns:viewModels="clr-namespace:WindowsApp.ViewModels"
 
         Title="ScoutsEncoder"
         Height="720" MinHeight="600"
@@ -17,12 +18,16 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}">
 
+    <Window.DataContext>
+        <viewModels:MainViewModel />
+    </Window.DataContext>
+
     <materialDesign:DialogHost x:Name="DialogHost">
 
         <!-- DialogContent -->
 
         <materialDesign:DialogHost.DialogContent>
-            <views1:NewCipherDialog x:Name="NewCipherDialog" />
+            <views:NewCipherDialog x:Name="NewCipherDialog" />
         </materialDesign:DialogHost.DialogContent>
 
 
@@ -261,15 +266,16 @@
                         Orientation="Horizontal"
                         HorizontalAlignment="Center">
 
-                <Button x:Name="ToggleThemeButton"
-                        Width="32"
-                        Height="32"
-                        ToolTip="Toggle Light/Dark Themes"
-                        ToolTipService.InitialShowDelay="1200"
-                        Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        Click="ToggleThemeButton_Click">
+                <ToggleButton x:Name="ThemeToggleButton"
+                              Width="32"
+                              Height="32"
+                              ToolTip="Toggle Light/Dark Themes"
+                              ToolTipService.InitialShowDelay="1200"
+                              Style="{StaticResource MaterialDesignIconForegroundButton}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}"
+                              Command="{Binding Footer.ToggleTheme}" >
                     <materialDesign:PackIcon Kind="ThemeLightDark" Width="18" Height="18" />
-                </Button>
+                </ToggleButton>
 
                 <Button x:Name="RepoButton"
                         Width="32"
@@ -277,7 +283,8 @@
                         ToolTip="Project on GitHub"
                         ToolTipService.InitialShowDelay="1200"
                         Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        Click="Footer_Click">
+                        CommandParameter="https://github.com/YoussefRaafatNasry/ScoutsEncoder/"
+                        Command="{Binding Footer.OpenUrl}">
                     <materialDesign:PackIcon Kind="MicrosoftGithub" Width="18" Height="18" />
                 </Button>
 
@@ -287,7 +294,8 @@
                         ToolTip="Google Docs (Recommended Text Editor)"
                         ToolTipService.InitialShowDelay="1200"
                         Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        Click="Footer_Click">
+                        CommandParameter="https://doc.new/"
+                        Command="{Binding Footer.OpenUrl}">
                     <materialDesign:PackIcon Kind="FileDocument" Width="18" Height="18" />
                 </Button>
 
@@ -297,7 +305,8 @@
                         ToolTip="ScoutsEncoder Site"
                         ToolTipService.InitialShowDelay="1200"
                         Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        Click="Footer_Click">
+                        CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/"
+                        Command="{Binding Footer.OpenUrl}">
                     <materialDesign:PackIcon Kind="Web" Width="18" Height="18" />
                 </Button>
 
@@ -307,7 +316,8 @@
                         ToolTip="Documentation"
                         ToolTipService.InitialShowDelay="1200"
                         Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        Click="Footer_Click">
+                        CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/docs/"
+                        Command="{Binding Footer.OpenUrl}">
                     <materialDesign:PackIcon Kind="HelpOutline" Width="18" Height="18" />
                 </Button>
 
@@ -317,7 +327,8 @@
                         ToolTip="Report a Bug via Email"
                         ToolTipService.InitialShowDelay="1200"
                         Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        Click="Footer_Click">
+                        CommandParameter="mailto:YoussefRaafatNasry@gmail.com?subject=ScoutsEncoder%20Bug"
+                        Command="{Binding Footer.OpenUrl}">
                     <materialDesign:PackIcon Kind="BugReport" Width="18" Height="18" />
                 </Button>
 
@@ -337,15 +348,15 @@
 
                 <Label Content="by" Margin="-1 0" />
 
-                <TextBlock x:Name="OwnerTextBlock"
-                           VerticalAlignment="Center"
-                           Text="YoussefRaafatNasry"
+                <TextBlock VerticalAlignment="Center"
                            FontWeight="Bold"
-                           TextDecorations="Underline"
-                           Cursor="Hand"
                            ToolTip="Who am I?"
-                           ToolTipService.InitialShowDelay="1200"
-                           PreviewMouseDown="Footer_Click" />
+                           ToolTipService.InitialShowDelay="1200" >
+                    <Hyperlink CommandParameter="https://YoussefRaafatNasry.github.io/"
+                               Command="{Binding Footer.OpenUrl}">
+                            YoussefRaafatNasry
+                    </Hyperlink>
+                </TextBlock>
 
             </StackPanel>
 
