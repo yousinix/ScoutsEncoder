@@ -2,19 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Media;
 using WindowsApp.Extensions;
+using WindowsApp.Services;
 using Core.Data;
 using Core.Models.Ciphers;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using MorseGenerator;
-using Octokit;
 
 namespace WindowsApp.Views
 {
@@ -70,6 +69,7 @@ namespace WindowsApp.Views
         public MainWindow()
         {
             InitializeComponent();
+            SubscribeToRealtimeEvent();
 
             // Initialize NewCipherDialog
             NewCipherDialog.Context = this;
@@ -84,37 +84,14 @@ namespace WindowsApp.Views
             CiphersComboBox.DisplayMemberPath   = nameof(CipherBase.Name);
             StandardsComboBox.DisplayMemberPath = nameof(CipherStandard.Name);
 
-            // Clear initial block from RichTextBoxes
-            InputRichTextBox.Clear();
-            OutputRichTextBox.Clear();
-
-            SubscribeToRealtimeEvent();
-
             // Check for updates
-            CheckForUpdates();
+            UpdateService.CheckForUpdates(OwnerName, RepoName, UpdateCallback);
         }
 
-        private void CheckForUpdates()
+        private void UpdateCallback(string version, string downloadUrl)
         {
-            Release latest;
-
-            try
-            {
-                var client = new GitHubClient(new ProductHeaderValue(RepoName));
-                latest = client.Repository.Release.GetLatest(OwnerName, RepoName).Result;
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            var currentVersion = Assembly.GetEntryAssembly()?.GetName().Version;
-            var latestVersion = new Version(latest.TagName.Substring(1) + ".0");
-            var isUpToDate = currentVersion != null && currentVersion.CompareTo(latestVersion) >= 0;
-
-            if (isUpToDate) return;
-            var content = $"{RepoName} {latest.TagName} is Now Available!";
-            void Action() => Process.Start(latest.Assets[0].BrowserDownloadUrl);
+            var content = $"{RepoName} {version} is Now Available!";
+            void Action() => Process.Start(new ProcessStartInfo(downloadUrl) { UseShellExecute = true });
             Snackbar.MessageQueue.Enqueue(content, "Download", Action);
         }
 
