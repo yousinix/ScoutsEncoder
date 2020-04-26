@@ -80,11 +80,6 @@ namespace WindowsApp.Views
 
         //// Input Event Handlers ////
 
-        private void InputClearButton_Click(object sender, RoutedEventArgs e)
-        {
-            InputRichTextBox.Clear();
-        }
-
         private void CiphersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedCipher = (CipherBase) CiphersComboBox.SelectedItem;
@@ -182,16 +177,6 @@ namespace WindowsApp.Views
 
 
         //// Output Event Handlers & Properties ////
-
-        private void OutputCopyButton_Click(object sender, RoutedEventArgs e)
-        {
-            OutputRichTextBox.CopyToClipboard();
-        }
-
-        private void OutputClearButton_Click(object sender, RoutedEventArgs e)
-        {
-            OutputRichTextBox.Clear();
-        }
 
         private void ToggleFillButton_Click(object sender, RoutedEventArgs e)
         {
