@@ -22,9 +22,6 @@ namespace WindowsApp.Views
         private CipherBase _selectedCipher;
         private bool _isFilled = true;
 
-        private const string OwnerName = "YoussefRaafatNasry";
-        private const string RepoName  = "ScoutsEncoder";
-
         private static readonly Dictionary<char, char> Shapes = new Dictionary<char, char>
         {
             { '◼', '◻' },
@@ -64,18 +61,7 @@ namespace WindowsApp.Views
             CiphersComboBox.SelectedIndex       = 0;
             CiphersComboBox.DisplayMemberPath   = nameof(CipherBase.Name);
             StandardsComboBox.DisplayMemberPath = nameof(CipherStandard.Name);
-
-            // Check for updates
-            UpdateService.CheckForUpdates(OwnerName, RepoName, UpdateCallback);
         }
-
-        private void UpdateCallback(string version, string downloadUrl)
-        {
-            var content = $"{RepoName} {version} is Now Available!";
-            void Action() => Process.Start(new ProcessStartInfo(downloadUrl) { UseShellExecute = true });
-            Snackbar.MessageQueue.Enqueue(content, "Download", Action);
-        }
-
 
         //// Input Event Handlers ////
 

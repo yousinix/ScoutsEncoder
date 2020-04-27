@@ -1,30 +1,33 @@
 ﻿using Octokit;
 using System;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace WindowsApp.Services
 {
     public static class UpdateService
     {
-        public static void CheckForUpdates(string owner, string repo, Action<string, string> callback)
+        public static async void CheckForUpdates(Action<string, string> onUpdateAvailable)
         {
-            Release latest;
-
             try
             {
+                var assembly = Assembly.GetExecutingAssembly();
+                var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+                var owner = fileVersionInfo.CompanyName;
+                var repo = fileVersionInfo.ProductName;
+
                 var client = new GitHubClient(new ProductHeaderValue(repo));
-                latest = client.Repository.Release.GetLatest(owner, repo).Result;
+                var latest = await client.Repository.Release.GetLatest(owner, repo);
+                var version = new Version(fileVersionInfo.ProductVersion);
+                var latestVersion = new Version(latest.TagName.Replace("v", string.Empty));
+
+                var isUpToDate = version.CompareTo(latestVersion) >= 0;
+                if (!isUpToDate) onUpdateAvailable(latest.TagName, latest.Assets[0].BrowserDownloadUrl);
             }
             catch (Exception)
             {
-                return;
+                Debug.WriteLine("Failed to Check for Updates!");
             }
-
-            var currentVersion = Assembly.GetEntryAssembly()?.GetName().Version;
-            var latestVersion = new Version(latest.TagName.Substring(1) + ".0");
-            var isUpToDate = currentVersion != null && currentVersion.CompareTo(latestVersion) >= 0;
-
-            if (!isUpToDate) callback(latest.TagName, latest.Assets[0].BrowserDownloadUrl);
         }
     }
 }
