@@ -79,7 +79,7 @@ namespace Core.Models.Ciphers
                 {
                     var index1 = i + j * rowsCount;
                     var index2 = (index1 + Key.Value) % alphabetCount;
-                    outputText.Append((Language.Characters[index1] + " = " + Characters[index2]).PadRight(14));
+                    outputText.Append((Language.Characters[index1] + " = " + Characters[index2]).PadRight(j == columnsCount - 1 ? 0 : 14));
                 }
 
                 outputText.AppendLine();

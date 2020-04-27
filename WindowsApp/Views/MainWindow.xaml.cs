@@ -21,7 +21,6 @@ namespace WindowsApp.Views
     {
         private CipherBase _selectedCipher;
         private bool _isFilled = true;
-        private bool _containKeys;
 
         private const string OwnerName = "YoussefRaafatNasry";
         private const string RepoName  = "ScoutsEncoder";
@@ -115,12 +114,10 @@ namespace WindowsApp.Views
             }
         }
 
-        private void ShowKeyButton_Click(object sender, RoutedEventArgs e)
+        private void DetailsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            _containKeys = true; // Used in mirror selection 
-
-            var keys = _selectedCipher.GetSchema();
-            OutputRichTextBox.SetText(keys);
+            CipherDetailsDialog.CipherNameTextBlock.Text = _selectedCipher.Name;
+            CipherDetailsDialog.CipherSchemaTextBox.Text = _selectedCipher.GetSchema();
         }
 
         // Real-time Encoding & Mirror Selection Modes
@@ -142,8 +139,6 @@ namespace WindowsApp.Views
 
         private void RealtimeEventHandler(object sender, RoutedEventArgs e)
         {
-            _containKeys = false; // Used in mirror selection
-
             // Cipher Config
             if (_selectedCipher is MultiStandardCipher c) c.StandardIndex = StandardsComboBox.SelectedIndex;
             _selectedCipher.Key.Base = _selectedCipher.Key.IsEnabled ? KeysComboBox.SelectedIndex : 0;
@@ -157,7 +152,7 @@ namespace WindowsApp.Views
         private void MirrorSelectionEventHandler(object sender, RoutedEventArgs e)
         {
             OutputRichTextBox.ClearFormatting();
-            if (InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty() || _containKeys) return;
+            if (InputRichTextBox.Selection.IsEmpty || OutputRichTextBox.IsEmpty()) return;
 
             var inputStartPointer     = InputRichTextBox.GetStart();
             var outputStartPointer    = OutputRichTextBox.GetStart();

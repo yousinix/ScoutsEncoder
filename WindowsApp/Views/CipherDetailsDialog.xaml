@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WindowsApp.Views.CipherDetailsDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="32"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="CipherNameTextBlock"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   FontWeight="Bold"
+                   FontSize="16"
+                   FlowDirection="RightToLeft"/>
+
+        <TextBox x:Name="CipherSchemaTextBox"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 IsReadOnly="True"
+                 FontFamily="Courier New"
+                 FontSize="14"
+                 FlowDirection="RightToLeft"/>
+
+    </Grid>
+
+</UserControl>

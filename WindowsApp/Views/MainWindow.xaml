@@ -22,14 +22,7 @@
         <viewModels:MainViewModel />
     </Window.DataContext>
 
-    <materialDesign:DialogHost x:Name="DialogHost">
-
-        <!-- DialogContent -->
-
-        <materialDesign:DialogHost.DialogContent>
-            <views:NewCipherDialog x:Name="NewCipherDialog" />
-        </materialDesign:DialogHost.DialogContent>
-
+    <materialDesign:DialogHost x:Name="DialogHost" CloseOnClickAway="True">
 
         <Grid>
 
@@ -97,6 +90,9 @@
                                     ToolTip="Add new custom cipher"
                                     ToolTipService.InitialShowDelay="1200"
                                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                                <Button.CommandParameter>
+                                    <views:NewCipherDialog x:Name="NewCipherDialog" />
+                                </Button.CommandParameter>
                                 <materialDesign:PackIcon Kind="Add" />
                             </Button>
 
@@ -120,12 +116,16 @@
 
                             <Separator />
 
-                            <Button x:Name="ShowKeyButton"
+                            <Button x:Name="DetailsButton"
                                     ToolBar.OverflowMode="Never"
                                     ToolTip="Show Encoding Key"
                                     ToolTipService.InitialShowDelay="1200"
-                                    Click="ShowKeyButton_Click">
-                                <materialDesign:PackIcon Kind="FormatColumns" />
+                                    Click="DetailsButton_OnClick"
+                                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                                <Button.CommandParameter>
+                                    <views:CipherDetailsDialog x:Name="CipherDetailsDialog" />
+                                </Button.CommandParameter>
+                                <materialDesign:PackIcon Kind="ReadMore" />
                             </Button>
 
                         </ToolBar>
