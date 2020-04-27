@@ -30,7 +30,6 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
 
@@ -265,108 +264,12 @@
 
             <!-- Footer -->
 
-            <StackPanel Grid.Row="2"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-
-                <ToggleButton x:Name="ThemeToggleButton"
-                              Width="32"
-                              Height="32"
-                              ToolTip="Toggle Light/Dark Themes"
-                              ToolTipService.InitialShowDelay="1200"
-                              Style="{StaticResource MaterialDesignIconForegroundButton}"
-                              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}"
-                              Command="{Binding Footer.ToggleTheme}" >
-                    <materialDesign:PackIcon Kind="ThemeLightDark" Width="18" Height="18" />
-                </ToggleButton>
-
-                <Button x:Name="RepoButton"
-                        Width="32"
-                        Height="32"
-                        ToolTip="Project on GitHub"
-                        ToolTipService.InitialShowDelay="1200"
-                        Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        CommandParameter="https://github.com/YoussefRaafatNasry/ScoutsEncoder/"
-                        Command="{Binding Footer.OpenUrl}">
-                    <materialDesign:PackIcon Kind="MicrosoftGithub" Width="18" Height="18" />
-                </Button>
-
-                <Button x:Name="GoogleDocsButton"
-                        Width="32"
-                        Height="32"
-                        ToolTip="Google Docs (Recommended Text Editor)"
-                        ToolTipService.InitialShowDelay="1200"
-                        Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        CommandParameter="https://doc.new/"
-                        Command="{Binding Footer.OpenUrl}">
-                    <materialDesign:PackIcon Kind="FileDocument" Width="18" Height="18" />
-                </Button>
-
-                <Button x:Name="WebsiteButton"
-                        Width="32"
-                        Height="32"
-                        ToolTip="ScoutsEncoder Site"
-                        ToolTipService.InitialShowDelay="1200"
-                        Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/"
-                        Command="{Binding Footer.OpenUrl}">
-                    <materialDesign:PackIcon Kind="Web" Width="18" Height="18" />
-                </Button>
-
-                <Button x:Name="DocumentationButton"
-                        Width="32"
-                        Height="32"
-                        ToolTip="Documentation"
-                        ToolTipService.InitialShowDelay="1200"
-                        Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/docs/"
-                        Command="{Binding Footer.OpenUrl}">
-                    <materialDesign:PackIcon Kind="HelpOutline" Width="18" Height="18" />
-                </Button>
-
-                <Button x:Name="BugReportButton"
-                        Width="32"
-                        Height="32"
-                        ToolTip="Report a Bug via Email"
-                        ToolTipService.InitialShowDelay="1200"
-                        Style="{StaticResource MaterialDesignIconForegroundButton}"
-                        CommandParameter="mailto:YoussefRaafatNasry@gmail.com?subject=ScoutsEncoder%20Bug"
-                        Command="{Binding Footer.OpenUrl}">
-                    <materialDesign:PackIcon Kind="BugReport" Width="18" Height="18" />
-                </Button>
-
-            </StackPanel>
-
-
-            <StackPanel Grid.Row="3"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        Margin="0 0 0 16">
-
-                <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
-
-                <Label Content="with" Margin="-1 0" />
-
-                <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" Foreground="Red" />
-
-                <Label Content="by" Margin="-1 0" />
-
-                <TextBlock VerticalAlignment="Center"
-                           FontWeight="Bold"
-                           ToolTip="Who am I?"
-                           ToolTipService.InitialShowDelay="1200" >
-                    <Hyperlink CommandParameter="https://YoussefRaafatNasry.github.io/"
-                               Command="{Binding Footer.OpenUrl}">
-                            YoussefRaafatNasry
-                    </Hyperlink>
-                </TextBlock>
-
-            </StackPanel>
+            <views:Footer Grid.Row="2" />
 
 
             <!-- Snackbar -->
 
-            <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" Grid.RowSpan="2" />
+            <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" />
 
         </Grid>
 

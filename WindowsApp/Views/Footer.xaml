@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="WindowsApp.Views.Footer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewModels="clr-namespace:WindowsApp.ViewModels">
+
+    <UserControl.DataContext>
+        <viewModels:FooterViewModel />
+    </UserControl.DataContext>
+
+    <StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+            <ToggleButton x:Name="ThemeToggleButton"
+                          Width="32"
+                          Height="32"
+                          ToolTip="Toggle Light/Dark Themes"
+                          ToolTipService.InitialShowDelay="1200"
+                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}"
+                          Command="{Binding ToggleTheme}" >
+                <materialDesign:PackIcon Kind="ThemeLightDark" Width="18" Height="18" />
+            </ToggleButton>
+
+            <Button x:Name="RepoButton"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Project on GitHub"
+                    ToolTipService.InitialShowDelay="1200"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    CommandParameter="https://github.com/YoussefRaafatNasry/ScoutsEncoder/"
+                    Command="{Binding OpenUrl}">
+                <materialDesign:PackIcon Kind="MicrosoftGithub" Width="18" Height="18" />
+            </Button>
+
+            <Button x:Name="GoogleDocsButton"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Google Docs (Recommended Text Editor)"
+                    ToolTipService.InitialShowDelay="1200"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    CommandParameter="https://doc.new/"
+                    Command="{Binding OpenUrl}">
+                <materialDesign:PackIcon Kind="FileDocument" Width="18" Height="18" />
+            </Button>
+
+            <Button x:Name="WebsiteButton"
+                    Width="32"
+                    Height="32"
+                    ToolTip="ScoutsEncoder Site"
+                    ToolTipService.InitialShowDelay="1200"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/"
+                    Command="{Binding OpenUrl}">
+                <materialDesign:PackIcon Kind="Web" Width="18" Height="18" />
+            </Button>
+
+            <Button x:Name="DocumentationButton"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Documentation"
+                    ToolTipService.InitialShowDelay="1200"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/docs/"
+                    Command="{Binding OpenUrl}">
+                <materialDesign:PackIcon Kind="HelpOutline" Width="18" Height="18" />
+            </Button>
+
+            <Button x:Name="BugReportButton"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Report a Bug via Email"
+                    ToolTipService.InitialShowDelay="1200"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    CommandParameter="mailto:YoussefRaafatNasry@gmail.com?subject=ScoutsEncoder%20Bug"
+                    Command="{Binding OpenUrl}">
+                <materialDesign:PackIcon Kind="BugReport" Width="18" Height="18" />
+            </Button>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0 0 0 16">
+
+            <materialDesign:PackIcon Kind="CodeTags" VerticalAlignment="Center" />
+
+            <Label Content="with" Margin="-1 0" />
+
+            <materialDesign:PackIcon Kind="Heart" VerticalAlignment="Center" Foreground="Red" />
+
+            <Label Content="by" Margin="-1 0" />
+
+            <TextBlock VerticalAlignment="Center"
+                       FontWeight="Bold"
+                       ToolTip="Who am I?"
+                       ToolTipService.InitialShowDelay="1200" >
+                    <Hyperlink CommandParameter="https://YoussefRaafatNasry.github.io/"
+                               Command="{Binding OpenUrl}">
+                            YoussefRaafatNasry
+                    </Hyperlink>
+            </TextBlock>
+
+        </StackPanel>
+
+    </StackPanel>
+
+</UserControl>
