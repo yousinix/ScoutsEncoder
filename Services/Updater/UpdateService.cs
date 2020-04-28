@@ -1,17 +1,16 @@
-﻿using Octokit;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Reflection;
+using Octokit;
 
-namespace WindowsApp.Services
+namespace Services.Updater
 {
     public static class UpdateService
     {
-        public static async void CheckForUpdates(Action<string, string> onUpdateAvailable)
+        public static async void CheckForUpdates(Assembly assembly, Action<string, string> onUpdateAvailable)
         {
             try
             {
-                var assembly = Assembly.GetExecutingAssembly();
                 var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
                 var owner = fileVersionInfo.CompanyName;
                 var repo = fileVersionInfo.ProductName;

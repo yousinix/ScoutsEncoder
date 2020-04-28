@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MorseGenerator
+namespace Services.MorseGenerator
 {
     public static class WavFormatChunk
     {

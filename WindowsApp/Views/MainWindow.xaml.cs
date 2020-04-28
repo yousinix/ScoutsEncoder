@@ -8,7 +8,7 @@ using WindowsApp.Extensions;
 using Core.Models.Ciphers;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
-using MorseGenerator;
+using Services.MorseGenerator;
 
 namespace WindowsApp.Views
 {

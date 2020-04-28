@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MorseGenerator
+namespace Services.MorseGenerator
 {
     public static class MorseDataChunk
     {

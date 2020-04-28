@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
-using WindowsApp.Services;
 using WindowsApp.Views;
+using Services.Updater;
 
 namespace WindowsApp
 {
@@ -12,7 +13,8 @@ namespace WindowsApp
             base.OnStartup(e);
             var mainWindow = new MainWindow();
 
-            UpdateService.CheckForUpdates((version, downloadUrl) =>
+            var assembly = Assembly.GetExecutingAssembly();
+            UpdateService.CheckForUpdates(assembly, (version, downloadUrl) =>
             {
                 var content = $"{version} is Now Available!";
                 void Action() => Process.Start(new ProcessStartInfo(downloadUrl) { UseShellExecute = true });
