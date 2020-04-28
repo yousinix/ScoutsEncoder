@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -54,16 +53,6 @@ namespace WindowsApp.Extensions
         public static void ClearFormatting(this RichTextBox richTextBox)
         {
             richTextBox.GetRange().ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
-        }
-
-        public static void Replace(this RichTextBox richTextBox, List<char> old, List<char> @new)
-        {
-            var text = richTextBox.GetText();
-            for (var i = 0; i < old.Count; i++)
-            {
-                text = text.Replace(old[i], @new[i]);
-            }
-            richTextBox.SetText(text);
         }
 
         public static void CopyToClipboard(this RichTextBox richTextBox)

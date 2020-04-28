@@ -44,17 +44,18 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
-                    <RichTextBox x:Name="InputRichTextBox"
-                                 Margin="0 0 0 16"
-                                 FontFamily="Courier New"
-                                 FontSize="14"
-                                 AcceptsReturn="True"
-                                 FlowDirection="RightToLeft"
-                                 Block.LineHeight="4"
-                                 VerticalContentAlignment="Top"
-                                 VerticalScrollBarVisibility="Hidden"
-                                 materialDesign:HintAssist.Hint="أدخل النص هنا..."
-                                 SelectionChanged="MirrorSelectionEventHandler" />
+                    <TextBox x:Name="InputTextBox"
+                             Margin="0 0 0 16"
+                             Text="{Binding Cipher.PlainText, UpdateSourceTrigger=PropertyChanged}"
+                             FontFamily="Courier New"
+                             FontSize="14"
+                             AcceptsReturn="True"
+                             FlowDirection="RightToLeft"
+                             Block.LineHeight="4"
+                             VerticalContentAlignment="Top"
+                             VerticalScrollBarVisibility="Hidden"
+                             materialDesign:HintAssist.Hint="أدخل النص هنا..."
+                             SelectionChanged="MirrorSelectionEventHandler" />
 
                     <Button x:Name="InputClearButton"
                             Grid.Row="0"
@@ -80,9 +81,12 @@
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Language" />
                                 <ComboBox x:Name="CiphersComboBox"
                                           Width="90"
+                                          DisplayMemberPath="Name"
+                                          ItemsSource="{Binding Ciphers}"
+                                          SelectedItem="{Binding Cipher.Model}"
+                                          SelectedIndex="0"
                                           FlowDirection="RightToLeft"
-                                          materialDesign:HintAssist.Hint="الشفرة"
-                                          SelectionChanged="CiphersComboBox_SelectionChanged" />
+                                          materialDesign:HintAssist.Hint="الشفرة" />
                             </StackPanel>
 
                             <Button x:Name="AddNewCipherButton"
@@ -99,8 +103,11 @@
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Settings" />
                                 <ComboBox x:Name="StandardsComboBox"
                                           Width="56"
+                                          DisplayMemberPath="Name"
+                                          ItemsSource="{Binding Cipher.Standards}"
+                                          SelectedIndex="{Binding Cipher.StandardIndex}"
+                                          IsEnabled="{Binding Cipher.HasStandards}"
                                           FlowDirection="RightToLeft"
-                                          IsEnabled="False"
                                           materialDesign:HintAssist.Hint="النسخة" />
                             </StackPanel>
 
@@ -108,8 +115,10 @@
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Key" />
                                 <ComboBox x:Name="KeysComboBox"
                                           Width="56"
+                                          ItemsSource="{Binding Cipher.Keys}"
+                                          SelectedIndex="{Binding Cipher.KeyIndex}"
+                                          IsEnabled="{Binding Cipher.HasKeys}"
                                           FlowDirection="RightToLeft"
-                                          IsEnabled="False"
                                           materialDesign:HintAssist.Hint="المفتاح" />
                             </StackPanel>
 
@@ -156,7 +165,13 @@
                                  Block.LineHeight="4"
                                  VerticalContentAlignment="Top"
                                  VerticalScrollBarVisibility="Hidden"
-                                 IsReadOnly="True" />
+                                 IsReadOnly="True">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run x:Name="OutputRun" Text="{Binding Cipher.EncodedText, Mode=OneWay}" />
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
 
                     <Button x:Name="OutputClearButton"
                             Grid.Row="0"
@@ -199,7 +214,7 @@
                                          Width="32"
                                          Margin="12 0"
                                          TextAlignment="Center"
-                                         Text=" - "
+                                         Text="{Binding Cipher.CharsDelimiter, UpdateSourceTrigger=PropertyChanged}"
                                          ToolTip="Symbol to separate encoded characters"
                                          ToolTipService.InitialShowDelay="1200" />
 
@@ -215,7 +230,7 @@
                                          Width="32"
                                          Margin="12 0"
                                          TextAlignment="Center"
-                                         Text="  /  "
+                                         Text="{Binding Cipher.WordsDelimiter, UpdateSourceTrigger=PropertyChanged}"
                                          ToolTip="Symbol to separate encoded words"
                                          ToolTipService.InitialShowDelay="1200"/>
 
@@ -228,7 +243,7 @@
                                     ToolTip="Toggle Shapes Fill/Stroke"
                                     ToolTipService.InitialShowDelay="1200"
                                     Click="ToggleFillButton_Click"
-                                    IsEnabled="False">
+                                    IsEnabled="{Binding Cipher.IsGeometric}">
                                 <materialDesign:PackIcon Kind="FormatColourFill" />
                             </Button>
 
@@ -237,7 +252,7 @@
                                     ToolTip="Export Audio"
                                     ToolTipService.InitialShowDelay="1200"
                                     Click="ExportAudioButton_Click"
-                                    IsEnabled="False">
+                                    IsEnabled="{Binding Cipher.IsAudible}">
                                 <materialDesign:PackIcon Kind="Audio" />
                             </Button>
 
@@ -247,7 +262,7 @@
                                       ToolBar.OverflowMode="Never"
                                       ToolTip="Audio Speed"
                                       ToolTipService.InitialShowDelay="1200"
-                                      IsEnabled="False">
+                                      IsEnabled="{Binding Cipher.IsAudible}">
                                 <ComboBoxItem Content="Slow" />
                                 <ComboBoxItem Content="Medium" IsSelected="True" />
                                 <ComboBoxItem Content="Fast" />
