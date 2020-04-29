@@ -128,10 +128,9 @@
                                     ToolBar.OverflowMode="Never"
                                     ToolTip="Show Encoding Key"
                                     ToolTipService.InitialShowDelay="1200"
-                                    Click="DetailsButton_OnClick"
                                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
                                 <Button.CommandParameter>
-                                    <views:CipherDetailsDialog x:Name="CipherDetailsDialog" />
+                                    <views:CipherDetailsDialog />
                                 </Button.CommandParameter>
                                 <materialDesign:PackIcon Kind="ReadMore" />
                             </Button>

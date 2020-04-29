@@ -59,12 +59,6 @@ namespace WindowsApp.Views
 
         //// Input Event Handlers ////
 
-        private void DetailsButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            CipherDetailsDialog.CipherNameTextBlock.Text = SelectedCipher.Name;
-            CipherDetailsDialog.CipherSchemaTextBox.Text = SelectedCipher.GetSchema();
-        }
-
         private void MirrorSelectionEventHandler(object sender, RoutedEventArgs e)
         {
             OutputRichTextBox.ClearFormatting();

@@ -35,9 +35,15 @@ namespace WindowsApp.ViewModels
                 OnPropertyChanged(nameof(IsGeometric));
                 OnPropertyChanged(nameof(IsAudible));
 
+                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged(nameof(Schema));
                 OnPropertyChanged(nameof(EncodedText));
             }
         }
+
+        public string Name => Model.Name;
+
+        public string Schema => Model.GetSchema();
 
         #endregion
 
@@ -59,6 +65,7 @@ namespace WindowsApp.ViewModels
 
                 m.StandardIndex = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(Schema));
                 OnPropertyChanged(nameof(EncodedText));
             }
         }
@@ -80,6 +87,7 @@ namespace WindowsApp.ViewModels
                 if (value == _model.Key.Base) return;
                 _model.Key.Base = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(Schema));
                 OnPropertyChanged(nameof(EncodedText));
             }
         }
