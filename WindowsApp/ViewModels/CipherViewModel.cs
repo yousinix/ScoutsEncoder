@@ -16,18 +16,19 @@ namespace WindowsApp.ViewModels
             set
             {
                 _model = value;
-                OnPropertyChanged();
+
+                // Reset Indices
+                if (_model is MultiStandardCipher m) m.StandardIndex = 0;
+                _model.Key.Base = 0;
 
                 // Standards
                 OnPropertyChanged(nameof(HasStandards));
                 OnPropertyChanged(nameof(Standards));
-                _standardIndex = HasStandards ? 0 : -1;
                 OnPropertyChanged(nameof(StandardIndex));
 
                 // Keys
                 OnPropertyChanged(nameof(HasKeys));
                 OnPropertyChanged(nameof(Keys));
-                _keyIndex = HasKeys ? 0 : -1;
                 OnPropertyChanged(nameof(KeyIndex));
 
                 // Types
@@ -43,41 +44,58 @@ namespace WindowsApp.ViewModels
 
         #region Standards
 
-        private int _standardIndex;
         public int StandardIndex
         {
-            get => _standardIndex;
-            set => SetField(ref _standardIndex, value);
+            get => HasStandards ? ((MultiStandardCipher) _model).StandardIndex : -1;
+            set
+            {
+                if (!(_model is MultiStandardCipher m)) return;
+                if (value == m.StandardIndex) return;
+                
+                // Reset Key
+                _model.Key.Base = 0;
+                OnPropertyChanged(nameof(Keys));
+                OnPropertyChanged(nameof(KeyIndex));
+
+                m.StandardIndex = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(EncodedText));
+            }
         }
 
-        public bool HasStandards => Model is MultiStandardCipher;
+        public bool HasStandards => _model is MultiStandardCipher;
 
-        public IEnumerable<CipherStandard> Standards => HasStandards ? ((MultiStandardCipher)Model).Standards : null;
+        public IEnumerable<CipherStandard> Standards => HasStandards ? ((MultiStandardCipher)_model).Standards : null;
 
         #endregion
 
 
         #region Keys
 
-        private int _keyIndex;
         public int KeyIndex
         {
-            get => _keyIndex;
-            set => SetField(ref _keyIndex, value);
+            get => HasKeys ? _model.Key.Base : -1;
+            set
+            {
+                if (value == _model.Key.Base) return;
+                _model.Key.Base = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(EncodedText));
+            }
         }
 
-        public bool HasKeys => Model.Key.IsEnabled;
+        public bool HasKeys => _model.Key.IsEnabled;
 
-        public IEnumerable<string> Keys => HasKeys ? Model.KeysList : null;
+        public IEnumerable<string> Keys => HasKeys ? _model.KeysList : null;
 
         #endregion
 
 
         #region Types
 
-        public bool IsGeometric => Model.Type == CipherType.Geometric;
+        public bool IsGeometric => _model.Type == CipherType.Geometric;
 
-        public bool IsAudible => Model.Type == CipherType.Audible;
+        public bool IsAudible => _model.Type == CipherType.Audible;
 
         #endregion
 
@@ -110,15 +128,7 @@ namespace WindowsApp.ViewModels
             set => SetField(ref _plainText, value);
         }
 
-        public string EncodedText
-        {
-            get
-            {
-                if (KeyIndex != -1) Model.Key.Base = KeyIndex;
-                if (StandardIndex != -1) ((MultiStandardCipher)Model).StandardIndex = StandardIndex;
-                return Model.Encode(PlainText, CharsDelimiter, WordsDelimiter);
-            }
-        }
+        public string EncodedText => _model.Encode(_plainText, _charsDelimiter, _wordsDelimiter);
 
         #endregion
 

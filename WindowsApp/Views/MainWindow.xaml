@@ -105,7 +105,7 @@
                                           Width="56"
                                           DisplayMemberPath="Name"
                                           ItemsSource="{Binding Cipher.Standards}"
-                                          SelectedIndex="{Binding Cipher.StandardIndex}"
+                                          SelectedIndex="{Binding Cipher.StandardIndex, UpdateSourceTrigger=LostFocus}"
                                           IsEnabled="{Binding Cipher.HasStandards}"
                                           FlowDirection="RightToLeft"
                                           materialDesign:HintAssist.Hint="النسخة" />
@@ -116,7 +116,7 @@
                                 <ComboBox x:Name="KeysComboBox"
                                           Width="56"
                                           ItemsSource="{Binding Cipher.Keys}"
-                                          SelectedIndex="{Binding Cipher.KeyIndex}"
+                                          SelectedIndex="{Binding Cipher.KeyIndex, UpdateSourceTrigger=LostFocus}"
                                           IsEnabled="{Binding Cipher.HasKeys}"
                                           FlowDirection="RightToLeft"
                                           materialDesign:HintAssist.Hint="المفتاح" />
