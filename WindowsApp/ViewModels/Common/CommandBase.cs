@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WindowsApp.Commands
+namespace WindowsApp.ViewModels.Common
 {
     public class CommandBase<T> : ICommand
     {

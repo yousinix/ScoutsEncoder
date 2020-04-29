@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Core.Models.Ciphers;
+﻿using Core.Models.Ciphers;
+using System.Collections.Generic;
+using WindowsApp.ViewModels.Common;
 
 namespace WindowsApp.ViewModels
 {
-    public sealed class CipherViewModel : INotifyPropertyChanged
+    public sealed class CipherViewModel : ViewModelBase
     {
         #region Model
 
@@ -13,32 +12,12 @@ namespace WindowsApp.ViewModels
         public CipherBase Model
         {
             get => _model;
-            set
-            {
-                _model = value;
-
-                // Reset Indices
-                if (_model is MultiStandardCipher m) m.StandardIndex = 0;
-                _model.Key.Base = 0;
-
-                // Standards
-                OnPropertyChanged(nameof(HasStandards));
-                OnPropertyChanged(nameof(Standards));
-                OnPropertyChanged(nameof(StandardIndex));
-
-                // Keys
-                OnPropertyChanged(nameof(HasKeys));
-                OnPropertyChanged(nameof(Keys));
-                OnPropertyChanged(nameof(KeyIndex));
-
-                // Types
-                OnPropertyChanged(nameof(IsGeometric));
-                OnPropertyChanged(nameof(IsAudible));
-
-                OnPropertyChanged(nameof(Name));
-                OnPropertyChanged(nameof(Schema));
-                OnPropertyChanged(nameof(EncodedText));
-            }
+            set => SetField(ref _model, value, ResetIndices)
+                .WithDependents(nameof(HasStandards), nameof(Standards), nameof(StandardIndex)) // Standards
+                .WithDependents(nameof(HasKeys),      nameof(Keys),      nameof(KeyIndex))      // Keys
+                .WithDependents(nameof(IsGeometric),  nameof(IsAudible))                        // Types
+                .WithDependents(nameof(Name),         nameof(Schema))                           // Props
+                .WithDependents(nameof(EncodedText));
         }
 
         public string Name => Model.Name;
@@ -52,21 +31,13 @@ namespace WindowsApp.ViewModels
 
         public int StandardIndex
         {
-            get => HasStandards ? ((MultiStandardCipher) _model).StandardIndex : -1;
+            get => HasStandards ? ((MultiStandardCipher)_model).StandardIndex : -1;
             set
             {
-                if (!(_model is MultiStandardCipher m)) return;
-                if (value == m.StandardIndex) return;
-                
-                // Reset Key
-                _model.Key.Base = 0;
-                OnPropertyChanged(nameof(Keys));
-                OnPropertyChanged(nameof(KeyIndex));
-
-                m.StandardIndex = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(Schema));
-                OnPropertyChanged(nameof(EncodedText));
+                if (!(_model !is MultiStandardCipher m)) return;
+                SetProp(() => m.StandardIndex, v => m.StandardIndex = v, value, ResetKeyIndex)
+                    .WithDependents(nameof(Keys),   nameof(KeyIndex))  // Keys
+                    .WithDependents(nameof(Schema), nameof(EncodedText));
             }
         }
 
@@ -82,14 +53,8 @@ namespace WindowsApp.ViewModels
         public int KeyIndex
         {
             get => HasKeys ? _model.Key.Base : -1;
-            set
-            {
-                if (value == _model.Key.Base) return;
-                _model.Key.Base = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(Schema));
-                OnPropertyChanged(nameof(EncodedText));
-            }
+            set => SetProp(() => _model.Key.Base, v => _model.Key.Base = v, value)
+                .WithDependents(nameof(Schema), nameof(EncodedText));
         }
 
         public bool HasKeys => _model.Key.IsEnabled;
@@ -114,14 +79,16 @@ namespace WindowsApp.ViewModels
         public string CharsDelimiter
         {
             get => _charsDelimiter;
-            set => SetField(ref _charsDelimiter, value);
+            set => SetField(ref _charsDelimiter, value)
+                .WithDependents(nameof(EncodedText));
         }
 
         private string _wordsDelimiter = "  /  ";
         public string WordsDelimiter
         {
             get => _wordsDelimiter;
-            set => SetField(ref _wordsDelimiter, value);
+            set => SetField(ref _wordsDelimiter, value)
+                .WithDependents(nameof(EncodedText));
         }
 
         #endregion
@@ -133,7 +100,8 @@ namespace WindowsApp.ViewModels
         public string PlainText
         {
             get => _plainText;
-            set => SetField(ref _plainText, value);
+            set => SetField(ref _plainText, value)
+                .WithDependents(nameof(EncodedText));
         }
 
         public string EncodedText => _model.Encode(_plainText, _charsDelimiter, _wordsDelimiter);
@@ -141,21 +109,17 @@ namespace WindowsApp.ViewModels
         #endregion
 
 
-        #region Property Change Notification
+        #region Methods
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void ResetIndices()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (_model is MultiStandardCipher m) m.StandardIndex = 0;
+            _model.Key.Base = 0;
         }
 
-        private void SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        private void ResetKeyIndex()
         {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return;
-            field = value;
-            OnPropertyChanged(propertyName);
-            OnPropertyChanged(nameof(EncodedText)); // All properties affect EncodedText
+            _model.Key.Base = 0;
         }
 
         #endregion

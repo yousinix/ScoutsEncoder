@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
-using WindowsApp.Commands;
+using WindowsApp.ViewModels.Common;
 using MaterialDesignThemes.Wpf;
 
 namespace WindowsApp.ViewModels
 {
-    public class FooterViewModel
+    public class FooterViewModel : ViewModelBase
     {
         public CommandBase<bool> ToggleTheme { get; set; } = new CommandBase<bool>(ChangeBaseTheme);
 

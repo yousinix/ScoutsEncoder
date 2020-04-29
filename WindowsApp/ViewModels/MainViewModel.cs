@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
-using WindowsApp.Commands;
 using WindowsApp.Extensions;
+using WindowsApp.ViewModels.Common;
 using Core.Data;
 using Core.Models.Ciphers;
 
 namespace WindowsApp.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
         public CipherViewModel Cipher { get; set; } = new CipherViewModel();
         public IEnumerable<CipherBase> Ciphers => CiphersList.Instance;
