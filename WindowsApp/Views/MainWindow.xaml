@@ -54,6 +54,7 @@
                              Block.LineHeight="4"
                              VerticalContentAlignment="Top"
                              VerticalScrollBarVisibility="Hidden"
+                             TextWrapping="Wrap"
                              materialDesign:HintAssist.Hint="أدخل النص هنا..."
                              SelectionChanged="MirrorSelectionEventHandler" />
 
