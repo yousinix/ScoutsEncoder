@@ -68,8 +68,7 @@
                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
                             ToolTip="Clear Input"
                             ToolTipService.InitialShowDelay="1200"
-                            CommandParameter="{Binding ElementName=InputRichTextBox}"
-                            Command="{Binding Clear}">
+                            Command="{Binding ClearInput}">
                         <materialDesign:PackIcon Kind="Close" Width="12" />
                     </Button>
 
@@ -183,8 +182,7 @@
                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
                             ToolTip="Copy Output"
                             ToolTipService.InitialShowDelay="1200"
-                            CommandParameter="{Binding ElementName=OutputRichTextBox}"
-                            Command="{Binding Copy}">
+                            Command="{Binding CopyOutput}">
                         <materialDesign:PackIcon Kind="ContentCopy" Width="12" />
                     </Button>
 

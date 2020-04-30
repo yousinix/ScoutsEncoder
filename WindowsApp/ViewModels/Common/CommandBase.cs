@@ -3,6 +3,14 @@ using System.Windows.Input;
 
 namespace WindowsApp.ViewModels.Common
 {
+    public class CommandBase : CommandBase<object>
+    {
+        public CommandBase(Action<object> execute, Predicate<object> canExecute = null)
+            : base(execute, canExecute)
+        {
+        }
+    }
+
     public class CommandBase<T> : ICommand
     {
         private readonly Action<T> _execute;
@@ -14,16 +22,20 @@ namespace WindowsApp.ViewModels.Common
             _canExecute = canExecute ?? (o => true);
         }
 
-        public event EventHandler CanExecuteChanged;
-
-        public void Execute(object parameter)
+        public event EventHandler CanExecuteChanged
         {
-            _execute((T)parameter);
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
 
         public bool CanExecute(object parameter)
         {
             return _canExecute.Invoke((T)parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            _execute((T)parameter);
         }
     }
 }
