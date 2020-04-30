@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using Core.Models.Ciphers;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 using WindowsApp.Extensions;
-using Core.Models.Ciphers;
-using MaterialDesignThemes.Wpf;
-using Microsoft.Win32;
-using Services.MorseGenerator;
 
 namespace WindowsApp.Views
 {
@@ -54,31 +48,5 @@ namespace WindowsApp.Views
             highlightTextRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.CornflowerBlue);
         }
 
-
-        //// Output Event Handlers & Properties ////
-
-
-        private void ExportAudioButton_Click(object sender, RoutedEventArgs e)
-        {
-            var saveFileDialog = new SaveFileDialog
-            {
-                FileName = "MorseCode - " + AudioSpeedComboBox.Text,
-                DefaultExt = ".wav",
-                Filter = "Waveform Audio File|*.wav"
-            };
-
-            if (saveFileDialog.ShowDialog() != true) return;
-
-            var text      = OutputRichTextBox.GetText();
-            var speed     = AudioSpeedComboBox.SelectedIndex;
-            var fileName  = saveFileDialog.FileName;
-            
-            MorseAudioGenerator.Generate(fileName, text, CharsDelimiter, WordsDelimiter, speed);
-
-            var content = $"{saveFileDialog.SafeFileName} is Saved!";
-            var arguments = $"/select, \"{fileName}\"";
-            void Action() => Process.Start("explorer.exe", arguments);
-            Snackbar.MessageQueue.Enqueue(content, "Open", Action);
-        }
     }
 }

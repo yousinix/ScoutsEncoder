@@ -229,22 +229,20 @@
                                     ToolBar.OverflowMode="Never"
                                     ToolTip="Export Audio"
                                     ToolTipService.InitialShowDelay="1200"
-                                    Click="ExportAudioButton_Click"
-                                    IsEnabled="{Binding Cipher.IsAudible}">
+                                    IsEnabled="{Binding Cipher.IsAudible}"
+                                    Command="{Binding ExportAudio}">
                                 <materialDesign:PackIcon Kind="Audio" />
                             </Button>
 
                             <ComboBox x:Name="AudioSpeedComboBox"
                                       Width="64"
                                       Margin="8 0 16 0"
+                                      ItemsSource="{Binding Speeds}"
+                                      SelectedIndex="{Binding SpeedIndex}"
                                       ToolBar.OverflowMode="Never"
                                       ToolTip="Audio Speed"
                                       ToolTipService.InitialShowDelay="1200"
-                                      IsEnabled="{Binding Cipher.IsAudible}">
-                                <ComboBoxItem Content="Slow" />
-                                <ComboBoxItem Content="Medium" IsSelected="True" />
-                                <ComboBoxItem Content="Fast" />
-                            </ComboBox>
+                                      IsEnabled="{Binding Cipher.IsAudible}" />
 
                         </ToolBar>
 
