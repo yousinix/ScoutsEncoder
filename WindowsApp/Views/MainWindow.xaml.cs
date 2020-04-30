@@ -32,13 +32,7 @@ namespace WindowsApp.Views
         public MainWindow()
         {
             InitializeComponent();
-
-            // Initialize NewCipherDialog
             NewCipherDialog.Context = this;
-
-            // Initialize messageQueue and Assign it to Snack bar's MessageQueue
-            var messageQueue      = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
-            Snackbar.MessageQueue = messageQueue;
         }
 
         //// Input Event Handlers ////

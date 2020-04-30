@@ -275,7 +275,7 @@
 
             <!-- Snackbar -->
 
-            <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" />
+            <materialDesign:Snackbar x:Name="Snackbar" Grid.Row="2" MessageQueue="{Binding MessageQueue}" />
 
         </Grid>
 
