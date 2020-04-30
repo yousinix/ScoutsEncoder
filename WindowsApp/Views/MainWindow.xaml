@@ -181,28 +181,17 @@
                             Height="24"
                             Style="{StaticResource MaterialDesignIconForegroundButton}"
                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
-                            ToolTip="Clear Output"
+                            ToolTip="Copy Output"
                             ToolTipService.InitialShowDelay="1200"
                             CommandParameter="{Binding ElementName=OutputRichTextBox}"
-                            Command="{Binding Clear}">
-                        <materialDesign:PackIcon Kind="Close" Width="12" />
+                            Command="{Binding Copy}">
+                        <materialDesign:PackIcon Kind="ContentCopy" Width="12" />
                     </Button>
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
 
                         <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
                                  Background="Transparent">
-
-                            <Button x:Name="OutputCopyButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Copy Output"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    CommandParameter="{Binding ElementName=OutputRichTextBox}"
-                                    Command="{Binding Copy}">
-                                <materialDesign:PackIcon Kind="ContentCopy" />
-                            </Button>
-
-                            <Separator />
 
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16 0 8 0">
 
