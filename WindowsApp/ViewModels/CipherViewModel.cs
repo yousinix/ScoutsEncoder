@@ -15,14 +15,16 @@ namespace WindowsApp.ViewModels
             set => SetField(ref _model, value, ResetIndices)
                 .WithDependents(nameof(HasStandards), nameof(Standards), nameof(StandardIndex)) // Standards
                 .WithDependents(nameof(HasKeys),      nameof(Keys),      nameof(KeyIndex))      // Keys
-                .WithDependents(nameof(IsGeometric),  nameof(IsAudible))                        // Types
-                .WithDependents(nameof(Name),         nameof(Schema))                           // Props
+                .WithDependents(nameof(IsAudible),    nameof(Name),      nameof(Schema))        // Props
                 .WithDependents(nameof(EncodedText));
         }
+
+        public bool IsAudible => _model.Type == CipherType.Audible;
 
         public string Name => Model.Name;
 
         public string Schema => Model.GetSchema();
+
 
         #endregion
 
@@ -60,15 +62,6 @@ namespace WindowsApp.ViewModels
         public bool HasKeys => _model.Key.IsEnabled;
 
         public IEnumerable<string> Keys => HasKeys ? _model.KeysList : null;
-
-        #endregion
-
-
-        #region Types
-
-        public bool IsGeometric => _model.Type == CipherType.Geometric;
-
-        public bool IsAudible => _model.Type == CipherType.Audible;
 
         #endregion
 

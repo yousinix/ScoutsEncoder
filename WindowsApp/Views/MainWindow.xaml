@@ -101,9 +101,9 @@
                             </Button>
 
                             <StackPanel Orientation="Horizontal" Margin="16 0">
-                                <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Settings" />
+                                <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Gear" />
                                 <ComboBox x:Name="StandardsComboBox"
-                                          Width="56"
+                                          Width="64"
                                           DisplayMemberPath="Name"
                                           ItemsSource="{Binding Cipher.Standards}"
                                           SelectedIndex="{Binding Cipher.StandardIndex, UpdateSourceTrigger=LostFocus}"
@@ -115,7 +115,7 @@
                             <StackPanel Orientation="Horizontal" Margin="16 0">
                                 <materialDesign:PackIcon Margin="0 0 12 0" VerticalAlignment="Center" Kind="Key" />
                                 <ComboBox x:Name="KeysComboBox"
-                                          Width="56"
+                                          Width="64"
                                           ItemsSource="{Binding Cipher.Keys}"
                                           SelectedIndex="{Binding Cipher.KeyIndex, UpdateSourceTrigger=LostFocus}"
                                           IsEnabled="{Binding Cipher.HasKeys}"
@@ -237,15 +237,6 @@
                             </StackPanel>
 
                             <Separator />
-
-                            <Button x:Name="ToggleFillButton"
-                                    ToolBar.OverflowMode="Never"
-                                    ToolTip="Toggle Shapes Fill/Stroke"
-                                    ToolTipService.InitialShowDelay="1200"
-                                    Click="ToggleFillButton_Click"
-                                    IsEnabled="{Binding Cipher.IsGeometric}">
-                                <materialDesign:PackIcon Kind="FormatColourFill" />
-                            </Button>
 
                             <Button x:Name="ExportAudioButton"
                                     ToolBar.OverflowMode="Never"

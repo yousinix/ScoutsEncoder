@@ -14,22 +14,6 @@ namespace WindowsApp.Views
 {
     public partial class MainWindow
     {
-        private bool _isFilled = true;
-
-        private static readonly Dictionary<char, char> Shapes = new Dictionary<char, char>
-        {
-            { '◼', '◻' },
-            { '▲', '△' },
-            { '▼', '▽' },
-            { '◀', '◁' },
-            { '▶', '▷' },
-            { '◢', '◿' },
-            { '◣', '◺' },
-            { '◥', '◹' },
-            { '◤', '◸' },
-        };
-
-
         private string CharsDelimiter => CharsDelimiterTextBox.Text;
 
         private string WordsDelimiter => WordsDelimiterTextBox.Text;
@@ -79,17 +63,6 @@ namespace WindowsApp.Views
 
         //// Output Event Handlers & Properties ////
 
-        private void ToggleFillButton_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (var (key, value) in Shapes)
-            {
-                var text = OutputRun.Text;
-                OutputRun.Text = _isFilled 
-                    ? text.Replace(key, value)
-                    : text.Replace(value, key);
-            }
-            _isFilled ^= true;
-        }
 
         private void ExportAudioButton_Click(object sender, RoutedEventArgs e)
         {
