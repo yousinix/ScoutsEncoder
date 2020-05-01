@@ -64,12 +64,24 @@
                             HorizontalAlignment="Left"
                             Width="24"
                             Height="24"
-                            Style="{StaticResource MaterialDesignIconForegroundButton}"
-                            Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                            Background="{DynamicResource MaterialDesignPaper}"
                             ToolTip="Clear Input"
                             ToolTipService.InitialShowDelay="1200"
                             Command="{Binding ClearInput}">
                         <materialDesign:PackIcon Kind="Close" Width="12" />
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignIconForegroundButton}">
+                                <Setter Property="Visibility" Value="Hidden" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=InputTextBox}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=InputClearButton}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                     </Button>
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
@@ -178,12 +190,24 @@
                             HorizontalAlignment="Left"
                             Width="24"
                             Height="24"
-                            Style="{StaticResource MaterialDesignIconForegroundButton}"
-                            Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                            Background="{DynamicResource MaterialDesignPaper}"
                             ToolTip="Copy Output"
                             ToolTipService.InitialShowDelay="1200"
                             Command="{Binding CopyOutput}">
                         <materialDesign:PackIcon Kind="ContentCopy" Width="12" />
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignIconForegroundButton}">
+                                <Setter Property="Visibility" Value="Hidden" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=OutputRichTextBox}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=OutputClearButton}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                     </Button>
 
                     <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
