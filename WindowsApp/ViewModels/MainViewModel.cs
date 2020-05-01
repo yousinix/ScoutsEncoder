@@ -3,6 +3,7 @@ using Core.Models.Ciphers;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
@@ -14,20 +15,58 @@ namespace WindowsApp.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public SnackbarMessageQueue MessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
-        public IEnumerable<CipherBase> Ciphers => CiphersList.Instance;
-        public List<string> Speeds => new List<string> { "Slow", "Medium", "Fast" };
-        public CipherViewModel Cipher { get; set; } = new CipherViewModel();
+        private bool _isDialogHostOpen;
+        public bool IsDialogHostOpen
+        {
+            get => _isDialogHostOpen;
+            set => SetField(ref _isDialogHostOpen, value);
+        }
+
+        private int _cipherIndex;
+        public int CipherIndex
+        {
+            get => _cipherIndex;
+            set => SetField(ref _cipherIndex, value);
+        }
+
         public int SpeedIndex { get; set; } = 1;
+
+
+        #region Collections
+
+        public SnackbarMessageQueue MessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
+        public ObservableCollection<CipherBase> Ciphers => CiphersList.Instance;
+        public List<string> Speeds => new List<string> { "Slow", "Medium", "Fast" };
+
+        #endregion
+
+
+        #region ViewModels
+
+        public CipherViewModel Cipher { get; set; } = new CipherViewModel();
+        public NewCipherDialogViewModel NewCipherDialog { get; set; } = new NewCipherDialogViewModel();
+
+        #endregion
+
+
+        #region Commands
+
         public ICommand ClearInput { get; set; }
         public ICommand CopyOutput { get; set; }
         public ICommand ExportAudio { get; set; }
+        public ICommand AddNewCipher { get; set; }
+        public ICommand CloseDialog { get; set; }
+
+        #endregion
+
 
         public MainViewModel()
         {
-            ClearInput = new CommandBase(_ => ExecuteClearInput());
-            CopyOutput = new CommandBase(_ => ExecuteCopyOutput());
-            ExportAudio = new CommandBase(_ => ExecuteExportAudio());
+            ClearInput   = new CommandBase(_ => ExecuteClearInput());
+            CopyOutput   = new CommandBase(_ => ExecuteCopyOutput());
+            ExportAudio  = new CommandBase(_ => ExecuteExportAudio());
+            AddNewCipher = new CommandBase(_ => ExecuteAddNewCipher());
+            CloseDialog  = new CommandBase(_ => ExecuteCloseDialog());
         }
 
         private void ExecuteClearInput()
@@ -63,6 +102,20 @@ namespace WindowsApp.ViewModels
             var arguments = $"/select, \"{saveFileDialog.FileName}\"";
             void Action() => Process.Start("explorer.exe", arguments);
             MessageQueue.Enqueue(content, "Open", Action);
+        }
+
+        private void ExecuteAddNewCipher()
+        {
+            Ciphers.Add(NewCipherDialog.NewCipher);
+            CipherIndex = Ciphers.Count - 1;
+            ExecuteCloseDialog();
+            MessageQueue.Enqueue("New Cipher Added!");
+        }
+
+        private void ExecuteCloseDialog()
+        {
+            IsDialogHostOpen = false;
+            NewCipherDialog.Reset();
         }
     }
 }

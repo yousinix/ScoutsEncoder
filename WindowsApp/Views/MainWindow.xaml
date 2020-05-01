@@ -22,7 +22,7 @@
         <viewModels:MainViewModel />
     </Window.DataContext>
 
-    <materialDesign:DialogHost x:Name="DialogHost" CloseOnClickAway="True">
+    <materialDesign:DialogHost x:Name="DialogHost" CloseOnClickAway="True" IsOpen="{Binding IsDialogHostOpen}">
 
         <Grid>
 
@@ -96,7 +96,7 @@
                                           DisplayMemberPath="Name"
                                           ItemsSource="{Binding Ciphers}"
                                           SelectedItem="{Binding Cipher.Model}"
-                                          SelectedIndex="0"
+                                          SelectedIndex="{Binding CipherIndex}"
                                           FlowDirection="RightToLeft"
                                           materialDesign:HintAssist.Hint="الشفرة" />
                             </StackPanel>

@@ -12,7 +12,6 @@ namespace WindowsApp.Views
         public MainWindow() 
         {
             InitializeComponent();
-            NewCipherDialog.Context = this;
         }
 
         private void MirrorSelectionEventHandler(object sender, RoutedEventArgs e)
