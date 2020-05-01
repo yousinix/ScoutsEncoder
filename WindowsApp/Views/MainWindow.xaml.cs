@@ -1,51 +1,41 @@
-﻿using Core.Models.Ciphers;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
-using WindowsApp.Extensions;
+using WindowsApp.ViewModels;
 
 namespace WindowsApp.Views
 {
     public partial class MainWindow
     {
-        private string CharsDelimiter => CharsDelimiterTextBox.Text;
+        private CipherViewModel Cipher => ((MainViewModel) DataContext).Cipher;
 
-        private string WordsDelimiter => WordsDelimiterTextBox.Text;
-
-        private CipherBase SelectedCipher
-        {
-            get
-            {
-                var cipher = (CipherBase) CiphersComboBox.SelectedItem;
-                if (cipher is MultiStandardCipher c) c.StandardIndex = StandardsComboBox.SelectedIndex;
-                cipher.Key.Base = cipher.Key.IsEnabled ? KeysComboBox.SelectedIndex : 0;
-                return cipher;
-            }
-        }
-
-        public MainWindow()
+        public MainWindow() 
         {
             InitializeComponent();
             NewCipherDialog.Context = this;
         }
 
-        //// Input Event Handlers ////
-
         private void MirrorSelectionEventHandler(object sender, RoutedEventArgs e)
         {
-            OutputRichTextBox.ClearFormatting();
-            if (InputTextBox.SelectionLength == 0 || OutputRichTextBox.IsEmpty()) return;
+            // Clear old mirror
+            var baseStartPtr   = OutputRichTextBox.Document.ContentStart;
+            var baseEndPtr     = OutputRichTextBox.Document.ContentEnd;
+            var baseRange      = new TextRange(baseStartPtr, baseEndPtr);
+            baseRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
 
-            var encodedSelectedText   = SelectedCipher.Encode(InputTextBox.SelectedText, CharsDelimiter, WordsDelimiter);
-            var precedingText         = InputTextBox.Text.Substring(0, InputTextBox.SelectionStart);
-            var encodedPrecedingText  = SelectedCipher.Encode(precedingText, CharsDelimiter, WordsDelimiter);
+            if (InputTextBox.SelectionLength == 0) return;
 
-            var outputStartPointer    = OutputRichTextBox.GetStart();
-            var highlightStartPointer = outputStartPointer.GetPositionAtOffset(encodedPrecedingText.Length + 2);
-            var highlightEndPointer   = highlightStartPointer?.GetPositionAtOffset(encodedSelectedText.Length + 2) ?? OutputRichTextBox.GetEnd();
-            var highlightTextRange    = new TextRange(highlightStartPointer, highlightEndPointer);
+            // Get mirror target info
+            var selectedText   = Cipher.Encode(InputTextBox.SelectedText);
+            var precedingText  = Cipher.Encode(InputTextBox.Text.Substring(0, InputTextBox.SelectionStart));
+            var mirrorStart    = precedingText.Length + 2;
+            var mirrorLength   = selectedText .Length + 2;
 
-            highlightTextRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.CornflowerBlue);
+            // Apply mirror to target
+            var mirrorStartPtr = baseStartPtr.GetPositionAtOffset(mirrorStart);
+            var mirrorEndPtr   = mirrorStartPtr?.GetPositionAtOffset(mirrorLength) ?? baseEndPtr;
+            var mirrorRange    = new TextRange(mirrorStartPtr, mirrorEndPtr);
+            mirrorRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.CornflowerBlue);
         }
 
     }

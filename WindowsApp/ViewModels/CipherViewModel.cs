@@ -104,6 +104,11 @@ namespace WindowsApp.ViewModels
 
         #region Methods
 
+        public string Encode(string text)
+        {
+            return _model.Encode(text, _charsDelimiter, _wordsDelimiter);
+        }
+
         private void ResetIndices()
         {
             if (_model is MultiStandardCipher m) m.StandardIndex = 0;
@@ -116,5 +121,6 @@ namespace WindowsApp.ViewModels
         }
 
         #endregion
+
     }
 }
