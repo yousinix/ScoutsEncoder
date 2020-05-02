@@ -6,14 +6,14 @@ namespace Core.Data
 {
     public static class CiphersList
     {
-        public static ObservableCollection<CipherBase> Instance { get; } = new ObservableCollection<CipherBase>
+        public static ObservableCollection<Cipher> Instance { get; } = new ObservableCollection<Cipher>
         {
-            new MultiStandardCipher
+            new Cipher
             {
                 Name = "بوليبيوس",
-                Standards = new List<CipherStandard>
+                CharactersSets = new List<CharactersSet>
                 {
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "٧×٤",
                         Characters =
@@ -25,7 +25,7 @@ namespace Core.Data
                         }
                     },
 
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "٤×٧",
                         Characters =
@@ -42,110 +42,158 @@ namespace Core.Data
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "يسوع",
-                Characters =
+                CharactersSets =
                 {
-                    "ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
-                    "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
-                    "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
-                    "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"
+                    new CharactersSet
+                    {
+                        Characters = 
+                        { 
+                            "ي١", "ي٢", "ي٣", "ي٤", "ي٥", "ي٦", "ي٧",
+                            "س١", "س٢", "س٣", "س٤", "س٥", "س٦", "س٧",
+                            "و١", "و٢", "و٣", "و٤", "و٥", "و٦", "و٧",
+                            "ع١", "ع٢", "ع٣", "ع٤", "ع٥", "ع٦", "ع٧"
+                        }
+                    }
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "الرقمية",
-                Characters =
+                CharactersSets =
                 {
-                    "١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
-                    "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
-                    "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
-                    "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "١" , "٢" , "٣" , "٤" , "٥" , "٦" , "٧" ,
+                            "٨" , "٩" , "١٠", "١١", "١٢", "١٣", "١٤",
+                            "١٥", "١٦", "١٧", "١٨", "١٩", "٢٠", "٢١",
+                            "٢٢", "٢٣", "٢٤", "٢٥", "٢٦", "٢٧", "٢٨"
+                        }
+                    }
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "الرومانية",
-                Characters = 
+                CharactersSets =
                 {
-                    "I"   , "II"   , "III" , "IV"   , "V"   , "VI"   , "VII",
-                    "VIII", "IX"   , "X"   , "XI"   , "XII" , "XIII" , "XIV",
-                    "XV"  , "XVI"  , "XVII", "XVIII", "XIX" , "XX"   , "XXI",
-                    "XXII", "XXIII", "XXIV", "XXV"  , "XXVI", "XXVII", "XXVIII"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "I"   , "II"   , "III" , "IV"   , "V"   , "VI"   , "VII",
+                            "VIII", "IX"   , "X"   , "XI"   , "XII" , "XIII" , "XIV",
+                            "XV"  , "XVI"  , "XVII", "XVIII", "XIX" , "XX"   , "XXI",
+                            "XXII", "XXIII", "XXIV", "XXV"  , "XXVI", "XXVII", "XXVIII"
+                        }
+                    }
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "الأعداد الثنائية",
-                Characters =
+                CharactersSets =
                 {
-                    "00001", "00010", "00011", "00100", "00101", "00110", "00111",
-                    "01000", "01001", "01010", "01011", "01100", "01101", "01110",
-                    "01111", "10000", "10001", "10010", "10011", "10100", "10101",
-                    "10110", "10111", "11000", "11001", "11010", "11011", "11100"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "00001", "00010", "00011", "00100", "00101", "00110", "00111",
+                            "01000", "01001", "01010", "01011", "01100", "01101", "01110",
+                            "01111", "10000", "10001", "10010", "10011", "10100", "10101",
+                            "10110", "10111", "11000", "11001", "11010", "11011", "11100"
+                        }
+                    }
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "العكسية",
-                Characters =
+                CharactersSets =
                 {
-                    "ي", "و", "ه", "ن", "م", "ل", "ك",
-                    "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
-                    "ص", "ش", "س", "ز", "ر", "ذ", "د",
-                    "خ", "ح", "ج", "ث", "ت", "ب", "ا"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "ي", "و", "ه", "ن", "م", "ل", "ك",
+                            "ق", "ف", "غ", "ع", "ظ", "ط", "ض",
+                            "ص", "ش", "س", "ز", "ر", "ذ", "د",
+                            "خ", "ح", "ج", "ث", "ت", "ب", "ا"
+                        }
+                    }
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "قيصر",
-                Characters =
+                CharactersSets =
                 {
-                    "ب", "ت", "ث", "ج", "ح", "خ", "د",
-                    "ذ", "ر", "ز", "س", "ش", "ص", "ض",
-                    "ط", "ظ", "ع", "غ", "ف", "ق", "ك",
-                    "ل", "م", "ن", "ه", "و", "ي", "ا"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "ب", "ت", "ث", "ج", "ح", "خ", "د",
+                            "ذ", "ر", "ز", "س", "ش", "ص", "ض",
+                            "ط", "ظ", "ع", "غ", "ف", "ق", "ك",
+                            "ل", "م", "ن", "ه", "و", "ي", "ا"
+                        }
+                    }
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "المورس",
                 Key = new Key { IsEnabled = false },
                 Type = CipherType.Audible,
-                Characters =
+                CharactersSets =
                 {
-                    "(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
-                    "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
-                    "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
-                    "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "(•-)"  , "(-•••)", "(-)"   , "(-•-•)", "(•---)" , "(••••)", "(---)" ,
+                            "(-••)" , "(--••)", "(•-•)" , "(---•)", "(•••)"  , "(----)", "(-••-)",
+                            "(•••-)", "(••-)" , "(-•--)", "(•-•-)", "(--•)"  , "(••-•)", "(--•-)",
+                            "(-•-)" , "(•-••)", "(--)"  , "(-•)"  , "(••-••)", "(•--)" , "(••)"
+                        }
+                    }
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "البوصلة",
-                Characters =
+                CharactersSets =
                 {
-                    "N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
-                    "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
-                    "N(٣)", "NE(٣)", "E(٣)", "SE(٣)", "S(٣)", "SW(٣)", "W(٣)", "NW(٣)",
-                    "N(٤)", "NE(٤)", "E(٤)", "SE(٤)"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "N(١)", "NE(١)", "E(١)", "SE(١)", "S(١)", "SW(١)", "W(١)", "NW(١)",
+                            "N(٢)", "NE(٢)", "E(٢)", "SE(٢)", "S(٢)", "SW(٢)", "W(٢)", "NW(٢)",
+                            "N(٣)", "NE(٣)", "E(٣)", "SE(٣)", "S(٣)", "SW(٣)", "W(٣)", "NW(٣)",
+                            "N(٤)", "NE(٤)", "E(٤)", "SE(٤)"
+                        }
+                    }
                 }
             },
 
-            new MultiStandardCipher
+            new Cipher
             {
                 Name = "الساعة",
-                Standards = 
+                CharactersSets = 
                 {
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "CW",
                         Characters =
@@ -157,7 +205,7 @@ namespace Core.Data
                         }
                     },
 
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "CCW",
                         Characters =
@@ -171,13 +219,13 @@ namespace Core.Data
                 }
             },
 
-            new MultiStandardCipher
+            new Cipher
             {
                 Name = "الجوال",
                 Key = new Key { IsEnabled = false },
-                Standards = 
+                CharactersSets = 
                 {
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "أ = ٣",
                         Characters =
@@ -189,7 +237,7 @@ namespace Core.Data
                         }
                     },
 
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "أ = ٣^١",
                         Characters =
@@ -203,27 +251,33 @@ namespace Core.Data
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "إكس",
                 Key = new Key { Weight = 7 },
-                Characters =
+                CharactersSets =
                 {
-                    "˅١", "˅٢", "˅٣", "˅٤", "˅٥", "˅٦", "˅٧",
-                    "˂١", "˂٢", "˂٣", "˂٤", "˂٥", "˂٦", "˂٧",
-                    "˄١", "˄٢", "˄٣", "˄٤", "˄٥", "˄٦", "˄٧",
-                    "˃١", "˃٢", "˃٣", "˃٤", "˃٥", "˃٦", "˃٧"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "˅١", "˅٢", "˅٣", "˅٤", "˅٥", "˅٦", "˅٧",
+                            "˂١", "˂٢", "˂٣", "˂٤", "˂٥", "˂٦", "˂٧",
+                            "˄١", "˄٢", "˄٣", "˄٤", "˄٥", "˄٦", "˄٧",
+                            "˃١", "˃٢", "˃٣", "˃٤", "˃٥", "˃٦", "˃٧"
+                        }
+                    }
                 }
             },
 
-            new MultiStandardCipher
+            new Cipher
             {
                 Name = "النجمة",
                 Key = new Key { Weight = 7 },
                 Type = CipherType.Geometric,
-                Standards =
+                CharactersSets = 
                 {
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "▶▲▼◀",
                         Characters = 
@@ -234,7 +288,7 @@ namespace Core.Data
                             "◀١", "◀٢", "◀٣", "◀٤", "◀٥", "◀٦", "◀٧"
                         }
                     },
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "▷△▽◁",
                         Characters =
@@ -248,13 +302,13 @@ namespace Core.Data
                 }
             },
 
-            new MultiStandardCipher
+            new Cipher
             {
                 Name = "المعين",
                 Type = CipherType.Geometric,
-                Standards = 
+                CharactersSets = 
                 {
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "◤◣◢◥",
                         Characters =
@@ -268,7 +322,7 @@ namespace Core.Data
                             "٧◣", "٧◢", "٧◤", "٧◥"
                         }
                     },
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "◸◺◿◹",
                         Characters =
@@ -285,13 +339,13 @@ namespace Core.Data
                 }
             },
 
-            new MultiStandardCipher
+            new Cipher
             {
                 Name = "المثلث",
                 Type = CipherType.Geometric,
-                Standards =
+                CharactersSets = 
                 {
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "◣◼◢",
                         Characters =
@@ -305,7 +359,7 @@ namespace Core.Data
                             "٧◣◼", "٧◼(١)", "٧◼(٢)", "٧◼(٣)", "٧◼(٤)", "٧◼(٥)", "٧◼◢"
                         }
                     },
-                    new CipherStandard
+                    new CharactersSet
                     {
                         Name = "◺◻◿",
                         Characters =
@@ -322,16 +376,22 @@ namespace Core.Data
                 }
             },
 
-            new RegularCipher
+            new Cipher
             {
                 Name = "الاسماء",
                 Key = new Key { IsEnabled = false },
-                Characters =
+                CharactersSets =
                 {
-                    "ايفغيني", "باتراش", "تيفادار" , "ثيوفيلوس", "جينريش"  , "حيرام", "خوارزم",
-                    "ديمتري" , "ذاخر"  , "ريموند"  , "زوريس"   , "سيمين"    , "شارلس", "صالح"  ,
-                    "ضرار"   , "طيب"   , "ظاهر"     , "عمار"    , "غولييلمو", "فيودور", "قيصر" ,
-                    "كلارنس"  , "ليونتي", "موراساكي", "نيلس"    , "هيلج"     , "ويلارد", "يافيم"
+                    new CharactersSet
+                    {
+                        Characters =
+                        {
+                            "ايفغيني", "باتراش", "تيفادار" , "ثيوفيلوس", "جينريش"  , "حيرام", "خوارزم",
+                            "ديمتري" , "ذاخر"  , "ريموند"  , "زوريس"   , "سيمين"    , "شارلس", "صالح"  ,
+                            "ضرار"   , "طيب"   , "ظاهر"     , "عمار"    , "غولييلمو", "فيودور", "قيصر" ,
+                            "كلارنس"  , "ليونتي", "موراساكي", "نيلس"    , "هيلج"     , "ويلارد", "يافيم"
+                        }
+                    }
                 }
             }
         };

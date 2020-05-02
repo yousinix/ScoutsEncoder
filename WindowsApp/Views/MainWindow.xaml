@@ -116,9 +116,9 @@
                                 <ComboBox x:Name="StandardsComboBox"
                                           Width="64"
                                           DisplayMemberPath="Name"
-                                          ItemsSource="{Binding Cipher.Standards}"
-                                          SelectedIndex="{Binding Cipher.StandardIndex, UpdateSourceTrigger=LostFocus}"
-                                          IsEnabled="{Binding Cipher.HasStandards}"
+                                          ItemsSource="{Binding Cipher.Sets}"
+                                          SelectedIndex="{Binding Cipher.SetIndex, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{Binding Cipher.HasSets}"
                                           FlowDirection="RightToLeft"
                                           materialDesign:HintAssist.Hint="النسخة" />
                             </StackPanel>

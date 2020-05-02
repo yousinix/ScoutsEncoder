@@ -15,7 +15,7 @@ namespace WindowsApp.ViewModels
         private const string Filter = "ScoutsEncoder Cipher|*" + Ext;
 
         private FileStream _fileStream;
-        private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(RegularCipher));
+        private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Cipher));
 
         private string _cipherName;
         public string CipherName
@@ -26,10 +26,10 @@ namespace WindowsApp.ViewModels
 
         public List<CharMappingViewModel> KeysMapping { get; set; } = new List<CharMappingViewModel>();
 
-        public CipherBase NewCipher => new RegularCipher
+        public Cipher NewCipher => new Cipher
         {
             Name = CipherName,
-            Characters = KeysMapping.Select(m => m.Encoding).ToList()
+            CharactersSets = { new CharactersSet { Characters = KeysMapping.Select(m => m.Encoding).ToList() } }
         };
 
         public ICommand ImportCipher { get; set; }
@@ -51,8 +51,8 @@ namespace WindowsApp.ViewModels
             if (openFileDialog.ShowDialog() != true) return;
 
             _fileStream = new FileStream(openFileDialog.FileName, FileMode.Open);
-            var importedCipher = (RegularCipher) _xmlSerializer.Deserialize(_fileStream);
-            PopulateView(importedCipher);
+            var cipher = (Cipher) _xmlSerializer.Deserialize(_fileStream);
+            PopulateView(cipher);
             _fileStream.Close();
         }
 
@@ -72,7 +72,7 @@ namespace WindowsApp.ViewModels
             _fileStream.Close();
         }
 
-        private void PopulateView(CipherBase cipher)
+        private void PopulateView(Cipher cipher)
         {
             CipherName = cipher.Name;
             for (var i = 0; i < cipher.Characters.Count; i++)

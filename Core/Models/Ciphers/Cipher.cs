@@ -1,17 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 using Core.Data;
 using Core.Models.Languages;
 
 namespace Core.Models.Ciphers
 {
-    public abstract class CipherBase
+    public class Cipher
     {
-        public abstract List<string> Characters { get; set; }
         public string Name { get; set; }
         public CipherType Type { get; set; } = CipherType.Text;
         public Language Language { get; set; } = LanguagesList.Ar; // Default is Arabic
         public Key Key { get; set; } = new Key();
+        public int SetIndex { get; set; }
+        public List<CharactersSet> CharactersSets { get; set; } = new List<CharactersSet>();
+
+        [XmlIgnore]
+        public List<string> Characters => CharactersSets[SetIndex].Characters;
 
         public IEnumerable<string> KeysList
         {

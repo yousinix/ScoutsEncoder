@@ -8,49 +8,47 @@ namespace WindowsApp.ViewModels
     {
         #region Model
 
-        private CipherBase _model;
-        public CipherBase Model
+        private Cipher _model;
+        public Cipher Model
         {
             get => _model;
             set => SetField(ref _model, value, ResetIndices)
-                .WithDependents(nameof(HasStandards), nameof(Standards), nameof(StandardIndex)) // Standards
-                .WithDependents(nameof(HasKeys),      nameof(Keys),      nameof(KeyIndex))      // Keys
-                .WithDependents(nameof(IsAudible),    nameof(Name),      nameof(Schema))        // Props
+                .WithDependents(nameof(HasSets),   nameof(Sets), nameof(SetIndex)) // Sets
+                .WithDependents(nameof(HasKeys),   nameof(Keys), nameof(KeyIndex)) // Keys
+                .WithDependents(nameof(IsAudible), nameof(Name), nameof(Schema))   // Props
                 .WithDependents(nameof(EncodedText));
         }
 
         public bool IsAudible => _model.Type == CipherType.Audible;
 
-        public string Name => Model.Name;
+        public string Name => _model.Name;
 
-        public string Schema => Model.GetSchema();
+        public string Schema => _model.GetSchema();
 
 
         #endregion
 
 
-        #region Standards
+        #region Sets
 
-        public int StandardIndex
+        public bool HasSets => _model.CharactersSets.Count > 1;
+
+        public int SetIndex
         {
-            get => HasStandards ? ((MultiStandardCipher)_model).StandardIndex : -1;
-            set
-            {
-                if (!(_model !is MultiStandardCipher m)) return;
-                SetProp(() => m.StandardIndex, v => m.StandardIndex = v, value, ResetKeyIndex)
-                    .WithDependents(nameof(Keys),   nameof(KeyIndex))  // Keys
-                    .WithDependents(nameof(Schema), nameof(EncodedText));
-            }
+            get => HasSets ? _model.SetIndex : -1;
+            set => SetProp(() => _model.SetIndex, v => _model.SetIndex = v, value, ResetKeyIndex)
+                .WithDependents(nameof(Keys),   nameof(KeyIndex))  // Keys
+                .WithDependents(nameof(Schema), nameof(EncodedText));
         }
 
-        public bool HasStandards => _model is MultiStandardCipher;
-
-        public IEnumerable<CipherStandard> Standards => HasStandards ? ((MultiStandardCipher)_model).Standards : null;
+        public IEnumerable<CharactersSet> Sets => HasSets ? _model.CharactersSets : null;
 
         #endregion
 
 
         #region Keys
+
+        public bool HasKeys => _model.Key.IsEnabled;
 
         public int KeyIndex
         {
@@ -58,8 +56,6 @@ namespace WindowsApp.ViewModels
             set => SetProp(() => _model.Key.Base, v => _model.Key.Base = v, value)
                 .WithDependents(nameof(Schema), nameof(EncodedText));
         }
-
-        public bool HasKeys => _model.Key.IsEnabled;
 
         public IEnumerable<string> Keys => HasKeys ? _model.KeysList : null;
 
@@ -111,7 +107,7 @@ namespace WindowsApp.ViewModels
 
         private void ResetIndices()
         {
-            if (_model is MultiStandardCipher m) m.StandardIndex = 0;
+            _model.SetIndex = 0;
             _model.Key.Base = 0;
         }
 

@@ -35,7 +35,7 @@ namespace WindowsApp.ViewModels
         #region Collections
 
         public SnackbarMessageQueue MessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
-        public ObservableCollection<CipherBase> Ciphers => CiphersList.Instance;
+        public ObservableCollection<Cipher> Ciphers => CiphersList.Instance;
         public List<string> Speeds => new List<string> { "Slow", "Medium", "Fast" };
 
         #endregion
