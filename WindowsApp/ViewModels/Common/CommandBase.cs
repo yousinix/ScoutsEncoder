@@ -5,8 +5,7 @@ namespace WindowsApp.ViewModels.Common
 {
     public class CommandBase : CommandBase<object>
     {
-        public CommandBase(Action<object> execute, Predicate<object> canExecute = null)
-            : base(execute, canExecute)
+        public CommandBase(Action<object> execute) : base(execute)
         {
         }
     }
@@ -14,12 +13,10 @@ namespace WindowsApp.ViewModels.Common
     public class CommandBase<T> : ICommand
     {
         private readonly Action<T> _execute;
-        private readonly Predicate<T> _canExecute;
 
-        public CommandBase(Action<T> execute, Predicate<T> canExecute = null)
+        public CommandBase(Action<T> execute)
         {
             _execute = execute;
-            _canExecute = canExecute ?? (o => true);
         }
 
         public event EventHandler CanExecuteChanged
@@ -30,7 +27,7 @@ namespace WindowsApp.ViewModels.Common
 
         public bool CanExecute(object parameter)
         {
-            return _canExecute.Invoke((T)parameter);
+            return true;
         }
 
         public void Execute(object parameter)
