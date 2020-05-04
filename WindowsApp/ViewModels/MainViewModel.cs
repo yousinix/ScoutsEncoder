@@ -127,19 +127,19 @@ namespace WindowsApp.ViewModels
             NewCipherDialog.Reset();
         }
 
-        private void ExecuteMirrorSelect(MainWindow w)
+        private void ExecuteMirrorSelect(MainWindow window)
         {
             // Clear old mirror
-            var baseStartPtr = w.OutputRichTextBox.Document.ContentStart;
-            var baseEndPtr   = w.OutputRichTextBox.Document.ContentEnd;
+            var baseStartPtr = window.OutputRichTextBox.Document.ContentStart;
+            var baseEndPtr   = window.OutputRichTextBox.Document.ContentEnd;
             var baseRange    = new TextRange(baseStartPtr, baseEndPtr);
             baseRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
 
-            if (w.InputTextBox.SelectionLength == 0) return;
+            if (window.InputTextBox.SelectionLength == 0) return;
 
             // Get mirror target info
-            var precedingText = w.InputTextBox.Text.Substring(0, w.InputTextBox.SelectionStart);
-            var selectedText  = w.InputTextBox.SelectedText;
+            var precedingText = window.InputTextBox.Text.Substring(0, window.InputTextBox.SelectionStart);
+            var selectedText  = window.InputTextBox.SelectedText;
 
             var precedingEncoding = Cipher.Encode(precedingText);
             var selectedEncoding  = Cipher.Encode(selectedText);
@@ -152,12 +152,17 @@ namespace WindowsApp.ViewModels
             var mirrorLength = selectedEncoding.Length + selectedTextOffset;
 
             // Apply mirror to target
-            var targetStartPtr = w.OutputRun.ContentStart;
-            var targetEndPtr   = w.OutputRun.ContentEnd;
+            var targetStartPtr = window.OutputRun.ContentStart;
+            var targetEndPtr   = window.OutputRun.ContentEnd;
             var mirrorStartPtr = targetStartPtr.GetPositionAtOffset(mirrorStart);
             var mirrorEndPtr   = mirrorStartPtr?.GetPositionAtOffset(mirrorLength) ?? targetEndPtr;
             var mirrorRange    = new TextRange(mirrorStartPtr, mirrorEndPtr);
             mirrorRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.CornflowerBlue);
+
+            // Scroll to mirror position
+            if (mirrorStartPtr == null) return;
+            var rect = mirrorStartPtr.GetCharacterRect(LogicalDirection.Backward);
+            window.OutputRichTextBox.ScrollToVerticalOffset(rect.Y);
         }
 
         private void ExecuteScrollToEnd(RichTextBox richTextBox)
