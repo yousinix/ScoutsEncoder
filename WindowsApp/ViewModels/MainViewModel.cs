@@ -1,15 +1,19 @@
 ﻿using Core.Data;
 using Core.Models.Ciphers;
 using MaterialDesignThemes.Wpf;
+using Microsoft.Win32;
+using Services.MorseGenerator;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using WindowsApp.ViewModels.Common;
-using Microsoft.Win32;
-using Services.MorseGenerator;
+using WindowsApp.Views;
 
 namespace WindowsApp.ViewModels
 {
@@ -56,6 +60,7 @@ namespace WindowsApp.ViewModels
         public ICommand ExportAudio { get; set; }
         public ICommand AddNewCipher { get; set; }
         public ICommand CloseDialog { get; set; }
+        public ICommand MirrorSelect { get; set; }
 
         #endregion
 
@@ -67,6 +72,7 @@ namespace WindowsApp.ViewModels
             ExportAudio  = new CommandBase(_ => ExecuteExportAudio());
             AddNewCipher = new CommandBase(_ => ExecuteAddNewCipher());
             CloseDialog  = new CommandBase(_ => ExecuteCloseDialog());
+            MirrorSelect = new CommandBase<MainWindow>(ExecuteMirrorSelect);
         }
 
         private void ExecuteClearInput()
@@ -117,5 +123,39 @@ namespace WindowsApp.ViewModels
             IsDialogHostOpen = false;
             NewCipherDialog.Reset();
         }
+
+        private void ExecuteMirrorSelect(MainWindow w)
+        {
+            // Clear old mirror
+            var baseStartPtr = w.OutputRichTextBox.Document.ContentStart;
+            var baseEndPtr   = w.OutputRichTextBox.Document.ContentEnd;
+            var baseRange    = new TextRange(baseStartPtr, baseEndPtr);
+            baseRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Transparent);
+
+            if (w.InputTextBox.SelectionLength == 0) return;
+
+            // Get mirror target info
+            var precedingText = w.InputTextBox.Text.Substring(0, w.InputTextBox.SelectionStart);
+            var selectedText  = w.InputTextBox.SelectedText;
+
+            var precedingEncoding = Cipher.Encode(precedingText);
+            var selectedEncoding  = Cipher.Encode(selectedText);
+
+            var charDelimiterOffset = Cipher.CharsDelimiter.Length;
+            var precedingTextOffset = precedingText.Length == 0 || char.IsWhiteSpace(precedingText.Last()) ? 0 : charDelimiterOffset;
+            var selectedTextOffset  = char.IsWhiteSpace(selectedText.Last()) ? 0 : charDelimiterOffset;
+
+            var mirrorStart  = precedingEncoding.Length + precedingTextOffset;
+            var mirrorLength = selectedEncoding.Length + selectedTextOffset;
+
+            // Apply mirror to target
+            var targetStartPtr = w.OutputRun.ContentStart;
+            var targetEndPtr   = w.OutputRun.ContentEnd;
+            var mirrorStartPtr = targetStartPtr.GetPositionAtOffset(mirrorStart);
+            var mirrorEndPtr   = mirrorStartPtr?.GetPositionAtOffset(mirrorLength) ?? targetEndPtr;
+            var mirrorRange    = new TextRange(mirrorStartPtr, mirrorEndPtr);
+            mirrorRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.CornflowerBlue);
+        }
+
     }
 }
