@@ -159,6 +159,12 @@
                                 <Run x:Name="OutputRun" Text="{Binding Cipher.EncodedText, Mode=OneWay}" />
                             </Paragraph>
                         </FlowDocument>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding ScrollToEnd}"
+                                                       CommandParameter="{Binding ElementName=OutputRichTextBox}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </RichTextBox>
 
                     <Button Grid.Row="0"

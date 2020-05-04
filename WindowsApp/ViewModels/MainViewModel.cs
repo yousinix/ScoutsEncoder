@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -61,6 +62,7 @@ namespace WindowsApp.ViewModels
         public ICommand AddNewCipher { get; set; }
         public ICommand CloseDialog { get; set; }
         public ICommand MirrorSelect { get; set; }
+        public ICommand ScrollToEnd { get; set; }
 
         #endregion
 
@@ -73,6 +75,7 @@ namespace WindowsApp.ViewModels
             AddNewCipher = new CommandBase(_ => ExecuteAddNewCipher());
             CloseDialog  = new CommandBase(_ => ExecuteCloseDialog());
             MirrorSelect = new CommandBase<MainWindow>(ExecuteMirrorSelect);
+            ScrollToEnd  = new CommandBase<RichTextBox>(ExecuteScrollToEnd);
         }
 
         private void ExecuteClearInput()
@@ -157,5 +160,9 @@ namespace WindowsApp.ViewModels
             mirrorRange.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.CornflowerBlue);
         }
 
+        private void ExecuteScrollToEnd(RichTextBox richTextBox)
+        {
+            richTextBox.ScrollToEnd();
+        }
     }
 }
