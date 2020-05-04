@@ -12,21 +12,20 @@
 
         <StackPanel>
 
-            <TextBox x:Name="NewCipherNameTextBox"
-                     Width="180"
+            <TextBox Width="180"
                      Text="{Binding NewCipherDialog.CipherName}"
                      FontFamily="Courier New"
                      FontSize="14"
-                     FlowDirection="RightToLeft"
                      TextAlignment="Center"
                      HorizontalAlignment="Center"
+                     FlowDirection="RightToLeft"
                      materialDesign:HintAssist.Hint="اسم الشفرة" />
 
             <ListView Margin="0 16"
                       ItemsSource="{Binding NewCipherDialog.KeysMapping}"
-                      FlowDirection="RightToLeft"
                       ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                      KeyboardNavigation.TabNavigation="Continue">
+                      KeyboardNavigation.TabNavigation="Continue"
+                      FlowDirection="RightToLeft">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
@@ -50,35 +49,31 @@
 
                 <ToolBar Style="{DynamicResource MaterialDesignToolBar}" Background="Transparent">
 
-                    <Button x:Name="CloseDialogButton"
+                    <Button Command="{Binding CloseDialog}"
                             IsTabStop="False"
                             ToolTip="Cancel"
-                            ToolTipService.InitialShowDelay="1200"
-                            Command="{Binding CloseDialog}">
+                            ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
                         <materialDesign:PackIcon Kind="Close" />
                     </Button>
 
-                    <Button x:Name="AddCipherButton"
+                    <Button Command="{Binding AddNewCipher}"
                             IsTabStop="False"
-                            ToolTip="Add cipher to list"
-                            ToolTipService.InitialShowDelay="1200"
-                            Command="{Binding AddNewCipher}">
+                            ToolTip="Add Cipher to List"
+                            ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
                         <materialDesign:PackIcon Kind="Tick" />
                     </Button>
 
-                    <Button x:Name="SaveCipherButton"
+                    <Button Command="{Binding NewCipherDialog.ExportCipher}"
                             IsTabStop="False"
-                            ToolTip="Save cipher to use it again later"
-                            ToolTipService.InitialShowDelay="1200"
-                            Command="{Binding NewCipherDialog.ExportCipher}">
+                            ToolTip="Save Cipher to Use it Again Later"
+                            ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
                         <materialDesign:PackIcon Kind="ContentSave" />
                     </Button>
 
-                    <Button x:Name="ImportCipherButton"
+                    <Button Command="{Binding NewCipherDialog.ImportCipher}"
                             IsTabStop="False"
-                            ToolTip="Import a saved cipher"
-                            ToolTipService.InitialShowDelay="1200"
-                            Command="{Binding NewCipherDialog.ImportCipher}">
+                            ToolTip="Import a Saved Cipher"
+                            ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
                         <materialDesign:PackIcon Kind="FileImport" />
                     </Button>
 

@@ -12,16 +12,16 @@
         <StackPanel>
 
             <TextBlock Text="{Binding Cipher.Name, Mode=OneWay}"
+                       Margin="0 0 0 16"
                        FontWeight="Bold"
                        FontSize="16"
                        FlowDirection="RightToLeft"/>
 
             <TextBox Text="{Binding Cipher.Schema, Mode=OneWay}"
-                     Margin="0 16 0 0"
-                     IsReadOnly="True"
                      FontFamily="Courier New"
                      FontSize="14"
-                     FlowDirection="RightToLeft"/>
+                     FlowDirection="RightToLeft"
+                     IsReadOnly="True" />
 
         </StackPanel>
 

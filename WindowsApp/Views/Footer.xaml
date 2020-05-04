@@ -10,73 +10,66 @@
 
     <StackPanel>
 
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
-            <ToggleButton x:Name="ThemeToggleButton"
-                          Width="32"
+            <ToggleButton Width="32"
                           Height="32"
-                          ToolTip="Toggle Light/Dark Themes"
-                          ToolTipService.InitialShowDelay="1200"
-                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                          Command="{Binding ToggleTheme}"
                           CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}"
-                          Command="{Binding ToggleTheme}" >
-                <materialDesign:PackIcon Kind="ThemeLightDark" Width="18" Height="18" />
+                          ToolTip="Toggle Light/Dark Themes"
+                          ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
+                          Style="{StaticResource MaterialDesignIconForegroundButton}">
+                <materialDesign:PackIcon Kind="ThemeLightDark" Width="18" />
             </ToggleButton>
 
-            <Button x:Name="RepoButton"
-                    Width="32"
+            <Button Width="32"
                     Height="32"
-                    ToolTip="Project on GitHub"
-                    ToolTipService.InitialShowDelay="1200"
-                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    Command="{Binding OpenUrl}"
                     CommandParameter="https://github.com/YoussefRaafatNasry/ScoutsEncoder/"
-                    Command="{Binding OpenUrl}">
-                <materialDesign:PackIcon Kind="MicrosoftGithub" Width="18" Height="18" />
+                    ToolTip="Project on GitHub"
+                    ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
+                <materialDesign:PackIcon Kind="MicrosoftGithub" Width="18" />
             </Button>
 
-            <Button x:Name="GoogleDocsButton"
-                    Width="32"
+            <Button Width="32"
                     Height="32"
-                    ToolTip="Google Docs (Recommended Text Editor)"
-                    ToolTipService.InitialShowDelay="1200"
-                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    Command="{Binding OpenUrl}"
                     CommandParameter="https://doc.new/"
-                    Command="{Binding OpenUrl}">
-                <materialDesign:PackIcon Kind="FileDocument" Width="18" Height="18" />
+                    ToolTip="Google Docs (Recommended Text Editor)"
+                    ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
+                <materialDesign:PackIcon Kind="FileDocument" Width="18" />
             </Button>
 
-            <Button x:Name="WebsiteButton"
-                    Width="32"
+            <Button Width="32"
                     Height="32"
-                    ToolTip="ScoutsEncoder Site"
-                    ToolTipService.InitialShowDelay="1200"
-                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    Command="{Binding OpenUrl}"
                     CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/"
-                    Command="{Binding OpenUrl}">
-                <materialDesign:PackIcon Kind="Web" Width="18" Height="18" />
+                    ToolTip="ScoutsEncoder Website"
+                    ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
+                <materialDesign:PackIcon Kind="Web" Width="18" />
             </Button>
 
-            <Button x:Name="DocumentationButton"
-                    Width="32"
+            <Button Width="32"
                     Height="32"
-                    ToolTip="Documentation"
-                    ToolTipService.InitialShowDelay="1200"
-                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    Command="{Binding OpenUrl}"
                     CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/docs/"
-                    Command="{Binding OpenUrl}">
-                <materialDesign:PackIcon Kind="HelpOutline" Width="18" Height="18" />
+                    ToolTip="Documentation"
+                    ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
+                <materialDesign:PackIcon Kind="HelpOutline" Width="18" />
             </Button>
 
-            <Button x:Name="BugReportButton"
-                    Width="32"
+            <Button Width="32"
                     Height="32"
-                    ToolTip="Report a Bug via Email"
-                    ToolTipService.InitialShowDelay="1200"
-                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    Command="{Binding OpenUrl}"
                     CommandParameter="mailto:YoussefRaafatNasry@gmail.com?subject=ScoutsEncoder%20Bug"
-                    Command="{Binding OpenUrl}">
-                <materialDesign:PackIcon Kind="BugReport" Width="18" Height="18" />
+                    ToolTip="Report a Bug"
+                    ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
+                <materialDesign:PackIcon Kind="BugReport" Width="18" />
             </Button>
 
         </StackPanel>
@@ -96,9 +89,9 @@
             <TextBlock VerticalAlignment="Center"
                        FontWeight="Bold"
                        ToolTip="Who am I?"
-                       ToolTipService.InitialShowDelay="1200" >
-                    <Hyperlink CommandParameter="https://YoussefRaafatNasry.github.io/"
-                               Command="{Binding OpenUrl}">
+                       ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
+                    <Hyperlink Command="{Binding OpenUrl}"
+                               CommandParameter="https://YoussefRaafatNasry.github.io/">
                             YoussefRaafatNasry
                     </Hyperlink>
             </TextBlock>
