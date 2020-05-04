@@ -7,6 +7,7 @@ namespace Core.Data
     {
         public static readonly Language Ar = new Language
         {
+            Name = "Arabic",
             BaseCharacter = 'أ',
             Characters = new List<char>("ابتثجحخدذرزسشصضطظعغفقكلمنهوي"),
             AlikeChars = new List<AlikeChar>

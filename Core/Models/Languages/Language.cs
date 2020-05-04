@@ -5,9 +5,10 @@ namespace Core.Models.Languages
 {
     public class Language
     {
+        public string Name { get; set; }
         public char BaseCharacter { get; set; }
         public List<char> Characters { get; set; }
-        public List<AlikeChar> AlikeChars { get; set;  }
+        public List<AlikeChar> AlikeChars { get; set; }
 
         /// <summary>
         /// Replaces all AlikeChars' slaves with their master
