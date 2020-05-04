@@ -5,14 +5,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <PackageId>ScoutsEncoder</PackageId>
-    <Version>2.5.0</Version>
+    <Version>3.0.0</Version>
     <Authors>YoussefRaafatNasry</Authors>
     <Product>ScoutsEncoder</Product>
     <Description>Encode plain text into scouts' ciphers</Description>
     <RepositoryUrl>https://github.com/YoussefRaafatNasry/ScoutsEncoder.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://youssefraafatnasry.github.io/ScoutsEncoder/</PackageProjectUrl>
-    <Copyright>Copyright © YoussefRaafatNasry 2019</Copyright>
+    <Copyright>Copyright © YoussefRaafatNasry 2020</Copyright>
     <ApplicationIcon>Logo.ico</ApplicationIcon>
     <AssemblyName>ScoutsEncoder</AssemblyName>
   </PropertyGroup>
