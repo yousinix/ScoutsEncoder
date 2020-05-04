@@ -14,7 +14,7 @@
 
             <ToggleButton Width="32"
                           Height="32"
-                          Command="{Binding ToggleTheme}"
+                          Command="{Binding ToggleThemeCommand}"
                           CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}"
                           ToolTip="Toggle Light/Dark Themes"
                           ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
@@ -24,7 +24,7 @@
 
             <Button Width="32"
                     Height="32"
-                    Command="{Binding OpenUrl}"
+                    Command="{Binding OpenUrlCommand}"
                     CommandParameter="https://github.com/YoussefRaafatNasry/ScoutsEncoder/"
                     ToolTip="Project on GitHub"
                     ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
@@ -34,7 +34,7 @@
 
             <Button Width="32"
                     Height="32"
-                    Command="{Binding OpenUrl}"
+                    Command="{Binding OpenUrlCommand}"
                     CommandParameter="https://doc.new/"
                     ToolTip="Google Docs (Recommended Text Editor)"
                     ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
@@ -44,7 +44,7 @@
 
             <Button Width="32"
                     Height="32"
-                    Command="{Binding OpenUrl}"
+                    Command="{Binding OpenUrlCommand}"
                     CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/"
                     ToolTip="ScoutsEncoder Website"
                     ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
@@ -54,7 +54,7 @@
 
             <Button Width="32"
                     Height="32"
-                    Command="{Binding OpenUrl}"
+                    Command="{Binding OpenUrlCommand}"
                     CommandParameter="https://YoussefRaafatNasry.github.io/ScoutsEncoder/docs/"
                     ToolTip="Documentation"
                     ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
@@ -64,7 +64,7 @@
 
             <Button Width="32"
                     Height="32"
-                    Command="{Binding OpenUrl}"
+                    Command="{Binding OpenUrlCommand}"
                     CommandParameter="mailto:YoussefRaafatNasry@gmail.com?subject=ScoutsEncoder%20Bug"
                     ToolTip="Report a Bug"
                     ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
@@ -90,7 +90,7 @@
                        FontWeight="Bold"
                        ToolTip="Who am I?"
                        ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
-                    <Hyperlink Command="{Binding OpenUrl}"
+                    <Hyperlink Command="{Binding OpenUrlCommand}"
                                CommandParameter="https://YoussefRaafatNasry.github.io/">
                             YoussefRaafatNasry
                     </Hyperlink>

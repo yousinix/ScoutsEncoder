@@ -20,7 +20,7 @@
         Background="{DynamicResource MaterialDesignPaper}">
 
     <Window.DataContext>
-        <viewModels:MainViewModel />
+        <viewModels:MainWindowViewModel />
     </Window.DataContext>
 
     <materialDesign:DialogHost CloseOnClickAway="True" IsOpen="{Binding IsDialogHostOpen}">
@@ -54,7 +54,7 @@
                              materialDesign:HintAssist.Hint="أدخل النص هنا...">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding MirrorSelect}"
+                                <i:InvokeCommandAction Command="{Binding MirrorSelectCommand}"
                                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -65,7 +65,7 @@
                             HorizontalAlignment="Left"
                             Width="24"
                             Height="24"
-                            Command="{Binding ClearInput}"
+                            Command="{Binding ClearInputCommand}"
                             ToolTip="Clear Input"
                             ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
                             Style="{StaticResource HoverableFloatingButton}">
@@ -161,7 +161,7 @@
                         </FlowDocument>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">
-                                <i:InvokeCommandAction Command="{Binding ScrollToEnd}"
+                                <i:InvokeCommandAction Command="{Binding ScrollToEndCommand}"
                                                        CommandParameter="{Binding ElementName=OutputRichTextBox}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -172,7 +172,7 @@
                             HorizontalAlignment="Left"
                             Width="24"
                             Height="24"
-                            Command="{Binding CopyOutput}"
+                            Command="{Binding CopyOutputCommand}"
                             ToolTip="Copy Output"
                             ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}"
                             Style="{StaticResource HoverableFloatingButton}">
@@ -206,7 +206,7 @@
 
                             <Separator />
 
-                            <Button Command="{Binding ExportAudio}"
+                            <Button Command="{Binding ExportAudioCommand}"
                                     IsEnabled="{Binding Cipher.IsAudible}"
                                     ToolTip="Export Encoding as Audio"
                                     ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">

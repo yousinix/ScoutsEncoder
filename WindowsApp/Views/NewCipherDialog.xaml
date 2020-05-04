@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:WindowsApp.ViewModels"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
+             d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}">
 
     <Border Padding="32">
 
@@ -49,28 +49,28 @@
 
                 <ToolBar Style="{DynamicResource MaterialDesignToolBar}" Background="Transparent">
 
-                    <Button Command="{Binding CloseDialog}"
+                    <Button Command="{Binding CloseDialogCommand}"
                             IsTabStop="False"
                             ToolTip="Cancel"
                             ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
                         <materialDesign:PackIcon Kind="Close" />
                     </Button>
 
-                    <Button Command="{Binding AddNewCipher}"
+                    <Button Command="{Binding AddNewCipherCommand}"
                             IsTabStop="False"
                             ToolTip="Add Cipher to List"
                             ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
                         <materialDesign:PackIcon Kind="Tick" />
                     </Button>
 
-                    <Button Command="{Binding NewCipherDialog.ExportCipher}"
+                    <Button Command="{Binding NewCipherDialog.ExportCipherCommand}"
                             IsTabStop="False"
                             ToolTip="Save Cipher to Use it Again Later"
                             ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">
                         <materialDesign:PackIcon Kind="ContentSave" />
                     </Button>
 
-                    <Button Command="{Binding NewCipherDialog.ImportCipher}"
+                    <Button Command="{Binding NewCipherDialog.ImportCipherCommand}"
                             IsTabStop="False"
                             ToolTip="Import a Saved Cipher"
                             ToolTipService.InitialShowDelay="{StaticResource ToolTipInitialShowDelay}">

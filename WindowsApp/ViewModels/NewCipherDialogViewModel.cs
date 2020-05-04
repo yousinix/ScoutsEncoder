@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Core.Models.Ciphers;
+using Microsoft.Win32;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using System.Xml.Serialization;
 using WindowsApp.ViewModels.Common;
-using Core.Models.Ciphers;
-using Microsoft.Win32;
 
 namespace WindowsApp.ViewModels
 {
@@ -32,20 +32,19 @@ namespace WindowsApp.ViewModels
             CharactersSets = { new CharactersSet { Characters = KeysMapping.Select(m => m.Encoding).ToList() } }
         };
 
-        public ICommand ImportCipher { get; set; }
-        public ICommand ExportCipher { get; set; }
+        public ICommand ImportCipherCommand { get; set; }
+        public ICommand ExportCipherCommand { get; set; }
 
         public NewCipherDialogViewModel()
         {
-            ImportCipher = new CommandBase(_ => ExecuteImportCipher());
-            ExportCipher = new CommandBase(_ => ExecuteExportCipher());
-            foreach (var c in NewCipher.Language.Characters)
-            {
-                KeysMapping.Add(new CharMappingViewModel { Character = c });
-            }
+            ImportCipherCommand = new CommandBase(_ => ImportCipher());
+            ExportCipherCommand = new CommandBase(_ => ExportCipher());
+            KeysMapping = NewCipher.Language.Characters
+                .Select(c => new CharMappingViewModel { Character = c })
+                .ToList();
         }
 
-        private void ExecuteImportCipher()
+        private void ImportCipher()
         {
             var openFileDialog = new OpenFileDialog { Filter = Filter };
             if (openFileDialog.ShowDialog() != true) return;
@@ -56,7 +55,7 @@ namespace WindowsApp.ViewModels
             _fileStream.Close();
         }
 
-        private void ExecuteExportCipher()
+        private void ExportCipher()
         {
             var saveFileDialog = new SaveFileDialog
             {

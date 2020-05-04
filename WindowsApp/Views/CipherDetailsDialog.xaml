@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:WindowsApp.ViewModels"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
+             d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}">
 
     <Border Padding="32">
 

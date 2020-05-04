@@ -18,7 +18,7 @@ using WindowsApp.Views;
 
 namespace WindowsApp.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
         private bool _isDialogHostOpen;
         public bool IsDialogHostOpen
@@ -56,40 +56,40 @@ namespace WindowsApp.ViewModels
 
         #region Commands
 
-        public ICommand ClearInput { get; set; }
-        public ICommand CopyOutput { get; set; }
-        public ICommand ExportAudio { get; set; }
-        public ICommand AddNewCipher { get; set; }
-        public ICommand CloseDialog { get; set; }
-        public ICommand MirrorSelect { get; set; }
-        public ICommand ScrollToEnd { get; set; }
+        public ICommand ClearInputCommand { get; set; }
+        public ICommand CopyOutputCommand { get; set; }
+        public ICommand ExportAudioCommand { get; set; }
+        public ICommand AddNewCipherCommand { get; set; }
+        public ICommand CloseDialogCommand { get; set; }
+        public ICommand MirrorSelectCommand { get; set; }
+        public ICommand ScrollToEndCommand { get; set; }
 
         #endregion
 
 
-        public MainViewModel()
+        public MainWindowViewModel()
         {
-            ClearInput   = new CommandBase(_ => ExecuteClearInput());
-            CopyOutput   = new CommandBase(_ => ExecuteCopyOutput());
-            ExportAudio  = new CommandBase(_ => ExecuteExportAudio());
-            AddNewCipher = new CommandBase(_ => ExecuteAddNewCipher());
-            CloseDialog  = new CommandBase(_ => ExecuteCloseDialog());
-            MirrorSelect = new CommandBase<MainWindow>(ExecuteMirrorSelect);
-            ScrollToEnd  = new CommandBase<RichTextBox>(ExecuteScrollToEnd);
+            ClearInputCommand   = new CommandBase(_ => ClearInput());
+            CopyOutputCommand   = new CommandBase(_ => CopyOutput());
+            ExportAudioCommand  = new CommandBase(_ => ExportAudio());
+            AddNewCipherCommand = new CommandBase(_ => AddNewCipher());
+            CloseDialogCommand  = new CommandBase(_ => CloseDialog());
+            MirrorSelectCommand = new CommandBase<MainWindow>(MirrorSelect);
+            ScrollToEndCommand  = new CommandBase<RichTextBox>(ScrollToEnd);
         }
 
-        private void ExecuteClearInput()
+        private void ClearInput()
         {
             Cipher.PlainText = "";  
         }
 
-        private void ExecuteCopyOutput()
+        private void CopyOutput()
         {
             Clipboard.SetText(Cipher.EncodedText);
             MessageQueue.Enqueue("Output copied to clipboard!");
         }
 
-        private void ExecuteExportAudio()
+        private void ExportAudio()
         {
             var saveFileDialog = new SaveFileDialog
             {
@@ -113,21 +113,21 @@ namespace WindowsApp.ViewModels
             MessageQueue.Enqueue(content, "Open", Action);
         }
 
-        private void ExecuteAddNewCipher()
+        private void AddNewCipher()
         {
             Ciphers.Add(NewCipherDialog.NewCipher);
             CipherIndex = Ciphers.Count - 1;
-            ExecuteCloseDialog();
+            CloseDialog();
             MessageQueue.Enqueue("New Cipher Added!");
         }
 
-        private void ExecuteCloseDialog()
+        private void CloseDialog()
         {
             IsDialogHostOpen = false;
             NewCipherDialog.Reset();
         }
 
-        private void ExecuteMirrorSelect(MainWindow window)
+        private void MirrorSelect(MainWindow window)
         {
             // Clear old mirror
             var baseStartPtr = window.OutputRichTextBox.Document.ContentStart;
@@ -165,7 +165,7 @@ namespace WindowsApp.ViewModels
             window.OutputRichTextBox.ScrollToVerticalOffset(rect.Y);
         }
 
-        private void ExecuteScrollToEnd(RichTextBox richTextBox)
+        private void ScrollToEnd(RichTextBox richTextBox)
         {
             richTextBox.ScrollToEnd();
         }

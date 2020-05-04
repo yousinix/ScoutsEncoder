@@ -1,17 +1,17 @@
-﻿using System.Diagnostics;
+﻿using MaterialDesignThemes.Wpf;
+using System.Diagnostics;
 using System.Windows.Input;
 using WindowsApp.ViewModels.Common;
-using MaterialDesignThemes.Wpf;
 
 namespace WindowsApp.ViewModels
 {
     public class FooterViewModel : ViewModelBase
     {
-        public ICommand ToggleTheme { get; set; } = new CommandBase<bool>(ExecuteToggleTheme);
+        public ICommand ToggleThemeCommand { get; set; } = new CommandBase<bool>(ToggleTheme);
 
-        public ICommand OpenUrl { get; set; } = new CommandBase<string>(ExecuteOpenUrl);
+        public ICommand OpenUrlCommand { get; set; } = new CommandBase<string>(OpenUrl);
 
-        private static void ExecuteToggleTheme(bool isDark)
+        private static void ToggleTheme(bool isDark)
         {
             var paletteHelper = new PaletteHelper();
             var theme = paletteHelper.GetTheme();
@@ -19,7 +19,7 @@ namespace WindowsApp.ViewModels
             paletteHelper.SetTheme(theme);
         }
 
-        private static void ExecuteOpenUrl(string url)
+        private static void OpenUrl(string url)
         {
             Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
         }
