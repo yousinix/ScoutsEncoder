@@ -4,8 +4,6 @@ title: Features
 order: 2
 ---
 
-# Features
-
 ## Ciphers
 
 - Check ciphers list from [here]({{ '/docs/available-ciphers' | relative_url }}).

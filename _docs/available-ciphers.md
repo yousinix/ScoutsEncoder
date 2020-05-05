@@ -4,8 +4,6 @@ title: Available Ciphers
 order: 3
 ---
 
-# Available Ciphers
-
 ScoutsEncoder currently has **13** available ciphers, each one has its own keys and features.<br/>
 Check the table below for more info:
 

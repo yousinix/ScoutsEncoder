@@ -2,18 +2,29 @@
 layout: default
 ---
 
-<div class="container docs-container py-5">
+<div class="container-fluid docs-container min-vh-100">
 
-  <div class="row mb-5 justify-content-center">
-    <div class="col-10 markdown-body">
-      {{ content }}
+  <div class="row min-vh-100">
+
+    <div class="col-lg-2 bg-light py-5 px-4">
+      <h5 class="mb-4">
+        <a href="../" class="mr-2"><img src="{{ 'assets/favicon.ico' | relative_url }}" width="28" /></a>
+        <a href="{{ '/docs' | relative_url }}" class="text-decoration-none text-dark">Docs</a>
+      </h5>
+      <ul class="list-group list-group-flush">
+        {% assign docs = site.docs | sort: 'order' %}
+        {% for doc in docs %}
+        <a class="list-group-item list-group-item-action bg-transparent text-monospace"
+          href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
+        {% endfor %}
+      </ul>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <div class="footer row justify-content-center">
-    <div class="col-10 text-right">
-      <small>This page is open source<br>{% github_edit_link "Improve it on GitHub" %}</small>
+    <div class="col-lg-10 py-5">
+      <div class="container markdown-body">
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+      </div>
     </div>
   </div>
 

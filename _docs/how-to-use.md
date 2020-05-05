@@ -1,10 +1,8 @@
 ---
 layout: docs
-title: How to Use ScoutsEncoder?
+title: How to Use?
 order: 1
 ---
-
-# How to Use ScoutsEncoder?
 
 1. [Download]({{ site.baseurl }}#download) ScoutsEncoder latest version from official site.
 1. Run ScoutsEncoder.exe.
