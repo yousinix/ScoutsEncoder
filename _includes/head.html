@@ -6,7 +6,7 @@
   <meta name="description" content="{{ site.description }}">
   <meta name="author" content="{{ site.author.name }}">
 
-  <title>{{ site.title }}</title>
+  <title>{{ site.title }}{% if page.url contains "docs" %} | Docs {% endif %}</title>
   <link rel="shortcut icon" type="image/x-icon" href="{{ 'assets/favicon.ico' | relative_url }}">
 
   <!-- CSS Libraries -->
