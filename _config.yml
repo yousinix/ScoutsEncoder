@@ -1,6 +1,6 @@
 # Site settings
 baseurl: /ScoutsEncoder
-repository: YoussefRaafatNasry/ScoutsEncoder
+repository: yousinix/ScoutsEncoder
 
 # Build settings
 markdown: kramdown

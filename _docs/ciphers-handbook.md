@@ -4,7 +4,7 @@ title: Ciphers Handbook
 order: 4
 ---
 
-{% assign url = "https://github.com/YoussefRaafatNasry/ScoutsEncoder/raw/gh-pages/_docs/CiphersHandbook.pdf" %}
+{% assign url = "https://github.com/yousinix/ScoutsEncoder/raw/gh-pages/_docs/CiphersHandbook.pdf" %}
 
 [Download Ciphers Handbook]({{ url }})
 

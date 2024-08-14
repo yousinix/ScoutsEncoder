@@ -68,7 +68,7 @@ Designed with Google's [material design](https://material.io/design/) standards 
 
 Readable and easy to maintain OOP code using XAML and C#. Adding Ciphers is so easy, anyone can add them even if he doesn't know how to code! Just add the cipher type you want, from the types below, to ciphers array and the rest is done for you.
 
-Check out the following pre-declared ciphers from that [link](https://github.com/YoussefRaafatNasry/ScoutsEncoder/blob/d19c185cb6046c8969ddf68125a90e116da8f88a/ScoutsEncoder/MainWindow.xaml.cs#L42-L212).
+Check out the following pre-declared ciphers from that [link](https://github.com/yousinix/ScoutsEncoder/blob/d19c185cb6046c8969ddf68125a90e116da8f88a/ScoutsEncoder/MainWindow.xaml.cs#L42-L212).
 
 ```c#
 
